@@ -3,8 +3,8 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 function NavigationBar(): JSX.Element {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/">School Software</Navbar.Brand>
+    <Navbar bg="light" className='px-5' expand="lg">
+      <Navbar.Brand href="/">Thea-makro_school</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

@@ -1,0 +1,17 @@
+/* Navigation */
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar-nav {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
