@@ -3,13 +3,15 @@ import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUs
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Form, FormControl, Button } from 'react-bootstrap';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Container, Row, Col, ListGroup,Nav } from 'react-bootstrap';
 import logo from "../../../assets/TM logo.png"
 import NavigationBar from '../../NavigationBar';
 
-const AdminSidebarMenu = () => {
+const Catalog = () => {
   const [studentOpen, setStudentOpen] = useState(false);
 
   const toggleStudent = () => {
@@ -206,10 +208,21 @@ const AdminSidebarMenu = () => {
           </Col>
           <Col md={10}>
             {/* <NavigationBar/> */}
+
+
+    <div>
+      <h3>Search Form</h3>
+      <Form inline>
+        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Button variant="outline-primary">Search</Button>
+      </Form>
+    </div>
+
+
           </Col>
         </Row>
       </Container>
   );
 };
 
-export default AdminSidebarMenu;
+export default Catalog;
