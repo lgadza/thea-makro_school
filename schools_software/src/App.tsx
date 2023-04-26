@@ -12,8 +12,8 @@ function App() {
     <div className='App'>
     <BrowserRouter>
     
-      <NavigationBar/>
-      <Footer/>
+      {/* <NavigationBar/>
+      <Footer/> */}
       <Routes>
         <Route path="tsss/admin" element={<AdminSidebarMenu/>}/>
       </Routes>

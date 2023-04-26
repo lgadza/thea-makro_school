@@ -6,6 +6,7 @@
 }
 .App {
   text-align: center;
+  width: 100vw;
 }
 .logo {
   height: 6em;

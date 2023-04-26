@@ -16,6 +16,7 @@ function NavigationBar(): JSX.Element {
           <Nav.Link href="/news">News</Nav.Link>
           <Nav.Link href="/catalog">Catalog</Nav.Link>
           <Nav.Link href="/myusosweb">My USOSWEB</Nav.Link>
+          <Nav.Link href="/tsss/admin">Admin</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
