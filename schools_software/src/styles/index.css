@@ -32,12 +32,14 @@ nav.navbar {
     padding: 20px;
     z-index: 999;
     transition: all 0.3s ease-in-out;
+    overflow-y: auto; 
+
   }
   
   .sidebar-toggle {
     position: fixed;
     top: 20px;
-    left: 260px;
+    left: 200px;
     z-index: 999;
     cursor: pointer;
   }
@@ -53,5 +55,48 @@ nav.navbar {
   
   .sidebar-toggle span:last-child {
     margin-bottom: 0;
+  }
+ 
+  .sidebar-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu > li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .sidebar-menu > li:last-child {
+    border-bottom: none;
+  }
+  
+  .sidebar-menu .submenu {
+    display: none;
+  }
+  
+  .sidebar-menu .arrow::before {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.5rem;
+    transform: rotate(-90deg);
+  }
+  
+  .sidebar-menu .arrow.active::before {
+    transform: rotate(0deg);
+  }
+  
+  .sidebar-menu .submenu li {
+    padding: 0.5rem 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
   }
   

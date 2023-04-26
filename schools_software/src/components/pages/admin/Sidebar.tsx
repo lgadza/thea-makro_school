@@ -13,6 +13,11 @@ const AdminSidebarMenu = () => {
   const toggleStudent = () => {
     setStudentOpen(!studentOpen);
   }
+  const [subjectsOpen, setSubjectsOpen] = useState(false);
+
+  const toggleSubjects = () => {
+    setSubjectsOpen(!subjectsOpen);
+  }
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -24,13 +29,14 @@ const AdminSidebarMenu = () => {
         <Row>
           <Col md={2}>
           <div className="sidebar">
+            
+            <div className="sidebar-menu">
+            <Nav className="flex-column align-items-start">
             <div className="sidebar-toggle">
               <span></span>
               <span></span>
               <span></span>
             </div>
-            <div className="sidebar-menu">
-            <Nav className="flex-column align-items-start">
                <Link to="/" className="nav-link" onClick={toggleMenu}>
                  <FontAwesomeIcon icon={faHome} className="me-2" />
                  Dashboard
@@ -55,7 +61,7 @@ const AdminSidebarMenu = () => {
                  </Nav.Link>
                 
                    {studentOpen && (
-                    <ListGroup variant="flush">
+                    <ListGroup variant="flush" className="flex-column align-items-start">
                       <ListGroup.Item>
                         <Link to="/admit-student">
                         <FontAwesomeIcon icon={faUserGraduate} className="me-2" />
@@ -121,12 +127,71 @@ const AdminSidebarMenu = () => {
                  </Nav.Link>
                </Nav.Item>
                <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/subjects">
+                 <Nav.Link onClick={toggleSubjects}>
+                 {/* <Link to="/subjects"> */}
                     <FontAwesomeIcon icon={faBookOpen} className="me-2" />
                     Subjects
-                  </Link>
+                   <FontAwesomeIcon icon={subjectsOpen ? faChevronDown : faChevronRight} className="ms-2" />
+
+                  {/* </Link> */}
                  </Nav.Link>
+                 {subjectsOpen && (
+                    <ListGroup variant="flush" className="flex-column align-items-start">
+                      <ListGroup.Item>
+                        <Link to="/maths">
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                            Mathematics</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/chemistry"><FontAwesomeIcon icon={faBook} className="me-2" />Chemistry</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/biology"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Biology</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/physics"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Physics</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/history"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        History</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/geology"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Geology</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/agriculture"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Agriculture</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/tg"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        TG</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/fashion"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Fashion</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/woodwork"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Wood work</Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/accounting"> 
+                        <FontAwesomeIcon icon={faBook} className="me-2" />
+                        Accounting</Link>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  )}
                </Nav.Item>
                <Nav.Item>
                  <Nav.Link onClick={toggleMenu}>
