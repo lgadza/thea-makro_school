@@ -1,6 +1,8 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import logo from "../assets/TM logo.png"
 
 const Footer = () => {
   return (
@@ -8,14 +10,23 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={4}>
-            <img src="logo.png" alt="Founders High School" />
+            <img src={logo} style={{width:"100px"}} alt="Thea-Makro" />
           </Col>
           <Col md={4}>
             <h4 className="text-start">Founders High School:</h4>
             <ul className="list-unstyled text-start">
-              <li><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> Location: 12 Belmont, Bulawayo</li>
-              <li><FontAwesomeIcon icon={faPhone} className="mr-2" /> Tel: +2334454</li>
-              <li><FontAwesomeIcon icon={faGlobe} className="mr-2" /> Website: fhs.edu.zw</li>
+              <li>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mx-2" /> 
+                <Link to="/location">12 Belmont, Bulawayo</Link>
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faPhone} className="mx-2" /> 
+                <Link to="/tel">+2334454</Link>
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faGlobe} className="mx-2" /> 
+                <Link to="/website">fhs.edu.zw</Link>
+              </li>
             </ul>
           </Col>
           <Col md={4}>
