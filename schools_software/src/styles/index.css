@@ -14,4 +14,11 @@ nav.navbar {
     width: 100%;
     justify-content: space-around;
   }
+  /* Footer */
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
   
