@@ -5,8 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import AdminSidebarMenu from './components/pages/admin/Sidebar'
-// import Catalog from '../src/'
+import AdminSidebarMenu from '../src/pages/admin/Sidebar'
+import Catalog from '../src/pages/catalog/Catalog.jsx'
+
+
 function App() {
 
   return (
@@ -17,7 +19,7 @@ function App() {
       {/* <Footer/> */}
       <Routes>
         <Route path="tsss/admin" element={<AdminSidebarMenu/>}/>
-        {/* <Route path="tsss/catalog" element={<Catalog/>}/> */}
+       <Route path="tsss/catalog" element={<Catalog/>}/>
       </Routes>
     </BrowserRouter>
     </div>

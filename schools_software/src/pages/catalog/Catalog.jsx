@@ -3,15 +3,16 @@ import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUs
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, Button, Card } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Container, Row, Col, ListGroup,Nav } from 'react-bootstrap';
-import logo from "../../../assets/TM logo.png"
-import NavigationBar from '../../NavigationBar';
+import CardHeader from 'react-bootstrap/esm/CardHeader';
+// import logo from "../../../assets/TM logo.png"
+// import NavigationBar from '../../NavigationBar';
 
-const Catalog = () => {
+const Catalog = ()=> {
   const [studentOpen, setStudentOpen] = useState(false);
 
   const toggleStudent = () => {
@@ -31,7 +32,7 @@ const Catalog = () => {
   return (
       <Container>
         <Row>
-          <Col md={2}>
+          <div>
           <div className="sidebar">
             
             <div className="sidebar-menu">
@@ -205,17 +206,47 @@ const Catalog = () => {
               
             </div>
     </div>
-          </Col>
+          </div>
           <Col md={10}>
-            {/* <NavigationBar/> */}
+            
 
 
     <div>
-      <h3>Search Form</h3>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <h3 className='text-start'>Catalog</h3>
+      <Card>
+        <CardHeader>
+          <h5 className='text-start'>People search</h5>
+        </CardHeader>
+
+      <Form className='d-flex'>
+      
+        <FormControl type="text" placeholder="Search by first name,last name..." className="mr-sm-2" />
         <Button variant="outline-primary">Search</Button>
       </Form>
+      </Card>
+      <Card>
+        <CardHeader>
+          <h5 className='text-start'>Unit search</h5>
+        </CardHeader>
+
+      <Form className='d-flex'>
+      
+     <FormControl type="text" placeholder="Search by unit name, code..." className="mr-sm-2" />
+        <Button variant="outline-primary">Search</Button>
+      </Form>
+      </Card>
+      <Card>
+        <CardHeader>
+          <h5 className='text-start'>Study search</h5>
+        </CardHeader>
+
+      <Form className='d-flex'>
+      
+        <FormControl type="text" placeholder="Search by subject name, level..." className="mr-sm-2" />
+        <Button variant="outline-primary">Search</Button>
+      </Form>
+      </Card>
+   
     </div>
 
 
@@ -224,5 +255,4 @@ const Catalog = () => {
       </Container>
   );
 };
-
-export default Catalog;
+export default Catalog
