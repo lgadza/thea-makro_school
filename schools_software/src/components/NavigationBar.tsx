@@ -13,7 +13,7 @@ function NavigationBar(): JSX.Element {
         <img src={fhs1} alt="fhs" className='school-header-img' />
         <div className='school-logo-container d-flex align-items-center'>
           <img src={fhs_logo} className='school-logo' alt="fhs_logo" />
-      <h1>Founders High School</h1>
+      <h1 className='text-light'>Founders High School</h1>
         </div>
       </div>
       </div>
@@ -32,12 +32,12 @@ function NavigationBar(): JSX.Element {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
+          <Nav.Link href="/news">News</Nav.Link>
           <Nav.Link href="/courses">Courses</Nav.Link>
           <Nav.Link href="/students">Students</Nav.Link>
-          <Nav.Link href="/teachers">Teachers</Nav.Link>
-          <Nav.Link href="/assignments">Assignments</Nav.Link>
+          <Nav.Link href="/teachers">Staff</Nav.Link>
+          {/* <Nav.Link href="/assignments">Assignments</Nav.Link> */}
           <Nav.Link href="/reports">Reports</Nav.Link>
-          <Nav.Link href="/news">News</Nav.Link>
           <Nav.Link href="/tsss/catalog">Catalog</Nav.Link>
           <Nav.Link href="/myusosweb">My USOSWEB</Nav.Link>
           <Nav.Link href="/tsss/admin">Admin</Nav.Link>
