@@ -28,12 +28,14 @@ const Admin = () => {
   };
 
   return (
-      <Container>
+      <Container className='admin'>
+        {/* <NavigationBar/> */}
         <Row>
           <Col md={2}>
           <AdminSidebarMenu/>
           </Col>
           <Col md={10}>
+          <h1 className='text-start'>Louis</h1>
             {/* <NavigationBar/> */}
           </Col>
         </Row>
