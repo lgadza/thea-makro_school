@@ -1,8 +1,22 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav,Button } from 'react-bootstrap';
+import fhs1 from '../assets/fhs_img/fhs1.jpg'
+import fhs_logo from "../assets/fhs_img/fhs_logo.png"
 
 function NavigationBar(): JSX.Element {
   return (
+    <div className='nav-bar container d-flex flex-column'>
+      <div>
+        <div className='text-end py-2'>You're not logged in | <span>log in</span></div>
+      <div className='header-container'>
+
+        <img src={fhs1} alt="fhs" className='school-header-img' />
+        <div className='school-logo-container d-flex align-items-center'>
+          <img src={fhs_logo} className='school-logo' alt="fhs_logo" />
+      <h1>Founders High School</h1>
+        </div>
+      </div>
+      </div>
     <Navbar bg="light" className='px-5' expand="lg">
       <Navbar.Brand href="/">
       <div className="sidebar-toggle d-flex justify-content-between">
@@ -30,6 +44,7 @@ function NavigationBar(): JSX.Element {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+    </div>
   );
 }
 

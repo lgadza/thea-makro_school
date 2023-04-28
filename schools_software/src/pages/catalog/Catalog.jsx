@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faMagnifyingGlass, faSitemap, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faMagnifyingGlass, faSitemap, faQuestionCircle, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -36,7 +36,13 @@ const Catalog = ()=> {
           <div className="sidebar">
             
             <div className="sidebar-menu">
-            <Nav className="flex-column align-items-start">
+            <Nav className="d-flex flex-column align-items-start">
+            <Nav.Item>
+                 <Nav.Link onClick={toggleMenu}>
+                   <FontAwesomeIcon icon={faBoltLightning} className="me-2" />
+                   Shortcut
+                 </Nav.Link>
+               </Nav.Item>
            
                <Link to="/" className="nav-link" onClick={toggleMenu}>
                  <FontAwesomeIcon icon={faUsers} className="me-2" />
