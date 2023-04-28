@@ -27,9 +27,9 @@ const AdminSidebarMenu = () => {
   };
 
   return (
-      <Container>
-        <Row>
-          <Col md={2}>
+      <div className='admin'>
+        <NavigationBar/>
+          
           <div className="sidebar">
             
             <div className="sidebar-menu">
@@ -203,12 +203,9 @@ const AdminSidebarMenu = () => {
               
             </div>
     </div>
-          </Col>
-          <Col md={10}>
-            {/* <NavigationBar/> */}
-          </Col>
-        </Row>
-      </Container>
+          
+       
+      </div>
   );
 };
 
