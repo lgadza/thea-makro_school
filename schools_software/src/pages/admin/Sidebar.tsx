@@ -27,7 +27,7 @@ const AdminSidebarMenu = () => {
   };
 
   return (
-      <Container>
+      <Container className='px-0'>
             <NavigationBar/>
 
         <Row>

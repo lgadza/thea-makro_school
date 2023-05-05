@@ -5,7 +5,7 @@ import fhs_logo from "../assets/fhs_img/fhs_logo.png"
 
 function NavigationBar(): JSX.Element {
   return (
-    <div className='nav-bar container d-flex flex-column'>
+    <div className='nav-bar d-flex flex-column'>
       <div>
         <div className='text-end py-2'>You're not logged in | <span>log in</span></div>
       <div className='header-container'>

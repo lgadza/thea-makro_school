@@ -10,7 +10,7 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { Container, Row, Col, ListGroup,Nav } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
 // import logo from "../../../assets/TM logo.png"
-// import NavigationBar from '../../NavigationBar';
+import NavigationBar from '../../components/NavigationBar';
 
 const Catalog = ()=> {
   const [studentOpen, setStudentOpen] = useState(false);
@@ -31,8 +31,9 @@ const Catalog = ()=> {
 
   return (
       <Container>
+        <NavigationBar/>
         <Row>
-          <div>
+          <Col md={3}>
           <div className="sidebar">
             
             <div className="sidebar-menu">
@@ -82,8 +83,8 @@ const Catalog = ()=> {
               
             </div>
     </div>
-          </div>
-          <Col md={10}>
+          </Col>
+          <Col md={9}>
             
 
 
