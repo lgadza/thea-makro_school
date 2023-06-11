@@ -10,6 +10,7 @@ import Catalog from '../src/pages/catalog/Catalog.jsx'
 import News from '../src/pages/news/News.jsx'
 import Students from '../src/pages/students/Students.jsx'
 import LibraryPage from './pages/library/LibraryPage.js'
+import CheckoutsPage from './pages/library/CheckoutsPage.js'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
        <Route path="tsss/news" element={<News/>}/>
        <Route path="tsss/students" element={<Students/>}/>
        <Route path="tsss/library" element={<LibraryPage/>}/>
+       <Route path="tsss/checkouts" element={<CheckoutsPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>
