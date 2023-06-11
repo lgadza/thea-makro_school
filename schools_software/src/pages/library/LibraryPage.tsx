@@ -1,7 +1,7 @@
 
 
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faMagnifyingGlass, faSitemap, faQuestionCircle, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faMagnifyingGlass, faSitemap, faQuestionCircle, faBoltLightning, faBusinessTime, faBookAtlas } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -61,47 +61,26 @@ const LibraryPage = ()=> {
             
             <div className="sidebar-menu">
             <Nav className="d-flex flex-column align-items-start">
+            <input
+         type="text"
+         placeholder="Search by Title, ISBN, or Author"
+         value={searchTerm}
+         onChange={(e) => setSearchTerm(e.target.value)}
+       />
             <Nav.Item>
                  <Nav.Link onClick={toggleMenu}>
-                   <FontAwesomeIcon icon={faHome} className="me-2" />
-                   Schedule
+                   <FontAwesomeIcon icon={faBookAtlas} className="me-2" />
+                   Category
                  </Nav.Link>
                </Nav.Item>
            
-               <Link to="/" className="nav-link" onClick={toggleMenu}>
-                 <FontAwesomeIcon icon={faUsers} className="me-2" />
-                 Class Groups
-               </Link>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                   <FontAwesomeIcon icon={faSitemap} className="me-2" />
-                   User Plans
-                 </Nav.Link>
-               </Nav.Item>
                
-             
                <Nav.Item>
                  <Nav.Link onClick={toggleMenu}>
-                   <Link to="librarians"><FontAwesomeIcon icon={faBook} className="me-2" />
-                   <span>Statements</span></Link>
+                   <FontAwesomeIcon icon={faBusinessTime} className="me-2" />
+                   Over-due
                  </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/hostel">
-                    <FontAwesomeIcon icon={faBookOpen} className="me-2" />
-                    Privacy Preferences
-                  </Link>
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/clubs">
-                    <FontAwesomeIcon icon={faQuestionCircle} className="me-2" />
-                    TSSSweb Preferences
-                  </Link>
-                 </Nav.Link>
-               </Nav.Item>
+                 </Nav.Item>
                </Nav>
               
             </div>
@@ -123,15 +102,8 @@ const LibraryPage = ()=> {
          <button type="submit">Add Book</button>
        </form>
 
-       <h2>Search</h2>
 
-       <input
-         type="text"
-         placeholder="Search by Title, ISBN, or Author"
-         value={searchTerm}
-         onChange={(e) => setSearchTerm(e.target.value)}
-       />
-       <button onClick={handleSearch}>Search</button>
+       
 
        <h2>Book Catalog</h2>
 
