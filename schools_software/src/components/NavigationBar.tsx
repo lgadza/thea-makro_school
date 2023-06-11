@@ -33,9 +33,9 @@ function NavigationBar(): JSX.Element {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/tsss/news">News</Nav.Link>
-          <Nav.Link href="/courses">Courses</Nav.Link>
           <Nav.Link href="/tsss/students">Students</Nav.Link>
           <Nav.Link href="/teachers">Staff</Nav.Link>
+          <Nav.Link href="/courses">Library</Nav.Link>
           {/* <Nav.Link href="/assignments">Assignments</Nav.Link> */}
           <Nav.Link href="/reports">Reports</Nav.Link>
           <Nav.Link href="/tsss/catalog">Catalog</Nav.Link>
