@@ -1,5 +1,5 @@
 import { Col, Container, Row,Form, Button } from "react-bootstrap" 
-import "./styling.css"
+import "../styling.css"
 const PersonalDataForm=():JSX.Element=>{
    return( 
     <Container>
@@ -130,26 +130,7 @@ const PersonalDataForm=():JSX.Element=>{
       </Row>
     </Form>
     
-    <Container>
-    <h5 className="d-flex my-3">Statuses</h5>
-<div className="statuses">
-    <Row>
-        <Col>
-        <div class="progress-container">
-      <ul class="progress-steps">
-          <li class="active">Contact Info</li>
-          <li>Travel Dates</li>
-          <li>Itinerary</li>
-          <li>Comments</li>
-  </ul>
-</div>
-        Application delivered to the institute
-<span>date</span>        
-<span></span>        
-</Col>
-    </Row>
-    </div>        
-    </Container>
+    
         </Container>
    )
 }

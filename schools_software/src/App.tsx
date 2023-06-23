@@ -12,7 +12,7 @@ import Students from '../src/pages/students/Students.jsx'
 import LibraryPage from './pages/library/LibraryPage.js'
 import CheckoutsPage from './pages/library/CheckoutsPage.js'
 import Login from './components/Login.js'
-import PersonalDataForm from './pages/admissionsManagement/PersonalDataForm.js'
+import ApplicationPage from './pages/admissionsManagement/student/ApplicationPage'
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
       {/* <NavigationBar/> */}
       {/* <Footer/> */}
       <Routes>
-        <Route path="tsss/fhs/form" element={<PersonalDataForm/>}/>
+        <Route path="tsss/fhs/application" element={<ApplicationPage/>}/>
         <Route path="tsss/fhs/login" element={<Login/>}/>
         <Route path="tsss/admin" element={<AdminSidebarMenu/>}/>
        <Route path="tsss/catalog" element={<Catalog/>}/>

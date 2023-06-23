@@ -1,5 +1,5 @@
 :root {
-    --brand-color: #f86;
+    --brand-color: rgb(34, 52, 110);
     --body-color: #999;
   }
 
@@ -52,7 +52,7 @@
   .progress-steps li.active:before {
     border-color: var(--brand-color);
   }
-  .progress-steps li.active + li:after {
+  .progress-steps li.active li:after {
     background-color: var(--brand-color);
   }
  
