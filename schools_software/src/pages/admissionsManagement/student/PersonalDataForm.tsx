@@ -120,11 +120,43 @@ const PersonalDataForm=():JSX.Element=>{
         </Col>
       </Row>
     </Form>
+    {/* Login details */}
+    <h5 className="d-flex my-3">Login details</h5>
     <Form className="my-3">
       <Row>
         <Col>
-        <Button variant="primary" className="d-flex mt-3 justify-content-end" type="submit">
-    Submit
+        <Form.Label className="d-flex">Email <span className="text-danger">*</span></Form.Label>
+          <Form.Control placeholder="Email" required/>
+        </Col>
+       
+      </Row>
+    </Form>
+    <Form className="my-3">
+      <Row>
+        <Col>
+        <Form.Label className="d-flex">Password <span className="text-danger">*</span></Form.Label>
+          <Form.Control placeholder="Password" required/>
+        </Col>
+         <Col>
+        <Form.Label className="d-flex">Confirm password <span className="text-danger">*</span></Form.Label>
+          <Form.Control placeholder="Confirm password" required/>
+        </Col>
+      </Row>
+    </Form>
+ <Form className="my-3">
+  <Row>
+    <Col>
+    <Form.Check type="checkbox" id="checkbox" label="I confirm that I have read the Regulation and Privacy Policy and I declare that I accept them."/>
+    <Form.Check type="checkbox" id="checkbox" label="I consent to the processing of my data for the purposes of the current and future admission in accordance with the provisions of Regulation of Zimbabwe. More about the principles of personal data processing in the PRIVACY POLICY."/>
+    </Col>
+  </Row>
+
+ </Form>
+    <Form className="my-3">
+      <Row>
+        <Col>
+        <Button variant="primary" className="w-100 mt-3 justify-content-end" type="submit">
+    Become a candidate - apply
   </Button>
         </Col>
       </Row>
