@@ -75,12 +75,12 @@ input:focus {
 }
 input,
 textarea,select {
-  color: var(--textColor) !important;
+  color: var(--textColor2) !important;
   background-color: var(--bg-1) !important;
   border-color: var(--bg-2) !important;
 }
 input:focus {
-  color: var(--textColor) !important;
+  color: var(--textColor2) !important;
 }
 textarea {
   color: var(--textColor) !important;
