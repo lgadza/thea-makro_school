@@ -146,8 +146,8 @@ const PersonalDataForm=():JSX.Element=>{
  <Form className="my-3">
   <Row>
     <Col>
-    <Form.Check type="checkbox" id="checkbox" label="I confirm that I have read the Regulation and Privacy Policy and I declare that I accept them."/>
-    <Form.Check type="checkbox" id="checkbox" label="I consent to the processing of my data for the purposes of the current and future admission in accordance with the provisions of Regulation of Zimbabwe. More about the principles of personal data processing in the PRIVACY POLICY."/>
+    <Form.Check  type="checkbox" id="checkbox" label="I confirm that I have read the Regulation and Privacy Policy and I declare that I accept them."/>
+    <Form.Check  type="checkbox" id="checkbox" label="I consent to the processing of my data for the purposes of the current and future admission in accordance with the provisions of Regulation of Zimbabwe. More about the principles of personal data processing in the PRIVACY POLICY."/>
     </Col>
   </Row>
 

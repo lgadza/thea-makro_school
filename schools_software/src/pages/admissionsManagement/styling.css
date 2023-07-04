@@ -55,4 +55,19 @@
   .progress-steps li.active li:after {
     background-color: var(--brand-color);
   }
+ .banner_container ,.banner{
+  height: 400px;
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+ }
+ .banner_label{
+  position:absolute;
+  color:white;
+  bottom: 10px;
+  left:0px;
+  background:black;
+  padding:10px
+ }
  
