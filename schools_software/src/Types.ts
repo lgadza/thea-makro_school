@@ -22,8 +22,10 @@ export interface ApplicantRegistration{
   country:string;
   phone_number:string;
   email?:string;
-  policy_acceptance:string;
-  data_process_acceptance:string;
+  policy_acceptance:boolean;
+  data_process_acceptance:boolean;
   password:string;
-  settlement_type:string
+  settlement_type:string;
+  country_code:string;
+  parentParentId:string
 }
