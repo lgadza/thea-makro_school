@@ -5,9 +5,9 @@ import Image from "../../../components/Image"
 import image from "../../../assets/MD bannner.png"
 const ApplicationPage=():JSX.Element=>{
    return(
-    <Container fluid>
+    <Container className="application_page">
         <Row>
-            <Col className="d-flex banner_container mb-4">
+            <Col className="d-flex banner_container px-0 mb-4">
                
             {/* <Image src={image} height={100} width={100} alt="userName"/>
 

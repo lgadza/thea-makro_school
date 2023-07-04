@@ -1,3 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&family=Fjalla+One&family=Roboto&family=Titillium+Web&display=swap");
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+:root {
+  --main-bg: rgb(40, 42, 54);
+  --bg-1: rgb(32, 44, 51);
+  --bg-2: rgb(42, 57, 66);
+
+  --textColor: rgb(233, 237, 227);
+  --blackAndWhite: black;
+  --bg-gradient: rgb(49, 76, 87);
+  --card-bg: rgb(42, 57, 66, 0.7);
+  --card-body-bg: rgb(42, 57, 66, 0.96);
+  --card-header-bg: rgb(29, 39, 46);
+}
 /* Navigation */
 div.nav-bar {
     /* position: fixed; */
@@ -130,3 +149,14 @@ div.nav-bar {
     position: relative;
     width: 100%;
   }
+
+  /* LOG IN */
+.login_container{
+  background-color: rgb(27, 27, 29)!important;
+  border-radius: 10px;
+  color: white;
+  position: absolute;
+  top: 20%;
+
+  
+}
