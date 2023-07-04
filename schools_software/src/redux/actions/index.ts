@@ -1,0 +1,10 @@
+export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
+export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
+export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
+
+export const userData = (data:string,) => {
+    return {
+      type: APPLICANT_REGISTRATION,
+      payload: data,
+    };
+  };

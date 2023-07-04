@@ -13,6 +13,7 @@
   --bg-2: rgb(42, 57, 66);
 
   --textColor: white;
+  --textColor2:rgb(66, 162, 232);
   --blackAndWhite: black;
   --bg-gradient: rgb(49, 76, 87);
   --card-bg: rgb(42, 57, 66, 0.7);
@@ -39,7 +40,9 @@ display: block !important;
   min-height: 100vh !important;
 
 }
-
+.header{
+  color: var(--textColor2) !important;
+}
 
 @keyframes logo-spin {
   from {
@@ -71,11 +74,13 @@ input:focus {
   overflow: hidden !important;
 }
 input,
-textarea {
+textarea,select {
   color: var(--textColor) !important;
   background-color: var(--bg-1) !important;
-  font-size: 0.8rem !important;
   border-color: var(--bg-2) !important;
+}
+input:focus {
+  color: var(--textColor) !important;
 }
 textarea {
   color: var(--textColor) !important;
@@ -84,4 +89,14 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+input[type="radio"] {
+  background-color: var(--bg-1) !important;
+}
+input[type="email"].form-control {
+  background-color: var(--bg-1) !important;
+}
+
+input[type="checkbox"]:not(:checked) {
+  background-color: var(--bg-1) !important;
 }

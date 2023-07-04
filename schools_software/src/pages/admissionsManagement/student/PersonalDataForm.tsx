@@ -5,7 +5,7 @@ const PersonalDataForm=():JSX.Element=>{
     <Container>
     {/* Student Personal Data*/}
 
-        <h5 className="d-flex mb-3">Personal data</h5>
+        <h5 className="d-flex mb-4 header">Personal data</h5>
     <Form>
       <Row>
         <Col>
@@ -60,7 +60,7 @@ const PersonalDataForm=():JSX.Element=>{
       </Row>
     </Form >
     {/* Student Address */}
-    <h5 className="d-flex my-3">Address</h5>
+    <h5 className="d-flex my-4 header">Address</h5>
     <Form className="my-3">
       <Row>
         <Col>
@@ -121,7 +121,7 @@ const PersonalDataForm=():JSX.Element=>{
       </Row>
     </Form>
     {/* Login details */}
-    <h5 className="d-flex my-3">Login details</h5>
+    <h5 className="d-flex my-4 header">Login details</h5>
     <Form className="my-3">
       <Row>
         <Col>
