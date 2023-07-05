@@ -3,10 +3,7 @@
     --body-color: #999;
     --textColor:rgb(27, 27, 29)
   }
-.application_page{
-  color:white;
-  background-color:var(--textColor);
-}
+
 .progress-container {
     width:100%;
     margin: 2em auto; 

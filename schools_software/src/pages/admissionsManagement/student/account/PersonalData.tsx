@@ -86,9 +86,7 @@ console.log(personalData);
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-        <Col>
-        
-        </Col>
+       
         <Col>
        
         <Form.Label className="d-flex">Gender<span className="text-danger">*</span></Form.Label>
@@ -101,6 +99,9 @@ console.log(personalData);
       <option value="female">Female</option>
     </Form.Control>
   
+        </Col>
+        <Col>
+        
         </Col>
       </Row>
     </Form>

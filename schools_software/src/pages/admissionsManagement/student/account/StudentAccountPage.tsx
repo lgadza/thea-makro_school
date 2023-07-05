@@ -4,7 +4,7 @@ import PersonalData from "./PersonalData"
 
 const StudentAccountPage=():JSX.Element=>{
     return(
-        <Container>
+        <Container  className="content_bg">
 <Row>
     <Col sm={3}>
     <StudentNavigationbar/>
