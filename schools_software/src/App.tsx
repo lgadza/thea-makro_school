@@ -14,6 +14,7 @@ import CheckoutsPage from './pages/library/CheckoutsPage.js'
 import Login from './components/Login.js'
 import ApplicationPage from './pages/admissionsManagement/student/ApplicationPage'
 import StudentNavigationbar from './pages/admissionsManagement/student/StudentNavigationbar.js'
+import StudentAccountPage from './pages/admissionsManagement/student/account/StudentAccountPage.js'
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
        <Route path="tsss/students" element={<Students/>}/>
        <Route path="tsss/library" element={<LibraryPage/>}/>
        <Route path="tsss/checkouts" element={<CheckoutsPage/>}/>
-       <Route path="tsss/student/account" element={<StudentNavigationbar/>}/>
+       <Route path="tsss/student/account" element={<StudentAccountPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>

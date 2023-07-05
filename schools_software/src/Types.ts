@@ -29,3 +29,14 @@ export interface ApplicantRegistration{
   country_code:string;
   parentParentId:string
 }
+export interface PersonalDataInterface{
+  first_name:string;
+  last_name:string;
+  second_name?:string;
+  date_of_birth:string;
+  gender:string;
+  phone_number:string;
+  email?:string;
+  country_code:string;
+  
+}

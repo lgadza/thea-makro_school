@@ -4,6 +4,9 @@ import { ApplicantRegistration } from "../../Types";
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
 export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
 export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
+export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
+export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
+export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
 
 export const ApplicantRegister = (formData:ApplicantRegistration) => {
     
@@ -54,3 +57,60 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
         }
     }
   };
+
+  export const  getApplicantData=()=>{
+    
+
+    
+    return async(dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"GET",
+            headers:{
+                Accept:"application/json",
+                "Content-Type":"application/json",
+                // Authorization:"Bearer" + `${}`
+            },
+        };
+
+            try{
+                const response=await fetch("http://localhost:3001/applicants",options)
+                
+                if(response.ok){
+                    const data=response.json()
+                    dispatch({
+                        type:GET_APPLICANT_DATA,
+                        payload:data,
+                    })
+                    setTimeout(()=>{
+                        dispatch({
+                            type:GET_APPLICANT_DATA_LOADING,
+                            payload:false
+                        })
+                    },100);
+
+                }else{
+                    console.log("ERROR")
+                    dispatch({
+                        type:GET_APPLICANT_DATA_LOADING,
+                        payload:false,
+                    })
+                    dispatch({
+                        type:GET_APPLICANT_DATA_ERROR,
+                        payload:true
+                    })
+                }
+            }
+            catch(error){
+                console.log(error,"Error")
+                dispatch({
+                    type:GET_APPLICANT_DATA_LOADING,
+                    payload:false,
+                })
+                dispatch({
+                    type:GET_APPLICANT_DATA_ERROR,
+                    payload:true,
+                })
+            }
+    }
+}
+  

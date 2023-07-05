@@ -5,6 +5,7 @@ import persistReducer from "redux-persist/lib/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import applicantRegistration from "../reducers";
 import localStorage from "redux-persist/es/storage";
+import getApplicantData from "../reducers/getApplicantData";
 
 
 const persistConfig = {
@@ -19,6 +20,7 @@ const persistConfig = {
 
 const mainReducer = combineReducers({
   applicantRegistration: applicantRegistration,
+  applicantData:getApplicantData
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);

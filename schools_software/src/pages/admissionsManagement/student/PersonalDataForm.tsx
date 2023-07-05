@@ -43,7 +43,7 @@ const handleChange=(e:any)=>{ //e:ChangeEvent<HTMLInputElement | HTMLSelectEleme
     ...prevFormData,
     [name]:value
   }))
-  console.log(formData);
+  
 }
 const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const { name, checked } = e.target;
