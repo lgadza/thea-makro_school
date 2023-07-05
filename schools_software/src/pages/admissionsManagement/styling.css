@@ -74,4 +74,8 @@
   background:black;
   padding:10px
  }
- 
+ /* studentNavigationbar */
+
+ ul li{
+  list-style:none;
+ }

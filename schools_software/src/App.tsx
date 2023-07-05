@@ -13,6 +13,7 @@ import LibraryPage from './pages/library/LibraryPage.js'
 import CheckoutsPage from './pages/library/CheckoutsPage.js'
 import Login from './components/Login.js'
 import ApplicationPage from './pages/admissionsManagement/student/ApplicationPage'
+import StudentNavigationbar from './pages/admissionsManagement/student/StudentNavigationbar.js'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
        <Route path="tsss/students" element={<Students/>}/>
        <Route path="tsss/library" element={<LibraryPage/>}/>
        <Route path="tsss/checkouts" element={<CheckoutsPage/>}/>
+       <Route path="tsss/student/account" element={<StudentNavigationbar/>}/>
       </Routes>
     </BrowserRouter>
     </div>

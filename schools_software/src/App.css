@@ -28,6 +28,7 @@ body{
   font-family: 'Josefin Sans', sans-serif !important;
 min-width: 100vw !important;
 display: block !important;
+color: white !important;
 }
 #root{
   min-height: 100vh !important;
