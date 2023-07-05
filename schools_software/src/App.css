@@ -44,6 +44,7 @@ color: white !important;
 .content_bg{
   color:white;
   background-color:var(--bg-1);
+  border-radius: 10px;
 }
 .header{
   color: var(--textColor2) !important;
