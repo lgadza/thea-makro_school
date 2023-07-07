@@ -38,5 +38,27 @@ export interface PersonalDataInterface{
   phone_number:string;
   email?:string;
   country_code:string;
+  citizenship:string;
+  
+}
+export interface AddressInterface{
+  street:string;
+  building_number:string;
+  apartment_number:string;
+  postal_code:string;
+  province:string;
+  country:string;
+  email:string;
+  settlement_type:string;
+  
+}
+export interface GuardianInterface {
+  first_name:string;
+  last_name:string;
+  phone_number:string;
+  email?:string;
+  country_code:string;
+  relationship:string;
+  
   
 }

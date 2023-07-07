@@ -1,62 +1,62 @@
 import { useEffect, useState } from "react"
 import { Col, Form, Row } from "react-bootstrap"
-import { ApplicantRegistration, PersonalDataInterface } from "../../../../Types"
+import { ApplicantRegistration, AddressInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
 import { getApplicantData } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
 
 
-const PersonalData=():JSX.Element=>{
+const Address=():JSX.Element=>{
     const dispatch:any=useDispatch()
     const data=useSelector((state:any)=>state.applicantData.data)
-const initialPersonalData:PersonalDataInterface={
-    first_name:"",
-    last_name:"",
-    second_name:"",
-    date_of_birth:"",
-    gender:"",
-    phone_number:"",
+const initialAddress:AddressInterface={
+    street:"",
+    building_number:"",
+    apartment_number:"",
+    postal_code:"",
+    province:"",
+    country:"",
     email:"",
-    country_code:"",
-    citizenship:""
+    settlement_type:"",
+    
 }
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
 const handleChange=(e:any)=>{
 const {name,value}=e.target;
-setPersonalData((data)=>({
+setAddress((data)=>({
     ...data,
     [name]:value
 }))
-console.log(personalData);
+console.log(address);
 }
-    const [personalData,setPersonalData]=useState<PersonalDataInterface>(initialPersonalData)
+    const [address,setAddress]=useState<AddressInterface>(initialAddress)
     useEffect(()=>{
         dispatch(getApplicantData())
     })
     return(
 <div>
-<h5 className="d-flex mb-4 header">Personal data</h5>
+<h5 className="d-flex mb-4 header">Address</h5>
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>
-        <Form.Label className="d-flex">First name <span className="text-danger">*</span></Form.Label>
+        <Form.Label className="d-flex">Street <span className="text-danger">*</span></Form.Label>
           <Form.Control
-           placeholder="First name"
-           name="first_name"
-           value={personalData.first_name}
+           placeholder="Street"
+           name="street"
+           value={address.street}
             required 
             onChange={handleChange}
             />
         </Col>
         <Col>
-        <Form.Label className="d-flex">Last name <span className="text-danger">*</span></Form.Label>
+        <Form.Label className="d-flex">Building number <span className="text-danger">*</span></Form.Label>
           <Form.Control 
-          placeholder="Last name" 
+          placeholder="Building number" 
           required
-          name="last_name"
-          value={personalData.last_name}
+          name="building_number"
+          value={address.building_number}
           onChange={handleChange}
           />
         </Col>
@@ -65,21 +65,22 @@ console.log(personalData);
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
         <Col>
-        <Form.Label className="d-flex">Second name </Form.Label>
+        <Form.Label className="d-flex">Apartment number </Form.Label>
           <Form.Control 
-          placeholder="Second name" 
-          name="second_name"
-          value={personalData.second_name}
+          placeholder="Apartment number" 
+          name="apartment_number"
+          value={address.apartment_number}
           onChange={handleChange}
           />
         </Col>
         <Col>
-        <Form.Label className="d-flex">Date of birth<span className="text-danger">*</span></Form.Label>
+        <Form.Label className="d-flex">Post code<span className="text-danger">*</span>
+        </Form.Label>
           <Form.Control 
-          placeholder="Date of birth" 
-           required
-           name="date_of_birth"
-          value={personalData.date_of_birth}
+          placeholder="Post code" 
+        //    required
+           name="postal_code"
+          value={address.postal_code}
           onChange={handleChange}
            />
         </Col>
@@ -91,8 +92,8 @@ console.log(personalData);
         <Col>
         <Form.Label className="d-flex">Code<span className="text-danger">*</span></Form.Label>
           <Form.Control  as="select" required
-          name="country_code"
-          value={personalData.country_code}
+          name="settlement_type"
+          value={address.settlement_type}
           onChange={handleChange}
           >
           <option value="236">263</option>
@@ -104,8 +105,8 @@ console.log(personalData);
           <Form.Control type="tel" 
           placeholder="Phone number" 
           required
-          name="phone_number"
-          value={personalData.phone_number}
+          name="country"
+          value={address.country}
           onChange={handleChange}
           />
         </Col>
@@ -117,10 +118,10 @@ console.log(personalData);
        
         <Col>
        
-        <Form.Label className="d-flex">Gender<span className="text-danger">*</span></Form.Label>
+        <Form.Label className="d-flex">Province<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
-    name="gender"
-    value={personalData.gender}
+    name="province"
+    value={address.province}
     onChange={handleChange}
     >
       <option value="male">Male</option>
@@ -129,18 +130,11 @@ console.log(personalData);
   
         </Col>
         <Col>
-        <Form.Label className="d-flex">Citizenship<span className="text-danger">*</span></Form.Label>
-          <Form.Control type="tel" 
-          placeholder="citizenship" 
-          required
-          name="citizenship"
-          value={personalData.citizenship}
-          onChange={handleChange}
-          />
+        
         </Col>
       </Row>
     </Form>
 </div>
     )
 }
-export default PersonalData
+export default Address

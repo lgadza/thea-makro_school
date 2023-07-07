@@ -3,6 +3,8 @@ import StudentNavigationbar from "../StudentNavigationbar"
 import PersonalData from "./PersonalData"
 import Image from "../../../../components/Image"
 import image from "../../../../assets/fhs_img/fhs1.jpg"
+import Address from "./Adress"
+import Guardian from "./Guardian"
 
 const StudentAccountPage=():JSX.Element=>{
     return(
@@ -26,6 +28,8 @@ const StudentAccountPage=():JSX.Element=>{
     </Col>
     <Col sm={9} className="student_account_border content_bg py-3 ">
     <PersonalData/>
+    <Address/>
+    <Guardian/>
     </Col>
 </Row>
         </Container>
