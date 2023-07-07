@@ -1,5 +1,6 @@
 import { faCircleInfo, faCircleNotch, faFile, faGear, faLocation, faPenSquare, faPenToSquare, faPeopleGroup, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "react-router-dom"
 
 const StudentNavigationbar=():JSX.Element=>{
     
@@ -7,10 +8,12 @@ const StudentNavigationbar=():JSX.Element=>{
         <div>
 <ul className="d-flex flex-column align-items-start">
 <h5 className="d-flex">Chapters</h5>
+    <Link to="">
     <li className="my-2">
         <FontAwesomeIcon icon={faUser}/>
         <span className="mx-2 ">Personal data</span>
     </li>
+    </Link>
     <li className="my-2">
         <FontAwesomeIcon icon={faLocation}/>
         <span className="mx-2 ">Address</span>
