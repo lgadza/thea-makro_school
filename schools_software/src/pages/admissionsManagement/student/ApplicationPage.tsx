@@ -1,6 +1,6 @@
 import { Container,Col, Row } from "react-bootstrap"
 import PersonalDataForm from "./PersonalDataForm"
-import ApplicationStatus from "./ApplicationStatus"
+import ApplicationStatus from "./account/ApplicationStatus"
 import Image from "../../../components/Image"
 import image from "../../../assets/MD bannner.png"
 const ApplicationPage=():JSX.Element=>{

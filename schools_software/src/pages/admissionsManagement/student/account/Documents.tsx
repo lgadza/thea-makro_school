@@ -39,6 +39,15 @@ console.log(guardian);
     })
     return(
 <div>
+<Alert  variant="warning">
+    <div className="d-flex">
+    <FontAwesomeIcon className="me-2" icon={faTriangleExclamation}/>
+    Information
+    </div>
+    <ul className="d-flex">
+        <li>Documents should be uploaded only in PDF format!</li>
+    </ul>
+  </Alert>
 <h5 className="d-flex header">Required documents</h5>
 <span className="d-flex mb-4 text-muted">Please upload documents that have a status missing.</span>
     <Form onSubmit={handleSubmit}>

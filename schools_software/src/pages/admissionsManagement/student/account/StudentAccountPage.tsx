@@ -6,6 +6,9 @@ import image from "../../../../assets/fhs_img/fhs1.jpg"
 import Address from "./Adress"
 import Guardian from "./Guardian"
 import Documents from "./Documents"
+import Settings from "./Settings"
+import Interview from "./Interview"
+import ApplicationStatus from "./ApplicationStatus"
 
 const StudentAccountPage=():JSX.Element=>{
     return(
@@ -31,7 +34,10 @@ const StudentAccountPage=():JSX.Element=>{
     {/* <PersonalData/>
     <Address/>
     <Guardian/> */}
-    <Documents/>
+    {/* <Documents/> */}
+    {/* <Settings/> */}
+    {/* <Interview/> */}
+<ApplicationStatus/>
     </Col>
 </Row>
         </Container>
