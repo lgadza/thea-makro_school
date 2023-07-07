@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Col, Form, Row } from "react-bootstrap"
+import { Button, Col, Form, Row } from "react-bootstrap"
 import { ApplicantRegistration, GuardianInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
 import { getApplicantData } from "../../../../redux/actions"
@@ -108,6 +108,9 @@ console.log(guardian);
         </Col>
       </Row>
     </Form>
+    <div className="d-flex justify-content-end">
+        <Button variant="primary" className="px-3">Update</Button>
+    </div>
 </div>
     )
 }

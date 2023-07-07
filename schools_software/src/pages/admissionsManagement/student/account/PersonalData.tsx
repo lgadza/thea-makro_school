@@ -4,6 +4,7 @@ import { ApplicantRegistration, PersonalDataInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
 import { getApplicantData } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
+import { Button } from "react-bootstrap"
 
 
 const PersonalData=():JSX.Element=>{
@@ -140,6 +141,9 @@ console.log(personalData);
         </Col>
       </Row>
     </Form>
+    <div className="d-flex justify-content-end">
+        <Button variant="primary" className="px-3">Update</Button>
+    </div>
 </div>
     )
 }

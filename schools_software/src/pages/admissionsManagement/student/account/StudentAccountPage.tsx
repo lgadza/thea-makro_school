@@ -5,6 +5,7 @@ import Image from "../../../../components/Image"
 import image from "../../../../assets/fhs_img/fhs1.jpg"
 import Address from "./Adress"
 import Guardian from "./Guardian"
+import Documents from "./Documents"
 
 const StudentAccountPage=():JSX.Element=>{
     return(
@@ -27,9 +28,10 @@ const StudentAccountPage=():JSX.Element=>{
     <StudentNavigationbar/>
     </Col>
     <Col sm={9} className="student_account_border content_bg py-3 ">
-    <PersonalData/>
+    {/* <PersonalData/>
     <Address/>
-    <Guardian/>
+    <Guardian/> */}
+    <Documents/>
     </Col>
 </Row>
         </Container>
