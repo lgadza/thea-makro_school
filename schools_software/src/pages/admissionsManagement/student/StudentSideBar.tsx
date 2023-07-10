@@ -2,7 +2,7 @@ import { faCircleInfo, faCircleNotch, faFile, faGear, faLocation, faPenSquare, f
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
 
-const StudentNavigationbar=({activeComponent,handleNavigationClick}:{activeComponent:string;handleNavigationClick:(component:string)=>void}):JSX.Element=>{
+const StudentSideBar=({activeComponent,handleNavigationClick}:{activeComponent:string;handleNavigationClick:(component:string)=>void}):JSX.Element=>{
     
     return(
         <div>
@@ -56,4 +56,4 @@ const StudentNavigationbar=({activeComponent,handleNavigationClick}:{activeCompo
         </div>
     )
 }
-export default StudentNavigationbar
+export default StudentSideBar
