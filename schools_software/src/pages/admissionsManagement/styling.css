@@ -59,6 +59,14 @@
 .active-step > .step-title {
   color: white;
 }
+.student_account li {
+  cursor: pointer;
+}
+
+.student_account li:hover {
+  cursor: pointer;
+}
+
 
 .step.active-step > .step-number,
 .step.complete-step > .step-number {

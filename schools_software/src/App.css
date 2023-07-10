@@ -49,6 +49,9 @@ color: white !important;
 .header{
   color: var(--textColor2) !important;
 }
+.active{
+  color: var(--textColor2) !important;
+}
 
 @keyframes logo-spin {
   from {
@@ -105,4 +108,7 @@ input[type="email"].form-control {
 
 input[type="checkbox"]:not(:checked) {
   background-color: var(--bg-1) !important;
+}
+.active{
+  color: ;
 }

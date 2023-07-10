@@ -9,8 +9,16 @@ import Documents from "./Documents"
 import Settings from "./Settings"
 import Interview from "./Interview"
 import ApplicationStatus from "./ApplicationStatus"
+import ProgramInformation from "../ProgramInformation"
+import { useState } from "react"
 
 const StudentAccountPage=():JSX.Element=>{
+
+    const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
+
+    const handleNavigationClick=(component:string)=>{
+        setActiveComponent(component)
+    }
     return(
         <Container >
         <Row>
@@ -28,16 +36,21 @@ const StudentAccountPage=():JSX.Element=>{
         </Row>
 <Row>
     <Col sm={3} className="student_account_border content_bg py-3 ">
-    <StudentNavigationbar/>
+    <StudentNavigationbar
+     activeComponent={activeComponent}
+     handleNavigationClick={handleNavigationClick}
+     />
     </Col>
     <Col sm={9} className="student_account_border content_bg py-3 ">
-    {/* <PersonalData/>
-    <Address/>
-    <Guardian/> */}
-    {/* <Documents/> */}
-    {/* <Settings/> */}
-    {/* <Interview/> */}
-<ApplicationStatus/>
+    
+     {activeComponent === "PersonalData" && <PersonalData />}
+          {activeComponent === "Address" && <Address />}
+          {activeComponent === "Guardian" && <Guardian />}
+          {activeComponent === "Documents" && <Documents />}
+          {activeComponent === "Settings" && <Settings />}
+          {activeComponent === "Interview" && <Interview />}
+          {activeComponent === "Status" && <ApplicationStatus />}
+          {activeComponent === "ProgramInformation" && <ProgramInformation />}
     </Col>
 </Row>
         </Container>
