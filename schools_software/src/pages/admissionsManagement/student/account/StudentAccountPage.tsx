@@ -26,7 +26,7 @@ const StudentAccountPage=():JSX.Element=>{
                 <StudentNavbar/>
             </div>
         <Row>
-            <Col className="d-flex py-3 content_bg  my-4 student_account_all_border">
+            <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar">
                
             <Image src={image} height={100} width={100} alt="userName"/>
 <div className="d-flex flex-column align-items-start px-3">
@@ -38,8 +38,8 @@ const StudentAccountPage=():JSX.Element=>{
             </Col>
             
         </Row>
-<Row className="student_account_all_border content_bg py-3 ">
-    <Col sm={3} className="student_account_border content_bg py-3 ">
+<Row className="student_account_all_border py-3 mt-4 ">
+    <Col sm={3} className="student_account_border  py-3 ">
     <StudentSideBar
      activeComponent={activeComponent}
      handleNavigationClick={handleNavigationClick}

@@ -7,6 +7,7 @@ const Image: FC<ImageProps> = ({ src, alt, width, height }) => (
     src={src}
     alt={alt}
     style={{ width: `${width}px`, height: `${height}px`, borderRadius: "50%" }}
+    className="img_component"
   />
 );
 

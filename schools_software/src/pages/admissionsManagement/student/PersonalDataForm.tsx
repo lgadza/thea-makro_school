@@ -60,10 +60,10 @@ const handleRegistration = () => {
 };
 
    return( 
-    <Container>
+    <div>
     {/* Student Personal Data*/}
-
         <h5 className="d-flex mb-4 header">Personal data</h5>
+<div className="content_bg p-3">
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>
@@ -164,8 +164,10 @@ const handleRegistration = () => {
        
       </Row>
     </Form >
+    </div>
     {/* Student Address */}
     <h5 className="d-flex my-4 header">Address</h5>
+    <div className="content_bg p-3">
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
         <Col>
@@ -277,8 +279,85 @@ const handleRegistration = () => {
      
       </Row>
     </Form>
+    </div>
+    {/* Parents */}
+<h5 className="d-flex my-4 header">Guardian/Parent</h5>
+    <div className="content_bg p-3">
+    <Form onSubmit={handleSubmit}>
+      <Row>
+        <Col>
+        <Form.Label className="d-flex">Guardian first_name <span className="text-danger">*</span></Form.Label>
+          <Form.Control
+           placeholder="Guardian first_name"
+           name="first_name"
+          //  value={guardian.first_name}
+            required 
+            onChange={handleChange}
+            />
+        </Col>
+        <Col>
+        <Form.Label className="d-flex">Guardian last_name <span className="text-danger">*</span></Form.Label>
+          <Form.Control 
+          placeholder="Guardian last_name" 
+          required
+          name="last_name"
+          // value={guardian.last_name}
+          onChange={handleChange}
+          />
+        </Col>
+      </Row>
+    </Form>
+    
+    <Form className="my-3" onSubmit={handleSubmit}>
+      <Row>
+        <Col>
+        <Form.Label className="d-flex">Code<span className="text-danger">*</span></Form.Label>
+          <Form.Control  as="select" required
+          name="country_code"
+          // value={guardian.country_code}
+          onChange={handleChange}
+          >
+          <option value="236">263</option>
+          <option value="27">27</option>
+          </Form.Control>
+        </Col>
+        <Col>
+        <Form.Label className="d-flex">Mobile number<span className="text-danger">*</span></Form.Label>
+          <Form.Control type="tel" 
+          placeholder="Phone number" 
+          required
+          name="phone_number"
+          // value={guardian.phone_number}
+          onChange={handleChange}
+          />
+        </Col>
+       
+      </Row>
+    </Form >
+    <Form className="my-3" onSubmit={handleSubmit}>
+      <Row>
+       
+        <Col>
+       
+        <Form.Label className="d-flex">Relationship <span className="text-danger">*</span></Form.Label>
+          <Form.Control 
+          placeholder="Relationship" 
+          required
+          name="relationship"
+          // value={guardian.relationship}
+          onChange={handleChange}
+          />
+  
+        </Col>
+        <Col>
+       
+        </Col>
+      </Row>
+    </Form>
+</div>
     {/* Login details */}
     <h5 className="d-flex my-4 header">Login details</h5>
+    <div className="content_bg p-3">
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
         <Col>
@@ -347,9 +426,10 @@ const handleRegistration = () => {
         </Col>
       </Row>
     </Form>
+    </div>
     
     
-        </Container>
+        </div>
    )
 }
 export default PersonalDataForm

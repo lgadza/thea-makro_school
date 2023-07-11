@@ -7,7 +7,7 @@ const StudentSideBar=({activeComponent,handleNavigationClick}:{activeComponent:s
     return(
         <div>
 <ul className="d-flex flex-column align-items-start student_account">
-<h5 className="d-flex">Chapters</h5>
+<h5 className="d-flex header">Chapters</h5>
     
     <li className={`my-2 ${activeComponent === "PersonalData" ? "active" : ""}`}
           onClick={() => handleNavigationClick("PersonalData")}>
@@ -40,7 +40,7 @@ const StudentSideBar=({activeComponent,handleNavigationClick}:{activeComponent:s
         <FontAwesomeIcon icon={faPenToSquare}/>
         <span className="mx-2 ">Interview/Exam</span>
     </li>
-    <li className={`my-2 ${activeComponent === "ProgramInfo" ? "active" : ""}`}
+    <li className={`my-2 ${activeComponent === "ProgramInformation" ? "active" : ""}`}
           onClick={() => handleNavigationClick("ProgramInformation")}>
         <FontAwesomeIcon icon={faCircleInfo}/>
         <span className="mx-2 ">Program information</span>

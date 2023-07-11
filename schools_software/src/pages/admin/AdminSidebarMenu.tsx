@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,8 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { Container, Row, Col, ListGroup,Nav } from 'react-bootstrap';
 import logo from "../../../assets/TM logo.png"
 import NavigationBar from '../../components/NavigationBar';
+import Image from '../../components/Image';
+import md_logo_small from "../../assets/md_logo_small.png"
 
 const AdminSidebarMenu = () => {
   const [studentOpen, setStudentOpen] = useState(false);
@@ -27,19 +29,29 @@ const AdminSidebarMenu = () => {
   };
 
   return (
-      <Container className='px-0'>
-            <NavigationBar/>
+    
 
-        <Row>
-          <Col md={2}>
-          <div className="sidebar">
+        
+          <div className="content_bg sidebar">
+            <div className='d-flex justify-content-between align-items-center'>
+              <img
+    src={md_logo_small}
+    alt="makrodex_logo"
+    style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%" }}
+    className="img_component"
+  />
+              <FontAwesomeIcon icon={faBars} style={{fontSize:"1.2rem",color:"rgb(34, 52, 110)"}}/>
+            </div>
             
             <div className="sidebar-menu">
-            <Nav className="flex-column align-items-start">
+            <Nav className="flex-column">
            
-               <Link to="/" className="nav-link" onClick={toggleMenu}>
-                 <FontAwesomeIcon icon={faHome} className="me-2" />
-                 Dashboard
+               <Link to="/" className="nav-link d-flex px-0 justify-content-between align-items-center" onClick={toggleMenu}>
+                 <div>
+                  <FontAwesomeIcon icon={faGauge} className="me-2" />
+                 <span>Dashboard</span>
+                 </div>
+                 <FontAwesomeIcon icon={faChevronRight} className="me-2" />
                </Link>
                <Nav.Item>
                  <Nav.Link onClick={toggleMenu}>
@@ -205,15 +217,12 @@ const AdminSidebarMenu = () => {
               
             </div>
     </div>
-          </Col>
-          <Col md={10}></Col>
-
-        </Row>
+        
           
         
           
        
-      </Container>
+   
   );
 };
 

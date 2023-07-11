@@ -2,48 +2,42 @@ import { Container, Dropdown } from "react-bootstrap"
 import Image from "../../../components/Image"
 import md_logo from "../../../assets/md_logo_1.ico"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBell, faMessage } from "@fortawesome/free-solid-svg-icons"
+import { faArrowDown, faBell, faChevronDown, faMessage } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 
 const StudentNavbar=():JSX.Element=>{
     return(
-        <div className="content_bg student_account_all_border">
+        <div className="content_bg d-flex align-items-center justify-content-between student_navbar">
             <div>
 
             <Image src={md_logo} height={50} width={50} alt="makrodex"/>
             </div>
-            <div>
-                <ul>
-                    <li>
+            
+                <ul className="d-flex align-items-center my-0">
+                    <li >
                         <FontAwesomeIcon icon={faMessage}/>
                     </li>
-                    <li>
+                    <li className="px-3">
                         <FontAwesomeIcon icon={faBell}/>
                     </li>
                     <li>
             <Dropdown>
             <Dropdown.Toggle>
-            <Image src={md_logo} height={50} width={50} alt="makrodex"/>
-          
+            <Image src={md_logo} height={30} width={30} alt="makrodex"/>
+          <span className="px-2">Louis Gadza</span>
+          <FontAwesomeIcon icon={faChevronDown}/>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
               <Dropdown.Item>
-                <div className="d-flex align-items-center ml-2 justify-content-between">
-                  <span>
-                    Louis Gadza
-                  </span>
-                  <img
-                    src={md_logo}
-                    className="small-profile-img "
-                    alt=""
-                  />
-                </div>
+                <Link to="" className="textColor px-2">
+                  Change password
+                </Link>
               </Dropdown.Item>
               <Dropdown.Item>
-                <Link to="" className="textColor px-2 py-5">
-                  Registrations
+                <Link to="" className="textColor px-2">
+                  Change photo
                 </Link>
               </Dropdown.Item>
               <hr className="my-0 py-0" />
@@ -51,26 +45,17 @@ const StudentNavbar=():JSX.Element=>{
                 <Link
                   to=""
                 //   onClick={handleLogout}
-                  className="textColor px-2 py-5"
+                  className="textColor px-2"
                 >
                   Log out
                 </Link>
               </Dropdown.Item>
-              <Dropdown.Item as="div">
-                <Link to="">
-                  <Button
-                    className="px-3 primary-btn  w-100 d-flex justify-content-center  textColor "
-                    variant="primary"
-                  >
-                    <small>Delete Account</small>
-                  </Button>
-                </Link>
-              </Dropdown.Item>
+             
             </Dropdown.Menu>
           </Dropdown>
                     </li>
                 </ul>
-            </div>
+           
         </div>
     )
 }

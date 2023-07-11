@@ -5,7 +5,7 @@ import Image from "../../../components/Image"
 import image from "../../../assets/MD bannner.png"
 const ApplicationPage=():JSX.Element=>{
    return(
-    <Container className="application_page content_bg">
+    <Container className="application_page ">
         <Row>
             <Col className="d-flex banner_container px-0 mb-4">
          
@@ -15,7 +15,7 @@ const ApplicationPage=():JSX.Element=>{
             
         </Row>
         <Row>
-            <Col>
+            <Col className="px-0">
             <PersonalDataForm/>
             </Col>
             
