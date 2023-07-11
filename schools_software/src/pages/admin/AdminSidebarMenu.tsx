@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -17,22 +17,84 @@ const AdminSidebarMenu = () => {
   const toggleStudent = () => {
     setStudentOpen(!studentOpen);
   }
-  const [subjectsOpen, setSubjectsOpen] = useState(false);
+
+
+  const [showDashboard, setShowDashboard] = useState(false);
+
+  const toggleDashboard = () => {
+    setShowDashboard(!showDashboard);
+  };
+  const [showTeachers, setShowTeachers] = useState(false);
+
+  const toggleTeachers = () => {
+    setShowTeachers(!showTeachers);
+  };
+  const [showParents, setShowParents] = useState(false);
+
+  const toggleParents = () => {
+    setShowParents(!showParents);
+  };
+  const [showLibrary, setShowLibrary] = useState(false);
+
+  const toggleLibrary = () => {
+    setShowLibrary(!showLibrary);
+  };
+  const [showInventory, setShowInventory] = useState(false);
+
+  const toggleInventory = () => {
+    setShowInventory(!showInventory);
+  };
+  const [showClass, setShowClass] = useState(false);
+
+  const toggleClass = () => {
+    setShowClass(!showClass);
+  };
+  const [showClassRoutine, setShowClassRoutine] = useState(false);
+
+  const toggleClassRoutine = () => {
+    setShowClassRoutine(!showClassRoutine);
+  };
+  const [showSubjects, setShowSubjects] = useState(false);
 
   const toggleSubjects = () => {
-    setSubjectsOpen(!subjectsOpen);
-  }
-  const [showMenu, setShowMenu] = useState(false);
+    setShowSubjects(!showSubjects);
+  };
+  const [showAttendence, setShowAttendence] = useState(false);
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
+  const toggleAttendence = () => {
+    setShowAttendence(!showAttendence);
+  };
+  const [showExam, setShowExam] = useState(false);
+
+  const toggleExam = () => {
+    setShowExam(!showExam);
+  };
+  const [showTransport, setShowTransport] = useState(false);
+
+  const toggleTransport = () => {
+    setShowTransport(!showTransport);
+  };
+  const [showHostel, setShowHostel] = useState(false);
+
+  const toggleHostel = () => {
+    setShowHostel(!showHostel);
+  };
+  const [showMessages, setShowMessages] = useState(false);
+
+  const toggleMessages = () => {
+    setShowMessages(!showMessages);
+  };
+  const [showUsers, setShowUsers] = useState(false);
+
+  const toggleUsers = () => {
+    setShowUsers(!showUsers);
   };
 
   return (
     
 
         
-          <div className="content_bg sidebar">
+          <div className="main_bg sidebar">
             <div className='d-flex justify-content-between align-items-center'>
               <img
     src={md_logo_small}
@@ -45,174 +107,392 @@ const AdminSidebarMenu = () => {
             
             <div className="sidebar-menu">
             <Nav className="flex-column">
-           
-               <Link to="/" className="nav-link d-flex px-0 justify-content-between align-items-center" onClick={toggleMenu}>
+            <Nav.Item>
+               <Link to=""
+                className="nav-link d-flex px-0 justify-content-between align-items-center" 
+                onClick={(e)=>{
+                  e.stopPropagation()
+                  toggleDashboard()
+               }}
+                >
                  <div>
                   <FontAwesomeIcon icon={faGauge} className="me-2" />
                  <span>Dashboard</span>
                  </div>
-                 <FontAwesomeIcon icon={faChevronRight} className="me-2" />
+                 <FontAwesomeIcon  icon={showDashboard ? faChevronDown : faChevronRight}  className="me-2" />
                </Link>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                   <FontAwesomeIcon icon={faUserGraduate} className="me-2" />
-                   Manage Session
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={(e)=>{
-                    e.stopPropagation()
-                    toggleStudent()
-                 }}>
-                   <FontAwesomeIcon icon={faUsers} className="me-2" />
-                   <span>
-
-                   Students
-                   </span>
-                   <FontAwesomeIcon icon={studentOpen ? faChevronDown : faChevronRight} className="ms-2" />
-                 </Nav.Link>
-                
-                   {studentOpen && (
-                    <ListGroup variant="flush" className="flex-column align-items-start">
-                      <ListGroup.Item>
-                        <Link to="/admit-student">
-                        <FontAwesomeIcon icon={faUserGraduate} className="me-2" />
-                            Admit Student</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/admit-bulk" className='nowrap'><FontAwesomeIcon icon={faUsers} className="me-2" />Admit in-Bulk</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/student-info"> 
-                        <FontAwesomeIcon icon={faInfo} className="me-2" />
-                        Student Info</Link>
-                      </ListGroup.Item>
-                    </ListGroup>
-                  )}
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                   <FontAwesomeIcon icon={faLevelUpAlt} className="me-2" />
-                   Level
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                   <FontAwesomeIcon icon={faChalkboardTeacher} className="me-2" />
-                   Teachers
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                   <FontAwesomeIcon icon={faUsers} className="me-2" />
-                   Parents
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                   <Link to="librarians"><FontAwesomeIcon icon={faBook} className="me-2" />
-                   <span>Librarians</span></Link>
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/hostel">
-                    <FontAwesomeIcon icon={faHome} className="me-2" />
-                    Hostel Manager
-                  </Link>
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/clubs">
-                    <FontAwesomeIcon icon={faUsers} className="me-2" />
-                    School Clubs
-                  </Link>
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/exams">
-                    <FontAwesomeIcon icon={faClipboard} className="me-2" />
-                    Exams
-                  </Link>
-                 </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleSubjects}>
-
-                    <FontAwesomeIcon icon={faBookOpen} className="me-2" />
-                    Subjects
-                   <FontAwesomeIcon icon={subjectsOpen ? faChevronDown : faChevronRight} className="ms-2" />
-
+               {showDashboard && (
+                 <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                 <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                     Admin</Link>
+              
+                 <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Students</Link>
             
-                 </Nav.Link>
-                 {subjectsOpen && (
-                    <ListGroup variant="flush" className="flex-column align-items-start">
-                      <ListGroup.Item>
-                        <Link to="/maths">
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                            Mathematics</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/chemistry"><FontAwesomeIcon icon={faBook} className="me-2" />Chemistry</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/biology"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Biology</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/physics"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Physics</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/history"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        History</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/geology"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Geology</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/agriculture"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Agriculture</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/tg"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        TG</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/fashion"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Fashion</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/woodwork"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Wood work</Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/accounting"> 
-                        <FontAwesomeIcon icon={faBook} className="me-2" />
-                        Accounting</Link>
-                      </ListGroup.Item>
-                    </ListGroup>
+                 <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                 Teachers
+                 </Link>
+                 <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                 Parents
+                 </Link>
+               
+             </div>
+               )}
+               </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center" 
+               
+              onClick={(e)=>{
+                e.stopPropagation()
+                toggleStudent()
+             }}>
+                 <div>
+                  <FontAwesomeIcon icon={faUsers} className="me-2" />
+                 <span>Students</span>
+                 </div>
+                 <FontAwesomeIcon  icon={studentOpen ? faChevronDown : faChevronRight}  className="me-2" />
+               </Link>
+               {studentOpen && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Students</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
+                   
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Student Admission
+                        </Link>
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Admission Form 
+                        </Link>
+                      
+                    </div>
                   )}
-               </Nav.Item>
-               <Nav.Item>
-                 <Nav.Link onClick={toggleMenu}>
-                 <Link to="/id-cards">
-                    <FontAwesomeIcon icon={faIdCard} className="me-2" />
-                    Generate ID Cards
-                  </Link>
-                 </Nav.Link>
-               </Nav.Item>
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               onClick={(e)=>{
+                e.stopPropagation()
+                toggleTeachers()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faChalkboardTeacher} className="me-2" />
+                 <span>Teachers</span>
+                 </div>
+                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+               {showTeachers && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Teachers</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Teachers Details</Link>
+                   
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Add Teacher
+                        </Link>
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Payment
+                        </Link>
+                      
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleParents()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faPeopleGroup} className="me-2" />
+                 <span>Parents</span>
+                 </div>
+                 <FontAwesomeIcon icon={showParents? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+               {showParents && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Parents</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Parent Details</Link>
+                   
+                        <Link to="/parent-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                       Add Parent
+                        </Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleLibrary()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faBuilding} className="me-2" />
+                 <span>Library</span>
+                 </div>
+                 <FontAwesomeIcon icon={showLibrary? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showLibrary && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Books</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Book Details</Link>
+                   
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Add New Book
+                        </Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleInventory()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faReceipt} className="me-2" />
+                 <span>Inventory</span>
+                 </div>
+                 <FontAwesomeIcon icon={showInventory? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showInventory && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Fees Collection</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Expenses</Link>
+                   
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Add Expenses
+                        </Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleClass()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faPenRuler} className="me-2" />
+                 <span>Class</span>
+                 </div>
+                 <FontAwesomeIcon icon={showClass? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showClass && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Class</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Class</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleClassRoutine()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faCalendar} className="me-2" />
+                 <span>Class Routine</span>
+                 </div>
+                 <FontAwesomeIcon icon={showClassRoutine? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showClassRoutine && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Class Routines</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add Class Routine</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleSubjects()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faBookOpen} className="me-2" />
+                 <span>Subjects</span>
+                 </div>
+                 <FontAwesomeIcon icon={showSubjects? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showSubjects && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Subjects</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add  New Subject</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+            //     onClick={(e)=>{
+            //     e.stopPropagation()
+            //     toggleTeachers()
+            //  }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faClipboardUser} className="me-2" />
+                 <span>Attendance</span>
+                 </div>
+                 {/* <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> */}
+               </Link>
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleExam()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faClipboardCheck} className="me-2" />
+                 <span>Exam</span>
+                 </div>
+                 <FontAwesomeIcon icon={showExam? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showExam && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            Exam Schedule</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Exam Grades</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleTransport()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faBus} className="me-2" />
+                 <span>Transport</span>
+                 </div>
+                 <FontAwesomeIcon icon={showTransport? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showTransport && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Transports</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Transport</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleHostel()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faBed} className="me-2" />
+                 <span>Hostel</span>
+                 </div>
+                 <FontAwesomeIcon icon={showHostel? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showHostel && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Rooms</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Hostel</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+            
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faMessage} className="me-2" />
+                 <span>Messages</span>
+                 </div>
+                  {/* <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> */}
+               </Link>
+                
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleUsers()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faUser} className="me-2" />
+                 <span>Accounts</span>
+                 </div>
+                  <FontAwesomeIcon icon={showUsers? faChevronDown : faChevronRight} className="me-2" />
+               </Link>
+                {showUsers && (
+                    <div className=" d-flex flex-column content_bg align-items-start">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Admins</Link>
+                     
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Admin</Link>
+                    </div>
+                  )}
+            </Nav.Item>
+              
+
                </Nav>
               
             </div>
