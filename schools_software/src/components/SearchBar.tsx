@@ -7,9 +7,9 @@ interface SearchBarPlaceholder {
   }
 const SearchBar:React.FC<SearchBarPlaceholder> =({placeholder})=>{
     return(
-        <div>
-            <FontAwesomeIcon icon={faSearch}/>
-            <input type="text" placeholder={placeholder}/>
+        <div className="d-flex align-items-center">
+            <FontAwesomeIcon className="text-muted" icon={faSearch}/>
+            <input type="text" className="search w-100 py-2 px-2 ms-1" placeholder={placeholder}/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import NavigationBar from '../../components/NavigationBar';
 import Image from '../../components/Image';
 import md_logo_small from "../../assets/md_logo_small.png"
 
-const AdminSidebarMenu = () => {
+const AdminSidebarMenu = ({showMenu,toggleMenu}:{showMenu:boolean;toggleMenu:(component:boolean)=>void}) => {
   const [studentOpen, setStudentOpen] = useState(false);
 
   const toggleStudent = () => {
@@ -59,11 +59,7 @@ const AdminSidebarMenu = () => {
   const toggleSubjects = () => {
     setShowSubjects(!showSubjects);
   };
-  const [showMenu, setShowMenu] = useState(true);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+ 
   const [showExam, setShowExam] = useState(false);
 
   const toggleExam = () => {
@@ -582,6 +578,24 @@ const AdminSidebarMenu = () => {
                         <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Admin</Link>
                     </div>
                   )}
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
+            
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faBell} className="me-2" />
+                  {showMenu && (
+
+                 <span>Notice</span>
+)}
+                 </div>
+                  {/* {showMenu && (
+                   <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> 
+
+                  )} */}
+               </Link>
+                
             </Nav.Item>
                </Nav>             
             </div>

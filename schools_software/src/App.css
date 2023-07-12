@@ -9,6 +9,7 @@
 }
 :root {
   --main-bg: rgb(0, 0, 0);
+  --content-bg-2: rgb(34, 52, 110);
   --bg-1: rgb(32, 32, 32);
   --bg-2: rgb(42, 57, 66);
 
@@ -41,6 +42,15 @@ color: white !important;
   min-height: 100vh !important;
 
 }
+.icon-bg{
+  height: 30px;
+  width: 30px;
+  background-color: aqua;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .content_bg{
   color:white;
   background-color:var(--bg-1);
@@ -63,6 +73,9 @@ color: white !important;
 }
 .main_bg{
   background-color: var(--main-bg) !important;
+}
+.content_bg-2{
+  background-color: var(--content-bg-2) !important;
 }
 .main_bg.list-group-flush{
   background-color: var(--main-bg) !important;
@@ -124,4 +137,12 @@ input[type="checkbox"]:not(:checked) {
 }
 .nav-item a.nowrap:hover{
   background-color: var(--main-bg) ;
+}
+.show>.btn-primary.dropdown-toggle{
+  border-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: none !important;
 }
