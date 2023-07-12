@@ -6,6 +6,7 @@ import { faBell, faCalendar, faCheck, faChevronDown, faEnvelope, faGear, faListC
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "../../components/Image"
 import { Link } from "react-router-dom"
+import PersonalDataForm from "../admissionsManagement/student/PersonalDataForm"
 
 
 const AdmissionFormPage=():JSX.Element=>{
@@ -21,7 +22,7 @@ const AdmissionFormPage=():JSX.Element=>{
                 <AdminSidebarMenu toggleMenu={toggleMenu} showMenu={showMenu} />
                 </Col>
                 <Col>
-                <div className="search-bar py-2 d-flex align-items-center sidebar-head justify-content-between">
+                <div className="search-bar py-2 mb-4 d-flex align-items-center sidebar-head justify-content-between">
                     <SearchBar placeholder="Find Something . . ."/>
                     <ul className="d-flex align-items-center">
                         <li className="navbar-item d-flex align-items-center">         
@@ -83,7 +84,7 @@ const AdmissionFormPage=():JSX.Element=>{
             </Dropdown.Menu>
           </Dropdown>
           </li>
-     <li className="navbar-item header-message px-3">              
+     <li className="navbar-item header-message px-0">              
         <Dropdown>
             <Dropdown.Toggle className="navbar-item d-flex align-items-center">
             <FontAwesomeIcon icon={faEnvelope}/>
@@ -183,6 +184,9 @@ const AdmissionFormPage=():JSX.Element=>{
           </Dropdown>
           </li>
                     </ul>
+                </div>
+                <div>
+                    <PersonalDataForm/>
                 </div>
                 </Col>
             </Row>

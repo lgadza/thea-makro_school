@@ -85,7 +85,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu}:{showMenu:boolean;toggleMenu:(co
     
 
         
-          <div className={showMenu?"main_bg sidebar":"main_bg sidebar hide-menu"}>
+          <div className={showMenu?"main_bg sidebar ":"main_bg sidebar hide-menu"}>
             <div className='d-flex sidebar-head justify-content-between ps-2 py-2 align-items-center'>
     {showMenu && (
                 <img
