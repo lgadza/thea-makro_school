@@ -119,3 +119,9 @@ input[type="email"].form-control {
 input[type="checkbox"]:not(:checked) {
   background-color: var(--bg-1) !important;
 }
+.nav-item:hover{
+  background-color: var(--bg-1) ;
+}
+.nav-item a.nowrap:hover{
+  background-color: var(--main-bg) ;
+}

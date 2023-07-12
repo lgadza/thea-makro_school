@@ -15,6 +15,7 @@ import Login from './components/Login.js'
 import ApplicationPage from './pages/admissionsManagement/student/ApplicationPage'
 import StudentNavigationbar from './pages/admissionsManagement/student/StudentSideBar.js'
 import StudentAccountPage from './pages/admissionsManagement/student/account/StudentAccountPage.js'
+import AdmissionFormPage from './pages/admin/AdmissionFormPage.js'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="tsss/fhs/application" element={<ApplicationPage/>}/>
         <Route path="tsss/fhs/login" element={<Login/>}/>
         <Route path="tsss/admin" element={<AdminSidebarMenu/>}/>
+        <Route path="tsss/admin/admission/form" element={<AdmissionFormPage/>}/>
        <Route path="tsss/catalog" element={<Catalog/>}/>
        <Route path="tsss/news" element={<News/>}/>
        <Route path="tsss/students" element={<Students/>}/>

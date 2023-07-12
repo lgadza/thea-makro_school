@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -59,10 +59,10 @@ const AdminSidebarMenu = () => {
   const toggleSubjects = () => {
     setShowSubjects(!showSubjects);
   };
-  const [showAttendence, setShowAttendence] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
 
-  const toggleAttendence = () => {
-    setShowAttendence(!showAttendence);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
   };
   const [showExam, setShowExam] = useState(false);
 
@@ -79,11 +79,6 @@ const AdminSidebarMenu = () => {
   const toggleHostel = () => {
     setShowHostel(!showHostel);
   };
-  const [showMessages, setShowMessages] = useState(false);
-
-  const toggleMessages = () => {
-    setShowMessages(!showMessages);
-  };
   const [showUsers, setShowUsers] = useState(false);
 
   const toggleUsers = () => {
@@ -94,22 +89,29 @@ const AdminSidebarMenu = () => {
     
 
         
-          <div className="main_bg sidebar">
-            <div className='d-flex justify-content-between align-items-center'>
-              <img
-    src={md_logo_small}
-    alt="makrodex_logo"
-    style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%" }}
-    className="img_component"
-  />
-              <FontAwesomeIcon icon={faBars} style={{fontSize:"1.2rem",color:"rgb(34, 52, 110)"}}/>
+          <div className={showMenu?"main_bg sidebar":"main_bg sidebar hide-menu"}>
+            <div className='d-flex sidebar-head justify-content-between ps-2 py-2 align-items-center'>
+    {showMenu && (
+                <img
+                src={md_logo_small}
+                alt="makrodex_logo"
+                style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%" }}
+                className="img_component"
+              />
+    )}
+  <Link to=""
+  onClick={toggleMenu}
+  >
+
+              <FontAwesomeIcon icon={showMenu?faBars:faXmark} style={{fontSize:"1.2rem",color:"rgb(34, 52, 110)"}}/>
+  </Link>
             </div>
             
             <div className="sidebar-menu">
             <Nav className="flex-column">
             <Nav.Item>
                <Link to=""
-                className="nav-link d-flex px-0 justify-content-between align-items-center" 
+                className="nav-link d-flex pe-0 justify-content-between ps-2 align-items-center" 
                 onClick={(e)=>{
                   e.stopPropagation()
                   toggleDashboard()
@@ -117,12 +119,18 @@ const AdminSidebarMenu = () => {
                 >
                  <div>
                   <FontAwesomeIcon icon={faGauge} className="me-2" />
+                  {showMenu && (
+
                  <span>Dashboard</span>
+                  )}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon  icon={showDashboard ? faChevronDown : faChevronRight}  className="me-2" />
+
+                 )}
                </Link>
                {showDashboard && (
-                 <div className=" d-flex flex-column content_bg align-items-start">
+                 <div className=" d-flex flex-column content_bg">
                      
                  <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -143,7 +151,7 @@ const AdminSidebarMenu = () => {
                )}
                </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center" 
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2" 
                
               onClick={(e)=>{
                 e.stopPropagation()
@@ -151,12 +159,18 @@ const AdminSidebarMenu = () => {
              }}>
                  <div>
                   <FontAwesomeIcon icon={faUsers} className="me-2" />
+                  {showMenu && (
+
                  <span>Students</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon  icon={studentOpen ? faChevronDown : faChevronRight}  className="me-2" />
+
+                 )}
                </Link>
                {studentOpen && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -177,7 +191,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                onClick={(e)=>{
                 e.stopPropagation()
                 toggleTeachers()
@@ -185,12 +199,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faChalkboardTeacher} className="me-2" />
+                  {showMenu && (
+
                  <span>Teachers</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                {showTeachers && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -211,7 +231,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleParents()
@@ -219,12 +239,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faPeopleGroup} className="me-2" />
+                 {showMenu && (
                  <span>Parents</span>
+
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showParents? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                {showParents && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -240,7 +266,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleLibrary()
@@ -248,12 +274,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faBuilding} className="me-2" />
+                  {showMenu && (
+
                  <span>Library</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showLibrary? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showLibrary && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -269,7 +301,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleInventory()
@@ -277,12 +309,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faReceipt} className="me-2" />
+                  {showMenu && (
+
                  <span>Inventory</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showInventory? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showInventory && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -298,7 +336,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleClass()
@@ -306,12 +344,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faPenRuler} className="me-2" />
+                  {showMenu && (
+
                  <span>Class</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showClass? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showClass && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -322,7 +366,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleClassRoutine()
@@ -330,12 +374,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faCalendar} className="me-2" />
+                  {showMenu && (
+
                  <span>Class Routine</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showClassRoutine? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showClassRoutine && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -346,7 +396,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleSubjects()
@@ -354,12 +404,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faBookOpen} className="me-2" />
+                  {showMenu && (
+
                  <span>Subjects</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showSubjects? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showSubjects && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -370,7 +426,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
             //     onClick={(e)=>{
             //     e.stopPropagation()
             //     toggleTeachers()
@@ -378,13 +434,19 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faClipboardUser} className="me-2" />
+                  {showMenu && (
+
                  <span>Attendance</span>
+)}
                  </div>
-                 {/* <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> */}
+                 {/* {showMenu && (
+                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> 
+
+                 )} */}
                </Link>
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleExam()
@@ -392,12 +454,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faClipboardCheck} className="me-2" />
+                  {showMenu && (
+
                  <span>Exam</span>
+)}
                  </div>
+               {showMenu && (
                  <FontAwesomeIcon icon={showExam? faChevronDown : faChevronRight} className="me-2" />
+
+               )}
                </Link>
                 {showExam && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -408,7 +476,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleTransport()
@@ -416,12 +484,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faBus} className="me-2" />
+                 {showMenu && (
                  <span>Transport</span>
+
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showTransport? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showTransport && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -432,7 +506,7 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleHostel()
@@ -440,12 +514,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faBed} className="me-2" />
+                  {showMenu && (
+
                  <span>Hostel</span>
+)}
                  </div>
+                 {showMenu && (
                  <FontAwesomeIcon icon={showHostel? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
                </Link>
                 {showHostel && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -456,19 +536,25 @@ const AdminSidebarMenu = () => {
                   )}
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
             
                >
                  <div>
                   <FontAwesomeIcon icon={faMessage} className="me-2" />
+                  {showMenu && (
+
                  <span>Messages</span>
+)}
                  </div>
-                  {/* <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> */}
+                  {/* {showMenu && (
+                   <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> 
+
+                  )} */}
                </Link>
                 
             </Nav.Item>
             <Nav.Item>
-               <Link to="" className="nav-link d-flex px-0 justify-content-between align-items-center"
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleUsers()
@@ -476,12 +562,18 @@ const AdminSidebarMenu = () => {
                >
                  <div>
                   <FontAwesomeIcon icon={faUser} className="me-2" />
+                  {showMenu && (
+
                  <span>Accounts</span>
+)}
                  </div>
+                  {showMenu && (
                   <FontAwesomeIcon icon={showUsers? faChevronDown : faChevronRight} className="me-2" />
+
+                  )}
                </Link>
                 {showUsers && (
-                    <div className=" d-flex flex-column content_bg align-items-start">
+                    <div className=" d-flex flex-column content_bg">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -491,18 +583,9 @@ const AdminSidebarMenu = () => {
                     </div>
                   )}
             </Nav.Item>
-              
-
-               </Nav>
-              
+               </Nav>             
             </div>
-    </div>
-        
-          
-        
-          
-       
-   
+    </div>  
   );
 };
 
