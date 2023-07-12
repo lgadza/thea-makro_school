@@ -93,7 +93,7 @@ a{
   padding: 2em;
 }
 .img_component{
-  object-fit: cover;
+  object-fit:contain;
 }
 .read-the-docs {
   color: #888;

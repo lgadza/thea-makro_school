@@ -9,7 +9,7 @@ const SearchBar:React.FC<SearchBarPlaceholder> =({placeholder})=>{
     return(
         <div className="d-flex align-items-center">
             <FontAwesomeIcon className="text-muted" icon={faSearch}/>
-            <input type="text" className="search w-100 py-2 px-2 ms-1" placeholder={placeholder}/>
+            <input type="text" style={{width:"30rem"}} className="search py-2 px-2 ms-1" placeholder={placeholder}/>
         </div>
     )
 }

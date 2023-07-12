@@ -1,6 +1,6 @@
 import { Container, Dropdown } from "react-bootstrap"
 import Image from "../../../components/Image"
-import md_logo from "../../../assets/md_logo_1.ico"
+import md_logo from "../../../assets/md_logo_small.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown, faBell, faChevronDown, faMessage } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap"
 
 const StudentNavbar=():JSX.Element=>{
     return(
-        <div className="content_bg d-flex align-items-center justify-content-between student_navbar">
+        <div className="content_bg main_bg sidebar d-flex align-items-center justify-content-between student_navbar">
             <div>
 
             <Image src={md_logo} height={50} width={50} alt="makrodex"/>
