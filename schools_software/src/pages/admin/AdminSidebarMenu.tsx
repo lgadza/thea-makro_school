@@ -11,7 +11,7 @@ import NavigationBar from '../../components/NavigationBar';
 import Image from '../../components/Image';
 import md_logo_small from "../../assets/md_logo_small.png"
 
-const AdminSidebarMenu = ({showMenu,toggleMenu}:{showMenu:boolean;toggleMenu:(component:boolean)=>void}) => {
+const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void;activePage:string;handlePageNavigationClick:(page:string)=>void}) => {
   const [studentOpen, setStudentOpen] = useState(false);
 
   const toggleStudent = () => {
@@ -178,7 +178,10 @@ const AdminSidebarMenu = ({showMenu,toggleMenu}:{showMenu:boolean;toggleMenu:(co
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Student Admission
                         </Link>
-                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <Link to="/tsss/admin/admission/form" className={`d-flex align-items-center nowrap px-2 py-2 ${activePage==="StudentAdmissionForm"?"active":""}`
+                      } onClick={(e)=>{
+                        e.stopPropagation()
+                        handlePageNavigationClick("StudentAdmissionForm")}}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Admission Form 
                         </Link>
