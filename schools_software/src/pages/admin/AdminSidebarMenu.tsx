@@ -126,7 +126,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                {showDashboard && (
-                 <div className=" d-flex flex-column content_bg">
+                 <div className=" d-flex flex-column content_bg overlap">
                      
                  <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -166,7 +166,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                {studentOpen && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -209,7 +209,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                {showTeachers && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -249,7 +249,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                {showParents && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -284,7 +284,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showLibrary && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -319,7 +319,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showInventory && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -354,7 +354,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showClass && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -384,7 +384,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showClassRoutine && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -414,7 +414,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showSubjects && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -464,7 +464,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                )}
                </Link>
                 {showExam && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -494,7 +494,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showTransport && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -524,7 +524,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                  )}
                </Link>
                 {showHostel && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -572,7 +572,7 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                   )}
                </Link>
                 {showUsers && (
-                    <div className=" d-flex flex-column content_bg">
+                    <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />

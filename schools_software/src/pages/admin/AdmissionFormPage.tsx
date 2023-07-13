@@ -2,7 +2,7 @@ import { Row ,Container, Col, Dropdown} from "react-bootstrap"
 import AdminSidebarMenu from "./AdminSidebarMenu"
 import SearchBar from "../../components/SearchBar"
 import { useState } from "react"
-import { faBell, faCalendar, faCheck, faChevronDown, faEnvelope, faGear, faListCheck, faMessage, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faBell, faCalendar, faCheck, faChevronDown, faChevronLeft, faChevronRight, faEnvelope, faGear, faListCheck, faMessage, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "../../components/Image"
 import { Link } from "react-router-dom"
@@ -16,6 +16,7 @@ import Settings from "../admissionsManagement/student/account/Settings"
 import Interview from "../admissionsManagement/student/account/Interview"
 import ApplicationStatus from "../admissionsManagement/student/account/ApplicationStatus"
 import ProgramInformation from "../admissionsManagement/student/ProgramInformation"
+import StudentOverviewRow from "../../components/StudentOverviewRow"
 
 
 const AdmissionFormPage=():JSX.Element=>{
@@ -40,8 +41,8 @@ const AdmissionFormPage=():JSX.Element=>{
                 <Col md={2} className={showMenu?"":"hide-menu md-1"} >
                 <AdminSidebarMenu toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handleNavigationClick} activePage={activePage} />
                 </Col>
-                <Col>
-                <div className="search-bar py-2 mb-4 d-flex align-items-center sidebar-head justify-content-between">
+                <Col className="mx-3">
+                <div className="search-bar py-2 px-3 mb-4 d-flex align-items-center sidebar-head justify-content-between">
                     <SearchBar placeholder="Find Something . . ."/>
                     <ul className="d-flex align-items-center">
                         <li className="navbar-item d-flex align-items-center">         
@@ -229,9 +230,26 @@ const AdmissionFormPage=():JSX.Element=>{
   )
 }
 <div>
-  <input type="checkbox" name="enroll" />
-  <Image/>
+<h4 className="d-flex">All Candidates</h4>
+<div className="d-flex align-items-center">
+<span>Home</span> 
+<FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
+<span className="header">All Candidates</span>
 </div>
+<div className="d-flex justify-content-end search mt-4 ">
+  <SearchBar placeholder="Search by Roll, Name, Class"/>
+</div>
+<div className="mt-4">
+  {
+    Array(10).fill(undefined).map((_,index)=>(
+      <div key={index}>
+        <StudentOverviewRow/>
+      </div>
+    ))
+  }
+</div>
+</div>
+
                 </Col>
             </Row>
             

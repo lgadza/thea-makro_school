@@ -32,7 +32,7 @@ const Admin = () => {
         {/* <NavigationBar/> */}
         <Row>
           <Col md={2}>
-          <AdminSidebarMenu/>
+          {/* <AdminSidebarMenu/> */}
           </Col>
           <Col md={10}>
           <h1 className='text-start'>Louis</h1>
