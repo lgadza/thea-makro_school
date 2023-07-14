@@ -134,6 +134,7 @@ input[type="checkbox"]:not(:checked) {
 }
 .nav-item:hover{
   background-color: var(--bg-1) ;
+  cursor: pointer;
 }
 .nav-item a.nowrap:hover{
   background-color: var(--main-bg) ;

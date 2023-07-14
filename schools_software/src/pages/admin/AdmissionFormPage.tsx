@@ -17,6 +17,7 @@ import Interview from "../admissionsManagement/student/account/Interview"
 import ApplicationStatus from "../admissionsManagement/student/account/ApplicationStatus"
 import ProgramInformation from "../admissionsManagement/student/ProgramInformation"
 import StudentOverviewRow from "../../components/StudentOverviewRow"
+import StudentProfileTable from "../../components/StudentProfileTable"
 
 
 const AdmissionFormPage=():JSX.Element=>{
@@ -205,7 +206,7 @@ const AdmissionFormPage=():JSX.Element=>{
           </li>
                     </ul>
                 </div>
-                {
+                {/* {
         activePage==="StudentAdmissionForm" &&(
                 <Row className="student_account_all_border py-3 mt-4 ">
     <Col sm={3} className="student_account_border  py-3 ">
@@ -228,11 +229,15 @@ const AdmissionFormPage=():JSX.Element=>{
     </Col>
 </Row>
   )
-}
-<div>
+} */}
+
+
+{/* ALL CANDIDATES */}
+
+{/* <div>
 <h4 className="d-flex">All Candidates</h4>
 <div className="d-flex align-items-center">
-<span>Home</span> 
+<span>Students</span> 
 <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
 <span className="header">All Candidates</span>
 </div>
@@ -248,8 +253,48 @@ const AdmissionFormPage=():JSX.Element=>{
     ))
   }
 </div>
+</div> */}
+{/* ALL CANDIDATES */}
+<div>
+<h4 className="d-flex">Candidates</h4>
+<div className="d-flex align-items-center">
+<span>Students</span> 
+<FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
+<span>All Candidates</span> 
+<FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
+<span className="header">Candidate details</span>
 </div>
 
+<div className="d-flex mt-5">
+<div className="p-3">
+<Image src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&uid=R36208328&ga=GA1.1.377730112.1687240299&semt=ais" height={200} width={200} alt="avatar"/>
+<h5 className="mt-2 mb-0">Louis Gadza</h5>
+<span>Form 5</span>
+</div>
+<div className="ms-5 w-100  content_bg ">
+  <ul className="d-flex justify-content-start view-candidate py-2">
+    <li className="nav-item pe-3">
+      Profile
+    </li>
+    <li className="nav-item pe-3">
+      Parents
+    </li>
+    <li className="nav-item pe-3">
+      Address
+    </li>
+    <li className="nav-item pe-3">
+      Documents
+    </li>
+    <li className="nav-item">
+      Status
+    </li>
+  </ul>
+  <div className="px-3">
+   <StudentProfileTable/>
+  </div>
+</div>
+</div>
+</div>
                 </Col>
             </Row>
             
