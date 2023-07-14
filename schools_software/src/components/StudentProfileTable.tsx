@@ -19,6 +19,10 @@ const StudentProfileTable=():JSX.Element=>{
             <td>078672292</td>
           </tr>
           <tr>
+            <td>Email</td>
+            <td>louis@gmail.com</td>
+          </tr>
+          <tr>
             <td>Citizenship</td>
             <td>Zimbabwean</td>
           </tr>

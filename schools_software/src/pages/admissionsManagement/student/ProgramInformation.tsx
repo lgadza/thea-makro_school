@@ -31,7 +31,7 @@ const ProgramInformation=():JSX.Element=>{
     <span className="d-flex">February 2024</span>
     </Col>
 </Row>
-<Row className="mb-4">
+<Row className="mb-4 bottom-border">
     <Col><span className="d-flex">Academic year:</span></Col>
     <Col>
     <span className="d-flex">2024</span>

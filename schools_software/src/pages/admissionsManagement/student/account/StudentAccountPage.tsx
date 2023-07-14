@@ -25,41 +25,39 @@ const StudentAccountPage=():JSX.Element=>{
             <div>
                 <StudentNavbar/>
             </div>
-        <Row>
-            <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar">
-               
-            <Image src={image} height={100} width={100} alt="userName"/>
-<div className="d-flex flex-column align-items-start px-3">
-    <h5>Student Name</h5>
-<div>Phone number</div>
-<div>Form 4</div>
-</div>
-          
-            </Col>
+            <Row>
+                <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar">
+                
+                    <Image src={image} height={100} width={100} alt="userName"/>
+                    <div className="d-flex flex-column align-items-start px-3">
+                        <h5>Student Name</h5>
+                    <div>Phone number</div>
+                    <div>Form 4</div>
+                    </div>
             
-        </Row>
-<Row className="student_account_all_border py-3 mt-4 ">
-    <Col sm={3} className="student_account_border  py-3 ">
-    <StudentSideBar
-     activeComponent={activeComponent}
-     handleNavigationClick={handleNavigationClick}
-     />
-    </Col>
-    <Col sm={9} >
-        <div className="student_account_border content_bg py-3 px-3 ">
-        {activeComponent === "PersonalData" && <PersonalData />}
-          {activeComponent === "Address" && <Address />}
-          {activeComponent === "Guardian" && <Guardian />}
-          {activeComponent === "Documents" && <Documents />}
-          {activeComponent === "Settings" && <Settings />}
-          {activeComponent === "Interview" && <Interview />}
-          {activeComponent === "Status" && <ApplicationStatus />}
-          {activeComponent === "ProgramInformation" && <ProgramInformation />}
-        </div>
-    
-   
-    </Col>
-</Row>
+                </Col>
+            </Row>
+            <Row className="student_account_all_border py-3 mt-4 ">
+                <Col sm={3} className="student_account_border  py-3 ">
+                    <StudentSideBar
+                    source="student"
+                    activeComponent={activeComponent}
+                    handleNavigationClick={handleNavigationClick}
+                    />
+                </Col>
+                <Col sm={9} >
+                    <div className="student_account_border content_bg py-3 px-3 ">
+                    {activeComponent === "PersonalData" && <PersonalData />}
+                    {activeComponent === "Address" && <Address />}
+                    {activeComponent === "Guardian" && <Guardian />}
+                    {activeComponent === "Documents" && <Documents />}
+                    {activeComponent === "Settings" && <Settings />}
+                    {activeComponent === "Interview" && <Interview />}
+                    {activeComponent === "Status" && <ApplicationStatus />}
+                    {activeComponent === "ProgramInformation" && <ProgramInformation />}
+                    </div>
+                </Col>
+            </Row>
         </Container>
     )
 }

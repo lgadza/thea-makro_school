@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap"
 
 const StudentNavbar=():JSX.Element=>{
     return(
-        <div className="content_bg main_bg sidebar d-flex align-items-center justify-content-between student_navbar">
+        <div className="content_bg main_bg d-flex align-items-center justify-content-between student_navbar">
             <div>
 
             <Image src={md_logo} height={50} width={50} alt="makrodex"/>

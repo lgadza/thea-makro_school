@@ -2,7 +2,7 @@ import { faCircleInfo, faCircleNotch, faFile, faGear, faLocation, faPenSquare, f
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
 
-const StudentSideBar=({activeComponent,handleNavigationClick}:{activeComponent:string;handleNavigationClick:(component:string)=>void}):JSX.Element=>{
+const StudentSideBar=({source,activeComponent,handleNavigationClick}:{activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element=>{
     
     return(
         <div>
@@ -30,7 +30,9 @@ const StudentSideBar=({activeComponent,handleNavigationClick}:{activeComponent:s
         <FontAwesomeIcon icon={faPeopleGroup}/>
         <span className="mx-2 ">Guardian/Parents</span>
     </li>
-    <li className={`my-2 ${activeComponent === "Status" ? "active" : ""}`}
+    {source==="student" &&(
+      <>
+        <li className={`my-2 ${activeComponent === "Status" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Status")}>
         <FontAwesomeIcon icon={faCircleNotch}/>
         <span className="mx-2 ">Status</span>
@@ -50,6 +52,9 @@ const StudentSideBar=({activeComponent,handleNavigationClick}:{activeComponent:s
         <FontAwesomeIcon icon={faGear}/>
         <span className="mx-2 ">Settings</span>
     </li>
+      </>
+    )}
+  
     
 </ul>
     

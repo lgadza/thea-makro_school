@@ -224,3 +224,4 @@ cursor: pointer;
  .student-table tr:not(:last-child) {
   border-bottom: 1px solid var(--bg-2);
 }
+
