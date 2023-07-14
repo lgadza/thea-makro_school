@@ -7,7 +7,14 @@ export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
 export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
 export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
 export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
+export const ACTIVE_NAV="ACTIVE_NAV"
 
+export const ActiveNav=(component:string)=>{
+    return{
+        type:ACTIVE_NAV,
+        payload:component
+    }
+}
 export const ApplicantRegister = (formData:ApplicantRegistration) => {
     
     return async (dispatch:Dispatch)=>{

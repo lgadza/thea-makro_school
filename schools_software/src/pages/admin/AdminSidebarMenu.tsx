@@ -172,13 +172,13 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Students</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
+                        <Link to="/mss/admin/admission/candidates/candidate-details" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
                    
-                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <Link to="/mss/admin/admission/candidates" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Student Admission
                         </Link>
-                        <Link to="/tsss/admin/admission/form" className={`d-flex align-items-center nowrap px-2 py-2 ${activePage==="StudentAdmissionForm"?"active":""}`
+                        <Link to="/mss/admin/admission/form" className={`d-flex align-items-center nowrap px-2 py-2 ${activePage==="StudentAdmissionForm"?"active":""}`
                       } onClick={(e)=>{
                         e.stopPropagation()
                         handlePageNavigationClick("StudentAdmissionForm")}}> 

@@ -9,7 +9,8 @@
 }
 :root {
   --main-bg: rgb(0, 0, 0);
-  --content-bg-2: rgb(34, 52, 110);
+  /* --content-bg-2: rgb(34, 52, 110); */
+  --content-bg-2: rgb(11, 94, 215);
   --bg-1: rgb(32, 32, 32);
   --bg-2: rgb(42, 57, 66);
 
@@ -152,3 +153,6 @@ input[type="checkbox"]:not(:checked) {
   color: red !important;
 } */
 
+/* button[type="button"].btn.btn-primary{
+  background-color: var(--content-bg-2) !important;
+} */

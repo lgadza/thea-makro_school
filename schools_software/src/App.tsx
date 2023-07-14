@@ -19,7 +19,7 @@ import AdmissionCandidatesPage from './pages/admin/AdmissionCandidatesPage.js'
 import AdmissionCandidateDetails from './pages/admin/AdmissionCandidateDetails.js'
 import StudentAccountPage from './pages/admissionsManagement/student/account/StudentAccountPage.js'
 
-
+// mss makro_school_solution
 function App() {
 
   return (
@@ -29,18 +29,18 @@ function App() {
       {/* <NavigationBar/> */}
       {/* <Footer/> */}
       <Routes>
-        <Route path="tsss/fhs/application" element={<ApplicationPage/>}/>
-        <Route path="tsss/fhs/login" element={<Login/>}/>
-        {/* <Route path="tsss/admin" element={<AdminSidebarMenu/>}/> */}
-        <Route path="tsss/admin/admission/form" element={<AdmissionFormPage/>}/>
-       <Route path="tsss/catalog" element={<Catalog/>}/>
-       <Route path="tsss/news" element={<News/>}/>
-       <Route path="tsss/students" element={<Students/>}/>
-       <Route path="tsss/library" element={<LibraryPage/>}/>
-       <Route path="tsss/checkouts" element={<CheckoutsPage/>}/>
-       <Route path="tsss/student/account/louis-gadza" element={<StudentAccountPage/>}/>
-       <Route path="tsss/admin/admission/candidates/candidate-details" element={<AdmissionCandidateDetails/>}/>
-       <Route path="tsss/admin/admission/candidates" element={<AdmissionCandidatesPage/>}/>
+        <Route path="mss/application" element={<ApplicationPage/>}/>
+        <Route path="mss/login" element={<Login/>}/>
+        {/* <Route path="mss/admin" element={<AdminSidebarMenu/>}/> */}
+        <Route path="mss/admin/admission/form" element={<AdmissionFormPage/>}/>
+       <Route path="mss/catalog" element={<Catalog/>}/>
+       <Route path="mss/news" element={<News/>}/>
+       <Route path="mss/students" element={<Students/>}/>
+       <Route path="mss/library" element={<LibraryPage/>}/>
+       <Route path="mss/checkouts" element={<CheckoutsPage/>}/>
+       <Route path="mss/student/account/louis-gadza" element={<StudentAccountPage/>}/>
+       <Route path="mss/admin/admission/candidates/candidate-details" element={<AdmissionCandidateDetails/>}/>
+       <Route path="mss/admin/admission/candidates" element={<AdmissionCandidatesPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>
