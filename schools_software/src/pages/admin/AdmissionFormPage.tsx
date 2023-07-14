@@ -18,6 +18,7 @@ import ApplicationStatus from "../admissionsManagement/student/account/Applicati
 import ProgramInformation from "../admissionsManagement/student/ProgramInformation"
 import StudentOverviewRow from "../../components/StudentOverviewRow"
 import StudentProfileTable from "../../components/StudentProfileTable"
+import StudentParentsTable from "../../components/StudentParentsTable"
 
 
 const AdmissionFormPage=():JSX.Element=>{
@@ -290,7 +291,8 @@ const AdmissionFormPage=():JSX.Element=>{
     </li>
   </ul>
   <div className="px-3">
-   <StudentProfileTable/>
+   {/* <StudentProfileTable/> */}
+   <StudentParentsTable/>
   </div>
 </div>
 </div>
