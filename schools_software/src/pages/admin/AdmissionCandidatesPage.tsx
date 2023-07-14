@@ -6,6 +6,7 @@ import { faChevronRight} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import StudentOverviewRow from "../../components/StudentOverviewRow"
 import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
+import { Link } from "react-router-dom"
 
 
 const AdmissionCandidatesPage=():JSX.Element=>{
@@ -49,7 +50,9 @@ const AdmissionCandidatesPage=():JSX.Element=>{
                         {
                             Array(10).fill(undefined).map((_,index)=>(
                             <div key={index}>
+                                <Link to="/tsss/admin/admission/candidates/candidate-details">
                                 <StudentOverviewRow/>
+                                </Link>
                             </div>
                             ))
                         }

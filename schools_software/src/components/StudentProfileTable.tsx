@@ -1,4 +1,6 @@
 const StudentProfileTable=():JSX.Element=>{
+    const emailAddress="louis@gmail.com"
+    const tel=793433455
     return(
         <table className="student-table w-100">
         <tbody>
@@ -16,11 +18,15 @@ const StudentProfileTable=():JSX.Element=>{
           </tr>
           <tr>
             <td>Mobile No</td>
-            <td>078672292</td>
+            <td>
+                <a className="header" href={`tel:${tel}`}>{tel}</a>
+            </td>
           </tr>
           <tr>
             <td>Email</td>
-            <td>louis@gmail.com</td>
+            <td>
+                <a className="header" href={`mailto:${emailAddress}`}>{emailAddress}</a>
+            </td>
           </tr>
           <tr>
             <td>Citizenship</td>
