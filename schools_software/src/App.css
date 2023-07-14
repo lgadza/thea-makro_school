@@ -156,3 +156,27 @@ input[type="checkbox"]:not(:checked) {
 /* button[type="button"].btn.btn-primary{
   background-color: var(--content-bg-2) !important;
 } */
+
+.edit-text input,
+.edit-text input:active,
+.edit-text input:focus {
+  background-color: rgb(42, 57, 66, 0) !important;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+  color: white;
+}
+.edit-text textarea,
+.edit-text textarea:active {
+  background-color: rgb(42, 57, 66, 0) !important;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+  color: white;
+}
+.edit-text textarea:focus {
+  background-color: rgb(32, 44, 51) !important;
+}
+.cursor-pointer{
+  cursor: pointer;
+}

@@ -10,6 +10,9 @@ import logo from "../../../assets/TM logo.png"
 import NavigationBar from '../../components/NavigationBar';
 import Image from '../../components/Image';
 import md_logo_small from "../../assets/md_logo_small.png"
+import { useDispatch } from 'react-redux';
+import { ActiveNav } from '../../redux/actions';
+import { useSelector } from 'react-redux';
 
 const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void;activePage:string;handlePageNavigationClick:(page:string)=>void}) => {
   const [studentOpen, setStudentOpen] = useState(false);
@@ -17,8 +20,6 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
   const toggleStudent = () => {
     setStudentOpen(!studentOpen);
   }
-
-
   const [showDashboard, setShowDashboard] = useState(false);
 
   const toggleDashboard = () => {
@@ -80,6 +81,8 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
   const toggleUsers = () => {
     setShowUsers(!showUsers);
   };
+const activeComponent=useSelector((state:any)=>state.activeNav)
+  const dispatch=useDispatch()
 
   return (
     
@@ -174,7 +177,13 @@ const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationCl
                      
                         <Link to="/mss/admin/admission/candidates/candidate-details" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
                    
-                        <Link to="/mss/admin/admission/candidates" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <Link 
+                        to="/mss/admin/admission/candidates" 
+                        className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="Student-Admission"?"active":""}`}
+                        onClick={()=>{
+                          dispatch(ActiveNav("Student-Admission"))
+                        }}
+                        > 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Student Admission
                         </Link>

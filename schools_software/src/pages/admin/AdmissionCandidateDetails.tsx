@@ -40,7 +40,7 @@ const AdmissionCandidateDetails=():JSX.Element=>{
                         <div className="d-flex align-items-center">
                             <span>Students</span> 
                             <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
-                            <Link to="/tsss/admin/admission/candidates">All Candidates</Link> 
+                            <Link to="/mss/admin/admission/candidates">All Candidates</Link> 
                             <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
                             <span className="header">Candidate details</span>
                         </div>

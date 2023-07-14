@@ -1,8 +1,8 @@
-import { Row ,Container, Col, Dropdown} from "react-bootstrap"
+import { Row ,Container, Col, Dropdown, Form} from "react-bootstrap"
 import AdminSidebarMenu from "./AdminSidebarMenu"
 import SearchBar from "../../components/SearchBar"
 import { useState } from "react"
-import { faChevronRight} from "@fortawesome/free-solid-svg-icons"
+import { faChevronDown, faChevronRight} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import StudentOverviewRow from "../../components/StudentOverviewRow"
 import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
@@ -11,6 +11,7 @@ import { Link } from "react-router-dom"
 
 const AdmissionCandidatesPage=():JSX.Element=>{
     const [showMenu, setShowMenu] = useState(true);
+    const [filter, setFilter] = useState("all");
 
     const toggleMenu = () => {
       setShowMenu(!showMenu);
@@ -43,14 +44,75 @@ const AdmissionCandidatesPage=():JSX.Element=>{
                             <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
                             <span className="header">All Candidates</span>
                         </div>
-                        <div className="d-flex justify-content-end search mt-4 ">
+                        <div className="d-flex justify-content-end align-items-center search mt-4 ">
+                            <div className="d-flex align-items-center">
+                                <span>Filter by</span>
+                                <div className="my-3 d-flex align-items-center">
+                                    <Form.Check
+                                    type="radio"
+                                    name="filter"
+                                    label="All"
+                                    onClick={() => setFilter("all")}
+                                    className="mx-3"
+                                    defaultChecked
+                                    />
+
+                                    <Form.Check
+                                    type="radio"
+                                    onClick={() => setFilter("male")}
+                                    className="me-3"
+                                    name="filter"
+                                    label="male"
+                                    />
+                                    <Dropdown>
+                                        <Dropdown.Toggle  className="me-3">
+                                            <span className="pe-1">Class</span>
+                                            <FontAwesomeIcon icon={faChevronDown} style={{fontSize:"0.8rem"}}/>
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            {/* <Dropdown.Item onClick={(e)=>e.stopPropagation()}> */}
+                                                <Form.Check
+                                                type="checkbox"
+                                                checked={`${filter==="Form 1"?true:false}`}
+                                                onChange={(e) => setFilter("Form 1")}
+                                                className="me-3"
+                                                name="filter"
+                                                label="Form 1"
+                                                />
+                                            {/* </Dropdown.Item> */}
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                    {/* // type="radio"
+                                    // 
+                                    // className="me-3"
+                                    // name="filter"
+                                    // label="female" */}
+
+                                   
+                                    <Form.Check
+                                    type="radio"
+                                    onClick={() => setFilter("admitted")}
+                                    name="filter"
+                                    label="admitted"
+                                    className="me-3"
+                                    />
+                                    <Form.Check
+                                    type="radio"
+                                    onClick={() => setFilter("rejected")}
+                                    name="filter"
+                                    label="rejected"
+                                    className="me-3"
+                                    />
+                                </div>
+                            </div>
                             <SearchBar placeholder="Search by Roll, Name, Class"/>
                         </div>
                         <div className="mt-4">
                         {
                             Array(10).fill(undefined).map((_,index)=>(
                             <div key={index}>
-                                <Link to="/tsss/admin/admission/candidates/candidate-details">
+                                <Link to="/mss/admin/admission/candidates/candidate-details">
                                 <StudentOverviewRow/>
                                 </Link>
                             </div>
