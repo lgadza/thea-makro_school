@@ -16,6 +16,7 @@ import ApplicationPage from './pages/admissionsManagement/student/ApplicationPag
 import StudentNavigationbar from './pages/admissionsManagement/student/StudentSideBar.js'
 import StudentAccountPage from './pages/admissionsManagement/student/account/StudentAccountPage.js'
 import AdmissionFormPage from './pages/admin/AdmissionFormPage.js'
+import AdmissionCandidatesPage from './pages/admin/AdmissionCandidatesPage.js'
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
       <Routes>
         <Route path="tsss/fhs/application" element={<ApplicationPage/>}/>
         <Route path="tsss/fhs/login" element={<Login/>}/>
-        <Route path="tsss/admin" element={<AdminSidebarMenu/>}/>
+        {/* <Route path="tsss/admin" element={<AdminSidebarMenu/>}/> */}
         <Route path="tsss/admin/admission/form" element={<AdmissionFormPage/>}/>
        <Route path="tsss/catalog" element={<Catalog/>}/>
        <Route path="tsss/news" element={<News/>}/>
@@ -37,6 +38,7 @@ function App() {
        <Route path="tsss/library" element={<LibraryPage/>}/>
        <Route path="tsss/checkouts" element={<CheckoutsPage/>}/>
        <Route path="tsss/student/account" element={<StudentAccountPage/>}/>
+       <Route path="tsss/admin/admission/candidates" element={<AdmissionCandidatesPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>

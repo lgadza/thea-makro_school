@@ -19,6 +19,8 @@ import ProgramInformation from "../admissionsManagement/student/ProgramInformati
 import StudentOverviewRow from "../../components/StudentOverviewRow"
 import StudentProfileTable from "../../components/StudentProfileTable"
 import StudentParentsTable from "../../components/StudentParentsTable"
+import AddressTable from "../../components/AddressTable"
+import StudentDocumentsTable from "../../components/StudentDocumentsTable"
 
 
 const AdmissionFormPage=():JSX.Element=>{
@@ -274,25 +276,27 @@ const AdmissionFormPage=():JSX.Element=>{
 </div>
 <div className="ms-5 w-100  content_bg ">
   <ul className="d-flex justify-content-start view-candidate py-2">
-    <li className="nav-item pe-3">
+    <li className="pe-3">
       Profile
     </li>
-    <li className="nav-item pe-3">
+    <li className="pe-3">
       Parents
     </li>
-    <li className="nav-item pe-3">
+    <li className="pe-3">
       Address
     </li>
-    <li className="nav-item pe-3">
+    <li className="pe-3">
       Documents
     </li>
-    <li className="nav-item">
+    <li>
       Status
     </li>
   </ul>
   <div className="px-3">
    {/* <StudentProfileTable/> */}
-   <StudentParentsTable/>
+   {/* <StudentParentsTable/> */}
+   {/* <AddressTable/> */}
+   <StudentDocumentsTable/>
   </div>
 </div>
 </div>

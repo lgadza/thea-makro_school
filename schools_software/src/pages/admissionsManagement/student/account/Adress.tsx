@@ -124,8 +124,29 @@ console.log(address);
     value={address.province}
     onChange={handleChange}
     >
-      <option value="male">Male</option>
-      <option value="female">Female</option>
+      <option value="male">Bulawayo</option>
+      <option value="female">Harare</option>
+    </Form.Control>
+  
+        </Col>
+        <Col>
+        
+        </Col>
+      </Row>
+    </Form>
+    <Form className="my-3" onSubmit={handleSubmit}>
+      <Row>
+       
+        <Col>
+       
+        <Form.Label className="d-flex">Country<span className="text-danger">*</span></Form.Label>
+    <Form.Control as="select" required
+    name="country"
+    value={address.country}
+    onChange={handleChange}
+    >
+      <option value="Zimbabwe">Zimbabwe</option>
+      <option value="South Africa">South Africa</option>
     </Form.Control>
   
         </Col>

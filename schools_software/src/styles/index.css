@@ -209,8 +209,10 @@ border: none;
   border: 1px solid var(--bg-1);
 
  }
+
  .view-candidate li:hover{
 color: var(--textColor2);
+cursor: pointer;
  }
  .student-table{
   border-collapse: collapse;
