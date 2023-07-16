@@ -51,45 +51,43 @@ const AdmissionCandidatesPage=():JSX.Element=>{
                                     <Form.Check
                                     type="radio"
                                     name="filter"
-                                    label="All"
+                                    label="all"
                                     onClick={() => setFilter("all")}
                                     className="mx-3"
                                     defaultChecked
                                     />
 
-                                    <Form.Check
-                                    type="radio"
-                                    onClick={() => setFilter("male")}
-                                    className="me-3"
-                                    name="filter"
-                                    label="male"
-                                    />
+                                    <Form.Control
+                                    as="select" 
+                                    value={filter}
+                                    className="filter input-select px-0"
+                                    onChange={(e)=>setFilter(e.target.value)}
+                                    >
+                                        <option className="option" value="">gender</option>
+                                        <option className="option" value="male">male</option>
+                                        <option  value="female">female</option>
+                                    </Form.Control>
+                                    <FontAwesomeIcon icon={faChevronDown} style={{fontSize:"0.8rem"}}/>
+
                                     <Dropdown>
                                         <Dropdown.Toggle  className="me-3">
-                                            <span className="pe-1">Class</span>
+                                            <span className="pe-1">class</span>
                                             <FontAwesomeIcon icon={faChevronDown} style={{fontSize:"0.8rem"}}/>
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-                                            {/* <Dropdown.Item onClick={(e)=>e.stopPropagation()}> */}
+                                            <Dropdown.Item onClick={(e)=>e.stopPropagation()}>
                                                 <Form.Check
                                                 type="checkbox"
-                                                checked={`${filter==="Form 1"?true:false}`}
+                                                // checked={`${filter==="Form 1"?true:false}`}
                                                 onChange={(e) => setFilter("Form 1")}
                                                 className="me-3"
                                                 name="filter"
                                                 label="Form 1"
                                                 />
-                                            {/* </Dropdown.Item> */}
+                                            </Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
-                                    {/* // type="radio"
-                                    // 
-                                    // className="me-3"
-                                    // name="filter"
-                                    // label="female" */}
-
-                                   
                                     <Form.Check
                                     type="radio"
                                     onClick={() => setFilter("admitted")}

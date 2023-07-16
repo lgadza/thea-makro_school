@@ -50,6 +50,7 @@ export interface AddressInterface{
   country:string;
   email:string;
   settlement_type:string;
+  city:string;
   
 }
 export interface GuardianInterface {

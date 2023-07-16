@@ -18,6 +18,7 @@ const initialAddress:AddressInterface={
     country:"",
     email:"",
     settlement_type:"",
+    city:""
     
 }
 const handleSubmit=(e:React.FormEvent)=>{
@@ -74,7 +75,7 @@ console.log(address);
           />
         </Col>
         <Col>
-        <Form.Label className="d-flex">Post code<span className="text-danger">*</span>
+        <Form.Label className="d-flex">Postal code<span className="text-danger">*</span>
         </Form.Label>
           <Form.Control 
           placeholder="Post code" 
@@ -87,7 +88,7 @@ console.log(address);
       </Row>
     </Form>
    
-    <Form className="my-3" onSubmit={handleSubmit}>
+    {/* <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
         <Col>
         <Form.Label className="d-flex">Code<span className="text-danger">*</span></Form.Label>
@@ -112,10 +113,23 @@ console.log(address);
         </Col>
        
       </Row>
-    </Form >
+    </Form > */}
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-       
+      <Col>
+        <Form.Label className="d-flex">Type of settlement<span className="text-danger">*</span></Form.Label>
+          <Form.Control
+           as="select"
+          
+            required 
+            name="settlement_type"
+          value={address.settlement_type}
+          onChange={handleChange}
+          >
+            <option value="city">City</option>
+            <option value="village">Village</option>
+          </Form.Control>
+        </Col>
         <Col>
        
         <Form.Label className="d-flex">Province<span className="text-danger">*</span></Form.Label>
@@ -129,16 +143,21 @@ console.log(address);
     </Form.Control>
   
         </Col>
-        <Col>
-        
-        </Col>
       </Row>
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-       
+      <Col>
+        <Form.Label className="d-flex">City<span className="text-danger">*</span></Form.Label>
+          <Form.Control
+           placeholder="City"
+            required
+            name="city"
+          value={address.city}
+          onChange={handleChange}
+            />
+        </Col>
         <Col>
-       
         <Form.Label className="d-flex">Country<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
     name="country"
@@ -149,9 +168,6 @@ console.log(address);
       <option value="South Africa">South Africa</option>
     </Form.Control>
   
-        </Col>
-        <Col>
-        
         </Col>
       </Row>
     </Form>

@@ -361,8 +361,9 @@ const handleRegistration = () => {
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
         <Col>
-        <Form.Label className="d-flex">Email </Form.Label>
+        <Form.Label className="d-flex">Email <span className="text-danger">*</span> </Form.Label>
           <Form.Control placeholder="Email" 
+          required
           name="email"
           value={formData.email}
           onChange={handleChange}

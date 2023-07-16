@@ -180,3 +180,14 @@ input[type="checkbox"]:not(:checked) {
 .cursor-pointer{
   cursor: pointer;
 }
+.filter.input-select{
+  border: none;
+  background-color: var(--main-bg) !important;
+  color: white;
+  width: 50px;
+}
+.filter.input-select .option{
+  padding: 30px !important;
+  color: white;
+
+}
