@@ -101,7 +101,22 @@
 .progress.complete::after {
   width: 100%;
 }
-
+.sign-up-layout{
+  position: relative;
+}
+.application_page{
+  text-align: center;
+  min-height: 100vh ;
+}
+.application_page .sign-up-message{
+  position: absolute;
+  top: 40%;
+}
+.application_page .sign-up-icons{
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+}
  .banner_container ,.banner{
   height: 400px;
   position: relative;
