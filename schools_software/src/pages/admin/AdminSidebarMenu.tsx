@@ -102,7 +102,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
   onClick={toggleMenu}
   >
 
-              <FontAwesomeIcon icon={showMenu?faBars:faXmark} style={{fontSize:"1.2rem",color:"rgb(34, 52, 110)"}}/>
+              <FontAwesomeIcon icon={showMenu?faBars:faXmark} style={{fontSize:"1.2rem",color:"rgb(11, 94, 215)"}}/>
   </Link>
             </div>
             

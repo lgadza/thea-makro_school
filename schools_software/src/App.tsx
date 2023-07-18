@@ -12,7 +12,7 @@ import Students from '../src/pages/students/Students.jsx'
 import LibraryPage from './pages/library/LibraryPage.js'
 import CheckoutsPage from './pages/library/CheckoutsPage.js'
 import Login from './components/Login.js'
-import ApplicationPage from './pages/admissionsManagement/student/ApplicationPage'
+import MssRegisterPage from './pages/admissionsManagement/student/MssRegisterPage.js'
 import StudentNavigationbar from './pages/admissionsManagement/student/StudentSideBar.js'
 import AdmissionFormPage from './pages/admin/AdmissionFormPage.js'
 import AdmissionCandidatesPage from './pages/admin/AdmissionCandidatesPage.js'
@@ -29,7 +29,7 @@ function App() {
       {/* <NavigationBar/> */}
       {/* <Footer/> */}
       <Routes>
-        <Route path="mss/application" element={<ApplicationPage/>}/>
+        <Route path="mss/register" element={<MssRegisterPage/>}/>
         <Route path="mss/login" element={<Login/>}/>
         {/* <Route path="mss/admin" element={<AdminSidebarMenu/>}/> */}
         <Route path="mss/admin/admission/form" element={<AdmissionFormPage/>}/>

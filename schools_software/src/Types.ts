@@ -13,21 +13,12 @@ export interface ApplicantRegistration{
   date_of_birth:string;
   gender:string;
   citizenship:string;
-  street:string;
-  building_number:string;
-  apartment_number?:string;
-  postal_code?:string;
-  city:string;
-  province:string;
-  country:string;
   phone_number:string;
-  email?:string;
+  email:string;
   policy_acceptance:boolean;
   data_process_acceptance:boolean;
   password:string;
-  settlement_type:string;
   country_code:string;
-  parentParentId:string
 }
 export interface PersonalDataInterface{
   first_name:string;

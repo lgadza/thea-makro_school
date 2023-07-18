@@ -1,21 +1,11 @@
 :root {
-    --brand-color: rgb(34, 52, 110);
+    --brand-color: rgb(11, 94, 215);
     --body-color: #999;
     --textColor:rgb(27, 27, 29)
   }
-/* .student_account_border{
-  border-right:  2px solid rgb(48, 72, 89);;
- 
-}
-.student_account_all_border{
-  border: 1px solid rgb(48, 72, 89);
-  border-radius: 10px;
-} */
+
 
 /* STATUS */
-
-
-
 
 .stepper {
   display: flex;
@@ -101,37 +91,51 @@
 .progress.complete::after {
   width: 100%;
 }
-.sign-up-layout{
-  position: relative;
+
+.box-shadow{
+ box-shadow: 0px 0px 5px var(--bg-2) ;
+}
+.border-radius-round{
+ border-radius: 3px ;
+}
+.application_page .img_component{
+height: 50px;
 }
 .application_page{
-  text-align: center;
-  min-height: 100vh ;
+ min-height: 100vh;
 }
-.application_page .sign-up-message{
-  position: absolute;
-  top: 40%;
+.error-bg{
+  background-color: rgb(99, 99, 50);
 }
-.application_page .sign-up-icons{
-  position: absolute;
-  bottom: 0;
-  left: 40%;
-}
- .banner_container ,.banner{
-  height: 400px;
+.reg-welcome{
   position: relative;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: var(--main-bg);
+  background-image: url("../../assets/md_logo.png_2.png");
+  background-image: url("../../assets/md_logo.png_2.png");
+  background-size:contain; 
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.reg-welcome::before {
+  content: "";
+  display: block;
+  position: absolute;
+ inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  object-fit: cover;
-  /* border-radius: 10px; */
- }
- .banner_label{
-  position:absolute;
-  color:white;
-  bottom: 10px;
-  left:0px;
-  background:black;
-  padding:10px
- }
+  height: 100%;
+  color: white;
+  padding: 20px; 
+  box-sizing: border-box; 
+}
+
  /* studentNavbar */
 
  ul li{

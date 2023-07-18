@@ -27,7 +27,7 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
             body:JSON.stringify(formData)
         }
         try{
-            const response=await fetch("http://localhost:3001/applicants",options)
+            const response=await fetch("http://localhost:3001/applicants/register",options)
             if(response.ok){
                 const status=await response.json();
                 dispatch({
