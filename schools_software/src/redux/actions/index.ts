@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { ApplicantRegistration } from "../../Types";
-
+export const APPLICANT_REGISTRATION_ERROR_RESPONSE="APPLICANT_REGISTRATION_ERROR_RESPONSE"
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
 export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
 export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
@@ -49,6 +49,11 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
                 dispatch({
                     type:APPLICANT_REGISTRATION_ERROR,
                     payload:true,
+                })
+                const errorStatus=await response.json()
+                dispatch({
+                    type:APPLICANT_REGISTRATION_ERROR_RESPONSE,
+                    payload:errorStatus,
                 })
             }
         }catch(error){

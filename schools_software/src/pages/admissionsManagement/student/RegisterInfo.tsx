@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom"
 
 const PersonalDAta=():JSX.Element=>{
 const response=useSelector((state:RootState)=>state.applicantRegistration.data)
+const errorResponse=useSelector((state:RootState)=>state.applicantRegistration.errorResponse)
 const isError=useSelector((state:RootState)=>state.applicantRegistration.isError)
 const isLoading=useSelector((state:RootState)=>state.applicantRegistration.isLoading)
 const dispatch=useDispatch()
@@ -70,14 +71,17 @@ const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleRegistration = async() => {
  const success=await dispatch<any>(ApplicantRegister(formData));
-
+setSignUpClicked(true)
 if(!isError && success){
   navigate("/mss/login")
 }else{
   setShow(true)
 }
 };
-console.log(response)
+if(errorResponse){
+  console.log(errorResponse. errorsList,"ERROR RESPONSE")
+
+}
 const handleClose = () => setShow(false);
    return( 
     <div className="content_bg p-3">
@@ -231,7 +235,7 @@ const handleClose = () => setShow(false);
               <Col>
                 <Button variant="primary" onClick={handleRegistration} className="w-100 mt-3 justify-content-end" type="submit" disabled={!isFormValid()}>
          {
-          isLoading && (
+          isLoading && signUpClicked && (
             <span>
                <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
                <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
@@ -239,7 +243,7 @@ const handleClose = () => setShow(false);
             </span>
           )
          }
-         {!isLoading && sign (<span>Sign Up</span>)}
+         {!signUpClicked && (<span>Sign Up</span>)}
         
                 </Button>
               </Col>
@@ -250,7 +254,14 @@ const handleClose = () => setShow(false);
       <Modal show={show} onHide={handleClose}>
         <Modal.Body className="error-bg box-shadow border-radius-round">
           <div className="my-4">
-            {/* {response.message} */}
+            {errorResponse && (
+
+           <ul className="ps-0">
+            {errorResponse. errorsList.map((error:string,index:number)=>{
+              return <li className="d-flex px-1 text-nowrap content_bg my-2" key={index}><span className="text-danger">{index+1}</span>. {error}</li>
+            }) }
+           </ul>
+            )}
           </div>
           <Button className="d-flex justify-content-end" variant="primary" onClick={handleClose}>
             close
