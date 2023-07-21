@@ -51,6 +51,7 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
                     payload:true,
                 })
                 const errorStatus=await response.json()
+                console.log(errorStatus)
                 dispatch({
                     type:APPLICANT_REGISTRATION_ERROR_RESPONSE,
                     payload:errorStatus,

@@ -243,8 +243,8 @@ const handleClose = () => setShow(false);
             </span>
           )
          }
-         {!signUpClicked && (<span>Sign Up</span>)}
-        
+          <span>Sign Up</span>
+        { isLoading && signUpClicked && (<span>...</span>)}
                 </Button>
               </Col>
             </Row>
@@ -253,12 +253,13 @@ const handleClose = () => setShow(false);
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body className="error-bg box-shadow border-radius-round">
-          <div className="my-4">
+          <h4 className="text-danger">Error</h4>
+          <div className="my-2">
             {errorResponse && (
 
            <ul className="ps-0">
             {errorResponse. errorsList.map((error:string,index:number)=>{
-              return <li className="d-flex px-1 text-nowrap content_bg my-2" key={index}><span className="text-danger">{index+1}</span>. {error}</li>
+              return <li className="d-flex px-1 text-danger my-1" key={index}><span className="text-danger">{index+1}</span>. {error}</li>
             }) }
            </ul>
             )}

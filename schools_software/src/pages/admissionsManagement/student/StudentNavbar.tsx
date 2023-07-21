@@ -8,10 +8,15 @@ import { Button } from "react-bootstrap"
 
 const StudentNavbar=():JSX.Element=>{
     return(
-        <div className="content_bg main_bg d-flex align-items-center justify-content-between student_navbar">
+        <Container className="content_bg main_bg d-flex align-items-center justify-content-between student_navbar my-2">
             <div>
 
-            <Image src={md_logo} height={50} width={50} alt="makrodex"/>
+            <img
+                    src={md_logo}
+                    alt="makrodex_logo"
+                    className="img_component d-flex"
+                    style={{height:"50px"}}
+                />
             </div>
             
                 <ul className="d-flex align-items-center my-0">
@@ -56,7 +61,7 @@ const StudentNavbar=():JSX.Element=>{
                     </li>
                 </ul>
            
-        </div>
+        </Container>
     )
 }
 export default StudentNavbar

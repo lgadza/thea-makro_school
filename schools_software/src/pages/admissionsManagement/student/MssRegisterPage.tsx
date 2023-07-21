@@ -17,7 +17,7 @@ const MssRegisterPage=():JSX.Element=>{
             </div>
             <div className="sign-up-message">    
             <h3>Welcome to MSS.</h3>
-            <h5>Are you ready to apply to a school of your choice?</h5>
+            <h5>Are you ready to apply to the school of your choice?</h5>
             </div>
             <div className="sign-up-icons">
             <Icon.Facebook  size={20}/>
