@@ -26,7 +26,7 @@ const isError=useSelector((state:RootState)=>state.applicantData.isError)
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
-console.log(personalInfo,"PERSONAL INFO")
+
 
     const dispatch:Dispatch<any> =useDispatch()
     useEffect(()=>{

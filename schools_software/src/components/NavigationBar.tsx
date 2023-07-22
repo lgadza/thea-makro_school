@@ -32,15 +32,15 @@ function NavigationBar(): JSX.Element {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/tsss/news">News</Nav.Link>
-          <Nav.Link href="/tsss/students">Students</Nav.Link>
+          <Nav.Link href="/mss/news">News</Nav.Link>
+          <Nav.Link href="/mss/students">Students</Nav.Link>
           <Nav.Link href="/teachers">Staff</Nav.Link>
           <Nav.Link href="/courses">Library</Nav.Link>
           {/* <Nav.Link href="/assignments">Assignments</Nav.Link> */}
           <Nav.Link href="/reports">Reports</Nav.Link>
-          <Nav.Link href="/tsss/catalog">Catalog</Nav.Link>
-          <Nav.Link href="/myusosweb">My USOSWEB</Nav.Link>
-          <Nav.Link href="/tsss/admin">Admin</Nav.Link>
+          <Nav.Link href="/mss/catalog">Catalog</Nav.Link>
+          <Nav.Link href="/mymssweb">My UMSSWEB</Nav.Link>
+          <Nav.Link href="/mss/admin">Admin</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

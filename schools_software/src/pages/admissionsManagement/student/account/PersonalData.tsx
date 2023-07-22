@@ -11,7 +11,7 @@ import { Dispatch } from "redux"
 
 const PersonalData=():JSX.Element=>{
     const dispatch:Dispatch<any>=useDispatch()
-    const data=useSelector((state:RootState)=>state.applicantData.data)
+    const user=useSelector((state:RootState)=>state.applicantData.data)
     const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
 const initialPersonalData:PersonalDataInterface={
     first_name:"",
@@ -24,6 +24,8 @@ const initialPersonalData:PersonalDataInterface={
     country_code:"",
     citizenship:""
 }
+const [personalData, setPersonalData] = useState<PersonalDataInterface>(initialPersonalData);
+const [editMode, setEditMode] = useState<boolean>(false);
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
@@ -33,12 +35,19 @@ setPersonalData((data)=>({
     ...data,
     [name]:value
 }))
-console.log(personalData);
 }
-    const [personalData,setPersonalData]=useState<PersonalDataInterface>(initialPersonalData)
-    useEffect(()=>{
-        // dispatch(getApplicantData(accessToken))
-    })
+
+useEffect(() => {
+  // dispatch(getApplicantData(accessToken));
+  if (user) {
+    setPersonalData(user);
+  }
+}, [user]);
+const handleEditClick = () => {
+  setEditMode((prev) => !prev);
+};
+
+
     return(
 <div>
 <h5 className="d-flex mb-4">Personal data</h5>
@@ -49,7 +58,7 @@ console.log(personalData);
           <Form.Control
            placeholder="First name"
            name="first_name"
-           value={personalData.first_name}
+           value={!editMode?user.first_name:personalData.first_name}
             required 
             onChange={handleChange}
             />
@@ -60,7 +69,7 @@ console.log(personalData);
           placeholder="Last name" 
           required
           name="last_name"
-          value={personalData.last_name}
+          value={!editMode?user.last_name:personalData.last_name}
           onChange={handleChange}
           />
         </Col>
@@ -73,7 +82,7 @@ console.log(personalData);
           <Form.Control 
           placeholder="Second name" 
           name="second_name"
-          value={personalData.second_name}
+          value={!editMode?user.second_name:personalData.second_name}
           onChange={handleChange}
           />
         </Col>
@@ -83,7 +92,7 @@ console.log(personalData);
           placeholder="Date of birth" 
            required
            name="date_of_birth"
-          value={personalData.date_of_birth}
+          value={!editMode?user.date_of_birth:personalData.date_of_birth}
           onChange={handleChange}
            />
         </Col>
@@ -96,7 +105,7 @@ console.log(personalData);
         <Form.Label className="d-flex">Code<span className="text-danger">*</span></Form.Label>
           <Form.Control  as="select" required
           name="country_code"
-          value={personalData.country_code}
+          value={!editMode?user.country_code:personalData.country_code}
           onChange={handleChange}
           >
           <option value="236">263</option>
@@ -109,7 +118,7 @@ console.log(personalData);
           placeholder="Phone number" 
           required
           name="phone_number"
-          value={personalData.phone_number}
+          value={!editMode?user.phone_number:personalData.phone_number}
           onChange={handleChange}
           />
         </Col>
@@ -124,7 +133,7 @@ console.log(personalData);
         <Form.Label className="d-flex">Gender<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
     name="gender"
-    value={personalData.gender}
+    value={!editMode?user.gender:personalData.gender}
     onChange={handleChange}
     >
       <option value="male">Male</option>
@@ -138,14 +147,21 @@ console.log(personalData);
           placeholder="citizenship" 
           required
           name="citizenship"
-          value={personalData.citizenship}
+          value={!editMode?user.citizenship:personalData.citizenship}
           onChange={handleChange}
           />
         </Col>
       </Row>
     </Form>
     <div className="d-flex justify-content-end">
-        <Button variant="primary" className="px-3">Update</Button>
+         <Button variant="primary" className="px-3" onClick={handleEditClick}>
+          {editMode ? "Cancel" : "Edit"}
+        </Button>
+        {editMode && (
+          <Button variant="success" className="ms-2 px-3" type="submit" form="personalDataForm">
+            Save
+          </Button>
+        )}
     </div>
 </div>
     )

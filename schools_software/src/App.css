@@ -144,7 +144,9 @@ input[type="checkbox"]:not(:checked) {
   border-color: transparent !important;
   border-color: transparent !important;
 }
-
+.btn:focus{
+  box-shadow: none !important;
+}
 .show>.btn-primary.dropdown-toggle:focus {
   box-shadow: none !important;
 }
