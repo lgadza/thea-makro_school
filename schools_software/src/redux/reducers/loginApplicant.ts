@@ -3,7 +3,7 @@
 import { LOGIN_APPLICANT, LOGIN_APPLICANT_ERROR, LOGIN_APPLICANT_LOADING} from "../actions";
 
 interface LoginApplicantActionPayload {
-    accessToken: any;
+    accessToken:any;
     isLoading: boolean;
     isError: boolean;
   }
@@ -27,7 +27,7 @@ export interface LoginApplicantAction extends LoginApplicantActionBase {
   type AllActions = LoginApplicantAction | LoginApplicantLoadingAction | LoginApplicantErrorAction 
 
 const initialState: LoginApplicantActionPayload = {
-  accessToken: null,
+  accessToken: "",
   isLoading: true,
   isError: false,
 };

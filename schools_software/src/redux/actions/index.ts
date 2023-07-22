@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { ApplicantRegistration } from "../../Types";
-import { loginCredentialsInterface } from "../../components/Login";
+import { LoginCredentialsInterface } from "../../components/Login";
 export const APPLICANT_REGISTRATION_ERROR_RESPONSE="APPLICANT_REGISTRATION_ERROR_RESPONSE"
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
 export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
@@ -19,7 +19,7 @@ export const ActiveNav=(component:string)=>{
         payload:component
     }
 }
-export const ApplicantLogin=(cred:loginCredentialsInterface)=>{
+export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
     return async(dispatch:Dispatch)=>{
         const options={
             method:"POST",
@@ -32,7 +32,7 @@ export const ApplicantLogin=(cred:loginCredentialsInterface)=>{
         try{
             const response=await fetch("http://localhost:3001/applicants/login",options)
             if(response.ok){
-                const accessToken=response.json()
+                const accessToken=await response.json()
                 dispatch({
                     type:LOGIN_APPLICANT,
                     payload:accessToken
@@ -134,7 +134,7 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
             headers:{
                 Accept:"application/json",
                 "Content-Type":"application/json",
-                Authorization:"Bearer" + `${accessToken}`
+                Authorization:"Bearer " + `${accessToken}`
             },
         };
 

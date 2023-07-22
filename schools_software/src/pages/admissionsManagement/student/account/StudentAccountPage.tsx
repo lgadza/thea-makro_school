@@ -19,18 +19,14 @@ import { useSelector } from "react-redux"
 import { RootState } from "../../../../redux/store"
 
 const StudentAccountPage=():JSX.Element=>{
-const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
 const user=useSelector((state:RootState)=>state.applicantData.data)
     const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
-    console.log(user,"USER")
-    console.log(accessToken,"ACCESSTOKEN")
+
     const dispatch:Dispatch<any> =useDispatch()
-    useEffect(()=>{
-        dispatch(getApplicantData(accessToken))
-    },[])
+   
     return(
         <Container >
             <div>
