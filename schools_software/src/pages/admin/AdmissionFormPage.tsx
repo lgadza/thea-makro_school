@@ -8,7 +8,7 @@ import Guardian from "../admissionsManagement/student/account/Guardian"
 import Documents from "../admissionsManagement/student/account/Documents"
 import Settings from "../admissionsManagement/student/account/Settings"
 import Interview from "../admissionsManagement/student/account/Interview"
-import ApplicationStatus from "../admissionsManagement/student/account/ApplicationStatus"
+import ApplicationStatus from "../admissionsManagement/student/account/Status"
 import ProgramInformation from "../admissionsManagement/student/ProgramInformation"
 import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
 

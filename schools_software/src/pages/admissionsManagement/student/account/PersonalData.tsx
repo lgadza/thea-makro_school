@@ -5,11 +5,14 @@ import { useSelector } from "react-redux"
 import { getApplicantData } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
 import { Button } from "react-bootstrap"
+import { RootState } from "../../../../redux/store"
+import { Dispatch } from "redux"
 
 
 const PersonalData=():JSX.Element=>{
-    const dispatch:any=useDispatch()
-    const data=useSelector((state:any)=>state.applicantData.data)
+    const dispatch:Dispatch<any>=useDispatch()
+    const data=useSelector((state:RootState)=>state.applicantData.data)
+    const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
 const initialPersonalData:PersonalDataInterface={
     first_name:"",
     last_name:"",
@@ -34,11 +37,11 @@ console.log(personalData);
 }
     const [personalData,setPersonalData]=useState<PersonalDataInterface>(initialPersonalData)
     useEffect(()=>{
-        dispatch(getApplicantData())
+        dispatch(getApplicantData(accessToken))
     })
     return(
 <div>
-<h5 className="d-flex mb-4 header">Personal data</h5>
+<h5 className="d-flex mb-4">Personal data</h5>
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>

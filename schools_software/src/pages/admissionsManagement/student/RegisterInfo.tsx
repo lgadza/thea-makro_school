@@ -34,7 +34,7 @@ const initialFormData: ApplicantRegistration = {
 };
 
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
-const handleSubmit = (e: React.FormEvent) => {
+const  handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 };
 const isFormValid = (): boolean => {

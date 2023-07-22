@@ -34,11 +34,11 @@ console.log(address);
 }
     const [address,setAddress]=useState<AddressInterface>(initialAddress)
     useEffect(()=>{
-        dispatch(getApplicantData())
-    })
+        // dispatch(getApplicantData())
+    },[])
     return(
 <div>
-<h5 className="d-flex mb-4 header">Address</h5>
+<h5 className="d-flex mb-4">Address</h5>
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>

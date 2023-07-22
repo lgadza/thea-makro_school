@@ -35,11 +35,11 @@ console.log(guardian);
 }
     const [guardian,setGuardian]=useState<GuardianInterface>(initialGuardian)
     useEffect(()=>{
-        dispatch(getApplicantData())
-    })
+        // dispatch(getApplicantData())
+    },[])
     return(
 <div>
-<Alert  variant="warning">
+<Alert  variant="danger">
     <div className="d-flex">
     <FontAwesomeIcon className="me-2" icon={faTriangleExclamation}/>
     Information
@@ -48,7 +48,7 @@ console.log(guardian);
         <li>Documents should be uploaded only in PDF format!</li>
     </ul>
   </Alert>
-<h5 className="d-flex header">Required documents</h5>
+<h5 className="d-flex">Required documents</h5>
 <span className="d-flex mb-4 text-muted">Please upload documents that have a status missing.</span>
     <Form onSubmit={handleSubmit}>
       <Row>

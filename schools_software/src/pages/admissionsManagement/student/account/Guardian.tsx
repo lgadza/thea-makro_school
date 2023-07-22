@@ -4,11 +4,14 @@ import { ApplicantRegistration, GuardianInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
 import { getApplicantData } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
+import { RootState } from "../../../../redux/store"
+import { Dispatch } from "redux"
 
 
 const Guardian=():JSX.Element=>{
-    const dispatch:any=useDispatch()
-    const data=useSelector((state:any)=>state.applicantData.data)
+    const dispatch:Dispatch<any> = useDispatch()
+    const data=useSelector((state:RootState)=>state.applicantData.data)
+    const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
 const initialGuardian:GuardianInterface={
     first_name:"",
     last_name:"",
@@ -32,11 +35,11 @@ console.log(guardian);
 }
     const [guardian,setGuardian]=useState<GuardianInterface>(initialGuardian)
     useEffect(()=>{
-        dispatch(getApplicantData())
+        dispatch(getApplicantData(accessToken))
     })
     return(
 <div>
-<h5 className="d-flex mb-4 header">Guardian/Parent</h5>
+<h5 className="d-flex mb-4">Guardian/Parent</h5>
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>

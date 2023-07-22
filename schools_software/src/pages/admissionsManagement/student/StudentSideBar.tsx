@@ -7,7 +7,7 @@ const StudentSideBar=({source,activeComponent,handleNavigationClick}:{activeComp
     return(
         <div>
 <ul className="d-flex flex-column align-items-start student_account">
-<h5 className="d-flex header">Chapters</h5>
+<h5 className="d-flex">Chapters</h5>
     
     <li className={`my-2 ${activeComponent === "PersonalData" ? "active" : ""}`}
           onClick={() => handleNavigationClick("PersonalData")}>

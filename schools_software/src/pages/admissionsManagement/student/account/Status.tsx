@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap"
 
-const ApplicationStatus=():JSX.Element=>{
+const Status=():JSX.Element=>{
     // (function() {
     //     let step = 0;
         
@@ -50,4 +50,4 @@ const ApplicationStatus=():JSX.Element=>{
     </div>
     )
 }
-export default ApplicationStatus
+export default Status

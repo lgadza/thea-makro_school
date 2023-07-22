@@ -8,18 +8,29 @@ import Guardian from "./Guardian"
 import Documents from "./Documents"
 import Settings from "./Settings"
 import Interview from "./Interview"
-import ApplicationStatus from "./ApplicationStatus"
+import ApplicationStatus from "./Status"
 import ProgramInformation from "../ProgramInformation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import StudentNavbar from "../StudentNavbar"
+import { useDispatch } from "react-redux"
+import { Dispatch } from "redux"
+import { getApplicantData } from "../../../../redux/actions"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../../redux/store"
 
 const StudentAccountPage=():JSX.Element=>{
-
+const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
+const user=useSelector((state:RootState)=>state.applicantData.data)
     const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
-
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
+    console.log(user,"USER")
+    console.log(accessToken,"ACCESSTOKEN")
+    const dispatch:Dispatch<any> =useDispatch()
+    useEffect(()=>{
+        dispatch(getApplicantData(accessToken))
+    },[])
     return(
         <Container >
             <div>
