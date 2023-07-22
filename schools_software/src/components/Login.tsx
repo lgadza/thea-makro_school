@@ -39,7 +39,7 @@ const Login = (): JSX.Element => {
       loginCredentials.password.trim() !== ""
     )
   }
-console.log(accessToken.accessToken,"TOKEN")
+
 useEffect(() => {
   const handleLoginSuccess = async () => {
     if (accessToken && accessToken.accessToken) {
@@ -48,16 +48,12 @@ useEffect(() => {
     }
   };
 
-  handleLoginSuccess(); // Call this once when component mounts
+  handleLoginSuccess(); 
 
-}, [accessToken, dispatch, navigate]);
+}, [accessToken]);
 
   const handleLogin = () => {
     dispatch(ApplicantLogin(loginCredentials))
-    // if (accessToken && accessToken.accessToken) {
-    //   dispatch(getApplicantData(accessToken.accessToken))
-    //   navigate("/mss/student/account/louis-gadza")
-    // }
   }
 
   const handleSubmit = (e: React.FormEvent) => {

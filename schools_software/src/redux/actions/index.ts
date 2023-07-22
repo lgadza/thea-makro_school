@@ -142,7 +142,7 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
                 const response=await fetch("http://localhost:3001/applicants/me",options)
                 
                 if(response.ok){
-                    const data=response.json()
+                    const data= await response.json()
                     dispatch({
                         type:GET_APPLICANT_DATA,
                         payload:data,

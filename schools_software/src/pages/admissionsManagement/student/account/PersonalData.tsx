@@ -37,7 +37,7 @@ console.log(personalData);
 }
     const [personalData,setPersonalData]=useState<PersonalDataInterface>(initialPersonalData)
     useEffect(()=>{
-        dispatch(getApplicantData(accessToken))
+        // dispatch(getApplicantData(accessToken))
     })
     return(
 <div>

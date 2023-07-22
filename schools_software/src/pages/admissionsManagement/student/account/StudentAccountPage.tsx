@@ -19,30 +19,38 @@ import { useSelector } from "react-redux"
 import { RootState } from "../../../../redux/store"
 
 const StudentAccountPage=():JSX.Element=>{
-const user=useSelector((state:RootState)=>state.applicantData.data)
+const personalInfo=useSelector((state:RootState)=>state.applicantData.data)
+const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
+const isError=useSelector((state:RootState)=>state.applicantData.isError)
     const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
+console.log(personalInfo,"PERSONAL INFO")
 
     const dispatch:Dispatch<any> =useDispatch()
-   
+    useEffect(()=>{
+// dispatch(getApplicantData(accessToken.accessToken))
+    },[])
+  
     return(
         <Container >
             <div>
-                <StudentNavbar/>
+                <StudentNavbar personalInfo={personalInfo} />
             </div>
             <Row>
+                {personalInfo && (
+
                 <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar">
                 
                     <Image src={image} height={100} width={100} alt="userName"/>
                     <div className="d-flex flex-column align-items-start px-3">
-                        <h5>Student Name</h5>
-                    <div>Phone number</div>
-                    <div>Form 4</div>
+                        <h5>{personalInfo.first_name} {personalInfo.last_name}</h5>
+                    <div>{personalInfo.phone_number}</div>
+                    <div>{personalInfo.email}</div>
                     </div>
-            
                 </Col>
+                )}
             </Row>
             <Row className="student_account_all_border py-3 mt-4 ">
                 <Col sm={3} className="student_account_border  py-3 ">

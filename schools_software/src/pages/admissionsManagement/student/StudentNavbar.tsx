@@ -5,8 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown, faBell, faChevronDown, faMessage } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
+import { ApplicantRegistration } from "../../../Types"
 
-const StudentNavbar=():JSX.Element=>{
+interface StudentNavbarProps{
+  personalInfo:ApplicantRegistration | null
+}
+const StudentNavbar:React.FC<StudentNavbarProps> =({personalInfo})=>{
+
     return(
         <Container className="content_bg main_bg d-flex align-items-center justify-content-between student_navbar my-2">
             <div>
@@ -30,7 +35,7 @@ const StudentNavbar=():JSX.Element=>{
             <Dropdown>
             <Dropdown.Toggle>
             <Image src={md_logo} height={30} width={30} alt="makrodex"/>
-          <span className="px-2">Louis Gadza</span>
+          <span className="px-2">{personalInfo?.first_name} {personalInfo?.last_name} </span>
           <FontAwesomeIcon icon={faChevronDown}/>
             </Dropdown.Toggle>
 

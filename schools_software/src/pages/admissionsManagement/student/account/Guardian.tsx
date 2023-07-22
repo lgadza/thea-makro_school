@@ -35,7 +35,7 @@ console.log(guardian);
 }
     const [guardian,setGuardian]=useState<GuardianInterface>(initialGuardian)
     useEffect(()=>{
-        dispatch(getApplicantData(accessToken))
+        // dispatch(getApplicantData(accessToken))
     })
     return(
 <div>

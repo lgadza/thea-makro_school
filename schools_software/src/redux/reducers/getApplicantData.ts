@@ -26,7 +26,7 @@ export interface GetApplicantDataAction extends GetApplicantDataActionBase {
   type AllActions = GetApplicantDataAction | GetApplicantDataLoadingAction | GetApplicantDataErrorAction
 
 const initialState: GetApplicantDataActionPayload = {
-  data: null,
+  data:null,
   isLoading: true,
   isError: false,
 };
