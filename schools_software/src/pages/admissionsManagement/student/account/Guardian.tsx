@@ -45,7 +45,7 @@ console.log(guardian);
         <Col>
         <Form.Label className="d-flex">Guardian first_name <span className="text-danger">*</span></Form.Label>
           <Form.Control
-           placeholder="Guardian first_name"
+           placeholder="First_name"
            name="first_name"
            value={guardian.first_name}
             required 
@@ -55,7 +55,7 @@ console.log(guardian);
         <Col>
         <Form.Label className="d-flex">Guardian last_name <span className="text-danger">*</span></Form.Label>
           <Form.Control 
-          placeholder="Guardian last_name" 
+          placeholder="Last_name" 
           required
           name="last_name"
           value={guardian.last_name}

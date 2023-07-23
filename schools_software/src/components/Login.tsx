@@ -15,8 +15,8 @@ export interface LoginCredentialsInterface {
 const Login = (): JSX.Element => {
   const dispatch: Dispatch<any> = useDispatch()
   const navigate = useNavigate()
-  const accessToken = useSelector((state: RootState) => state.loginApplicant.accessToken)
-  const isError = useSelector((state: RootState) => state.loginApplicant.isError)
+  const accessToken = useSelector((state: RootState) => state.accessToken.accessToken)
+  const isError = useSelector((state: RootState) => state.accessToken.isError)
 
   const initialLoginCred: LoginCredentialsInterface = {
     email: "",

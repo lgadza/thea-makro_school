@@ -28,7 +28,7 @@ const initialPersonalData:PersonalDataInterface={
     
 }
 const [personalData, setPersonalData] = useState<PersonalDataInterface>(user?user:initialPersonalData);
-console.log(personalData,"EDITED")
+
 const [editMode, setEditMode] = useState<boolean>(false);
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()

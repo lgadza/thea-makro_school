@@ -40,8 +40,9 @@ export interface AddressInterface{
   province:string;
   country:string;
   email:string;
-  settlement_type:string;
+  type_of_settlement:string;
   city:string;
+  location:string;
   
 }
 export interface GuardianInterface {

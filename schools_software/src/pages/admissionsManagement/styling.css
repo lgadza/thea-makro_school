@@ -6,54 +6,85 @@
 
 
 /* STATUS */
-
-.stepper {
-  display: flex;
-  justify-content:space-between;
-  align-items: baseline;
-  /* background-color: #051e2b; */
+.steps-bar {
+  margin: 0 auto;
   width: 100%;
-  padding: 2em 0em;
-  /* box-shadow: 0px 3px 10px hsl(0, 0%, 40%); */
-  z-index: -1;
-}
-
-.step {
+ }
+ ul.steps-indicator {
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  left: 0;
+  list-style: outside none none;
+  margin: 0;
+  right: 0;
+  width: 100%;
+  padding: 24px 0 10px;
+ }
+ ul.steps-indicator.steps-3:before {
+  left: 16.6667%;
+  right: 16.6667%;
+ }
+ ul.steps-indicator li {
+  padding: 20px 0 0;
+  margin: 0;
   position: relative;
-  flex: 1 1 70%;
+  width: 33.3333%;
+  pointer-events: none;
+ }
+ ul.steps-indicator li:after {
+  background-color: #a6a6a6;
+  box-shadow: 0 0 0 6px #e7eaf1, 0 0 0 7px #fff;
+  height: 10px;
+  top: -12px;
+  width: 10px;
+  border-radius: 100%;
+  content: "";
+  left: calc(50% - 7px);
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  transition: all 0.25s ease 0s;
+  vertical-align: middle;
+ }
+ ul.steps-indicator li:not(:last-child):before {
+  background-color: #a6a6a6;
+  content: "";
+  height: 2px;
+  left: calc(50% + 7px);
+  position: absolute;
+  top: -7px;
+  width: calc(100% - 14px);
+ }
+ ul.steps-indicator li div {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items:start;
-  z-index: 1;
-  justify-content: center;
-}
+ }
+ ul.steps-indicator li div a {
+  color: #a6a6a6;
+  cursor: pointer;
+  font-family: arial;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 14px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.25s ease 0s;
+ }
+ 
+ ul.steps-indicator li.done:after,
+ ul.steps-indicator li.current:after,
+ ul.steps-indicator li.done:not(:last-child):before {
+  background-color: #2384f7;
+ }
+ ul.steps-indicator li.current div a {
+  color: #3e4350;
+ }
+/* STATUS */
 
-.step-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  width: 20px;
-  border-radius: 100%;
-  background-color: #43565f;
-  color: #5aa7ce;
-  /* font-size: 20px;
-  font-weight: 300; */
-  margin-bottom: 16px;
-  transition: background-color 0.5s, color 0.5s;
-  -webkit-transition: background-color 0.5s, color 0.5s;
-  box-shadow: 0px 0px 5px hsl(0, 0%, 10%);
-}
-
-.step-title {
-  color: hsl(0, 0%, 70%);
-  font-size: 18px;
-  font-weight: 300;
-}
-
-.active-step > .step-title {
-  color: white;
-}
 .student_account li {
   cursor: pointer;
 }
@@ -63,34 +94,6 @@
 }
 
 
-.step.active-step > .step-number,
-.step.complete-step > .step-number {
-  background-color: #5aa7ce;
-  color: white;
-}
-
-.progress {
-  position: relative;
-  height: 3px;
-  width: 100%;
-  background-color: #1a313d;
-  margin: 0% 0%;
-  z-index: 0;
-}
-
-.progress::after {
-  position: absolute;
-  content: '';
-  background-color: #36647d;
-  width: 0%;
-  height: 3px;
-  transition: width 0.5s;
-  -webkit-transition: width 0.5s;
-}
-
-.progress.complete::after {
-  width: 100%;
-}
 
 .box-shadow{
  box-shadow: 0px 0px 5px var(--bg-2) ;

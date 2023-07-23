@@ -10,24 +10,27 @@ import { RootState } from "../../../../redux/store"
 const Address=():JSX.Element=>{
   const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
     const dispatch:any=useDispatch()
-    const user=useSelector((state:any)=>state.applicantData.user)
+    const user=useSelector((state:any)=>state.applicantData.data)
+    const userAddress=useSelector((state:RootState)=>state.getUserAddress.address)
 const initialAddress:AddressInterface={
     street:"",
     building_number:"",
     apartment_number:"",
     postal_code:"",
+    location:"",
     province:"",
-    country:"",
+    country:"Zimbabwe",
     email:"",
-    settlement_type:"",
-    city:""
+    type_of_settlement:"",
+    city:"Bulawayo"
     
 }
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
-const [address,setAddress]=useState<AddressInterface>(initialAddress)
-
+const [editMode, setEditMode] = useState<boolean>(false);
+const [address,setAddress]=useState<AddressInterface>(userAddress?userAddress:initialAddress)
+console.log(address,"EDITED")
 const handleChange=(e:any)=>{
 const {name,value}=e.target;
 setAddress((data)=>({
@@ -37,21 +40,29 @@ setAddress((data)=>({
 }
 const isAddressValid=():boolean=>{
 return(
-  initialAddress.building_number.trim() !=="" &&
-  initialAddress.city.trim() !=="" &&
-  initialAddress.country.trim() !=="" &&
-  initialAddress.province.trim() !==""&&
-  initialAddress.settlement_type.trim()!== "" &&
-  initialAddress.street.trim()!==""
+  address.building_number.trim() !=="" &&
+  address.city.trim() !=="" &&
+  address.country.trim() !=="" &&
+  address.province.trim() !==""&&
+  address.type_of_settlement.trim()!== "" &&
+  address.street.trim()!==""
 )
 }
-const handleUpdate= async()=>{
+
+const handleSave= async()=>{
  await dispatch(postUserAddress(accessToken.accessToken,initialAddress,user.id))
  dispatch(getApplicantData(accessToken.accessToken))
+ dispatch(getUserAddress(accessToken.accessToken,user.id))
+ setEditMode(false)
 }
     useEffect(()=>{
        dispatch(getUserAddress(accessToken.accessToken,user.id))
     },[])
+
+    const handleEditClick = () => {
+      setEditMode((prev) => !prev);
+    };
+    console.log(userAddress,"USERADDRESS")
     return(
 <div>
 <h5 className="d-flex mb-4">Address</h5>
@@ -62,7 +73,7 @@ const handleUpdate= async()=>{
           <Form.Control
            placeholder="Street"
            name="street"
-           value={address.street}
+           value={userAddress&&!editMode?userAddress.street:address.street}
             required 
             onChange={handleChange}
             />
@@ -73,7 +84,7 @@ const handleUpdate= async()=>{
           placeholder="Building number" 
           required
           name="building_number"
-          value={address.building_number}
+          value={userAddress&&!editMode?userAddress.building_number:address.building_number}
           onChange={handleChange}
           />
         </Col>
@@ -86,50 +97,37 @@ const handleUpdate= async()=>{
           <Form.Control 
           placeholder="Apartment number" 
           name="apartment_number"
-          value={address.apartment_number}
+          value={userAddress&&!editMode?userAddress.apartment_number:address.apartment_number}
           onChange={handleChange}
           />
         </Col>
         <Col>
-        <Form.Label className="d-flex">Postal code<span className="text-danger">*</span>
+        <Form.Label className="d-flex">Postal code
         </Form.Label>
           <Form.Control 
           placeholder="Post code" 
-        //    required
            name="postal_code"
-          value={address.postal_code}
+          value={userAddress&&!editMode?userAddress.postal_code:address.postal_code}
           onChange={handleChange}
            />
         </Col>
       </Row>
     </Form>
-   
-    {/* <Form className="my-3" onSubmit={handleSubmit}>
+    <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-        <Col>
-        <Form.Label className="d-flex">Code<span className="text-danger">*</span></Form.Label>
-          <Form.Control  as="select" required
-          name="settlement_type"
-          value={address.settlement_type}
+      <Col>
+        <Form.Label className="d-flex">Location<span className="text-danger">*</span></Form.Label>
+          <Form.Control
+           placeholder="eg. Pumula South"
+            required
+            name="location"
+          value={userAddress&&!editMode?userAddress.location:address.location}
           onChange={handleChange}
-          >
-          <option value="236">263</option>
-          <option value="27">27</option>
-          </Form.Control>
+            />
         </Col>
-        <Col>
-        <Form.Label className="d-flex">Mobile number<span className="text-danger">*</span></Form.Label>
-          <Form.Control type="tel" 
-          placeholder="Phone number" 
-          required
-          name="country"
-          value={address.country}
-          onChange={handleChange}
-          />
-        </Col>
-       
+        <Col></Col>
       </Row>
-    </Form > */}
+    </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
       <Col>
@@ -138,10 +136,11 @@ const handleUpdate= async()=>{
            as="select"
           
             required 
-            name="settlement_type"
-          value={address.settlement_type}
+            name="type_of_settlement"
+          value={userAddress&&!editMode?userAddress.type_of_settlement:address.type_of_settlement}
           onChange={handleChange}
           >
+            <option>Select</option>
             <option value="city">City</option>
             <option value="village">Village</option>
           </Form.Control>
@@ -151,11 +150,12 @@ const handleUpdate= async()=>{
         <Form.Label className="d-flex">Province<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
     name="province"
-    value={address.province}
+    value={userAddress&&!editMode?userAddress.province:address.province}
     onChange={handleChange}
     >
-      <option value="male">Bulawayo</option>
-      <option value="female">Harare</option>
+      <option>Select</option>
+      <option value="Bulawayo">Bulawayo</option>
+      <option value="Harare">Harare</option>
     </Form.Control>
   
         </Col>
@@ -169,7 +169,7 @@ const handleUpdate= async()=>{
            placeholder="City"
             required
             name="city"
-          value={address.city}
+          value={userAddress&&!editMode?userAddress.city:address.city}
           onChange={handleChange}
             />
         </Col>
@@ -177,9 +177,10 @@ const handleUpdate= async()=>{
         <Form.Label className="d-flex">Country<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
     name="country"
-    value={address.country}
+    value={userAddress&&!editMode?userAddress.country:address.country}
     onChange={handleChange}
     >
+      <option>Select</option>
       <option value="Zimbabwe">Zimbabwe</option>
       <option value="South Africa">South Africa</option>
     </Form.Control>
@@ -188,7 +189,22 @@ const handleUpdate= async()=>{
       </Row>
     </Form>
     <div className="d-flex justify-content-end">
-        <Button variant="primary" className="px-3" disabled={!isAddressValid()}>Update</Button>
+      {address?(
+        <Button variant="primary" className="px-3" disabled={!isAddressValid()} onClick={handleSave}>Update</Button>
+      ):(
+        <div>
+             <Button variant="primary" className="px-3" onClick={handleEditClick}>
+          {editMode ? "Cancel" : "Edit"}
+        </Button>
+        {editMode && (
+          <Button variant="success" className="ms-2 px-3" type="submit" form="personalDataForm" onClick={handleSave}>
+            Save
+          </Button>
+        )}
+        </div>
+      )}
+        
+       
     </div>
 </div>
     )
