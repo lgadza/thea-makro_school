@@ -20,7 +20,7 @@ import { RootState } from "../../../../redux/store"
 
 const StudentAccountPage=():JSX.Element=>{
 const personalInfo=useSelector((state:RootState)=>state.applicantData.data)
-const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
+const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
 const isError=useSelector((state:RootState)=>state.applicantData.isError)
     const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
     const handleNavigationClick=(component:string)=>{

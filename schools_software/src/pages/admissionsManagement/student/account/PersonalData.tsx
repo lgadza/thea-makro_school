@@ -12,7 +12,7 @@ import { Dispatch } from "redux"
 const PersonalData=():JSX.Element=>{
     const dispatch:Dispatch<any>=useDispatch()
     const user=useSelector((state:RootState)=>state.applicantData.data)
-    const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
+    const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
 const initialPersonalData:PersonalDataInterface={
     first_name:"",
     last_name:"",

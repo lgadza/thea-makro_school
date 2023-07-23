@@ -1,13 +1,23 @@
 import { Dispatch } from "redux";
-import { ApplicantRegistration } from "../../Types";
+import { AddressInterface, ApplicantRegistration } from "../../Types";
 import { LoginCredentialsInterface } from "../../components/Login";
 export const APPLICANT_REGISTRATION_ERROR_RESPONSE="APPLICANT_REGISTRATION_ERROR_RESPONSE"
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
 export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
 export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
+
 export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
 export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
 export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
+
+export const POST_USER_ADDRESS="POST_USER_ADDRESS"
+export const POST_USER_ADDRESS_ERROR="POST_USER_ADDRESS_ERROR"
+export const POST_USER_ADDRESS_LOADING="POST_USER_ADDRESS_LOADING"
+
+export const GET_USER_ADDRESS="GET_USER_ADDRESS"
+export const GET_USER_ADDRESS_ERROR="GET_USER_ADDRESS_ERROR"
+export const GET_USER_ADDRESS_LOADING="GET_USER_ADDRESS_LOADING"
+
 export const EDIT_APPLICANT_DATA="EDIT_APPLICANT_DATA"
 export const EDIT_APPLICANT_DATA_ERROR="EDIT_APPLICANT_DATA_ERROR"
 export const EDIT_APPLICANT_DATA_LOADING="EDIT_APPLICANT_DATA_LOADING"
@@ -126,7 +136,7 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
         }
     }
   };
-export const editApplicantData = (accessToekn:string,formData:ApplicantRegistration,user_id:string) => {
+export const editApplicantData = (accessToken:string,formData:ApplicantRegistration,user_id:string) => {
     
     return async (dispatch:Dispatch)=>{
         const options:RequestInit={
@@ -134,8 +144,10 @@ export const editApplicantData = (accessToekn:string,formData:ApplicantRegistrat
             headers:{
                 Accept:"application.json",
                 "Content-Type":"application/json",
+                Authorization:"Bearer " + `${accessToken}`
             },
             body:JSON.stringify(formData)
+            
         }
         try{
             const response=await fetch(`http://localhost:3001/applicants/${user_id}`,options)
@@ -170,6 +182,57 @@ export const editApplicantData = (accessToekn:string,formData:ApplicantRegistrat
             });
             dispatch({
                 type:EDIT_APPLICANT_DATA_ERROR,
+                payload:true,
+            })
+        }
+    }
+  };
+export const postUserAddress = (accessToken:string,address:AddressInterface,user_id:string) => {
+    
+    return async (dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"POST",
+            headers:{
+                Accept:"application.json",
+                "Content-Type":"application/json",
+                Authorization:"Bearer " + `${accessToken}`
+            },
+            body:JSON.stringify(address)
+            
+        }
+        try{
+            const response=await fetch(`http://localhost:3001/address/${user_id}`,options)
+            if(response.ok){
+                const address=await response.json();
+                dispatch({
+                    type:POST_USER_ADDRESS,
+                    payload:address
+                });
+                setTimeout(()=>{
+                   dispatch({
+                    type:POST_USER_ADDRESS_LOADING,
+                    payload:false,
+                   });
+                },100);
+            }else{
+                console.log("error")
+                dispatch({
+                    type:POST_USER_ADDRESS_LOADING,
+                    payload:false,
+                });
+                dispatch({
+                    type:POST_USER_ADDRESS_ERROR,
+                    payload:true,
+                })
+            }
+        }catch(error){
+            console.log(error)
+            dispatch({
+                type:POST_USER_ADDRESS_LOADING,
+                payload:false,
+            });
+            dispatch({
+                type:POST_USER_ADDRESS_ERROR,
                 payload:true,
             })
         }
@@ -226,6 +289,59 @@ export const editApplicantData = (accessToekn:string,formData:ApplicantRegistrat
                 })
                 dispatch({
                     type:GET_APPLICANT_DATA_ERROR,
+                    payload:true,
+                })
+            }
+    }
+}
+  export const  getUserAddress=(accessToken:string,user_id:string)=>{
+    
+    return async(dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"GET",
+            headers:{
+                Accept:"application/json",
+                "Content-Type":"application/json",
+                Authorization:"Bearer " + `${accessToken}`
+            },
+        };
+
+            try{
+                const response=await fetch(`http://localhost:3001/address/${user_id}`,options)
+                
+                if(response.ok){
+                    const address= await response.json()
+                    dispatch({
+                        type:GET_USER_ADDRESS,
+                        payload:address,
+                    })
+                    setTimeout(()=>{
+                        dispatch({
+                            type:GET_USER_ADDRESS_LOADING,
+                            payload:false
+                        })
+                    },100);
+
+                }else{
+                    console.log("ERROR")
+                    dispatch({
+                        type:GET_USER_ADDRESS_LOADING,
+                        payload:false,
+                    })
+                    dispatch({
+                        type:GET_USER_ADDRESS_ERROR,
+                        payload:true
+                    })
+                }
+            }
+            catch(error){
+                console.log(error,"Error")
+                dispatch({
+                    type:GET_USER_ADDRESS_LOADING,
+                    payload:false,
+                })
+                dispatch({
+                    type:GET_USER_ADDRESS_ERROR,
                     payload:true,
                 })
             }

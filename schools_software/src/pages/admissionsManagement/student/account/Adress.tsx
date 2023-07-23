@@ -2,13 +2,15 @@ import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { ApplicantRegistration, AddressInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
-import { getApplicantData } from "../../../../redux/actions"
+import { getApplicantData, getUserAddress, postUserAddress } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
+import { RootState } from "../../../../redux/store"
 
 
 const Address=():JSX.Element=>{
+  const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
     const dispatch:any=useDispatch()
-    const data=useSelector((state:any)=>state.applicantData.data)
+    const user=useSelector((state:any)=>state.applicantData.user)
 const initialAddress:AddressInterface={
     street:"",
     building_number:"",
@@ -43,8 +45,12 @@ return(
   initialAddress.street.trim()!==""
 )
 }
+const handleUpdate= async()=>{
+ await dispatch(postUserAddress(accessToken.accessToken,initialAddress,user.id))
+ dispatch(getApplicantData(accessToken.accessToken))
+}
     useEffect(()=>{
-        // dispatch(getApplicantData())
+       dispatch(getUserAddress(accessToken.accessToken,user.id))
     },[])
     return(
 <div>

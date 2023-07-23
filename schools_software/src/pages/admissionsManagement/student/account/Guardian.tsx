@@ -11,7 +11,7 @@ import { Dispatch } from "redux"
 const Guardian=():JSX.Element=>{
     const dispatch:Dispatch<any> = useDispatch()
     const data=useSelector((state:RootState)=>state.applicantData.data)
-    const accessToken=useSelector((state:RootState)=>state.loginApplicant.accessToken)
+    const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
 const initialGuardian:GuardianInterface={
     first_name:"",
     last_name:"",

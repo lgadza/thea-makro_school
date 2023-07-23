@@ -9,6 +9,7 @@ import getApplicantData from "../reducers/getApplicantData";
 import activeNav from "../reducers/activeNav";
 import loginApplicant from "../reducers/loginApplicant";
 import editPersonalData from "../reducers/editPersonaData";
+import getUserAddress from "../reducers/getUserAddress";
 
 
 const persistConfig = {
@@ -27,8 +28,9 @@ const mainReducer = combineReducers({
   applicantRegistration: applicantRegistration,
   applicantData:getApplicantData,
   activeNav:activeNav,
-  loginApplicant:loginApplicant,
+  accessToken:loginApplicant,
   editPersonalData:editPersonalData,
+  getUserAddress:getUserAddress,
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);
