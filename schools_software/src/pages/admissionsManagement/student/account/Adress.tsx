@@ -24,15 +24,25 @@ const initialAddress:AddressInterface={
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
+const [address,setAddress]=useState<AddressInterface>(initialAddress)
+
 const handleChange=(e:any)=>{
 const {name,value}=e.target;
 setAddress((data)=>({
     ...data,
     [name]:value
 }))
-console.log(address);
 }
-    const [address,setAddress]=useState<AddressInterface>(initialAddress)
+const isAddressValid=():boolean=>{
+return(
+  initialAddress.building_number.trim() !=="" &&
+  initialAddress.city.trim() !=="" &&
+  initialAddress.country.trim() !=="" &&
+  initialAddress.province.trim() !==""&&
+  initialAddress.settlement_type.trim()!== "" &&
+  initialAddress.street.trim()!==""
+)
+}
     useEffect(()=>{
         // dispatch(getApplicantData())
     },[])
@@ -172,7 +182,7 @@ console.log(address);
       </Row>
     </Form>
     <div className="d-flex justify-content-end">
-        <Button variant="primary" className="px-3">Update</Button>
+        <Button variant="primary" className="px-3" disabled={!isAddressValid()}>Update</Button>
     </div>
 </div>
     )

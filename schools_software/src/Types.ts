@@ -27,7 +27,7 @@ export interface PersonalDataInterface{
   date_of_birth:string;
   gender:string;
   phone_number:string;
-  email?:string;
+  email:string;
   country_code:string;
   citizenship:string;
   

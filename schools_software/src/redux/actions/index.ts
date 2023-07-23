@@ -8,6 +8,9 @@ export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
 export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
 export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
 export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
+export const EDIT_APPLICANT_DATA="EDIT_APPLICANT_DATA"
+export const EDIT_APPLICANT_DATA_ERROR="EDIT_APPLICANT_DATA_ERROR"
+export const EDIT_APPLICANT_DATA_LOADING="EDIT_APPLICANT_DATA_LOADING"
 export const LOGIN_APPLICANT="LOGIN_APPLICANT"
 export const LOGIN_APPLICANT_ERROR="LOGIN_APPLICANT_ERROR"
 export const LOGIN_APPLICANT_LOADING="LOGIN_APPLICANT_LOADING"
@@ -118,6 +121,55 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
             });
             dispatch({
                 type:APPLICANT_REGISTRATION_ERROR,
+                payload:true,
+            })
+        }
+    }
+  };
+export const editApplicantData = (accessToekn:string,formData:ApplicantRegistration,user_id:string) => {
+    
+    return async (dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"PUT",
+            headers:{
+                Accept:"application.json",
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify(formData)
+        }
+        try{
+            const response=await fetch(`http://localhost:3001/applicants/${user_id}`,options)
+            if(response.ok){
+                const personalData=await response.json();
+                dispatch({
+                    type:EDIT_APPLICANT_DATA,
+                    payload:personalData
+                });
+                setTimeout(()=>{
+                   dispatch({
+                    type:EDIT_APPLICANT_DATA_LOADING,
+                    payload:false,
+                   });
+                },100);
+            }else{
+                console.log("error")
+                dispatch({
+                    type:EDIT_APPLICANT_DATA_LOADING,
+                    payload:false,
+                });
+                dispatch({
+                    type:EDIT_APPLICANT_DATA_ERROR,
+                    payload:true,
+                })
+            }
+        }catch(error){
+            console.log(error)
+            dispatch({
+                type:EDIT_APPLICANT_DATA_LOADING,
+                payload:false,
+            });
+            dispatch({
+                type:EDIT_APPLICANT_DATA_ERROR,
                 payload:true,
             })
         }

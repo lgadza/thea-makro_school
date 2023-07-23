@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Col, Form, Row } from "react-bootstrap"
 import { ApplicantRegistration, PersonalDataInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
-import { getApplicantData } from "../../../../redux/actions"
+import { editApplicantData, getApplicantData } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
 import { Button } from "react-bootstrap"
 import { RootState } from "../../../../redux/store"
@@ -22,9 +22,13 @@ const initialPersonalData:PersonalDataInterface={
     phone_number:"",
     email:"",
     country_code:"",
-    citizenship:""
+    citizenship:"",
+  
+
+    
 }
-const [personalData, setPersonalData] = useState<PersonalDataInterface>(initialPersonalData);
+const [personalData, setPersonalData] = useState<PersonalDataInterface>(user?user:initialPersonalData);
+console.log(personalData,"EDITED")
 const [editMode, setEditMode] = useState<boolean>(false);
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
@@ -39,14 +43,19 @@ setPersonalData((data)=>({
 
 useEffect(() => {
   // dispatch(getApplicantData(accessToken));
-  if (user) {
-    setPersonalData(user);
-  }
+  // if (user) {
+  //   setPersonalData(user);
+  // }
 }, [user]);
 const handleEditClick = () => {
   setEditMode((prev) => !prev);
 };
 
+const handleSave=async()=>{
+  await dispatch(editApplicantData(accessToken.accessToken,personalData as ApplicantRegistration,user?.id))
+  setEditMode(false)
+  dispatch(getApplicantData(accessToken.accessToken))
+}
 
     return(
 <div>
@@ -114,9 +123,10 @@ const handleEditClick = () => {
         </Col>
         <Col>
         <Form.Label className="d-flex">Mobile number<span className="text-danger">*</span></Form.Label>
-          <Form.Control type="tel" 
+          <Form.Control type="number" 
           placeholder="Phone number" 
           required
+          step={1}
           name="phone_number"
           value={!editMode?user.phone_number:personalData.phone_number}
           onChange={handleChange}
@@ -158,7 +168,7 @@ const handleEditClick = () => {
           {editMode ? "Cancel" : "Edit"}
         </Button>
         {editMode && (
-          <Button variant="success" className="ms-2 px-3" type="submit" form="personalDataForm">
+          <Button variant="success" className="ms-2 px-3" type="submit" form="personalDataForm" onClick={handleSave}>
             Save
           </Button>
         )}

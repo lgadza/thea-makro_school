@@ -8,6 +8,7 @@ import localStorage from "redux-persist/es/storage";
 import getApplicantData from "../reducers/getApplicantData";
 import activeNav from "../reducers/activeNav";
 import loginApplicant from "../reducers/loginApplicant";
+import editPersonalData from "../reducers/editPersonaData";
 
 
 const persistConfig = {
@@ -27,6 +28,7 @@ const mainReducer = combineReducers({
   applicantData:getApplicantData,
   activeNav:activeNav,
   loginApplicant:loginApplicant,
+  editPersonalData:editPersonalData,
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);
