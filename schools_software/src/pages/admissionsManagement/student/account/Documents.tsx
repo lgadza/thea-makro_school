@@ -49,6 +49,7 @@ console.log(guardian);
     </ul>
   </Alert>
 <h5 className="d-flex">Required documents</h5>
+<span className="d-flex text-muted mb-2">Fill all fields with to update <span className="text-danger">*</span></span>
 <span className="d-flex mb-4 text-muted">Please upload documents that have a status missing.</span>
     <Form onSubmit={handleSubmit}>
       <Row>

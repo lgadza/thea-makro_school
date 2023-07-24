@@ -10,7 +10,7 @@ import { Dispatch } from "redux"
 
 const Guardian=():JSX.Element=>{
     const dispatch:Dispatch<any> = useDispatch()
-    const guardian_types=useSelector((state:RootState)=>state.getGuardianTypes.guardian_types.guardian_types)
+    const guardian_types=useSelector((state:RootState)=>state.getGuardianTypes.guardian_types)
     const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
 const initialGuardian:GuardianInterface={
     first_name:"",
@@ -25,7 +25,7 @@ const initialGuardian:GuardianInterface={
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
-console.log(guardian_types,"GUARDIANTYPES")
+
 const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
 const {name,value}=e.target;
 setGuardian((data)=>({
@@ -39,7 +39,11 @@ setGuardian((data)=>({
     },[])
     return(
 <div>
+  {guardian_types && (
+    <>
+  
 <h5 className="d-flex mb-4">Guardian/Parent</h5>
+<span className="d-flex text-muted mb-2">Fill all fields with to update <span className="text-danger">*</span></span>
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>
@@ -102,7 +106,7 @@ setGuardian((data)=>({
           >
           <option>select</option>
           {guardian_types && (
-            guardian_types.map((type:any,index:number)=>{
+            guardian_types.guardian_types.map((type:any,index:number)=>{
               return(
 
                 <option className="py-2" key={index} value={type.relationship}>{type.relationship}</option>
@@ -119,6 +123,8 @@ setGuardian((data)=>({
     <div className="d-flex justify-content-end">
         <Button variant="primary" className="px-3">Update</Button>
     </div>
+    </>
+  )}
 </div>
     )
 }

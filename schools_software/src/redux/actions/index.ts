@@ -10,6 +10,10 @@ export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
 export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
 export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
 
+export const EDIT_USER_ADDRESS="EDIT_USER_ADDRESS"
+export const EDIT_USER_ADDRESS_ERROR="EDIT_USER_ADDRESS_ERROR"
+export const EDIT_USER_ADDRESS_LOADING="EDIT_USER_ADDRESS_LOADING"
+
 export const GET_GUARDIAN_TYPES="GET_GUARDIAN_TYPES"
 export const GET_GUARDIAN_TYPES_ERROR="GET_GUARDIAN_TYPES_ERROR"
 export const GET_GUARDIAN_TYPES_LOADING="GET_GUARDIAN_TYPES_LOADING"
@@ -259,12 +263,38 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
             const response=await fetch(`http://localhost:3001/address/${address_id}`,options)
             if(response.ok){
                 const address=await response.json();
-                console.log(address)
+                dispatch({
+                    type:EDIT_USER_ADDRESS,
+                    payload:address
+                });
+                setTimeout(()=>{
+                   dispatch({
+                    type:EDIT_USER_ADDRESS_LOADING,
+                    payload:false,
+                   });
+                },100);
             }else{
                 console.log("error")
+                dispatch({
+                    type:EDIT_USER_ADDRESS_LOADING,
+                    payload:false,
+                });
+                dispatch({
+                    type:EDIT_USER_ADDRESS_ERROR,
+                    payload:true,
+                })
             }
         }catch(error){
             console.log(error)
+            console.log(error)
+            dispatch({
+                type:EDIT_USER_ADDRESS_LOADING,
+                payload:false,
+            });
+            dispatch({
+                type:EDIT_USER_ADDRESS_ERROR,
+                payload:true,
+            })
         }
     }
   };

@@ -11,6 +11,8 @@ import loginApplicant from "../reducers/loginApplicant";
 import editPersonalData from "../reducers/editPersonaData";
 import getUserAddress from "../reducers/getUserAddress";
 import getGuardianTypes from "../reducers/getGuardianTypes";
+import editUserAddress from "../reducers/editUserAddress";
+import postUserAddress from "../reducers/postUserAddress";
 
 
 const persistConfig = {
@@ -23,8 +25,6 @@ const persistConfig = {
   ],
 };
 
-
-
 const mainReducer = combineReducers({
   applicantRegistration: applicantRegistration,
   applicantData:getApplicantData,
@@ -33,6 +33,8 @@ const mainReducer = combineReducers({
   editPersonalData:editPersonalData,
   getUserAddress:getUserAddress,
   getGuardianTypes:getGuardianTypes,
+  editUserAddress:editUserAddress,
+  postUserAddress:postUserAddress,
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);
