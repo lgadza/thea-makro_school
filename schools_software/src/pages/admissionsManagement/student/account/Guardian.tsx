@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { ApplicantRegistration, GuardianInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
-import { getApplicantData } from "../../../../redux/actions"
+import { getApplicantData, getGuardianType } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
 import { RootState } from "../../../../redux/store"
 import { Dispatch } from "redux"
@@ -10,7 +10,7 @@ import { Dispatch } from "redux"
 
 const Guardian=():JSX.Element=>{
     const dispatch:Dispatch<any> = useDispatch()
-    const data=useSelector((state:RootState)=>state.applicantData.data)
+    const guardian_types=useSelector((state:RootState)=>state.getGuardianTypes.guardian_types.guardian_types)
     const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
 const initialGuardian:GuardianInterface={
     first_name:"",
@@ -25,18 +25,18 @@ const initialGuardian:GuardianInterface={
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
-const handleChange=(e:any)=>{
+console.log(guardian_types,"GUARDIANTYPES")
+const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
 const {name,value}=e.target;
 setGuardian((data)=>({
     ...data,
     [name]:value
 }))
-console.log(guardian);
 }
     const [guardian,setGuardian]=useState<GuardianInterface>(initialGuardian)
     useEffect(()=>{
-        // dispatch(getApplicantData(accessToken))
-    })
+        dispatch(getGuardianType())
+    },[])
     return(
 <div>
 <h5 className="d-flex mb-4">Guardian/Parent</h5>
@@ -93,22 +93,27 @@ console.log(guardian);
     </Form >
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-       
-        <Col>
-       
-        <Form.Label className="d-flex">Relationship <span className="text-danger">*</span></Form.Label>
-          <Form.Control 
-          placeholder="Relationship" 
-          required
+      <Col>
+        <Form.Label className="d-flex">Relationship<span className="text-danger">*</span></Form.Label>
+          <Form.Control  as="select" required
           name="relationship"
           value={guardian.relationship}
           onChange={handleChange}
-          />
-  
+          >
+          <option>select</option>
+          {guardian_types && (
+            guardian_types.map((type:any,index:number)=>{
+              return(
+
+                <option className="py-2" key={index} value={type.relationship}>{type.relationship}</option>
+              )
+            })
+          )}
+          </Form.Control>
         </Col>
         <Col>
-       
         </Col>
+       
       </Row>
     </Form>
     <div className="d-flex justify-content-end">

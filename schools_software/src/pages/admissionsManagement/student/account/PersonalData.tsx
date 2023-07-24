@@ -13,7 +13,17 @@ const PersonalData=():JSX.Element=>{
     const dispatch:Dispatch<any>=useDispatch()
     const user=useSelector((state:RootState)=>state.applicantData.data)
     const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
-const initialPersonalData:PersonalDataInterface={
+const initialPersonalData:PersonalDataInterface=user?{
+  first_name:user.first_name,
+  last_name:user.last_name,
+  second_name:user.second_name,
+  date_of_birth:user.date_of_birth,
+  gender:user.gender,
+  phone_number:user.phone_number,
+  email:user.email,
+  country_code:user.country_code,
+  citizenship:user.citizenship,
+}:{
     first_name:"",
     last_name:"",
     second_name:"",
@@ -59,6 +69,8 @@ const handleSave=async()=>{
 
     return(
 <div>
+{user ? (
+        <>
 <h5 className="d-flex mb-4">Personal data</h5>
     <Form onSubmit={handleSubmit}>
       <Row>
@@ -173,6 +185,10 @@ const handleSave=async()=>{
           </Button>
         )}
     </div>
+    </>
+    ) : (
+        <p>Loading...</p>
+      )}
 </div>
     )
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { ApplicantRegistration, AddressInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
-import { getApplicantData, getUserAddress, postUserAddress } from "../../../../redux/actions"
+import { editUserAddress, getApplicantData, getUserAddress, postUserAddress } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
 import { RootState } from "../../../../redux/store"
 
@@ -10,27 +10,38 @@ import { RootState } from "../../../../redux/store"
 const Address=():JSX.Element=>{
   const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
     const dispatch:any=useDispatch()
-    const user=useSelector((state:any)=>state.applicantData.data)
-    const userAddress=useSelector((state:RootState)=>state.getUserAddress.address)
-const initialAddress:AddressInterface={
-    street:"",
-    building_number:"",
-    apartment_number:"",
-    postal_code:"",
-    location:"",
-    province:"",
-    country:"Zimbabwe",
-    email:"",
-    type_of_settlement:"",
-    city:"Bulawayo"
-    
-}
+    const user=useSelector((state:RootState)=>state.applicantData.data)
+    const initialAddress: AddressInterface =user && user.address
+    ? {
+        street: user.address.street,
+        building_number: user.address.building_number,
+        apartment_number: user.address.apartment_number,
+        postal_code: user.address.postal_code,
+        location: user.address.location,
+        province: user.address.province,
+        country: user.address.country,
+        email: user.address.email,
+        type_of_settlement: user.address.type_of_settlement,
+        city: user.address.city,
+      }
+    : {
+        street: "",
+        building_number: "",
+        apartment_number: "",
+        postal_code: "",
+        location: "",
+        province: "",
+        country: "Zimbabwe",
+        email: "",
+        type_of_settlement: "",
+        city: "Bulawayo",
+      };
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
 const [editMode, setEditMode] = useState<boolean>(false);
-const [address,setAddress]=useState<AddressInterface>(userAddress?userAddress:initialAddress)
-console.log(address,"EDITED")
+const [address,setAddress]=useState<AddressInterface>(initialAddress)
+
 const handleChange=(e:any)=>{
 const {name,value}=e.target;
 setAddress((data)=>({
@@ -50,21 +61,29 @@ return(
 }
 
 const handleSave= async()=>{
- await dispatch(postUserAddress(accessToken.accessToken,initialAddress,user.id))
+ await dispatch(editUserAddress(accessToken.accessToken,address,user.address.id))
  dispatch(getApplicantData(accessToken.accessToken))
- dispatch(getUserAddress(accessToken.accessToken,user.id))
  setEditMode(false)
 }
-    useEffect(()=>{
-       dispatch(getUserAddress(accessToken.accessToken,user.id))
-    },[])
+const handleUpdate= async()=>{
+ await dispatch(postUserAddress(accessToken.accessToken,address,user.id))
+ dispatch(getApplicantData(accessToken.accessToken))
+}
+   
+useEffect(()=>{
+  dispatch(getApplicantData(accessToken.accessToken))
+},[user])
 
     const handleEditClick = () => {
       setEditMode((prev) => !prev);
     };
-    console.log(userAddress,"USERADDRESS")
+   
     return(
 <div>
+  {
+    user?(
+      <>
+
 <h5 className="d-flex mb-4">Address</h5>
     <Form onSubmit={handleSubmit}>
       <Row>
@@ -73,7 +92,7 @@ const handleSave= async()=>{
           <Form.Control
            placeholder="Street"
            name="street"
-           value={userAddress&&!editMode?userAddress.street:address.street}
+           value={user.address&&!editMode?user.address.street:address.street}
             required 
             onChange={handleChange}
             />
@@ -84,7 +103,7 @@ const handleSave= async()=>{
           placeholder="Building number" 
           required
           name="building_number"
-          value={userAddress&&!editMode?userAddress.building_number:address.building_number}
+          value={user.address&&!editMode?user.address.building_number:address.building_number}
           onChange={handleChange}
           />
         </Col>
@@ -97,7 +116,7 @@ const handleSave= async()=>{
           <Form.Control 
           placeholder="Apartment number" 
           name="apartment_number"
-          value={userAddress&&!editMode?userAddress.apartment_number:address.apartment_number}
+          value={user.address&&!editMode?user.address.apartment_number:address.apartment_number}
           onChange={handleChange}
           />
         </Col>
@@ -107,7 +126,7 @@ const handleSave= async()=>{
           <Form.Control 
           placeholder="Post code" 
            name="postal_code"
-          value={userAddress&&!editMode?userAddress.postal_code:address.postal_code}
+          value={user.address&&!editMode?user.address.postal_code:address.postal_code}
           onChange={handleChange}
            />
         </Col>
@@ -121,7 +140,7 @@ const handleSave= async()=>{
            placeholder="eg. Pumula South"
             required
             name="location"
-          value={userAddress&&!editMode?userAddress.location:address.location}
+          value={user.address&&!editMode?user.address.location:address.location}
           onChange={handleChange}
             />
         </Col>
@@ -137,12 +156,17 @@ const handleSave= async()=>{
           
             required 
             name="type_of_settlement"
-          value={userAddress&&!editMode?userAddress.type_of_settlement:address.type_of_settlement}
+          value={user.address&&!editMode?user.address.type_of_settlement:address.type_of_settlement}
           onChange={handleChange}
           >
-            <option>Select</option>
-            <option value="city">City</option>
-            <option value="village">Village</option>
+               {!user.address && <option>Select</option>}
+                {user.address && (
+                  <option value={user.address.type_of_settlement} disabled>
+                    {user.address.type_of_settlement}
+                  </option>
+                )}
+            <option value="City">City</option>
+            <option value="Village">Village</option>
           </Form.Control>
         </Col>
         <Col>
@@ -150,10 +174,15 @@ const handleSave= async()=>{
         <Form.Label className="d-flex">Province<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
     name="province"
-    value={userAddress&&!editMode?userAddress.province:address.province}
+    value={user.address&&!editMode?user.address.province:address.province}
     onChange={handleChange}
     >
-      <option>Select</option>
+      {!user.address && <option>Select</option>}
+        {user.address && (
+          <option value={user.address.province} disabled>
+            {user.address.province}
+          </option>
+        )}
       <option value="Bulawayo">Bulawayo</option>
       <option value="Harare">Harare</option>
     </Form.Control>
@@ -169,18 +198,24 @@ const handleSave= async()=>{
            placeholder="City"
             required
             name="city"
-          value={userAddress&&!editMode?userAddress.city:address.city}
+          value={user.address&&!editMode?user.address.city:address.city}
           onChange={handleChange}
             />
         </Col>
         <Col>
         <Form.Label className="d-flex">Country<span className="text-danger">*</span></Form.Label>
-    <Form.Control as="select" required
+    <Form.Control as="select" 
+    required
     name="country"
-    value={userAddress&&!editMode?userAddress.country:address.country}
+    value={user.address&&!editMode?user.address.country:address.country}
     onChange={handleChange}
     >
-      <option>Select</option>
+      {!user.address && <option>Select</option>}
+  {user.address && (
+    <option value={user.address.country} disabled>
+      {user.address.country}
+    </option>
+  )}
       <option value="Zimbabwe">Zimbabwe</option>
       <option value="South Africa">South Africa</option>
     </Form.Control>
@@ -189,8 +224,8 @@ const handleSave= async()=>{
       </Row>
     </Form>
     <div className="d-flex justify-content-end">
-      {address?(
-        <Button variant="primary" className="px-3" disabled={!isAddressValid()} onClick={handleSave}>Update</Button>
+      {!user.address?(
+        <Button variant="primary" className="px-3" disabled={!isAddressValid()} onClick={handleUpdate}>Update</Button>
       ):(
         <div>
              <Button variant="primary" className="px-3" onClick={handleEditClick}>
@@ -206,6 +241,10 @@ const handleSave= async()=>{
         
        
     </div>
+    </>
+  ): (
+    <p>Loading...</p>
+  )}
 </div>
     )
 }

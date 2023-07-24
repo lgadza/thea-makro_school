@@ -10,6 +10,10 @@ export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
 export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
 export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
 
+export const GET_GUARDIAN_TYPES="GET_GUARDIAN_TYPES"
+export const GET_GUARDIAN_TYPES_ERROR="GET_GUARDIAN_TYPES_ERROR"
+export const GET_GUARDIAN_TYPES_LOADING="GET_GUARDIAN_TYPES_LOADING"
+
 export const POST_USER_ADDRESS="POST_USER_ADDRESS"
 export const POST_USER_ADDRESS_ERROR="POST_USER_ADDRESS_ERROR"
 export const POST_USER_ADDRESS_LOADING="POST_USER_ADDRESS_LOADING"
@@ -238,6 +242,32 @@ export const postUserAddress = (accessToken:string,address:AddressInterface,user
         }
     }
   };
+export const editUserAddress = (accessToken:string,address:AddressInterface,address_id:string) => {
+    
+    return async (dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"PUT",
+            headers:{
+                Accept:"application.json",
+                "Content-Type":"application/json",
+                Authorization:"Bearer " + `${accessToken}`
+            },
+            body:JSON.stringify(address)
+            
+        }
+        try{
+            const response=await fetch(`http://localhost:3001/address/${address_id}`,options)
+            if(response.ok){
+                const address=await response.json();
+                console.log(address)
+            }else{
+                console.log("error")
+            }
+        }catch(error){
+            console.log(error)
+        }
+    }
+  };
 
   export const  getApplicantData=(accessToken:string)=>{
     
@@ -342,6 +372,59 @@ export const postUserAddress = (accessToken:string,address:AddressInterface,user
                 })
                 dispatch({
                     type:GET_USER_ADDRESS_ERROR,
+                    payload:true,
+                })
+            }
+    }
+}
+  export const  getGuardianType=()=>{
+    
+    return async(dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"GET",
+            headers:{
+                Accept:"application/json",
+                "Content-Type":"application/json",
+                // Authorization:"Bearer " + `${accessToken}`
+            },
+        };
+
+            try{
+                const response=await fetch(`http://localhost:3001/guardians/types/all`,options)
+                
+                if(response.ok){
+                    const guardian_type= await response.json()
+                    dispatch({
+                        type:GET_GUARDIAN_TYPES,
+                        payload:guardian_type,
+                    })
+                    setTimeout(()=>{
+                        dispatch({
+                            type:GET_GUARDIAN_TYPES_LOADING,
+                            payload:false
+                        })
+                    },100);
+
+                }else{
+                    console.log("ERROR")
+                    dispatch({
+                        type:GET_GUARDIAN_TYPES_LOADING,
+                        payload:false,
+                    })
+                    dispatch({
+                        type:GET_GUARDIAN_TYPES_ERROR,
+                        payload:true
+                    })
+                }
+            }
+            catch(error){
+                console.log(error,"Error")
+                dispatch({
+                    type:GET_GUARDIAN_TYPES_LOADING,
+                    payload:false,
+                })
+                dispatch({
+                    type:GET_GUARDIAN_TYPES_ERROR,
                     payload:true,
                 })
             }

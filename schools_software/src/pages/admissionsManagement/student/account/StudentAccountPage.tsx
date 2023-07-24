@@ -38,7 +38,7 @@ const isError=useSelector((state:RootState)=>state.applicantData.isError)
             <div>
                 <StudentNavbar personalInfo={personalInfo} />
             </div>
-            <Row>
+            <Row className="py-3 ">
                 {personalInfo && (
 
                 <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar">

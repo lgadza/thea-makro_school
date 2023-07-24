@@ -10,6 +10,7 @@ import activeNav from "../reducers/activeNav";
 import loginApplicant from "../reducers/loginApplicant";
 import editPersonalData from "../reducers/editPersonaData";
 import getUserAddress from "../reducers/getUserAddress";
+import getGuardianTypes from "../reducers/getGuardianTypes";
 
 
 const persistConfig = {
@@ -31,6 +32,7 @@ const mainReducer = combineReducers({
   accessToken:loginApplicant,
   editPersonalData:editPersonalData,
   getUserAddress:getUserAddress,
+  getGuardianTypes:getGuardianTypes,
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);
