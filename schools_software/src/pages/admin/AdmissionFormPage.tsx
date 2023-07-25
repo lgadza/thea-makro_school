@@ -1,5 +1,5 @@
 import { Row ,Container, Col, Dropdown} from "react-bootstrap"
-import AdminSidebarMenu from "./AdminSidebarMenu"
+import AdminSidebarMenu from "../../components/MainSidebar"
 import { useState } from "react"
 import StudentSideBar from "../admissionsManagement/student/StudentSideBar"
 import PersonalData from "../admissionsManagement/student/account/PersonalData"

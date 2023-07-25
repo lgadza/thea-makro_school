@@ -452,7 +452,7 @@ e.preventDefault()
         <>
           <h5 className="d-flex mb-4">Address</h5>
           <span className="d-flex text-muted mb-2">
-            Fill all fields with to update <span className="text-danger">*</span>
+            Fill all fields with <span className="text-danger mx-2">*</span>  to update
           </span>
           <Form onSubmit={handleSubmit}>
       <Row>

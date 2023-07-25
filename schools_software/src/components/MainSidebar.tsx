@@ -1,93 +1,55 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,faClipboard, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { Container, Row, Col, ListGroup,Nav } from 'react-bootstrap';
-import logo from "../../../assets/TM logo.png"
-import NavigationBar from '../../components/NavigationBar';
-import Image from '../../components/Image';
-import md_logo_small from "../../assets/md_logo_small.png"
+import { Nav } from 'react-bootstrap';
+import md_logo_small from "../assets/md_logo_small.png"
 import { useDispatch } from 'react-redux';
-import { ActiveNav } from '../../redux/actions';
+import { ActiveNav } from '../redux/actions';
 import { useSelector } from 'react-redux';
 
-const AdminSidebarMenu = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void;activePage:string;handlePageNavigationClick:(page:string)=>void}) => {
-  const [studentOpen, setStudentOpen] = useState(false);
+const MainSidebar = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void;activePage:string;handlePageNavigationClick:(page:string)=>void}) => {
 
+  const handleToggleMenu = () => {
+    toggleMenu();
+  };
+  const [studentOpen, setStudentOpen] = useState(false);
   const toggleStudent = () => {
     setStudentOpen(!studentOpen);
   }
+  const createStateToggle = (state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>>) => () => setState(!state);
   const [showDashboard, setShowDashboard] = useState(false);
-
-  const toggleDashboard = () => {
-    setShowDashboard(!showDashboard);
-  };
+  const toggleDashboard = createStateToggle(showDashboard, setShowDashboard);
   const [showTeachers, setShowTeachers] = useState(false);
-
-  const toggleTeachers = () => {
-    setShowTeachers(!showTeachers);
-  };
+  const toggleTeachers = createStateToggle(showTeachers, setShowTeachers);
   const [showParents, setShowParents] = useState(false);
-
-  const toggleParents = () => {
-    setShowParents(!showParents);
-  };
+  const toggleParents = createStateToggle(showParents, setShowParents);
   const [showLibrary, setShowLibrary] = useState(false);
-
-  const toggleLibrary = () => {
-    setShowLibrary(!showLibrary);
-  };
+  const toggleLibrary = createStateToggle(showLibrary, setShowLibrary);
   const [showInventory, setShowInventory] = useState(false);
-
-  const toggleInventory = () => {
-    setShowInventory(!showInventory);
-  };
+  const toggleInventory = createStateToggle(showInventory, setShowInventory);
   const [showClass, setShowClass] = useState(false);
-
-  const toggleClass = () => {
-    setShowClass(!showClass);
-  };
+  const toggleClass = createStateToggle(showClass, setShowClass);
   const [showClassRoutine, setShowClassRoutine] = useState(false);
-
-  const toggleClassRoutine = () => {
-    setShowClassRoutine(!showClassRoutine);
-  };
+  const toggleClassRoutine = createStateToggle(showClassRoutine, setShowClassRoutine);
   const [showSubjects, setShowSubjects] = useState(false);
-
-  const toggleSubjects = () => {
-    setShowSubjects(!showSubjects);
-  };
- 
+  const toggleSubjects = createStateToggle(showSubjects, setShowSubjects);
   const [showExam, setShowExam] = useState(false);
-
-  const toggleExam = () => {
-    setShowExam(!showExam);
-  };
+  const toggleExam = createStateToggle(showExam, setShowExam);
   const [showTransport, setShowTransport] = useState(false);
-
-  const toggleTransport = () => {
-    setShowTransport(!showTransport);
-  };
+  const toggleTransport = createStateToggle(showTransport, setShowTransport);
   const [showHostel, setShowHostel] = useState(false);
-
-  const toggleHostel = () => {
-    setShowHostel(!showHostel);
-  };
+  const toggleHostel = createStateToggle(showHostel, setShowHostel);
   const [showUsers, setShowUsers] = useState(false);
-
-  const toggleUsers = () => {
-    setShowUsers(!showUsers);
-  };
+  const toggleUsers = createStateToggle(showUsers, setShowUsers);
 const activeComponent=useSelector((state:any)=>state.activeNav)
   const dispatch=useDispatch()
 
   return (
     
-
-        
           <div className={showMenu?"main_bg sidebar ":"main_bg sidebar hide-menu"}>
             <div className='d-flex sidebar-head justify-content-between ps-2 py-2 align-items-center'>
     {showMenu && (
@@ -99,7 +61,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
               />
     )}
   <Link to=""
-  onClick={toggleMenu}
+  onClick={handleToggleMenu}
   >
 
               <FontAwesomeIcon icon={showMenu?faBars:faXmark} style={{fontSize:"1.2rem",color:"rgb(11, 94, 215)"}}/>
@@ -240,6 +202,25 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
             </Nav.Item>
             <Nav.Item>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
+               onClick={(e)=>{
+                e.stopPropagation()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faLightbulb} className="me-2" />
+                  {showMenu && (
+
+                 <span>C . A . L . A</span>
+)}
+                 </div>
+                 {showMenu && (
+                 <FontAwesomeIcon icon={faChevronRight} className="me-2" />
+
+                 )}
+               </Link>
+            </Nav.Item>
+            <Nav.Item>
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
                 toggleParents()
@@ -264,9 +245,9 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Parents</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Parent Details</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Parent Details</Link>
                    
-                        <Link to="/parent-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                        Add Parent
                         </Link>
@@ -554,10 +535,6 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                  <span>Messages</span>
 )}
                  </div>
-                  {/* {showMenu && (
-                   <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> 
-
-                  )} */}
                </Link>
                 
             </Nav.Item>
@@ -615,4 +592,4 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
   );
 };
 
-export default AdminSidebarMenu;
+export default MainSidebar;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Col, Form, Row } from "react-bootstrap"
+import { Alert, Col, Form, Row } from "react-bootstrap"
 import { ApplicantRegistration, PersonalDataInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
 import { editApplicantData, getApplicantData } from "../../../../redux/actions"
@@ -8,11 +8,35 @@ import { Button } from "react-bootstrap"
 import { RootState } from "../../../../redux/store"
 import { Dispatch } from "redux"
 
+interface SuccessMessageProps {
+  variant: "success" | "danger";
+  message: string;
+}
+
+const SuccessMessage: React.FC<SuccessMessageProps> = ({
+  variant,
+  message,
+}) => {
+  const [showMessage, setShowMessage] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMessage(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return showMessage ? <Alert variant={variant}>{message}</Alert> : null;
+};
 
 const PersonalData=():JSX.Element=>{
     const dispatch:Dispatch<any>=useDispatch()
     const user=useSelector((state:RootState)=>state.applicantData.data)
     const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
+    const editIsError = useSelector(
+      (state: RootState) => state.editUserAddress.isError
+    );
 const initialPersonalData:PersonalDataInterface=user?{
   first_name:user.first_name,
   last_name:user.last_name,
@@ -37,6 +61,7 @@ const initialPersonalData:PersonalDataInterface=user?{
 
     
 }
+const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 const [personalData, setPersonalData] = useState<PersonalDataInterface>(user?user:initialPersonalData);
 
 const [editMode, setEditMode] = useState<boolean>(false);
@@ -65,10 +90,18 @@ const handleSave=async()=>{
   await dispatch(editApplicantData(accessToken.accessToken,personalData as ApplicantRegistration,user?.id))
   setEditMode(false)
   dispatch(getApplicantData(accessToken.accessToken))
+  setShowSuccessMessage(true);
 }
 
     return(
 <div>
+{editIsError && (
+        <SuccessMessage variant="danger" message="Personal info save failed :(" />
+      )}
+      {!editIsError && showSuccessMessage &&(
+        <SuccessMessage variant="success" message="Personal info saved successfully!" />
+      )}
+     
 {user ? (
         <>
 <h5 className="d-flex mb-4">Personal data</h5>

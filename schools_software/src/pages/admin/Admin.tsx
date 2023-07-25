@@ -8,7 +8,7 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { Container, Row, Col, ListGroup,Nav } from 'react-bootstrap';
 import logo from "../../../assets/TM logo.png"
 import NavigationBar from '../../components/NavigationBar';
-import AdminSidebarMenu from './AdminSidebarMenu';
+import AdminSidebarMenu from '../../components/MainSidebar';
 
 const Admin = () => {
   const [studentOpen, setStudentOpen] = useState(false);

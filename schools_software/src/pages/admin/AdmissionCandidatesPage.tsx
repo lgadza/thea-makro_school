@@ -1,5 +1,5 @@
 import { Row ,Container, Col, Dropdown, Form} from "react-bootstrap"
-import AdminSidebarMenu from "./AdminSidebarMenu"
+import AdminSidebarMenu from "../../components/MainSidebar"
 import SearchBar from "../../components/SearchBar"
 import { useState } from "react"
 import { faChevronDown, faChevronRight} from "@fortawesome/free-solid-svg-icons"
