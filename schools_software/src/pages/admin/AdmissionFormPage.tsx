@@ -1,5 +1,5 @@
 import { Row ,Container, Col, Dropdown} from "react-bootstrap"
-import AdminSidebarMenu from "../../components/MainSidebar"
+import MainSidebar from "../../components/MainSidebar"
 import { useState } from "react"
 import StudentSideBar from "../admissionsManagement/student/StudentSideBar"
 import PersonalData from "../admissionsManagement/student/account/PersonalData"
@@ -33,7 +33,7 @@ const AdmissionFormPage=():JSX.Element=>{
         <Container fluid className="ps-0 ms-0">
             <Row>
                 <Col md={2} className={showMenu?"":"hide-menu md-1"} >
-                    <AdminSidebarMenu toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handleNavigationClick} activePage={activePage} />
+                    <MainSidebar toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handleNavigationClick} activePage={activePage} />
                 </Col>
                 <Col className="mx-3">
                   <AccountTopNavigationBar/>

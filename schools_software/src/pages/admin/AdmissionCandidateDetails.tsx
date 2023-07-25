@@ -56,31 +56,31 @@ const AdmissionCandidateDetails=():JSX.Element=>{
                             <div className="ms-5 w-100  content_bg ">
                                 <ul className="d-flex justify-content-start view-candidate py-2">
                                     <li 
-                                    className={`pe-3 ${activeComponent==="Profile"?"active":""}`}
+                                    className={`px-3 py-2 border-radius-round nav-item mx-1 ${activeComponent==="Profile"?"active":""}`}
                                     onClick={()=>handleNavigationClick("Profile")}
                                     >
                                     Profile
                                     </li>
                                     <li 
-                                    className={`pe-3 ${activeComponent==="Parents"?"active":""}`}
+                                    className={`px-3 py-2 border-radius-round nav-item mx-1 ${activeComponent==="Parents"?"active":""}`}
                                     onClick={()=>handleNavigationClick("Parents")}
                                     >
                                     Parents
                                     </li>
                                     <li 
-                                    className={`pe-3 ${activeComponent==="Address"?"active":""}`}
+                                    className={`px-3 py-2 border-radius-round nav-item mx-1 ${activeComponent==="Address"?"active":""}`}
                                     onClick={()=>handleNavigationClick("Address")}
                                     >
                                     Address
                                     </li>
                                     <li 
-                                    className={`pe-3 ${activeComponent==="Documents"?"active":""}`}
+                                    className={`px-3 py-2 border-radius-round nav-item mx-1 ${activeComponent==="Documents"?"active":""}`}
                                     onClick={()=>handleNavigationClick("Documents")}
                                     >
                                     Documents
                                     </li>
                                     <li
-                                     className={`pe-3 ${activeComponent==="Status"?"active":""}`}
+                                     className={`px-3 py-2 border-radius-round nav-item mx-1 ${activeComponent==="Status"?"active":""}`}
                                      onClick={()=>handleNavigationClick("Status")}
                                     >
                                     Status

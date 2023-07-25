@@ -34,9 +34,6 @@ const AdmissionCandidatesPage=():JSX.Element=>{
                 </Col>
                 <Col className="mx-3">
                     <AccountTopNavigationBar/>
-
-{/* ALL CANDIDATES */}
-
                     <div>
                          <h4 className="d-flex">All Candidates</h4>
                         <div className="d-flex align-items-center">

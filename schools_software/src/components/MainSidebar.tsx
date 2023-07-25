@@ -23,6 +23,14 @@ const MainSidebar = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:
   const createStateToggle = (state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>>) => () => setState(!state);
   const [showDashboard, setShowDashboard] = useState(false);
   const toggleDashboard = createStateToggle(showDashboard, setShowDashboard);
+  const [showCALA, setShowCALA] = useState(false);
+  const toggleCALA = createStateToggle(showCALA, setShowCALA);
+  const [showMessage, setShowMessage] = useState(false);
+  const toggleMessage = createStateToggle(showMessage, setShowMessage);
+  const [showNotice, setShowNotice] = useState(false);
+  const toggleNotice = createStateToggle(showNotice, setShowNotice);
+  const [showAttendance, setShowAttendance] = useState(false);
+  const toggleAttendance = createStateToggle(showAttendance, setShowAttendance);
   const [showTeachers, setShowTeachers] = useState(false);
   const toggleTeachers = createStateToggle(showTeachers, setShowTeachers);
   const [showParents, setShowParents] = useState(false);
@@ -70,7 +78,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
             
             <div className="sidebar-menu">
             <Nav className="flex-column">
-            <Nav.Item>
+            <Nav.Item className={`${showDashboard?"active":""}`}>
                <Link to=""
                 className="nav-link d-flex pe-0 justify-content-between ps-2 align-items-center" 
                 onClick={(e)=>{
@@ -82,7 +90,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                   <FontAwesomeIcon icon={faGauge} className="me-2" />
                   {showMenu && (
 
-                 <span>Dashboard</span>
+                 <span className={`${showDashboard?"active":""}`}>Dashboard</span>
                   )}
                  </div>
                  {showMenu && (
@@ -111,7 +119,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
              </div>
                )}
                </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${studentOpen?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2" 
                
               onClick={(e)=>{
@@ -160,7 +168,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showTeachers?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                onClick={(e)=>{
                 e.stopPropagation()
@@ -200,10 +208,11 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showCALA?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                onClick={(e)=>{
                 e.stopPropagation()
+                toggleCALA()
              }}
                >
                  <div>
@@ -219,7 +228,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                  )}
                </Link>
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showParents?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -254,7 +263,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showLibrary?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -289,7 +298,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showInventory?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -324,7 +333,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showClass?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -354,7 +363,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showClassRoutine?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -384,7 +393,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showSubjects?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -414,12 +423,12 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showAttendance?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
-            //     onClick={(e)=>{
-            //     e.stopPropagation()
-            //     toggleTeachers()
-            //  }}
+                onClick={(e)=>{
+                e.stopPropagation()
+                toggleAttendance()
+             }}
                >
                  <div>
                   <FontAwesomeIcon icon={faClipboardUser} className="me-2" />
@@ -434,7 +443,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                  )} */}
                </Link>
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showExam?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -464,7 +473,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showTransport?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -494,7 +503,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showHostel?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -524,9 +533,12 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showMessage?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
-            
+              onClick={(e)=>{
+                e.stopPropagation()
+                toggleMessage()
+             }}
                >
                  <div>
                   <FontAwesomeIcon icon={faMessage} className="me-2" />
@@ -538,7 +550,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                </Link>
                 
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showUsers?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
                 e.stopPropagation()
@@ -568,9 +580,12 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className={`${showNotice?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
-            
+              onClick={(e)=>{
+                e.stopPropagation()
+                toggleNotice()
+             }}
                >
                  <div>
                   <FontAwesomeIcon icon={faBell} className="me-2" />

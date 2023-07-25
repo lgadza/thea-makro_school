@@ -53,7 +53,7 @@ const isError=useSelector((state:RootState)=>state.applicantData.isError)
                 )}
             </Row>
             <Row className="student_account_all_border py-3 mt-4 ">
-                <Col sm={3} className="student_account_border  py-3 ">
+                <Col sm={3} className="student_account_border py-3 ">
                     <StudentSideBar
                     source="student"
                     activeComponent={activeComponent}

@@ -9,45 +9,45 @@ const StudentSideBar=({source,activeComponent,handleNavigationClick}:{activeComp
 <ul className="d-flex flex-column align-items-start student_account">
 <h5 className="d-flex">Chapters</h5>
     
-    <li className={`my-2 ${activeComponent === "PersonalData" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "PersonalData" ? "active" : ""}`}
           onClick={() => handleNavigationClick("PersonalData")}>
         <FontAwesomeIcon icon={faUser}/>
         <span className="mx-2 ">Personal data</span>
     </li>
     
-    <li className={`my-2 ${activeComponent === "Address" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "Address" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Address")}>
         <FontAwesomeIcon icon={faLocation}/>
         <span className="mx-2 ">Address</span>
     </li>
-    <li className={`my-2 ${activeComponent === "Documents" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "Documents" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Documents")}>
         <FontAwesomeIcon icon={faFile}/>
         <span className="mx-2 ">Documents</span>
     </li>
-    <li className={`my-2 ${activeComponent === "Guardian" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "Guardian" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Guardian")}>
         <FontAwesomeIcon icon={faPeopleGroup}/>
         <span className="mx-2 ">Guardian/Parents</span>
     </li>
     {source==="student" &&(
       <>
-        <li className={`my-2 ${activeComponent === "Status" ? "active" : ""}`}
+        <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "Status" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Status")}>
         <FontAwesomeIcon icon={faCircleNotch}/>
         <span className="mx-2 ">Status</span>
     </li>
-    <li className={`my-2 ${activeComponent === "Interview" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "Interview" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Interview")}>
         <FontAwesomeIcon icon={faPenToSquare}/>
         <span className="mx-2 ">Interview/Exam</span>
     </li>
-    <li className={`my-2 ${activeComponent === "ProgramInformation" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "ProgramInformation" ? "active" : ""}`}
           onClick={() => handleNavigationClick("ProgramInformation")}>
         <FontAwesomeIcon icon={faCircleInfo}/>
         <span className="mx-2 ">Program information</span>
     </li>
-    <li className={`my-2 ${activeComponent === "Settings" ? "active" : ""}`}
+    <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "Settings" ? "active" : ""}`}
           onClick={() => handleNavigationClick("Settings")}>
         <FontAwesomeIcon icon={faGear}/>
         <span className="mx-2 ">Settings</span>

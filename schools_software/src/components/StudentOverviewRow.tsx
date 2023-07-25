@@ -3,7 +3,7 @@ import Image from "./Image"
 const StudentOverviewRow=():JSX.Element=>{
     return(
         <div>
-  <ul className="d-flex nav-item justify-content-around bd-highlight py-1 align-items-center">
+  <ul className="d-flex nav-item border-radius-round justify-content-around bd-highlight py-1 align-items-center">
     <li className="bd-highlight flex-grow-2 ">
   <input type="checkbox" name="enroll" />
     </li>
