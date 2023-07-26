@@ -18,6 +18,7 @@ import AdmissionFormPage from './pages/admin/AdmissionFormPage.js'
 import AdmissionCandidatesPage from './pages/admin/AdmissionCandidatesPage.js'
 import AdmissionCandidateDetails from './pages/admin/AdmissionCandidateDetails.js'
 import StudentAccountPage from './pages/admissionsManagement/student/account/StudentAccountPage.js'
+import CalaPage from './pages/cala/CalaPage.js'
 
 // mss makro_school_solution
 function App() {
@@ -34,6 +35,7 @@ function App() {
         {/* <Route path="mss/admin" element={<AdminSidebarMenu/>}/> */}
         <Route path="mss/admin/admission/form" element={<AdmissionFormPage/>}/>
        <Route path="mss/catalog" element={<Catalog/>}/>
+       <Route path="mss/cala" element={<CalaPage/>}/>
        <Route path="mss/news" element={<News/>}/>
        <Route path="mss/students" element={<Students/>}/>
        <Route path="mss/library" element={<LibraryPage/>}/>

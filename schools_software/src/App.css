@@ -53,7 +53,7 @@ color: white !important;
 }
 .content_bg{
   color:white;
-  background-color:var(--bg-1);
+  background-color:var(--bg-1) !important;
   border-radius: 3px;
 }
 .header{
@@ -197,4 +197,53 @@ input[type="checkbox"]:not(:checked) {
   padding: 30px !important;
   color: white;
 
+}
+
+/*CALA*/
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #0073b1;
+  border-color: #0073b1;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.search-hidden {
+  display: none;
+}
+
+
+.search-visible {
+  display: block;
+}
+
+.recent-activity-sticky {
+  position: sticky;
+  top: 0;
+  right: 0;
+  width: 250px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  margin-top: 30px;
+}
+
+.recent-activity-sticky .content_bg {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-activity-sticky .content_bg li {
+  margin-bottom: 8px;
 }
