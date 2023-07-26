@@ -63,7 +63,9 @@ color: white !important;
   color: var(--textColor2) !important;
   background-color: var(--bg-1);
 }
-
+.border-radius-round{
+  border-radius: 3px ;
+ }
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -226,15 +228,16 @@ input[type="checkbox"]:not(:checked) {
 .search-visible {
   display: block;
 }
-
+.dashboard{
+  position: relative;
+}
 .recent-activity-sticky {
-  position: sticky;
-  top: 0;
+  position:absolute;
   right: 0;
-  width: 250px;
-  padding: 16px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  width: 270px;
+
+
+ 
   margin-top: 30px;
 }
 

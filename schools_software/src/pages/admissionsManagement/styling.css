@@ -101,9 +101,7 @@
 .box-shadow-right{
  box-shadow: 2px -2px 3px var(--bg-2) ;
 }
-.border-radius-round{
- border-radius: 3px ;
-}
+
 .application_page .img_component{
 height: 50px;
 }

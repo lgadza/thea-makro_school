@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
 
 
   return (
-    <div className="container t-5">
+    <div className="dashboard container t-5">
         <ResourceSearch/>
       <h5 className='d-flex'>Dashboard</h5>
       <div className="mt-4">
@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
         <ul className="content_bg">
           {recentActivity.map((activity) => (
             <li  key={activity.id}>
-              <strong>{activity.action}</strong> - {activity.timestamp}
+              <small className='text-small nowrap  text-muted'>{activity.action}- {activity.timestamp} </small> 
             </li>
           ))}
         </ul>
