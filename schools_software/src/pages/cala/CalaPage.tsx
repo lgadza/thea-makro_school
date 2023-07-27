@@ -1,4 +1,4 @@
-import Dashboard from "./Dashnboard"
+import Dashboard from "./Dashboard"
 import Login from "./Login"
 import ResourceCard from "./ResourceCard"
 import ResourceSearch from "./ResourceSearch"
