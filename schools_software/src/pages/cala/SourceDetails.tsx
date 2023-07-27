@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ResourceRatingsAndReviews from '../../components/ResourceRatingsAndReviews';
 
 export interface Resource {
     id: number;
@@ -48,24 +49,31 @@ const ResourceDetails: React.FC<ResourceDetailsProps> = () => {
         <div className="col-md-8 d-flex flex-column  align-items-start">
           <h5>{resource[1].title}</h5>
           <p>{resource[1].description}</p>
+          <div className='d-flex'>
           <h6>Tags:</h6>
-          <ul>
+          <ul className='d-flex'>
             {resource[1].tags.map((tag) => (
-              <li key={tag}>{tag}</li>
+              <li className='mx-1' key={tag}>#{tag}</li>
             ))}
           </ul>
-          <h6>Rating: {resource[1].rating}</h6>
+          </div>
+          <ul>
+                <ResourceRatingsAndReviews resourceId={1} initialRating={4} initialReviews={["its a good color"]}/>
+          </ul>
+        
+          {/* <h6>Rating: {resource[1].rating}</h6>
           <h6>Reviews:</h6>
           <ul>
             {resource[1].reviews.map((review, index) => (
               <li key={index}>{review}</li>
             ))}
-          </ul>
-            <Link to="/mss/cala" >
+          </ul> */}
+            <Link to="" >
           <button className="btn btn-primary"> Go Back </button>
             </Link>
         </div>
       </div>
+   
     </div>
   );
 };

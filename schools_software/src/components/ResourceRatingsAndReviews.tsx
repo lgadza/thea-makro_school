@@ -5,16 +5,16 @@ interface ResourceRatingsAndReviewsProps {
   resourceId: number;
   initialRating: number;
   initialReviews: string[];
-  onRatingSubmit: (resourceId: number, rating: number) => void;
-  onReviewSubmit: (resourceId: number, review: string) => void;
+  // onRatingSubmit: (resourceId: number, rating: number) => void;
+  // onReviewSubmit: (resourceId: number, review: string) => void;
 }
 
 const ResourceRatingsAndReviews: React.FC<ResourceRatingsAndReviewsProps> = ({
   resourceId,
   initialRating,
   initialReviews,
-  onRatingSubmit,
-  onReviewSubmit,
+  // onRatingSubmit,
+  // onReviewSubmit,
 }) => {
   const [rating, setRating] = useState(initialRating);
   const [review, setReview] = useState('');
@@ -22,7 +22,7 @@ const ResourceRatingsAndReviews: React.FC<ResourceRatingsAndReviewsProps> = ({
 
   const handleRatingChange = (newRating: number) => {
     setRating(newRating);
-    onRatingSubmit(resourceId, newRating);
+    // onRatingSubmit(resourceId, newRating);
   };
 
   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -32,16 +32,15 @@ const ResourceRatingsAndReviews: React.FC<ResourceRatingsAndReviewsProps> = ({
   const handleReviewSubmit = () => {
     if (review) {
       setReviews([...reviews, review]);
-      onReviewSubmit(resourceId, review);
+      // onReviewSubmit(resourceId, review);
       setReview('');
     }
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Resource Ratings and Reviews</h2>
+    <div className='d-flex flex-column align-items-start'>
       <div>
-        <p>Rating: {rating}</p>
+        <p className='d-flex'>Rating: {rating}</p>
         <div className="rating">
           {[...Array(5)].map((_, index) => (
             <span
@@ -53,14 +52,14 @@ const ResourceRatingsAndReviews: React.FC<ResourceRatingsAndReviewsProps> = ({
         </div>
       </div>
       <div className="mt-3">
-        <h5>Reviews:</h5>
-        <ul>
+        <h5 className='d-flex'>Reviews:</h5>
+        <ul className='d-flex flex-column align-items-start'>
           {reviews.map((review, index) => (
             <li key={index}>{review}</li>
           ))}
         </ul>
         <div className="mb-3">
-          <label htmlFor="review">Write a Review:</label>
+          <label htmlFor="review d-flex">Write a Review:</label>
           <textarea
             id="review"
             className="form-control"

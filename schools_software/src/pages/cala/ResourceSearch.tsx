@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import SearchBar from '../../components/SearchBar';
 
 
 const ResourceSearch: React.FC = () => {
@@ -29,35 +30,35 @@ const ResourceSearch: React.FC = () => {
   return (
     <div className="pt-3">
       <Form>
-        <Row className="mt-3 mb-3">
-          <Col>
-            <Form.Control
+        <div className="mt-3 mb-3 d-flex justify-content-end  filter-nav">
+          <div>
+            <SearchBar placeholder='Search CALA resources by subject, grade level, type, tags...'/>
+            {/* <Form.Control
               type="text"
               placeholder="Search CALA resources..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </Col>
-          <Col>
+            /> */}
+          </div>
+          <div>
             <Button variant="primary" className='mx-3' onClick={handleSearch}>Search</Button>
             <Button variant="secondary" onClick={handleToggleFilters}>Filters</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
-            <Form.Label>Subject</Form.Label>
+          </div>
+          <div className="d-flex justify-content-end filters border-radius-round box-shadow">
+          <div className={`mx-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
+            <Form.Label className='d-flex'>Subject</Form.Label>
             <Form.Control
               as="select"
               value={filters.subject}
               onChange={(e) => handleFilterChange('subject', e.target.value)}
             >
               <option value="">All</option>
-              <option value="math">Math</option>
+              <option value="math">Mathematics</option>
               <option value="science">Science</option>
               {/* Add more subject options */}
             </Form.Control>
-          </Col>
-          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
+          </div>
+          <div className={`mx-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
             <Form.Label>Grade Level</Form.Label>
             <div>
               <Form.Check
@@ -90,8 +91,8 @@ const ResourceSearch: React.FC = () => {
               />
               {/* Add more grade level options */}
             </div>
-          </Col>
-          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
+          </div>
+          <div className={`mx-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
             <Form.Label>Data Type</Form.Label>
             <div>
               <Form.Check
@@ -164,10 +165,10 @@ const ResourceSearch: React.FC = () => {
                   )
                 }
               />
-              {/* Add more data type options */}
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
+        </div>
       </Form>
     </div>
   );

@@ -238,3 +238,12 @@ input[type="checkbox"]:not(:checked) {
   width: 270px !important;
   margin-top: 30px;
 }
+.filter-nav{
+  position: relative;
+}
+.filters{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 2;
+}

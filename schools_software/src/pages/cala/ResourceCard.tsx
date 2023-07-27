@@ -73,7 +73,6 @@ const onReviewSubmit=(id:string,review:number)=>{
           </div>
         </div>
       </Link>
-      {/* <ResourceRatingsAndReviews resourceId={1} initialRating={4} initialReviews={["its a good color"]} onRatingSubmit={handleSubmitRating} onReviewSubmit={handleSubmitReview}/> */}
     </div>
   );
 };
