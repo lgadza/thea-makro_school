@@ -13,7 +13,7 @@ import ProgramInformation from "../admissionsManagement/student/ProgramInformati
 import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
 
 
-const AdmissionFormPage=():JSX.Element=>{
+const AllNewCandidate=():JSX.Element=>{
     const [showMenu, setShowMenu] = useState(true);
 
     const toggleMenu = () => {
@@ -30,15 +30,8 @@ const AdmissionFormPage=():JSX.Element=>{
         setActiveComponent(component)
     }
     return(
-        <Container fluid className="ps-0 ms-0">
-            <Row>
-                <Col md={2} className={showMenu?"":"hide-menu md-1"} >
-                    <MainSidebar toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handleNavigationClick} activePage={activePage} />
-                </Col>
-                <Col className="mx-3">
-                  <AccountTopNavigationBar/>
-                {/* {
-        activePage==="StudentAdmissionForm" &&( */}
+        <div>
+             <h5 className="d-flex">Add new candidate</h5>
                 <Row className="student_account_all_border py-3 mt-4 ">
                       <Col sm={3} className="student_account_border  py-3 ">
                       <StudentSideBar
@@ -59,13 +52,9 @@ const AdmissionFormPage=():JSX.Element=>{
                               {activeComponent === "ProgramInformation" && <ProgramInformation />}
                             </div>
                       </Col>
-                  </Row>
-  {/* )
-} */}
-                </Col>
-            </Row>     
-        </Container>
+                    </Row>
+        </div>
     )
 }
 
-export default AdmissionFormPage
+export default AllNewCandidate

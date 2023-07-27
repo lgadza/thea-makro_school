@@ -13,13 +13,10 @@ import LibraryPage from './pages/library/LibraryPage.js'
 import CheckoutsPage from './pages/library/CheckoutsPage.js'
 import Login from './components/Login.js'
 import MssRegisterPage from './pages/admissionsManagement/student/MssRegisterPage.js'
-import StudentNavigationbar from './pages/admissionsManagement/student/StudentSideBar.js'
-import AdmissionFormPage from './pages/admin/AdmissionFormPage.js'
-import AdmissionCandidatesPage from './pages/admin/AdmissionCandidatesPage.js'
-import AdmissionCandidateDetails from './pages/admin/AdmissionCandidateDetails.js'
 import StudentAccountPage from './pages/admissionsManagement/student/account/StudentAccountPage.js'
 import CalaPage from './pages/cala/CalaPage.js'
 import ResourceDetails from './pages/cala/SourceDetails.js'
+import Pages from './pages/Pages.js'
 
 // mss makro_school_solution
 function App() {
@@ -33,9 +30,8 @@ function App() {
       <Routes>
         <Route path="mss/register" element={<MssRegisterPage/>}/>
         <Route path="mss/login" element={<Login/>}/>
+        <Route path="mss/pages" element={<Pages/>}/>
         <Route path="mss/resource/:id" element={<ResourceDetails/>}/>
-        {/* <Route path="mss/admin" element={<AdminSidebarMenu/>}/> */}
-        <Route path="mss/admin/admission/form" element={<AdmissionFormPage/>}/>
        <Route path="mss/catalog" element={<Catalog/>}/>
        <Route path="mss/cala" element={<CalaPage/>}/>
        <Route path="mss/news" element={<News/>}/>
@@ -43,8 +39,6 @@ function App() {
        <Route path="mss/library" element={<LibraryPage/>}/>
        <Route path="mss/checkouts" element={<CheckoutsPage/>}/>
        <Route path="mss/student/account/louis-gadza" element={<StudentAccountPage/>}/>
-       <Route path="mss/admin/admission/candidates/candidate-details" element={<AdmissionCandidateDetails/>}/>
-       <Route path="mss/admin/admission/candidates" element={<AdmissionCandidatesPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>

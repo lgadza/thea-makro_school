@@ -232,21 +232,9 @@ input[type="checkbox"]:not(:checked) {
   position: relative;
 }
 .recent-activity-sticky {
-  position:absolute;
+  position:sticky !important;
   right: 0;
-  width: 270px;
-
-
- 
+  top: 0;
+  width: 270px !important;
   margin-top: 30px;
-}
-
-.recent-activity-sticky .content_bg {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.recent-activity-sticky .content_bg li {
-  margin-bottom: 8px;
 }

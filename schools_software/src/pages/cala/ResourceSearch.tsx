@@ -27,13 +27,13 @@ const ResourceSearch: React.FC = () => {
   };
 
   return (
-    <Container className="pt-3">
+    <div className="pt-3">
       <Form>
         <Row className="mt-3 mb-3">
           <Col>
             <Form.Control
               type="text"
-              placeholder="Search resources..."
+              placeholder="Search CALA resources..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -44,7 +44,7 @@ const ResourceSearch: React.FC = () => {
           </Col>
         </Row>
         <Row>
-          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> {/* Use CSS classes for visibility */}
+          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
             <Form.Label>Subject</Form.Label>
             <Form.Control
               as="select"
@@ -57,7 +57,7 @@ const ResourceSearch: React.FC = () => {
               {/* Add more subject options */}
             </Form.Control>
           </Col>
-          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> {/* Use CSS classes for visibility */}
+          <Col md={4} className={`mb-3 ${showFilters ? 'search-visible' : 'search-hidden'}`}> 
             <Form.Label>Grade Level</Form.Label>
             <div>
               <Form.Check
@@ -169,7 +169,7 @@ const ResourceSearch: React.FC = () => {
           </Col>
         </Row>
       </Form>
-    </Container>
+    </div>
   );
 };
 

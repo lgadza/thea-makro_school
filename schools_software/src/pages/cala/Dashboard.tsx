@@ -1,8 +1,7 @@
-// src/components/Dashboard.tsx
+// src/components/CALAOverView.tsx
 import React, { useState } from 'react';
 import ResourceSearch from './ResourceSearch';
 import ResourceCard from './ResourceCard';
-import ResourceUploadForm from './ResourceUploadForm';
 interface Resource {
     id: number;
     title: string;
@@ -13,7 +12,7 @@ interface Resource {
     rating:number
   }
   
-const Dashboard: React.FC = () => {
+const CALAOverView: React.FC = () => {
   // Assuming you have some data for favorite resources and recent activity
   const resources:Resource[] = [
     { id: 1, title: 'Resource 1', thumbnail: 'https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_2560%2Cc_limit/phonepicutres-TA.jpg',description:"", tags:[],reviews:[],rating:3},
@@ -43,34 +42,13 @@ const Dashboard: React.FC = () => {
     // Implement sharing logic here (e.g., open a share modal or send resource link to others)
     alert(`Share resource with ID ${id}`);
   };
-// The RESOURCE UPLOAD FORM
-const [addResources, setAddResources] = useState<Resource[]>([]);
-
-  const handleResourceUpload = (title: string, description:string, file: File, tags: string[]) => {
-    // Implement the resource upload logic here
-    // For example, you can upload the resource to a server and get a response with the resource details
-    // Then, add the new resource to the resources array
-    const newResource: Resource = {
-      id: addResources.length + 1,
-      title,
-      thumbnail: URL.createObjectURL(file),
-      description: 'Sample description for the uploaded resource.',
-      tags:[],
-      rating: 0,
-      reviews: [],
-    };
-
-    setAddResources([...resources, newResource]);
-  };
-// The RESOURCE UPLOAD FORM
-
 
   return (
     <div className="dashboard container t-5">
         <ResourceSearch/>
-      <h5 className='d-flex'>Dashboard</h5>
-      <div className="mt-4">
-        <h6 className='d-flex'>Favorite Resources</h6>
+      
+      <div className="m-4">
+        <h6 className='d-flex pb-2'>Favorite Resources</h6>
         <div className="row">
           {resources.map((resource) => (
             <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={resource.id}>
@@ -78,9 +56,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
              {resource.thumbnail} isFavorite={true} onShare={onShare} onFavoriteToggle={onFavoriteToggle}/>
             </div>
           ))}
-        </div>
-      </div>
-      <div className="recent-activity-sticky">
+            <div className="recent-activity-sticky">
         <span>Recent Activity</span>
         <ul className="content_bg">
           {recentActivity.map((activity) => (
@@ -90,9 +66,10 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
           ))}
         </ul>
       </div>
-      <ResourceUploadForm onResourceUpload={handleResourceUpload}/>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default CALAOverView;

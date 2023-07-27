@@ -1,6 +1,4 @@
-import { Row ,Container, Col, Dropdown, Button} from "react-bootstrap"
-import AdminSidebarMenu from "../../components/MainSidebar"
-import SearchBar from "../../components/SearchBar"
+import { Button} from "react-bootstrap"
 import { useState } from "react"
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,38 +7,21 @@ import StudentProfileTable from "../../components/StudentProfileTable"
 import StudentParentsTable from "../../components/StudentParentsTable"
 import AddressTable from "../../components/AddressTable"
 import StudentDocumentsTable from "../../components/StudentDocumentsTable"
-import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
 import { Link } from "react-router-dom"
-const AdmissionCandidateDetails=():JSX.Element=>{
-    const [showMenu, setShowMenu] = useState(true);
-
-    const toggleMenu = () => {
-      setShowMenu(!showMenu);
-    };
-    const [activePage,setActivePage]=useState<string>("Profile")
-  
-    const handlePageNavigationClick=(page:string)=>{
-        setActivePage(page)
-    }
+const CandidateDetails=():JSX.Element=>{
     const [activeComponent,setActiveComponent]=useState<string>("Profile")
 
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
     return(
-        <Container fluid className="ps-0 ms-0">
-            <Row>
-                <Col md={2} className={showMenu?"":"hide-menu md-1"} >
-                     <AdminSidebarMenu toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handlePageNavigationClick} activePage={activePage} />
-                </Col>
-                <Col className="mx-3">
-                     <AccountTopNavigationBar/>
+        
                     <div>
                         <h4 className="d-flex">Candidates</h4>
                         <div className="d-flex align-items-center">
                             <span>Students</span> 
                             <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
-                            <Link to="/mss/admin/admission/candidates">All Candidates</Link> 
+                            <Link to="">All Candidates</Link> 
                             <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>
                             <span className="header">Candidate details</span>
                         </div>
@@ -100,16 +81,11 @@ const AdmissionCandidateDetails=():JSX.Element=>{
                                     {activeComponent==="Documents" && (
                                     <StudentDocumentsTable/>
                                     )}
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </Col>
-            </Row>
-            
-        </Container>
     )
 }
 
-export default AdmissionCandidateDetails
+export default CandidateDetails

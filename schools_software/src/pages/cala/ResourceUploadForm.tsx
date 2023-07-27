@@ -16,7 +16,7 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
   const [tags, setTags] = useState<string[]>([]);
   const [tag,setTag]=useState<string>("")
 console.log(subject,"SUBJECTS")
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
   };
   const handleSubjectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -61,11 +61,11 @@ const handleAddTag=()=>{
       <div className='row'>
       <div className="mb-3 col">
         <label htmlFor="title" className="form-label d-flex">Title</label>
-        <input type="text" className="form-control" id="title" value={title} onChange={handleTitleChange} />
+        <input type="text" placeholder="e.g Chem " className="form-control" id="title" value={title} onChange={handleTitleChange} />
       </div>
       <div className="mb-3 col">
         <label htmlFor="description" className="form-label d-flex">Description</label>
-        <textarea  className="form-control" id="description" value={description} onChange={handleDescriptionChange} />
+        <input type='text'  className="form-control" id="description" value={description} onChange={handleDescriptionChange} />
       </div>
       </div>
       <div className='row'>
