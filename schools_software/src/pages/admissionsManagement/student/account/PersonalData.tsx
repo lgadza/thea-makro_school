@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { Button } from "react-bootstrap"
 import { RootState } from "../../../../redux/store"
 import { Dispatch } from "redux"
+import Loader from "../../../../components/Loader"
 
 interface SuccessMessageProps {
   variant: "success" | "danger";
@@ -220,7 +221,10 @@ const handleSave=async()=>{
     </div>
     </>
     ) : (
-        <p>Loading...</p>
+      <div className="d-flex justify-content-center">
+
+        <Loader/>
+      </div>
       )}
 </div>
     )

@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 const MainSidebar = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void;activePage:string;handlePageNavigationClick:(page:string)=>void}) => {
 
   const handleToggleMenu = () => {
-    toggleMenu();
+    toggleMenu(showMenu);
   };
   const [studentOpen, setStudentOpen] = useState(false);
   const toggleStudent = () => {
@@ -207,6 +207,7 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                       
                     </div>
                   )}
+                  
             </Nav.Item>
             <Nav.Item className={`${showCALA?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
@@ -227,6 +228,26 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
 
                  )}
                </Link>
+               {showCALA && (
+                    <div className=" d-flex flex-column content_bg overlap">
+                     
+                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" /> CALA  Resources
+                            </Link>
+                   
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My CALAs</Link>
+                   
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Add Teacher
+                        </Link>
+                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Help?
+                        </Link>
+                      
+                    </div>
+                  )}
             </Nav.Item>
             <Nav.Item className={`${showParents?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"

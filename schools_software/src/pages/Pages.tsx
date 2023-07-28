@@ -7,6 +7,7 @@ import AllNewCandidate from "./admin/AddNewCandidate"
 import CandidateDetails from "./admin/CandidateDetails"
 import ResourceUploadForm from "./cala/ResourceUploadForm"
 import CALAOverView from "./cala/Dashboard"
+import Loader from "../components/Loader"
 
 interface Resource {
     id: number;
@@ -71,6 +72,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                     {/* <CandidateDetails/> */}
                     {/* <ResourceUploadForm onResourceUpload={handleResourceUpload}/> */}
                     <CALAOverView/>
+                    <Loader/>
 
                 </Col>
             </Row>
