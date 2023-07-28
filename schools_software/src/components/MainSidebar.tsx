@@ -232,18 +232,18 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" /> CALA  Resources
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" /> CALA  Templates
                             </Link>
                    
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My CALAs</Link>
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
                    
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Add Teacher
+                        Upload you CALA
                         </Link>
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Help?
+                        Helper?
                         </Link>
                       
                     </div>
