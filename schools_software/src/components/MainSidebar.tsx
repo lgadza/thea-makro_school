@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell, faLightbulb, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -623,6 +623,10 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                 
             </Nav.Item>
                </Nav>             
+            </div>
+            <div className='sidebar-log-out'>
+              Log out
+              <FontAwesomeIcon className="px-2" icon={faRightFromBracket}/>
             </div>
     </div>  
   );
