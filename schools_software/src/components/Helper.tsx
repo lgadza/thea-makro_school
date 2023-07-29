@@ -1,11 +1,11 @@
-import { faArrowRotateForward, faCopy, faFileArrowUp, faPaperPlane, faThumbsDown, faThumbsUp, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faArrowCircleDown, faArrowRotateForward, faCopy, faFileArrowUp, faPaperPlane, faThumbsDown, faThumbsUp, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 
 const Helper=():JSX.Element=>{
     return(
         <div className="row">
-           <div className="col col-md-8">
+           <div className="col col-md-8 helper">
            <div className="d-flex justify-content-center">
                 <div className="d-flex justify-content-between w-75">
                 <h5>Career</h5>
@@ -17,6 +17,7 @@ const Helper=():JSX.Element=>{
                 </div>
             </div>
                 <div className="d-flex justify-content-center text-start">
+
                     <p className="content_bg p-3 w-75">
                     Designing an app involves several stages and considerations. While I can guide you through the high-level process, it's important to note that designing a complete app requires detailed planning and collaboration with a team of designers, developers, and stakeholders. Here's an overview of the steps involved in designing an app:
 
@@ -73,7 +74,6 @@ const Helper=():JSX.Element=>{
 
 Remember that designing an app is an iterative process, and feedback from users and stakeholders is crucial at each stage. Collaboration and communication with your development team and stakeholders are key to creating a successful app that meets user needs and achieves its intended goals. 
                     </p>
-
                 </div>
                 <div className="d-flex  justify-content-center">
                     <div className="d-flex w-75 justify-content-end">
@@ -82,19 +82,22 @@ Remember that designing an app is an iterative process, and feedback from users 
                         <FontAwesomeIcon className="cursor-pointer" icon={faCopy}/>
                     </div>
                 </div>
-                <div className="btn btn-secondary my-3">
+             <div className="pb-3">
+                 <div className="btn btn-secondary my-3">
                 <FontAwesomeIcon className="px-2" icon={faArrowRotateForward}/>
                 <span>Regenerate response</span>
                 </div>
-           <div className="d-flex justify-content-center">
-           <div className="d-flex justify-content-between w-75 align-items-center">
-           <FontAwesomeIcon className="cursor-pointer" icon={faFileArrowUp}/>
-            <SearchBar placeholder="Start typing"/>
-            <div className="btn btn-primary">
-            <FontAwesomeIcon icon={faPaperPlane}/>
-            </div>
-           </div>
-           </div>
+                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-between w-75 align-items-center">
+                <FontAwesomeIcon className="cursor-pointer" icon={faFileArrowUp}/>
+                    <SearchBar placeholder="Start typing"/>
+                    <div className="btn btn-primary">
+                    <FontAwesomeIcon icon={faPaperPlane}/>
+                    </div>
+                </div>
+                </div>
+                <FontAwesomeIcon icon={faArrowCircleDown}/>
+             </div>
            </div>
            <div className="col col-md-4">
             <h5>History</h5>

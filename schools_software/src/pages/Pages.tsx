@@ -61,18 +61,19 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
         setAddResources([...resources, newResource]);
       };
     return(
-        <Container fluid className="ps-0 ms-0">
+        <Container fluid className="ps-0 ms-0 pages scrollbar">
             <Row>
-                <Col md={2} className={showMenu?"":"hide-menu md-1"} >
+                 <Col md={2} className={showMenu?"":" hide-menu md-1"} >
                 <AdminSidebarMenu toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handleNavigationClick} activePage={activePage} />
                 </Col>
+                
                 <Col className="mx-3">
-                    <AccountTopNavigationBar/>
-                    {/* <AllCandidates/> */}
-                    {/* <AllNewCandidate/> */}
-                    {/* <CandidateDetails/> */}
-                    {/* <ResourceUploadForm onResourceUpload={handleResourceUpload}/> */}
-                    {/* <CALAOverView/> */}
+                   <AccountTopNavigationBar/>
+                    {/*  <AllCandidates/>
+                    <AllNewCandidate/>
+                    <CandidateDetails/>
+                    <ResourceUploadForm onResourceUpload={handleResourceUpload}/>
+                    <CALAOverView/> */}
                     <Helper/>
                   
 

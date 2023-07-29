@@ -35,9 +35,9 @@
     left: 5px;
     animation: fill 1s infinite;
   }
-  .bar:nth-child(2) {
+  /* .bar:nth-child(2) {
     animation-delay: 0.5s; 
-  }
+  } */
   
   @keyframes fill {
     0% {

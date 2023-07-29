@@ -624,9 +624,15 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
             </Nav.Item>
                </Nav>             
             </div>
-            <div className='sidebar-log-out'>
+            <div className='sidebar-log-out ps-4 pe-5 py-3 main_bg'>
+              {
+                showMenu && (
+                  <span>
               Log out
-              <FontAwesomeIcon className="px-2" icon={faRightFromBracket}/>
+              </span>
+                )
+              }
+              <FontAwesomeIcon className={`${!showMenu?"px-2 d-flex":"px-2"}`} icon={faRightFromBracket}/>
             </div>
     </div>  
   );
