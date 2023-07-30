@@ -73,7 +73,7 @@ div.nav-bar {
     z-index: 2;
     transition: all 0.3s ease-in-out;
     overflow-y: auto; 
-    box-shadow: 2px -2px 2px rgb(32,32,32);
+    /* box-shadow: 2px -2px 2px rgb(32,32,32); */
     position: relative;
     
     
@@ -85,7 +85,11 @@ div.nav-bar {
    left: 0;
   }
  
- 
+ .go-bottom{
+  position: fixed;
+  right: 10vw;
+  bottom: 2vw;
+ }
   .hide-menu{
     width: 80px;
     display: flex;

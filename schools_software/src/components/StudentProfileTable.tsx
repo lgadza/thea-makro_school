@@ -2,7 +2,7 @@ import { faCheck, faCross, faPencil, faX } from "@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Form, Spinner } from "react-bootstrap";
-
+import "./UploadFile.css"
 const StudentProfileTable=():JSX.Element=>{
     const emailAddress="louis@gmail.com"
     const tel=793433455

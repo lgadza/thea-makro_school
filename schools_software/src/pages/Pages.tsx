@@ -9,6 +9,7 @@ import ResourceUploadForm from "./cala/ResourceUploadForm"
 import CALAOverView from "./cala/Dashboard"
 import Loader from "../components/Loader"
 import Helper from "../components/Helper"
+import UploadFileModal from "../components/UploadFileModal"
 
 interface Resource {
     id: number;
@@ -74,9 +75,8 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                     <CandidateDetails/>
                     <ResourceUploadForm onResourceUpload={handleResourceUpload}/>
                     <CALAOverView/> */}
-                    <Helper/>
-                  
-
+                    {/* <Helper/> */}
+                    <UploadFileModal/>
                 </Col>
             </Row>
         </Container>

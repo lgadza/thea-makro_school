@@ -8,7 +8,6 @@ const StudentSideBar=({source,activeComponent,handleNavigationClick}:{activeComp
         <div>
 <ul className="d-flex flex-column align-items-start student_account">
 <h5 className="d-flex">Chapters</h5>
-    
     <li className={`p-2 w-100 d-flex nav-item border-radius-round ${activeComponent === "PersonalData" ? "active" : ""}`}
           onClick={() => handleNavigationClick("PersonalData")}>
         <FontAwesomeIcon icon={faUser}/>

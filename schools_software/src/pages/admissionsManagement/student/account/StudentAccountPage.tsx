@@ -35,15 +35,13 @@ const isError=useSelector((state:RootState)=>state.applicantData.isError)
   
     return(
         <Container >
-            <div>
                 <StudentNavbar personalInfo={personalInfo} />
-            </div>
             <Row className="py-3 ">
                 {personalInfo && (
 
-                <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar">
+                <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar mx-2">
                 
-                    <Image src={image} height={100} width={100} alt="userName"/>
+                    <Image src={image} height={100} width={100} alt="userName"/> 
                     <div className="d-flex flex-column align-items-start px-3">
                         <h5>{personalInfo.first_name} {personalInfo.last_name}</h5>
                     <div>{personalInfo.phone_number}</div>

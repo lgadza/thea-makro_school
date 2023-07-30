@@ -13,9 +13,8 @@ interface StudentNavbarProps{
 const StudentNavbar:React.FC<StudentNavbarProps> =({personalInfo})=>{
 
     return(
-        <Container className="content_bg main_bg d-flex align-items-center justify-content-between student_navbar my-2">
+        <Container className="content_bg main_bg d-flex align-items-center justify-content-between student_navbar py-2">
             <div>
-
             <img
                     src={md_logo}
                     alt="makrodex_logo"
