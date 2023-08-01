@@ -13,7 +13,6 @@ interface Resource {
   }
   
 const CALAOverView: React.FC = () => {
-  // Assuming you have some data for favorite resources and recent activity
   const resources:Resource[] = [
     { id: 1, title: 'Resource 1', thumbnail: 'https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_2560%2Cc_limit/phonepicutres-TA.jpg',description:"", tags:[],reviews:[],rating:3},
     { id: 2, title: 'Resource 2', thumbnail: 'https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg',description:"", tags:[],reviews:[],rating:3},
@@ -23,23 +22,18 @@ const CALAOverView: React.FC = () => {
   const recentActivity = [
     { id: 1, action: 'Uploaded a resource', timestamp: '2023-07-12 10:30 AM' },
     { id: 2, action: 'Rated a resource', timestamp: '2023-07-11 02:45 PM' },
-    // Add more data...
   ];
  const [favoriteResources, setFavoriteResources] = useState<number[]>([1,2]);
-   // Function to handle favorite toggle
    const onFavoriteToggle = (id: number, isFavorite: boolean) => {
     if (isFavorite) {
-      // Add resource to favorites
+    
       setFavoriteResources((prevFavorites) => [...prevFavorites, id]);
     } else {
-      // Remove resource from favorites
       setFavoriteResources((prevFavorites) => prevFavorites.filter((favId) => favId !== id));
     }
   };
 
-  // Function to handle sharing
   const onShare = (id: number) => {
-    // Implement sharing logic here (e.g., open a share modal or send resource link to others)
     alert(`Share resource with ID ${id}`);
   };
 

@@ -28,7 +28,7 @@ const ResourceSearch: React.FC = () => {
   };
 
   return (
-    <div className="pt-3">
+    <div className="pt-3 resource_search">
       <Form>
         <div className="mt-3 mb-3 d-flex justify-content-end  filter-nav">
           <div>

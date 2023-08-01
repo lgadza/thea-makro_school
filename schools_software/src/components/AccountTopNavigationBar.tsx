@@ -25,7 +25,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
             <Image src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&uid=R36208328&ga=GA1.1.377730112.1687240299&semt=ais" height={40} width={40} alt="avatar"/>
 </Dropdown.Toggle>
 
-<Dropdown.Menu className="py-0">
+<Dropdown.Menu className="py-0"  style={{width:"20rem"}}>
   <div className="d-flex justify-content-center content_bg-2 text-white py-3">
      <span>{user.first_name} {user.last_name}</span>
   </div>
@@ -77,7 +77,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
 <div className="message-count">6</div>
 </Dropdown.Toggle>
 
-<Dropdown.Menu className="py-0">
+<Dropdown.Menu className="py-0" style={{width:"20rem"}}>
   <div className="d-flex justify-content-center content_bg-2 text-white py-3">
    
      <span>Messages</span>
@@ -96,8 +96,8 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
                 10:30
             </span>
         </div>
-            <div>
-                <span>What is the reason of buying this item. Is it useful for me...</span>
+            <div className="notification_message">
+                What is the reason of buying this item. Is it useful for me...
             </div>
     </div>
     </Link>
@@ -112,7 +112,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
 <div className="notification-count">5</div>
 </Dropdown.Toggle>
 
-<Dropdown.Menu className="py-0">
+<Dropdown.Menu className="py-0"  style={{width:"20rem"}}>
   <div className="d-flex justify-content-center content_bg-2 text-white py-3">
    
      <span>Notifications</span>

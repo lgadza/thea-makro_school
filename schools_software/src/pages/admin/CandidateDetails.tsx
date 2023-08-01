@@ -1,4 +1,4 @@
-import { Button} from "react-bootstrap"
+import { Button, Modal} from "react-bootstrap"
 import { useState } from "react"
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -8,14 +8,19 @@ import StudentParentsTable from "../../components/StudentParentsTable"
 import AddressTable from "../../components/AddressTable"
 import StudentDocumentsTable from "../../components/StudentDocumentsTable"
 import { Link } from "react-router-dom"
-const CandidateDetails=():JSX.Element=>{
+const CandidateDetails=({show,hide}:{show:boolean,hide:(hide:boolean)=>void}):JSX.Element=>{
     const [activeComponent,setActiveComponent]=useState<string>("Profile")
 
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
+    
     return(
         
+                        <Modal show={show}
+                        onHide={() => hide}
+                        dialogClassName="modal-90w"
+                        aria-labelledby="example-custom-modal-styling-title">
                     <div>
                         <h4 className="d-flex">Candidate Details</h4>
                         <div className="d-flex align-items-center">
@@ -85,7 +90,9 @@ const CandidateDetails=():JSX.Element=>{
                             </div>
                         </div>
                     </div>
+                    </Modal>
     )
 }
 
 export default CandidateDetails
+

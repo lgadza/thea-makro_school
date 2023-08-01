@@ -3,11 +3,15 @@ import StudentOverviewRow from "../../components/StudentOverviewRow";
 import { Link } from "react-router-dom";
 import { Dropdown, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faBullseye, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../../components/SearchBar";
 
 const AllCandidates=():JSX.Element=>{
     const [filter, setFilter] = useState("all");
+    const [show, setShow] = useState(false);
+    const onHide=()=>{
+        setShow(false)
+    }
     return(
         <div>
         <h4 className="d-flex">All Candidates</h4>
@@ -81,9 +85,9 @@ const AllCandidates=():JSX.Element=>{
        <div className="mt-4">
        {
            Array(10).fill(undefined).map((_,index)=>(
-           <div key={index}>
-               <Link to="" >
-               <StudentOverviewRow/>
+           <div key={index} onClick={()=>{setShow(true)}}>
+               <Link to="">
+               <StudentOverviewRow show={show} hide={onHide}/>
                </Link>
            </div>
            ))

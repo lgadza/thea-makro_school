@@ -151,6 +151,17 @@ input[type="checkbox"]:not(:checked) {
   border-color: transparent !important;
   border-color: transparent !important;
 }
+.resource_search{
+  z-index: 0 !important;
+}
+.dropdown .notification_message{
+  width: 14rem;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+
+}
 .btn:focus{
   box-shadow: none !important;
 }
