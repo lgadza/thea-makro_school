@@ -72,7 +72,7 @@ div.nav-bar {
     padding: 0px 20px;
     z-index: 2;
     transition: all 0.3s ease-in-out;
-    overflow-y: auto; 
+    overflow-y:scroll; 
     /* box-shadow: 2px -2px 2px rgb(32,32,32); */
     position: relative;
     

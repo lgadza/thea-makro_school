@@ -82,7 +82,7 @@ const AllCandidates=():JSX.Element=>{
        {
            Array(10).fill(undefined).map((_,index)=>(
            <div key={index}>
-               <Link to="">
+               <Link to="" >
                <StudentOverviewRow/>
                </Link>
            </div>

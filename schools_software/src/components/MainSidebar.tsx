@@ -148,14 +148,11 @@ const MainSidebar = ({showMenu,toggleMenu,source,activeComponent,handleNavigatio
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Students</Link>
                         <Link  to='' onClick={() => handleNavigationClick("CandidateDetails")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "CandidateDetails" ? "active" : ""}`}><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
-                        <Link to='' onClick={() => handleNavigationClick("NewCandidate")} 
-                        className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="Student-Admission"?"active":""}`}> 
+                        <Link to='' onClick={() => handleNavigationClick("StudentAdmissions")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="StudentAdmissions"?"active":""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Student Admission
+                        All Candidates
                         </Link>
-                        <Link to="/mss/admin/admission/form" className={`d-flex align-items-center nowrap px-2 py-2`
-                      } onClick={(e)=>{
-                        e.stopPropagation()}}> 
+                        <Link  to='' onClick={() => handleNavigationClick("NewCandidate")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="NewCandidate"?"active":""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Admission Form 
                         </Link>
@@ -236,7 +233,10 @@ const MainSidebar = ({showMenu,toggleMenu,source,activeComponent,handleNavigatio
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Upload you CALA
                         </Link>
-                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <Link
+                          to=''
+                          onClick={() => handleNavigationClick("Helper")}  
+                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "Helper" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Helper?
                         </Link>

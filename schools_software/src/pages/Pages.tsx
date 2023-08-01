@@ -1,7 +1,7 @@
 import { Row ,Container, Col, Dropdown, Form} from "react-bootstrap"
 import AdminSidebarMenu from "../components/MainSidebar"
 import AccountTopNavigationBar from "../components/AccountTopNavigationBar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AllCandidates from "./admin/AllCandidates"
 import AllNewCandidate from "./admin/AddNewCandidate"
 import CandidateDetails from "./admin/CandidateDetails"
@@ -10,6 +10,11 @@ import CALAOverView from "./cala/Dashboard"
 import Loader from "../components/Loader"
 import Helper from "../components/Helper"
 import UploadFileModal from "../components/UploadFileModal"
+import { useSelector } from "react-redux"
+import { RootState } from "../redux/store"
+import { useDispatch } from "react-redux"
+import { Dispatch } from "redux"
+import { getApplicantData } from "../redux/actions"
 
 interface Resource {
     id: number;
@@ -27,13 +32,13 @@ interface Resource {
   ];
 
 const Pages=():JSX.Element=>{
+  const dispatch:Dispatch<any> =useDispatch()
+  const user=useSelector((state:RootState)=>state.applicantData.data)
+  const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
     const [showMenu, setShowMenu] = useState(true);
-   
-
     const toggleMenu = () => {
       setShowMenu(!showMenu);
     };
-    const [activePage,setActivePage]=useState<string>("PersonalData")
     const [activeComponent,setActiveComponent]=useState<string>("dashboard")
 
     const handleNavigationClick=(component:string)=>{
@@ -57,6 +62,9 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
     
         setAddResources([...resources, newResource]);
       };
+      useEffect(()=>{
+        dispatch(getApplicantData(accessToken.accessToken))
+      },[])
     return(
         <Container fluid className="ps-0 ms-0 pages scrollbar">
             <Row>
@@ -72,12 +80,13 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                 </Col>
                 
                 <Col className="mx-3">
-                   <AccountTopNavigationBar/>
-                  {/* { activeComponent ==="dashboard" && < } */}
+                   <AccountTopNavigationBar user={user}/>
+                  { activeComponent ==="dashboard" && <CALAOverView/>}
                   { activeComponent ==="AllStudents" && <AllCandidates/>  }
+                  { activeComponent ==="StudentAdmissions" && <AllCandidates/>  }
                   { activeComponent ==="CandidateDetails" && <CandidateDetails/> }
                   { activeComponent ==="NewCandidate" && <AllNewCandidate/> }
-                  {/* { activeComponent ==="CandidateDetails" && <CALAOverView/>} */}
+                
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
                   { activeComponent ==="Helper" && <Helper/> }
                     {/*  

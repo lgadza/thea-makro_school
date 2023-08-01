@@ -10,12 +10,12 @@
 :root {
   --main-bg: rgb(0, 0, 0);
   /* --content-bg-2: rgb(34, 52, 110); */
-  --content-bg-2: rgb(11, 94, 215);
+  --content-bg-2: #03e9f4;
   --bg-1: rgb(32, 32, 32);
   --bg-2: rgb(42, 57, 66);
 
   --textColor: white;
-  --textColor2:rgb(11, 94, 215);
+  --textColor2:#03e9f4;
   --blackAndWhite: black;
   --bg-gradient: rgb(49, 76, 87);
   --card-bg: rgb(42, 57, 66, 0.7);
@@ -27,19 +27,19 @@
 body{
   background-color:var(--bg-1)!important;
   font-family: 'Josefin Sans', sans-serif !important;
-min-width: 100vw !important;
+/* min-width: 100vw !important; */
 display: block !important;
 color: white !important;
 }
 #root{
-  min-height: 100vh !important;
+  /* min-height: 100vh !important; */
 }
 .App {
 
   background-color: var(--main-bg) !important;
   background-color: white;
   text-align: center;
-  min-height: 100vh !important;
+  /* min-height: 100vh !important; */
 
 }
 .icon-bg{

@@ -4,9 +4,12 @@ import SearchBar from "./SearchBar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell, faCalendar, faCheck, faChevronDown, faEnvelope, faGear, faListCheck, faMessage, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons"
 import { Dropdown } from "react-bootstrap"
+import { ApplicantRegistration } from "../Types"
 
-const AccountTopNavigationBar=():JSX.Element=>{
+const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=>{
     return(
+      <>
+          {user && (
         <div className="search-bar py-2 px-3 mb-4 d-flex align-items-center sidebar-head justify-content-between">
         <SearchBar placeholder="Find Something . . ."/>
         <ul className="d-flex align-items-center">
@@ -14,19 +17,17 @@ const AccountTopNavigationBar=():JSX.Element=>{
             <Dropdown>
 <Dropdown.Toggle className="navbar-item d-flex align-items-center">
 <div className="pt-2">
-                <span className="px-2 py-0">Louis Gadza</span>
+                <span className="px-2 py-0">{user.first_name} {user.last_name}</span>
                 <FontAwesomeIcon style={{fontSize:"0.8rem"}} icon={faChevronDown}/>
                
-            <span className="d-flex px-4">Admin</span>
+            <span className="d-flex px-4">{user.role} </span>
             </div>
             <Image src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&uid=R36208328&ga=GA1.1.377730112.1687240299&semt=ais" height={40} width={40} alt="avatar"/>
 </Dropdown.Toggle>
 
 <Dropdown.Menu className="py-0">
   <div className="d-flex justify-content-center content_bg-2 text-white py-3">
-   
-     <span>Louis Gadza</span>
-  
+     <span>{user.first_name} {user.last_name}</span>
   </div>
   <Dropdown.Item>
     <Link to="" className="textColor px-2">
@@ -170,6 +171,8 @@ const AccountTopNavigationBar=():JSX.Element=>{
 </li>
         </ul>
     </div>
+        )}
+    </>
     )
 }
 

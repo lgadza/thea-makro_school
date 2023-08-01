@@ -19,6 +19,7 @@ export interface ApplicantRegistration{
   data_process_acceptance:boolean;
   password:string;
   country_code:string;
+  role:string;
 }
 export interface PersonalDataInterface{
   first_name:string;
