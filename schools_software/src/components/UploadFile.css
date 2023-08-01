@@ -9,7 +9,6 @@
 	--bg: hsl(var(--hue),10%,85%);
 	--fg: hsl(var(--hue),10%,5%);
 	--trans-dur: 0.3s;
-	font-size: calc(16px + (20 - 16) * (100vw - 320px) / (2560 - 320));
 }
 
 
@@ -18,8 +17,9 @@
 	/* border-radius: 1em; */
 	box-shadow: 0 0.75em 1em hsla(var(--hue),10%,5%,0.3);
 	color: hsl(var(--hue),10%,5%);
-	width: calc(100% - 3em);
-	max-width: 34.5em;
+	width: calc(100%);
+	border-radius: 3px;
+	/* max-width: 34.5em; */
 	overflow: hidden;
 	position: relative;
 	transition:
@@ -27,7 +27,7 @@
 		color var(--trans-dur);
 }
 .upload_model:before {
-	background-color: hsl(223,90%,60%);
+	/* background-color: hsl(223,90%,60%); */
 	/* border-radius: 50%; */
 	content: "";
 	filter: blur(60px);
@@ -54,7 +54,8 @@
 .upload_model_body {
 	display: flex;
 	flex-direction: column;
-	padding: 0 2em 1.875em 1.875em;
+	justify-content: center;
+	padding: 10px ;
 }
 .upload_model_button,
 .upload_model_close-button {
@@ -122,7 +123,6 @@
 	height: auto;
 }
 .upload_model_content > * {
-	/* don’t use shorthand syntax, or actions delay will be overridden */
 	animation-name: fadeSlideIn;
 	animation-duration: 0.5s;
 	animation-timing-function: ease-in-out;
@@ -144,9 +144,9 @@
 .upload_model_file-icon {
 	color: hsl(var(--hue),10%,50%);
 	display: block;
-	margin-right: 0.75em;
-	width: 1.5em;
-	height: 1.5em;
+	/* margin-right: 0.75em; */
+	/* width: 1em;
+	height: 1em; */
 	transition: color var(--trans-dur);
 }
 .upload_model_header {

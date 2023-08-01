@@ -38,7 +38,7 @@ function App() {
        <Route path="mss/students" element={<Students/>}/>
        <Route path="mss/library" element={<LibraryPage/>}/>
        <Route path="mss/checkouts" element={<CheckoutsPage/>}/>
-       <Route path="mss/student/account/louis-gadza" element={<StudentAccountPage/>}/>
+       <Route path="mss/student/account/:id" element={<StudentAccountPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>

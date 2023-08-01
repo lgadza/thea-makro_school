@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faCheckCircle, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons"
 import { Button } from "react-bootstrap"
+import UploadFileModal from "../../../../components/UploadFileModal"
 
 
 const Documents=():JSX.Element=>{
@@ -19,8 +20,6 @@ const initialGuardian:GuardianInterface={
     email:"",
     country_code:"",
     relationship:""
-
-  
 }
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
@@ -57,83 +56,74 @@ console.log(guardian);
       <Row>
         <Col>
         <Form.Label className="d-flex">Passport size photo <span className="text-danger">*</span></Form.Label>
-
         <div className="d-flex align-items-center">
-
-        <span className="pe-2 d-flex align-items-center text-success"> 
+        {/* <span className="pe-2 d-flex align-items-center text-success"> 
         <FontAwesomeIcon icon={faCheckCircle} className="me-1" style={{ fontSize: "0.8rem" }} />
         Accepted</span>
-
           <Form.Control
           type="file"
            name="photo"
         //    value={guardian.photo}
             required 
             onChange={handleChange}
-            />
+            /> */}
+            <UploadFileModal/>
             </div>
-        </Col>
-       
+        </Col>    
       </Row>
-    </Form>
-    
+    </Form>    
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-       
         <Col>
         <Form.Label className="d-flex">Academic transcript<span className="text-danger">*</span></Form.Label>
         <div className="d-flex align-items-center">
-        <span className="pe-2 d-flex align-items-center text-danger"> 
+        {/* <span className="pe-2 d-flex align-items-center text-danger"> 
         <FontAwesomeIcon icon={faTriangleExclamation} className="me-1" style={{ fontSize: "0.8rem" }} />
         Missing/Rejected</span>
-
-          <Form.Control type="file" 
-          
+          <Form.Control type="file"       
           name="academic_transcript"
           value={guardian.phone_number}
           onChange={handleChange}
-          />
+          /> */}
+            <UploadFileModal/>
           </div>
-        </Col>
-       
+        </Col>    
       </Row>
     </Form >
     <Form className="my-3" onSubmit={handleSubmit}>
-      <Row>
-       
+      <Row>   
       <Col>
         <Form.Label className="d-flex">Letter of recommendation/Transfer letter <span className="text-danger">*</span></Form.Label>
         <div className="d-flex align-items-center">
-        <span className="pe-2 d-flex align-items-center text-danger"> 
+        {/* <span className="pe-2 d-flex align-items-center text-danger"> 
         <FontAwesomeIcon icon={faTriangleExclamation} className="me-1" style={{ fontSize: "0.8rem" }} />
         Missing/Rejected</span>
-          <Form.Control 
-         
+          <Form.Control   
           type="file"
           name="transfer_letter"
         //   value={guardian.transfer_letter}
           onChange={handleChange}
-          />
+          /> */}
+            <UploadFileModal/>
           </div>
         </Col>
       </Row>
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
-      <Row>
-       
+      <Row>     
       <Col>
         <Form.Label className="d-flex">Other Supporting Documents <span className="text-danger">*</span></Form.Label>
         <div className="d-flex align-items-center">
-        <span className="pe-2 d-flex align-items-center text-danger"> 
+        {/* <span className="pe-2 d-flex align-items-center text-danger"> 
         <FontAwesomeIcon icon={faTriangleExclamation} className="me-1" style={{ fontSize: "0.8rem" }} />
         Missing/Rejected</span>
-          <Form.Control 
-         
+          <Form.Control        
           type="file"
           name="other_supporting_docs"
         //   value={guardian.other_supporting_docs}
           onChange={handleChange}
-          />
+          /> */}
+            <UploadFileModal/>
           </div>
         </Col>
       </Row>

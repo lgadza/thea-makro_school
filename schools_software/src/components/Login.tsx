@@ -17,6 +17,7 @@ const Login = (): JSX.Element => {
   const navigate = useNavigate()
   const accessToken = useSelector((state: RootState) => state.accessToken.accessToken)
   const isError = useSelector((state: RootState) => state.accessToken.isError)
+  const userData=useSelector((state:RootState)=>state.applicantData.data)
 
   const initialLoginCred: LoginCredentialsInterface = {
     email: "",
@@ -43,8 +44,10 @@ const Login = (): JSX.Element => {
 useEffect(() => {
   const handleLoginSuccess = async () => {
     if (accessToken && accessToken.accessToken) {
-      await dispatch(getApplicantData(accessToken.accessToken));
-      navigate("/mss/student/account/louis-gadza");
+     const user= await dispatch(getApplicantData(accessToken.accessToken));
+     if(userData){
+       navigate(`/mss/student/account/${userData.id}`);
+     }
     }
   };
 

@@ -34,11 +34,7 @@ const Pages=():JSX.Element=>{
       setShowMenu(!showMenu);
     };
     const [activePage,setActivePage]=useState<string>("PersonalData")
-  
-    const handlePageNavigationClick=(page:string)=>{
-        setActivePage(page)
-    }
-    const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
+    const [activeComponent,setActiveComponent]=useState<string>("dashboard")
 
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
@@ -65,18 +61,32 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
         <Container fluid className="ps-0 ms-0 pages scrollbar">
             <Row>
                  <Col md={2} className={showMenu?"":" hide-menu md-1"} >
-                <AdminSidebarMenu toggleMenu={toggleMenu} showMenu={showMenu} handlePageNavigationClick={handleNavigationClick} activePage={activePage} />
+                <AdminSidebarMenu 
+                toggleMenu={toggleMenu} 
+                showMenu={showMenu}
+                 source="studentSchoolAccount"
+                    activeComponent={activeComponent}
+                    handleNavigationClick={handleNavigationClick}
+                 />
+                 
                 </Col>
                 
                 <Col className="mx-3">
                    <AccountTopNavigationBar/>
-                    {/*  <AllCandidates/>
-                    <AllNewCandidate/>
-                    <CandidateDetails/>
-                    <ResourceUploadForm onResourceUpload={handleResourceUpload}/>
-                    <CALAOverView/> */}
-                    {/* <Helper/> */}
-                    <UploadFileModal/>
+                  {/* { activeComponent ==="dashboard" && < } */}
+                  { activeComponent ==="AllStudents" && <AllCandidates/>  }
+                  { activeComponent ==="CandidateDetails" && <CandidateDetails/> }
+                  { activeComponent ==="NewCandidate" && <AllNewCandidate/> }
+                  {/* { activeComponent ==="CandidateDetails" && <CALAOverView/>} */}
+                  { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
+                  { activeComponent ==="Helper" && <Helper/> }
+                    {/*  
+                    
+                    
+                    
+                     */}
+                    
+                    {/* <UploadFileModal/> */}
                 </Col>
             </Row>
         </Container>

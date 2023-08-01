@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { ActiveNav } from '../redux/actions';
 import { useSelector } from 'react-redux';
 
-const MainSidebar = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void;activePage:string;handlePageNavigationClick:(page:string)=>void}) => {
+const MainSidebar = ({showMenu,toggleMenu,source,activeComponent,handleNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void,activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element => {
 
   const handleToggleMenu = () => {
     toggleMenu(showMenu);
@@ -53,7 +53,7 @@ const MainSidebar = ({showMenu,toggleMenu,activePage,handlePageNavigationClick}:
   const toggleHostel = createStateToggle(showHostel, setShowHostel);
   const [showUsers, setShowUsers] = useState(false);
   const toggleUsers = createStateToggle(showUsers, setShowUsers);
-const activeComponent=useSelector((state:any)=>state.activeNav)
+// const activeComponent=useSelector((state:any)=>state.activeNav)
   const dispatch=useDispatch()
 
   return (
@@ -141,26 +141,21 @@ const activeComponent=useSelector((state:any)=>state.activeNav)
                {studentOpen && (
                     <div className=" d-flex flex-column content_bg overlap">
                      
-                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <Link 
+                        to=''
+                         onClick={() => handleNavigationClick("AllStudents")}  
+                         className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "AllStudents" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Students</Link>
-                     
-                        <Link to="/mss/admin/admission/candidates/candidate-details" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
-                   
-                        <Link 
-                        to="/mss/admin/admission/candidates" 
-                        className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="Student-Admission"?"active":""}`}
-                        onClick={()=>{
-                          dispatch(ActiveNav("Student-Admission"))
-                        }}
-                        > 
+                        <Link  to='' onClick={() => handleNavigationClick("CandidateDetails")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "CandidateDetails" ? "active" : ""}`}><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
+                        <Link to='' onClick={() => handleNavigationClick("NewCandidate")} 
+                        className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="Student-Admission"?"active":""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Student Admission
                         </Link>
-                        <Link to="/mss/admin/admission/form" className={`d-flex align-items-center nowrap px-2 py-2 ${activePage==="StudentAdmissionForm"?"active":""}`
+                        <Link to="/mss/admin/admission/form" className={`d-flex align-items-center nowrap px-2 py-2`
                       } onClick={(e)=>{
-                        e.stopPropagation()
-                        handlePageNavigationClick("StudentAdmissionForm")}}> 
+                        e.stopPropagation()}}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Admission Form 
                         </Link>

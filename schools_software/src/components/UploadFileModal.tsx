@@ -187,12 +187,11 @@ useEffect(() => {
       data-ready={!!filename}
       onClick={(e) => action(e)}
     >
-      {/* Modal Header */}
-      <div className="upload_model_header">
-      </div>
-
       {/* Modal Body */}
-      <div className="upload_model_body">
+      <div className="upload_model_body my-1">
+      <span className="me-2 text-success">
+        <FontAwesomeIcon icon={faCheckCircle} className="me-1" style={{ fontSize: "0.8rem" }} />
+        Accepted</span>
         <div className="upload_model_col">
           {/* File Upload Icons */}
           <svg className="upload_model_icon upload_model_icon--blue" viewBox="0 0 24 24" width="24px" height="24px" aria-hidden="true"  
@@ -239,7 +238,7 @@ useEffect(() => {
         <div className="upload_model_col">
           {/* File Upload Content */}
           <div className="upload_model_content" style={{ display: modalState === ModalState.Hidden ? 'block' : 'none' }}>
-            <h5 className="d-flex">Upload a File</h5>
+            {/* <h5 className="d-flex">Upload a File</h5> */}
             <p className="d-flex">Select a file to upload from your computer or device.</p>
             <div className="upload_model_actions">
               <button className="upload_model_button upload_model_button--upload" type="button" onClick={file}>
@@ -307,8 +306,8 @@ useEffect(() => {
 
           {/* Success Content */}
           <div className="upload_model_content" style={{ display: modalState === ModalState.Success ? 'block' : 'none' }}>
-            <h5 className="d-flex">Upload Successful!</h5>
-            <p className="d-flex">Your file has been uploaded.</p>
+            {/* <h5 className="d-flex">Upload Successful!</h5> */}
+            <p className="d-flex">Your file has been uploaded successful!.</p>
             <div className="d-flex justify-content-end ">
               <button className="upload_model_button" type="button" data-action="cancel" onClick={cancel}>
                 Done
