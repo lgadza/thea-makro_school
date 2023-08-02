@@ -239,4 +239,11 @@ cursor: pointer;
  .student-table tr:not(:last-child) {
   border-bottom: 1px solid var(--bg-2);
 }
-
+.candidate-details-field{
+  height: 18rem !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color:transparent !important;
+  border-color:transparent !important;
+}

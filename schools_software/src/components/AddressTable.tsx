@@ -1,6 +1,6 @@
 const AddressTable=():JSX.Element=>{
     return(
-        <table className="student-table w-100">
+        <table className="student-table candidate-details-field w-100">
         <tbody>
           <tr>
             <td>Street</td>

@@ -8,7 +8,7 @@ const StudentProfileTable=():JSX.Element=>{
     const tel=793433455
   const  [isEditing, setIsEditing] = useState(false);
   const [isPut, setPut] = useState(false);
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Louis Gadza");
 
   const updateMe = async () => {
     setPut(true);
@@ -16,7 +16,7 @@ const StudentProfileTable=():JSX.Element=>{
     // dispatch(getMe(accessToken.accessToken));
   };
     return(
-        <table className="student-table w-100">
+        <table className="student-table candidate-details-field w-100">
         <tbody>
           <tr>
             <td>Full-name</td>
@@ -25,7 +25,7 @@ const StudentProfileTable=():JSX.Element=>{
             <Form.Group className=" w-100 px-3  edit-text mt-2 ">
               <Form.Control
                 type="text"
-                value="Louis Gadza"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="py-0 pl-0"
               />

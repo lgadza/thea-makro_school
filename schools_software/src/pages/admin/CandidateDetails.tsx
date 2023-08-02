@@ -35,7 +35,7 @@ const CandidateDetails=({show,hide}:{show:boolean,hide:(hide:boolean)=>void}):JS
                             <span className="header">Candidate details</span>
                         </div>
                         <div className="d-flex justify-content-end py-2">
-                            <Button>Admit Louis Gadza</Button>
+                            <Button className="content_bg-2">Admit Louis Gadza</Button>
                         </div>
                         <div className="d-flex my-5">
                             <div className="p-3 d-flex flex-column justify-content-center align-items-center">
