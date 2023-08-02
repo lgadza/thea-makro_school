@@ -72,15 +72,14 @@ div.nav-bar {
     padding: 0px 20px;
     z-index: 2;
     transition: all 0.3s ease-in-out;
-    overflow-y:scroll; 
-    /* box-shadow: 2px -2px 2px rgb(32,32,32); */
+    overflow-y:none; 
     position: relative;
     
     
   }
   .sidebar-log-out{
    position: fixed;
-   width: 15vw;
+   width: 15.5vw;
    bottom: 0;
    left: 0;
   }

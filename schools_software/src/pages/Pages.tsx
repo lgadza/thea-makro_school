@@ -15,7 +15,6 @@ import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
 import { Dispatch } from "redux"
 import { getApplicantData } from "../redux/actions"
-
 interface Resource {
     id: number;
     title: string;
@@ -78,7 +77,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                  />    
                 </Col> */}
           <Col md={2} className={showMenu ? "" : " hide-menu md-1"}>
-                   <div style={{ height: "100vh", overflowY: "scroll" }}>
+                   <div className="px-0" style={{ height: "100vh", overflowY: "scroll" }}>
             <MainSidebar
               toggleMenu={toggleMenu}
               showMenu={showMenu}
@@ -89,7 +88,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
         </div>
           </Col>
                 <Col className="mx-3">
-        <div style={{ height: "100vh", overflowY: "scroll" }}>
+        <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
                   { activeComponent ==="dashboard" && <CALAOverView/>}
                   { activeComponent ==="AllStudents" && <AllCandidates/>  }

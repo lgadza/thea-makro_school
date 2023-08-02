@@ -75,7 +75,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
   </Link>
             </div>
             
-            <div className="sidebar-menu">
+            <div className="sidebar-menu pb-5">
             <Nav className="flex-column">
             <Nav.Item className={`${showDashboard?"active":""}`}>
                <Link to=""

@@ -46,7 +46,7 @@ useEffect(() => {
     if (accessToken && accessToken.accessToken) {
      const user= await dispatch(getApplicantData(accessToken.accessToken));
      if(userData){
-       navigate(`/mss/student/account/${userData.id}`);
+       navigate(`/mss/account/${userData.id}`);
      }
     }
   };

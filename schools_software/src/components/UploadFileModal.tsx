@@ -63,6 +63,7 @@ const UploadFileModal: React.FC = () => {
   const cancel = () => {
     setIsUploading(false);
     setProgress(0);
+    setFilename('')
     if (progressTimeout) {
       clearTimeout(progressTimeout);
       setProgressTimeout(null);
