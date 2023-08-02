@@ -1,5 +1,5 @@
 
-import { faBars, faHome, faUserGraduate, faLevelUpAlt, faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell, faLightbulb, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell, faLightbulb, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,10 +8,9 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { Nav } from 'react-bootstrap';
 import md_logo_small from "../assets/md_logo_small.png"
 import { useDispatch } from 'react-redux';
-import { ActiveNav } from '../redux/actions';
 import { useSelector } from 'react-redux';
 
-const MainSidebar = ({showMenu,toggleMenu,source,activeComponent,handleNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void,activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element => {
+const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void,activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element => {
 
   const handleToggleMenu = () => {
     toggleMenu(showMenu);
@@ -147,7 +146,6 @@ const MainSidebar = ({showMenu,toggleMenu,source,activeComponent,handleNavigatio
                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "AllStudents" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Students</Link>
-                        <Link  to='' onClick={() => handleNavigationClick("CandidateDetails")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "CandidateDetails" ? "active" : ""}`}><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Student Details</Link>
                         <Link to='' onClick={() => handleNavigationClick("StudentAdmissions")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="StudentAdmissions"?"active":""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         All Candidates

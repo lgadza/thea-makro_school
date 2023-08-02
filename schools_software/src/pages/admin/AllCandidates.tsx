@@ -5,6 +5,7 @@ import { Dropdown, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullseye, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../../components/SearchBar";
+import CandidateDetails from "./CandidateDetails";
 
 const AllCandidates=():JSX.Element=>{
     const [filter, setFilter] = useState("all");
@@ -87,12 +88,15 @@ const AllCandidates=():JSX.Element=>{
            Array(10).fill(undefined).map((_,index)=>(
            <div key={index} onClick={()=>{setShow(true)}}>
                <Link to="">
-               <StudentOverviewRow show={show} hide={onHide}/>
+               <StudentOverviewRow/>
                </Link>
            </div>
            ))
        }
        </div>
+       {show && (
+        <CandidateDetails show={show} hide={onHide}/>
+       )}
    </div>
     )
 }

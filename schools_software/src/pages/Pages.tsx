@@ -1,5 +1,5 @@
 import { Row ,Container, Col, Dropdown, Form} from "react-bootstrap"
-import AdminSidebarMenu from "../components/MainSidebar"
+import MainSidebar from "../components/MainSidebar"
 import AccountTopNavigationBar from "../components/AccountTopNavigationBar"
 import { useEffect, useState } from "react"
 import AllCandidates from "./admin/AllCandidates"
@@ -68,34 +68,37 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
     return(
         <Container fluid className="ps-0 ms-0 pages scrollbar">
             <Row>
-                 <Col md={2} className={showMenu?"":" hide-menu md-1"} >
-                <AdminSidebarMenu 
+                 {/* <Col md={2} className={showMenu?"":" hide-menu md-1"} >
+                <MainSidebar 
                 toggleMenu={toggleMenu} 
                 showMenu={showMenu}
                  source="studentSchoolAccount"
                     activeComponent={activeComponent}
                     handleNavigationClick={handleNavigationClick}
-                 />
-                 
-                </Col>
-                
+                 />    
+                </Col> */}
+          <Col md={2} className={showMenu ? "" : " hide-menu md-1"}>
+                   <div style={{ height: "100vh", overflowY: "scroll" }}>
+            <MainSidebar
+              toggleMenu={toggleMenu}
+              showMenu={showMenu}
+              source="studentSchoolAccount"
+              activeComponent={activeComponent}
+              handleNavigationClick={handleNavigationClick}
+            />
+        </div>
+          </Col>
                 <Col className="mx-3">
+        <div style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
                   { activeComponent ==="dashboard" && <CALAOverView/>}
                   { activeComponent ==="AllStudents" && <AllCandidates/>  }
                   { activeComponent ==="StudentAdmissions" && <AllCandidates/>  }
-                  { activeComponent ==="CandidateDetails" && <CandidateDetails/> }
                   { activeComponent ==="NewCandidate" && <AllNewCandidate/> }
                 
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
                   { activeComponent ==="Helper" && <Helper/> }
-                    {/*  
-                    
-                    
-                    
-                     */}
-                    
-                    {/* <UploadFileModal/> */}
+                </div>
                 </Col>
             </Row>
         </Container>
