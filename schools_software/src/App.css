@@ -25,9 +25,8 @@
 }
 
 body{
-  background-color:var(--bg-1)!important;
+  background-color:var(--main-bg)!important;
   font-family: 'Josefin Sans', sans-serif !important;
-/* min-width: 100vw !important; */
 display: block !important;
 color: white !important;
 }
@@ -318,11 +317,11 @@ background-color: #BFBFBF;
   background-color: var(--content-bg-2);
 }
 
-/* INPUTS  */
+/* GLOW STUFF */
 
 
 
-.inputs-container button:hover {
+.glow-btn button:hover {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px !important;
@@ -332,12 +331,12 @@ background-color: #BFBFBF;
               0 0 5px #03e9f4;
 }
 
-.inputs-container button span {
+.glow-btn button span {
   position: absolute;
   display: block;
 }
 
-.inputs-container button span:nth-child(1) {
+.glow-btn button span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -345,7 +344,7 @@ background-color: #BFBFBF;
   background: linear-gradient(90deg, transparent, #03e9f4);
   animation: btn-anim1 1s linear infinite;
 }
-.inputs-container button {
+.glow-btn button {
   border-radius: 3px ;
   background-color: var(--main-bg) !important;
 }
@@ -359,7 +358,7 @@ background-color: #BFBFBF;
   }
 }
 
-.inputs-container button span:nth-child(2) {
+.glow-btn button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -378,7 +377,7 @@ background-color: #BFBFBF;
   }
 }
 
-.inputs-container button span:nth-child(3) {
+.glow-btn button span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -397,7 +396,7 @@ background-color: #BFBFBF;
   }
 }
 
-.inputs-container button span:nth-child(4) {
+.glow-btn button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;

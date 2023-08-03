@@ -177,7 +177,7 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
   };
 
   return (
-    <div className="container content_bg p-3 inputs-container mt-5">
+    <div className="container content_bg p-3 glow-btn mt-5">
       <h5 className="d-flex">Resource Upload</h5>
       <Row>
         <Col sm={6}>

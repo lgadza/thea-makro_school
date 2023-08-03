@@ -32,20 +32,21 @@
     position: -webkit-sticky; 
     position: sticky;
     top: 0;
-    background: linear-gradient(-45deg, rgba(238, 119, 82,0.2), rgba(231, 60, 126,0.2), rgba(35, 166, 213,0.2), rgba(35, 213, 171,0.2));
+    /* background: linear-gradient(-45deg, rgba(238, 119, 82,0.2), rgba(231, 60, 126,0.2), rgba(35, 166, 213,0.2), rgba(35, 213, 171,0.2));
     background-size: 400% 400%;
         -webkit-animation: gradbar 15s ease infinite;
       -moz-animation: gradbar 15s ease infinite;
-      animation: gradbar 15s ease infinite;
+      animation: gradbar 15s ease infinite; */
   
   }
 
   
   /* NAVIGATION */
   
+
   .home-navbar .navbar {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 50px;
     overflow: hidden;
@@ -78,52 +79,15 @@
     color: #3498db;
   }
   
-  /* SECTIONS */
-  
-  .home-navbar .headline {
-    width: 100%;
-    height: 50vh;
-    min-height: 350px;
-    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80');
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .home-navbar .features {
-    width: 100%;
-    height: auto;
-    background-color: #f1f1f1;
-    display: flex;
-    padding: 50px 20px;
-    justify-content: space-around;
-  }
-  
-  .home-navbar .feature-container {
-    flex-basis: 30%;
-    margin-top: 10px;
-  }
-  
-  .home-navbar .feature-container p {
-    color: #000;
-    text-align: center;
-    line-height: 1.4;
-    margin-bottom: 15px;
-  }
-  
-  .home-navbar .feature-container img {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
+
   /* SEARCH FUNCTION */
   
   .home-navbar #search-icon {
     font-size: 0.9rem;
-    margin-top: 3px;
+    margin-top: 10px;
     margin-left: 15px;
     transition: color 0.3s ease-out;
+    color: white;
   }
   
   .home-navbar #search-icon:hover {
@@ -303,24 +267,6 @@
     .mobile-nav {
     transform: translate(0%)!important;
   }
-    
-    /* SECTIONS */
-    
-    .headline {
-      height: 20vh;
-    }
-      
-    .feature-container p {
-      margin-bottom: 25px;
-    }
-    
-    .feature-container {
-      margin-top: 20px;
-    }
-    
-    .feature-container:nth-child(2) {
-      order: -1;
-    }
     
     /* SEARCH DISABLED ON MOBILE */
     
