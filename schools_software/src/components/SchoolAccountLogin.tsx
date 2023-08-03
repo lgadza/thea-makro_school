@@ -54,7 +54,7 @@ console.log(isError, "ERROR")
     event.preventDefault();
   };
   return (
-    <div className="login-box d-flex flex-column justify-content-center">
+    <div className="login-box main_bg d-flex flex-column justify-content-center">
           {isError && (
         <Alert variant='danger'>The email/password entered is incorrect</Alert>
       )}

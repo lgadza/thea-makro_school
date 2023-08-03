@@ -227,7 +227,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                    
                         <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
                    
-                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <Link to="" onClick={()=>handleNavigationClick("ResourceUploadForm")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "ResourceUploadForm" ? "active" : ""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Upload you CALA
                         </Link>
