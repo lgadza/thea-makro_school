@@ -9,7 +9,6 @@
 }
 :root {
   --main-bg: rgb(0, 0, 0);
-  /* --content-bg-2: rgb(34, 52, 110); */
   --content-bg: rgb(32, 32, 32);
   --content-bg-2: rgba(2, 230, 242,0.7);
   --bg-1: rgb(32, 32, 32);

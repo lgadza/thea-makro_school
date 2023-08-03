@@ -15,6 +15,7 @@ import CalaPage from './pages/cala/CalaPage.js'
 import Pages from './pages/Pages.js'
 import SchoolAccountLogin from './components/SchoolAccountLogin.js'
 import Page404 from './components/Page404.js'
+import MakroHomePage from './pages/Home/MakroHomePage.js'
 
 // mss makro_school_solution
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="mss/register" element={<MssRegisterPage/>}/>
+        <Route path="mss/makro/home" element={<MakroHomePage/>}/>
         <Route path="mss/login" element={<Login/>}/>
         <Route path="mss/:user_role/account/:user_id" element={<Pages/>}/>
        <Route path="mss/school_account/login" element={<SchoolAccountLogin/>}/>
