@@ -8,8 +8,8 @@ export interface FAQItem {
   const FAQItems: FAQItem[] = [
     {
         id: 1,
-        title: 'What is the main purpose of your software?',
-        content: 'Makrodex is designed to provide an integrated platform for school management, streamlining administrative tasks, and facilitating efficient student data management. Help teachers and students to ',
+        title: 'What is the main purpose of Makrodex?',
+        content: 'Makrodex is designed to provide an integrated platform for school management, streamlining administrative tasks, and facilitating efficient student data management.',
       },
       {
         id: 2,

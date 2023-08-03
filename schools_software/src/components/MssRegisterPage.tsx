@@ -1,12 +1,12 @@
 import { Container,Col, Row } from "react-bootstrap"
-import RegisterInfo from "./RegisterInfo"
-import md_logo_small from "../../../assets/md_logo_small.png"
+import RegisterInfo from "../pages/admissionsManagement/student/RegisterInfo"
+import md_logo_small from "../assets/md_logo_small.png"
 import * as Icon from "react-bootstrap-icons";
 const MssRegisterPage=():JSX.Element=>{
    return(
-    <Container className="application_page d-flex align-items-center">
-        <Row className="content_bg box-shadow">
-        <Col className="d-flex flex-column justify-content-between reg-welcome">
+    <Container className="application_page  d-flex align-items-center">
+        <Row className="content_bg  box-shadow">
+        <Col md={4} className="d-flex flex-column justify-content-between reg-welcome">
             <div className="wrapper d-flex flex-column justify-content-between  pb-5">
             <div className="p-3">
             <img
@@ -26,7 +26,7 @@ const MssRegisterPage=():JSX.Element=>{
             </div>
             </div>
          </Col>
-            <Col>
+            <Col md={8}>
             <RegisterInfo/>
             </Col>
         </Row>

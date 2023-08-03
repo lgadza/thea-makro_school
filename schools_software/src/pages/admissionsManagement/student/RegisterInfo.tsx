@@ -30,7 +30,8 @@ const initialFormData: ApplicantRegistration = {
   policy_acceptance: false,
   data_process_acceptance: false,
   password: '',
-  country_code:''
+  country_code:'',
+  role:''
 };
 
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
@@ -84,7 +85,7 @@ if(errorResponse){
 }
 const handleClose = () => setShow(false);
    return( 
-    <div className="content_bg p-3">
+    <div className="content_bg  p-3">
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col>
