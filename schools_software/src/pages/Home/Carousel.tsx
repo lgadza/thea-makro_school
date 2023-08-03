@@ -69,7 +69,7 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <section id="section-1" className='main_bg'>
+    <section id="section-1" className='main_bg carousel'>
       <div className="content-slider">
         <input type="radio" id="banner1" className="sec-1-input" name="banner" checked={currentBanner === 1} />
         <input type="radio" id="banner2" className="sec-1-input" name="banner" checked={currentBanner === 2} />
@@ -78,35 +78,36 @@ const Carousel: React.FC = () => {
         <div className="slider">
         <div id="top-banner-1" className="banner">
           <div className="banner-inner-wrapper">
-            <h2>Creative Template</h2>
-            <h1>Welcome</h1>
-            <h1>to MoGo</h1>
+            <h2>Makrodex Schools</h2>
+            <h1>An integrated platform</h1>
+            <h1>for school management</h1>
             <div className="line"></div>
             <div className="learn-more-button"><a href="#section-2">Learn More</a></div>
           </div>
         </div>
         <div id="top-banner-2" className="banner">
           <div className="banner-inner-wrapper">
-            <h2>What We Do</h2>
-            <h1>Great</h1>
-            <h1>MoGo</h1>
+            <h2>C.A.L.A</h2>
+            <h1>AI-powered CALA</h1>
+            <h1>project assistance</h1>
             <div className="line"></div>
             <div className="learn-more-button"><a href="#section-4">Learn More</a></div>
           </div>
         </div>
         <div id="top-banner-3" className="banner">
           <div className="banner-inner-wrapper">
-            <h2>Here We Are</h2>
-            <h1>We Are</h1>
-            <h1>WMoGo</h1>
+            <h2>Master school records</h2>
+            <h1>Effortlessly</h1>
+            <h1>manage student data</h1>
             <div className="line"></div>
             <div className="learn-more-button"><a href="#section-6">Learn More</a></div>
           </div>
         </div>
         <div id="top-banner-4" className="banner">
           <div className="banner-inner-wrapper">
-            <h2>Our Contacts</h2>
-            <h1>Welcome to MoGo</h1>
+            <h2>Save time</h2>
+            <h1>Simplify </h1>
+            <h1> administrative tasks </h1>
             <div className="line"></div>
             <div className="learn-more-button"><a href="#main-footer">Learn More</a></div>
           </div>
@@ -118,25 +119,25 @@ const Carousel: React.FC = () => {
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-              <span>01</span> Intro
+               Intro
             </label>
             <label htmlFor="banner2" onClick={() => handleBannerClick(2)}>
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-              <span>02</span> Work
+               CALA
             </label>
             <label htmlFor="banner3" onClick={() => handleBannerClick(3)}>
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-              <span>03</span> About
+              Efficiency
             </label>
             <label htmlFor="banner4" onClick={() => handleBannerClick(4)}>
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-              <span>04</span> Contacts
+              Simplicity
             </label>
           </div>
         </nav>
