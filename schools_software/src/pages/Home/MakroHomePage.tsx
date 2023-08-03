@@ -1,14 +1,15 @@
 import { Container } from "react-bootstrap"
 import HomeNavbar from "./HomeNavbar"
 import Carousel from "./Carousel"
-import FAQ from "./FAQ"
+import FAQComp from "./FAQComp"
+
 
 const MakroHomePage:React.FC=()=>{
     return(
-        <Container>
+        <Container className=" mb-5">
             <HomeNavbar/>
             <Carousel/>
-            <FAQ/>
+            <FAQComp/>
         </Container>   
     )
 }
