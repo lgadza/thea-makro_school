@@ -1,6 +1,4 @@
-/* General Styles */
 
-/* section { display: block; } */
 .carousel h1, h2, h3, h4, h5, h6, ul, li {
 	margin: 0;
 	padding: 0;
@@ -15,9 +13,9 @@
 	font-size: 1.875em;
 	font-weight: 700;
 	text-transform: uppercase;
+    font-family: 'Kaushan Script', "cursive" !important; 
 }
 .carousel h3 {
-	font-family: 'Kaushan Script', cursive;
 	font-size: 1.5em;
 	font-weight: 400;
 }
@@ -28,12 +26,14 @@
 }
 .carousel p {
 	line-height: 150%;
-	font-family: 'Roboto', sans-serif;
 	font-size: 0.9375em;
 	color: #999;
 }
 .carousel li { list-style-type: none; }
-.carousel a { text-decoration: none; }
+.carousel a {
+     text-decoration: none;
+     border-radius: 20px;
+     }
 
 .carousel .bg-wrapper {
 	width: 100%;
@@ -155,24 +155,31 @@
 }
 
 #section-1 .content-slider nav .controls .progressbar .progressbar-fill {
-	position: inherit;
+    position: inherit;
 	width: inherit;
 	height: inherit;
 	margin-left: -100%;
-	background: rgb(190, 14, 14) !important;
+	background: #e88382;
 }
 
 #section-1 .content-slider nav .controls label .progressbar {
 	background: rgb(32, 32, 32);
 }
+
+
 #section-1 .content-slider nav .controls label .progressbar:hover {
 	background: rgb(14, 178, 190);
 }
 #section-1 .content-slider nav .controls label .progressbar .progressbar-fill {
-	animation: progressBarFill 5s linear;
+    position: inherit;
+	width: inherit;
+	height: inherit;
+	margin-left: -100%;
+    background-color: rgb(14, 178, 190) !important;
     
 }
 
+  
 #banner1:checked ~ .slider #top-banner-1,
 #banner2:checked ~ .slider #top-banner-2,
 #banner3:checked ~ .slider #top-banner-3,
@@ -190,11 +197,11 @@
 	transition: all .5s;
 }
 
-#banner1:checked ~ nav label:nth-of-type(1) .progressbar,
-#banner2:checked ~ nav label:nth-of-type(2) .progressbar,
-#banner3:checked ~ nav label:nth-of-type(3) .progressbar,
-#banner4:checked ~ nav label:nth-of-type(4) .progressbar {
-	background: rgb(14, 178, 190);
+#banner1:checked ~ nav label:nth-of-type(1) ,
+#banner2:checked ~ nav label:nth-of-type(2) ,
+#banner3:checked ~ nav label:nth-of-type(3) ,
+#banner4:checked ~ nav label:nth-of-type(4)  {
+	color: rgb(14, 178, 190);
 }
 
 #banner1:checked ~ nav label:nth-of-type(1) .progressbar-fill,
@@ -202,8 +209,8 @@
 #banner3:checked ~ nav label:nth-of-type(3) .progressbar-fill,
 #banner4:checked ~ nav label:nth-of-type(4) .progressbar-fill {
 	animation: progressBarFill 5s linear;
-
 }
+
 
 /* Animations */
 @keyframes progressBarFill {
@@ -288,3 +295,4 @@
 	#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 3em; }
 	#section-1 .content-slider .slider .banner .banner-inner-wrapper .line { margin: 1.7em auto; }
 }
+
