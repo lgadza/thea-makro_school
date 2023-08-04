@@ -262,6 +262,14 @@
 	.main-header .header-wrapper .main-menu li { padding: 0.75em 1.3em; }
 	#section-1 .content-slider nav { bottom: 0; }
 	#section-1 .content-slider nav .controls { width: 80%; }
+	#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 3em; }
+	#section-1 .content-slider nav .controls label {
+		width: 15%;
+	}
+	
+	#section-1 .content-slider nav .controls .progressbar {
+		width: 100%;
+	}
 }
 
 @media only screen and (max-width: 860px) {
@@ -270,7 +278,7 @@
 	#section-1 .content-slider nav { bottom: -1em; }
 	#section-1 .content-slider nav .controls { width: 90%; }
 	#section-1 .content-slider .slider .banner .banner-inner-wrapper h2 { font-size: 2em; }
-	#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 4.5em; }
+	#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 2.5em; }
 	#section-1 .content-slider .slider .banner .banner-inner-wrapper { padding-top: 5em; }
 }
 
@@ -296,7 +304,7 @@
 	#section-1 .content-slider nav { bottom: -0.5em; }
 	#section-1 .content-slider nav .controls label { width: 40%; font-size: 0.7em; }
 	#section-1 .content-slider .slider .banner .banner-inner-wrapper h2 { font-size: 1.5em; }
-	#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 3em; }
+	#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 2em; }
 	#section-1 .content-slider .slider .banner .banner-inner-wrapper .line { margin: 1.7em auto; }
 }
 

@@ -18,19 +18,19 @@ const HomeNavbar: React.FC = () => {
   };
 
   return (
-    <div className="page-wrapper main_bg glow home-navbar">
-      <div className="nav-wrapper">
-        <nav className={`navbar ${isMobileNavActive ? 'mobile-nav' : ''}`}>
+    <div className="page-wrapper main_bg glow pb-2 home-navbar">
+      <div className="nav-wrapper px-0 container">
+        <nav className={`navbar ${isMobileNavActive ? 'mobile-nav main_bg' : ''}`}>
           <img
             src={makro_logo}
             alt="Makro Logo"
           />
-          <div className="menu-toggle" id="mobile-menu" onClick={handleMenuToggleClick}>
+          <div className="menu-toggle ms-5" id="mobile-menu" onClick={handleMenuToggleClick}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
           </div>
-          <ul className={`nav ${isSearchActive ? 'search' : 'no-search'}`}>
+          <ul className={`nav main_bg ${isSearchActive ? 'search' : 'no-search'}`}>
             <li className="nav-item py-2 border-radius-round">
               <a href="#">Home</a>
             </li>

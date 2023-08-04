@@ -7,9 +7,9 @@ import Footer from "../../components/Footer"
 
 const MakroHomePage:React.FC=()=>{
     return(
-        <Container fluid className="px-0 mx-0 mb-5">
-            <Container>
+        <Container fluid className="px-0 mb-5">
             <HomeNavbar/>
+            <Container className=" px-5">
             <Carousel/>
             <FAQComp/>
             </Container>

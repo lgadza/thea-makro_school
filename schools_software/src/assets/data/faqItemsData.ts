@@ -23,7 +23,7 @@ export interface FAQItem {
     },
     {
       id: 4,
-      title: 'What kind of support and training do you provide for users?',
+      title: 'What kind of support and training do you provide?',
       content: 'We provide comprehensive support and training to help schools make the most of our software. Our team is available to assist with any inquiries and offer training sessions to ensure smooth implementation and utilization.',
     },
     {
