@@ -141,7 +141,7 @@
   
   /* MOBILE MENU & ANIMATION */
   
-  .home-navbar .menu-toggle .bar{
+  .home-navbar .menu-toggle .menu-bar{
     width: 25px;
     height: 3px;
     background-color: white;
@@ -161,19 +161,19 @@
     cursor: pointer;
   }
 
- .home-navbar #mobile-menu.is-active .bar:nth-child(2){
+ .home-navbar #mobile-menu.is-active .menu-bar:nth-child(2){
     opacity: 0;
   }
  
   
-  .home-navbar #mobile-menu.is-active .bar:nth-child(1){
+  .home-navbar #mobile-menu.is-active .menu-bar:nth-child(1){
     -webkit-transform: translateY(8px) rotate(45deg);
     -ms-transform: translateY(8px) rotate(45deg);
     -o-transform: translateY(8px) rotate(45deg);
     transform: translateY(8px) rotate(45deg);
   }
   
-  .home-navbar #mobile-menu.is-active .bar:nth-child(3){
+  .home-navbar #mobile-menu.is-active .menu-bar:nth-child(3){
     -webkit-transform: translateY(-8px) rotate(-45deg);
     -ms-transform: translateY(-8px) rotate(-45deg);
     -o-transform: translateY(-8px) rotate(-45deg);
@@ -250,7 +250,6 @@
       position: fixed;
       justify-content: start;
       top: 55px;
-      /* background-color: #fff !important; */
       width: 100%;
       height: calc(100vh - 55px);
       transform: translate(-101%);
@@ -270,8 +269,9 @@
       font-size: 1rem;
     }
      
-    .menu-toggle, .bar {
-      display: block;
+    .menu-toggle, .menu-bar {
+      display: block !important;
+      margin-left: auto;
       cursor: pointer;
     }
     
@@ -290,3 +290,7 @@
    }
     
   }
+   /* LOGO DISABLED ON MOBILE */
+   /* .navbar img{
+    display: none;
+   } */
