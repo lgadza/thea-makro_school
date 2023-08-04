@@ -20,7 +20,7 @@ const HomeNavbar: React.FC = () => {
   return (
     <div className="page-wrapper main_bg glow pb-2 home-navbar">
       <div className="nav-wrapper px-0 container">
-        <nav className={`navbar ${isMobileNavActive ? 'mobile-nav main_bg' : 'is-active'}`}>
+        <nav className={`navbar ${!isMobileNavActive ? 'mobile-nav main_bg' : 'is-active'}`}>
           <img
             src={makro_logo}
             alt="Makro Logo"

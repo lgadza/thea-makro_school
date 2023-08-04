@@ -131,7 +131,12 @@
     z-index: 0;
   }
   
-  .home-navbar input {
+  .home-navbar input {.FAQ .FAQ-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0.5em 0;
+    text-align: left;
+  }
     border: 0;
     border-left: 1px solid #ccc;
     border-radius: 0; /* FOR SAFARI */
@@ -288,8 +293,16 @@
     .search-input {
     display: none;
    }
-    
+   .glow.home-navbar .btn.btn-primary a{
+    color: rgb(14, 178, 190) !important;
   }
+  .glow.home-navbar .btn.btn-primary{
+  transition: .3s;
+  border-radius: 5px ;
+  /* border-color:rgb(14, 178, 190) !important; */
+
+  }
+}
    /* LOGO DISABLED ON MOBILE */
    /* .navbar img{
     display: none;

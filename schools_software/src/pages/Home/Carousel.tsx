@@ -1,53 +1,3 @@
-// import React, { useState } from 'react';
-// import "./Carousel.css"
-// const Carousel: React.FC = () => {
-//   const [angle, setAngle] = useState(0);
-
-//   const galleryspin = (sign: string) => {
-//     let newAngle = angle;
-//     if (!sign) {
-//       newAngle = newAngle + 45;
-//     } else {
-//       newAngle = newAngle - 45;
-//     }
-//     setAngle(newAngle);
-//   };
-
-//   return (
-//     <div>
-//       <base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/wanaka-tree.jpg" />
-//       <div id="carousel">
-//         <figure id="spinner" style={{ transform: `rotateY(${angle}deg)` }}>
-//           <img src="wanaka-tree.jpg" alt="" />
-//           <img src="still-lake.jpg" alt="" />
-//           <img src="pink-milford-sound.jpg" alt="" />
-//           <img src="paradise.jpg" alt="" />
-//           <img src="morekai.jpg" alt="" />
-//           <img src="milky-blue-lagoon.jpg" alt="" />
-//           <img src="lake-tekapo.jpg" alt="" />
-//           <img src="milford-sound.jpg" alt="" />
-//         </figure>
-//       </div>
-//       <span
-//         style={{ float: 'left' }}
-//         className="ss-icon"
-//         onClick={() => galleryspin('-')}
-//       >
-//         &lt;
-//       </span>
-//       <span
-//         style={{ float: 'right' }}
-//         className="ss-icon"
-//         onClick={() => galleryspin('')}
-//       >
-//         &gt;
-//       </span>
-//     </div>
-//   );
-// };
-
-// export default Carousel;
-
 
 import React, { useState, useEffect } from 'react';
 import "./Carousel.css"
@@ -79,8 +29,8 @@ const Carousel: React.FC = () => {
         <div id="top-banner-1" className="banner">
           <div className="banner-inner-wrapper">
             <h2>Makrodex Schools</h2>
-            <h1>An integrated platform</h1>
-            <h1>for school management</h1>
+            <h1>Integrated school</h1>
+            <h1>management platform</h1>
             <div className="line"></div>
             <div className="learn-more-button"><a href="#section-2">Learn More</a></div>
           </div>
@@ -119,25 +69,27 @@ const Carousel: React.FC = () => {
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
+              <span className='label-nav'>
                Intro
+              </span>
             </label>
             <label htmlFor="banner2" onClick={() => handleBannerClick(2)}>
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-               CALA
+              <span className='label-nav'> CALA</span>
             </label>
             <label htmlFor="banner3" onClick={() => handleBannerClick(3)}>
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-              Efficiency
+              <span className='label-nav'> Efficiency</span>
             </label>
             <label htmlFor="banner4" onClick={() => handleBannerClick(4)}>
               <span className="progressbar">
                 <span className="progressbar-fill"></span>
               </span>
-              Simplicity
+              <span className='label-nav'>Simplicity</span>
             </label>
           </div>
         </nav>
