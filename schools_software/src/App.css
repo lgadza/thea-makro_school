@@ -330,7 +330,12 @@ background-color: #BFBFBF;
               0 0 8px #03e9f4,
               0 0 5px #03e9f4;
 }
-
+.glow-box-shadow{
+  box-shadow: 0 0 5px #03e9f4,
+  0 0 5px #03e9f4,
+  0 0 8px #03e9f4,
+  0 0 5px #03e9f4;
+}
 .glow-btn button span {
   position: absolute;
   display: block;

@@ -2,85 +2,174 @@
 import React from 'react';
 import logo from "../assets/md_logo_small.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faLinkedin, faPinterest } from '@fortawesome/free-brands-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter, faLinkedin, faPinterest, faGooglePlusG, faTelegramPlane, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelopeOpen, faHeart, faMapMarkerAlt, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
 import "./Footer.css"
+import { Container } from 'react-bootstrap';
 const Footer: React.FC = () => {
   const year=new Date().getFullYear()
   return (
-    <footer className="new_footer_area bg_color">
-      <div className="new_footer_top">
+    <Container fluid className='px-0 new_footer_area'>
+    <footer className="footer-section main_bg">
+      <div className="new_footer_top ">
         <div className="container">
+        <div className="footer-cta pt-5 pb-5">
           <div className="row">
-            <div className="col-lg-3 col-md-6">
-              <div className="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s">
-                <h3 className="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                <p>Don’t miss any updates of our new templates and extensions.!</p>
-                <form action="#" className="f_subscribe_two mailchimp" method="post" noValidate>
-                  <input type="text" name="EMAIL" className="form-control memail" placeholder="Email" />
-                  <button className="btn btn_get btn_get_two" type="submit">Subscribe</button>
-                  <p className="mchimp-errmessage" style={{ display: 'none' }}></p>
-                  <p className="mchimp-sucmessage" style={{ display: 'none' }}></p>
-                </form>
+            <div className="col-xl-4 col-md-4 mb-30">
+              <div className="single-cta">
+              <a href='https://www.google.com/maps/search/06 Zwierzyniecka, Bialystok, Poland'>
+                <FontAwesomeIcon className='contact-icons' icon={faMapMarkerAlt} />
+                <div className="cta-text">
+                  <h4>Find us</h4>
+                  <span>06 Zwierzyniecka, Bialystok, Poland</span>
+                </div>
+                </a>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
-                <h3 className="f-title f_600 t_color f_size_18">Download</h3>
-                <ul className="list-unstyled f_list">
-                  <li><a href="#">Company</a></li>
-                  <li><a href="#">Android App</a></li>
-                  <li><a href="#">iOS App</a></li>
-                  <li><a href="#">Desktop</a></li>
-                  <li><a href="#">Projects</a></li>
-                  <li><a href="#">My Tasks</a></li>
+            <div className="col-xl-4 col-md-4 mb-30">
+              <div className="single-cta">
+                <a href='tel:+48794144892'>
+                <FontAwesomeIcon className='contact-icons' icon={faPhone} />
+                <div className="cta-text">
+                  <h4>Call us</h4>
+                  <span>+48 794144892</span>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div className="col-xl-4 col-md-4 mb-30">
+              <div className="single-cta">
+              <a href='mailto:siuolgadza@gmail.com'>
+                <FontAwesomeIcon className='contact-icons' icon={faEnvelopeOpen} />
+                <div className="cta-text">
+                  <h4>Mail us</h4>
+                  <span>makrodex@info.com</span>
+                </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer-content pt-5 pb-5">
+          <div className="row">
+            <div className="col-xl-4 col-lg-4 mb-50">
+              <div className="footer-widget">
+                <div className="footer-logo">
+                  <a href="index.html">
+                    <img src={logo} className="img-fluid" alt="logo" />
+                  </a>
+                </div>
+                <div className="footer-text">
+                  <p>
+                  The next-gen School Learning Management System with AI-powered CALA feature for personalized learning and better student outcome
+                  </p>
+                </div>
+                <div className="footer-social-icon">
+                  <span className='d-flex'>Follow us</span>
+                  <div className='d-flex'>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faFacebookF} className="facebook-bg" />
+                  </a>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faTwitter} className="twitter-bg" />
+                  </a>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faLinkedin} className="linkedIn-bg" />
+                  </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-4 col-lg-4 col-md-6 mb-30">
+              <div className="footer-widget">
+                <div className="footer-widget-heading">
+                  <h3>Useful Links</h3>
+                </div>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">about</a>
+                  </li>
+                  <li>
+                    <a href="#">services</a>
+                  </li>
+                  <li>
+                    <a href="#">portfolio</a>
+                  </li>
+                  <li>
+                    <a href="#">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#">About us</a>
+                  </li>
+                  <li>
+                    <a href="#">Our Services</a>
+                  </li>
+                  <li>
+                    <a href="#">Expert Team</a>
+                  </li>
+                  <li>
+                    <a href="#">Contact us</a>
+                  </li>
+                  <li>
+                    <a href="#">Latest News</a>
+                  </li>
                 </ul>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s">
-                <h3 className="f-title f_600 t_color f_size_18">Help</h3>
-                <ul className="list-unstyled f_list">
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Terms &amp; Conditions</a></li>
-                  <li><a href="#">Reporting</a></li>
-                  <li><a href="#">Documentation</a></li>
-                  <li><a href="#">Support Policy</a></li>
-                  <li><a href="#">Privacy</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s">
-                <h3 className="f-title f_600 t_color f_size_18">Team Solutions</h3>
-                <div className="f_social_icon">
-                  <a href="#" className="fab fa-facebook"><FontAwesomeIcon icon={faFacebook} /></a>
-                  <a href="#" className="fab fa-twitter"><FontAwesomeIcon icon={faTwitter} /></a>
-                  <a href="#" className="fab fa-linkedin"><FontAwesomeIcon icon={faLinkedin} /></a>
-                  <a href="#" className="fab fa-pinterest"><FontAwesomeIcon icon={faPinterest} /></a>
+            <div className="col-xl-4 col-lg-4 col-md-6 mb-50">
+              <div className="footer-widget">
+                <div className="footer-widget-heading">
+                  <h3>Subscribe</h3>
+                </div>
+                <div className="footer-text mb-25">
+                  <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                </div>
+                <div className="subscribe-form">
+                  <form action="#">
+                    <input type="text" placeholder="Email Address" />
+                    <div className='send-btn'>
+                      <FontAwesomeIcon icon={faPaperPlane} className='send-icon' />
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
         <div className="footer_bg">
           <div className="footer_bg_one"></div>
           <div className="footer_bg_two"></div>
         </div>
       </div>
-      <div className="footer_bottom">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 col-sm-7">
-              <p className="mb-0 f_400">	&copy; makrodex.. {year} All rights reserved.</p>
+       <div className="copyright-area">
+            <div className="container">
+                <div className="row">
+                    <div className="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div className="copyright-text">
+                            <p>Copyright	&copy; makrodex.. {year} All rights reserved.</p>
+                        </div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div className="footer-menu">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Policy</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="col-lg-6 col-sm-5 text-right">
-              <img src={logo} alt='makro_logo' style={{width:"40px",height:"40px"}}/>
-            </div>
-          </div>
         </div>
-      </div>
     </footer>
+    </Container>
   );
 };
 
