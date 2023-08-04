@@ -1,0 +1,21 @@
+/* MakroHomePage.css */
+.page-container {
+    display: flex;
+    position: relative;
+  }
+  
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh !important;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .content-container {
+    flex: 1;
+    padding-left: 40px; /* Adjust the spacing to your liking */
+  }
+  

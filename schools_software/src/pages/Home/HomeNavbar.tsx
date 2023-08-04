@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 const HomeNavbar: React.FC = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isMobileNavActive, setIsMobileNavActive] = useState(false);
