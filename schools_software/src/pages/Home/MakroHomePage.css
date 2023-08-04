@@ -1,8 +1,8 @@
 /* MakroHomePage.css */
-.page-container {
+/* .page-container {
     display: flex;
     position: relative;
-  }
+  } */
   
   .progress-container {
     position: fixed;
@@ -16,6 +16,6 @@
   
   .content-container {
     flex: 1;
-    padding-left: 40px; /* Adjust the spacing to your liking */
+    padding-left: 40px; 
   }
   
