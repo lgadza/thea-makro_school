@@ -59,13 +59,7 @@ div.nav-bar {
 .school-logo{
   width: 180px;
 }
-  /* Footer */
-  footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
+ 
   /* AdminSideBar */
   .sidebar {
  min-height: 100vh;

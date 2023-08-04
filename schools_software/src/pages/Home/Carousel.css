@@ -99,9 +99,9 @@
 	padding: 0.5em 2em;
 	text-align: center;
 	font-size: 0.875em;
-	color: #fff;
+	color: rgb(14, 178, 190) !important;
 	text-transform: uppercase;
-	border: 0.1875em solid #fff;
+	border: 0.1875em solid rgb(14, 178, 190);
 }
 #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
 	color: rgb(14, 178, 190) !important;
@@ -115,7 +115,7 @@
 
 #section-1 .content-slider nav {
 	position: absolute;
-	bottom: 9em;
+	bottom: 6em;
 	width: 100%;
 	z-index: 10;
 	text-align: center;

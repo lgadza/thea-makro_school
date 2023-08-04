@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap"
 import HomeNavbar from "./HomeNavbar"
 import Carousel from "./Carousel"
 import FAQComp from "./FAQComp"
+import Footer from "../../components/Footer"
 
 
 const MakroHomePage:React.FC=()=>{
@@ -10,6 +11,7 @@ const MakroHomePage:React.FC=()=>{
             <HomeNavbar/>
             <Carousel/>
             <FAQComp/>
+            <Footer/>
         </Container>   
     )
 }

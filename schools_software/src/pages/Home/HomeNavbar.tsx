@@ -18,7 +18,7 @@ const HomeNavbar: React.FC = () => {
   };
 
   return (
-    <div className="page-wrapper main_bg glow-btn home-navbar">
+    <div className="page-wrapper main_bg glow home-navbar">
       <div className="nav-wrapper">
         <nav className={`navbar ${isMobileNavActive ? 'mobile-nav' : ''}`}>
           <img
@@ -61,10 +61,10 @@ const HomeNavbar: React.FC = () => {
           <div className='px-2 d-flex'>
           <Button
         className="btn btn-primary me-1 d-flex justify-content-end">
-        Login
+            <Link to="/mss/login"> Login</Link>
       </Button>
           <Button
-        className="btn btn-primary d-flex justify-content-end">
+        className="btn btn-primary  d-flex justify-content-end">
             <Link to="/mss/register"> Sign up</Link>
       </Button>
           </div>

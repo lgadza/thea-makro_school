@@ -32,14 +32,22 @@
     position: -webkit-sticky; 
     position: sticky;
     top: 0;
-    /* background: linear-gradient(-45deg, rgba(238, 119, 82,0.2), rgba(231, 60, 126,0.2), rgba(35, 166, 213,0.2), rgba(35, 213, 171,0.2));
-    background-size: 400% 400%;
-        -webkit-animation: gradbar 15s ease infinite;
-      -moz-animation: gradbar 15s ease infinite;
-      animation: gradbar 15s ease infinite; */
   
   }
 
+  /* BUTTON */
+  .glow.home-navbar .btn.btn-primary a:hover{
+    transition: .3s;
+    color: rgb(14, 178, 190) !important;
+  }
+  .glow.home-navbar .btn.btn-primary:hover{
+  transition: .3s;
+  border-radius: 5px ;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 5px #03e9f4,
+              0 0 8px #03e9f4,
+              0 0 5px #03e9f4;
+  }
   
   /* NAVIGATION */
   
