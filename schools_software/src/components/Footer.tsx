@@ -126,7 +126,7 @@ const Footer: React.FC = () => {
                   <h3>Subscribe</h3>
                 </div>
                 <div className="footer-text mb-25">
-                  <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                  <p>Don’t miss any updates of our new features and extensions!</p>
                 </div>
                 <div className="subscribe-form">
                   <form action="#">
