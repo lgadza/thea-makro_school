@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import FAQItems,{FAQItem} from '../../assets/data/faqItemsData';
 import "./FAQCom.css"
-const FAQComp: React.FC = () => {
+import { FAQItem } from '../../assets/data/faqItemsData';
+interface FAQCompoProps{
+  FAQItems:FAQItem[]
+}
+const FAQComp: React.FC<FAQCompoProps> = ({FAQItems}) => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const toggleFAQ = (id: number) => {
@@ -12,19 +15,19 @@ const FAQComp: React.FC = () => {
     <div className="container FAQ">
       <h2 className='d-flex py-2'>Frequently Asked Questions</h2>
       <div className="FAQ">
-        {FAQItems.map((item) => (
+        {FAQItems.map((item:FAQItem) => (
           <div className="FAQ-item" key={item.id}>
             <button
               id={`FAQ-button-${item.id}`}
               aria-expanded={expandedId === item.id ? 'true' : 'false'}
               onClick={() => toggleFAQ(item.id)}
             >
-              <span className="FAQ-title">{item.title}</span>
+              <span className="FAQ-title">{item.question}</span>
               <span className="icon" aria-hidden="true"></span>
             </button>
             {expandedId === item.id && (
               <div className="FAQ-content">
-                <p className='header'>{item.content}</p>
+                <p className='header'>{item.answer}</p>
               </div>
             )}
           </div>

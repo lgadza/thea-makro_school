@@ -4,10 +4,15 @@ import HomeNavbar from "../HomeNavbar";
 import Footer from "../../../components/Footer";
 import { Row } from "react-bootstrap";
 import { admissionBenefitsArray,characteristicsArray,admissionParagraphs } from "../../../assets/data/admissionBenefitsArray";
+import ExploreMoreFeatures from "../../../components/ExploreMoreFeatures";
+import FAQComp from "../FAQComp";
+import { admissionFAQ } from "../../../assets/data/faqItemsData";
 
 const AdmissionManagement: React.FC = () => {
     const sections = [
         {label:"Home"},
+        { label: "Admission" },
+        { label: "FAQ" },
         { label: "Footer" },
     ];
     const AdmissionManagementContent:React.FC=()=>{
@@ -74,13 +79,15 @@ const AdmissionManagement: React.FC = () => {
               <Container fluid className="px-0 mb-5">
                   <HomeNavbar />
                 <Container className="px-5">
-                    <Row>
+                    <Row className="mb-5">
                         <Col md={8}>
                   <AdmissionManagementContent/>
                         </Col>
-                        <Col md={4}></Col>
+                        <Col md={4} className="px-5">
+                            <ExploreMoreFeatures/>
+                        </Col>
                     </Row>
-                  {/* <FAQComp /> */}
+                  <FAQComp FAQItems={admissionFAQ} />
                 </Container>
                 <Footer />
               </Container>

@@ -5,7 +5,7 @@
   import FAQComp from "./FAQComp";
   import Footer from "../../components/Footer";
   import PageProgress from "./PageProgress";
-
+  import { FAQItems } from "../../assets/data/faqItemsData";
   const MakroHomePage: React.FC = () => {
     const sections = [
       { label: "Home" },
@@ -24,7 +24,7 @@
               <HomeNavbar />
             <Container className="px-5">
               <Carousel />
-              <FAQComp />
+              <FAQComp FAQItems={FAQItems} />
             </Container>
             <Footer />
           </Container>
