@@ -57,3 +57,75 @@
     box-shadow: rgba(95, 98, 100, 0.4) -5px 5px, rgba(86, 88, 90, 0.3) -10px 10px, rgba(95, 97, 99, 0.2) -15px 15px, rgba(167, 168, 168, 0.1) -20px 20px, rgba(145, 146, 148, 0.05) -25px 25px; 
     box-shadow: rgba(165, 157, 157, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -5px, rgba(0, 0, 0, 0.2) 0px -5px 0px inset; 
 }
+
+/* ROTATING HERO */
+
+  
+  .hero .spacing {
+    padding: 100px;
+    padding-bottom: 0px;
+   
+  }
+  
+  .hero .devcon {
+    height: 400px;
+    width: 400px;
+    margin-top: -80px;
+    margin-left: -6px;
+    
+  }
+  .hero .container {
+    position: absolute;
+    /* width: 500px; */
+    left: 0;
+  }
+  .hero .durian {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:280px;
+    width:280px
+  }
+  
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+  
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+  
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  .hero .rotating {
+    -webkit-animation: rotating 120s linear infinite;
+    -moz-animation: rotating 120s linear infinite;
+    -ms-animation: rotating 120s linear infinite;
+    -o-animation: rotating 120s linear infinite;
+    animation: rotating 120s linear infinite;
+  }

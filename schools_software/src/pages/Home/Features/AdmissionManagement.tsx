@@ -10,6 +10,7 @@ import { admissionFAQ } from "../../../assets/data/faqItemsData";
 import admission_img_1 from "../../../assets/candidatesAdmission.png"
 import admission_img_2 from "../../../assets/candidatesAdmission2.png"
 import "./Features.css"
+import SunRaise from "../../../components/SunRaise";
 
 
 const AdmissionManagement: React.FC = () => {
@@ -19,10 +20,13 @@ const AdmissionManagement: React.FC = () => {
         { label: "FAQ" },
         { label: "Footer" },
     ];
+
     const AdmissionManagementContent:React.FC=()=>{
+    
       
         return(
             <div className="d-flex admission-content flex-column align-items-start">
+                
                 <div className="definition d-flex flex-column align-items-start">
                 <h3 className="my-4">What is an Admission Management Software?</h3>
                 <small className="d-flex text-start">
@@ -103,6 +107,7 @@ const AdmissionManagement: React.FC = () => {
               <Container fluid className="px-0 mb-5">
                   <HomeNavbar />
                 <Container className="px-5">
+                <SunRaise/>
                     <Row className="mb-5">
                         <Col md={8}>
                   <AdmissionManagementContent/>
