@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import PageProgress from "../PageProgress";
 import HomeNavbar from "../HomeNavbar";
 import Footer from "../../../components/Footer";
-import AdmissionManagement from "./AdmissionManagement";
+
 
 
 const Features: React.FC = () => {
@@ -22,7 +22,6 @@ const Features: React.FC = () => {
             <HomeNavbar />
           <Container className="px-5">
 
-            <AdmissionManagement/>
             {/* <FAQComp /> */}
           </Container>
           <Footer />

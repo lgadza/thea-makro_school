@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
             <div className="col-xl-4 col-lg-4 mb-50">
               <div className="footer-widget">
                 <div className="footer-logo">
-                  <a href="index.html">
+                  <a>
                     <img src={logo} className="img-fluid" alt="logo" />
                   </a>
                 </div>
@@ -151,8 +151,9 @@ const Footer: React.FC = () => {
        <div className="copyright-area">
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-6 col-lg-6 text-center text-lg-left">
-                        <div className="copyright-text">
+                    <div className="col-xl-6 col-lg-6 text-center text-lg-left d-flex align-items-center">
+                    <img src={logo} style={{width:"20px"}} alt="logo" />
+                        <div className="ps-2 copyright-text">
                             <p>Copyright	&copy; makrodex.. {year} All rights reserved.</p>
                         </div>
                     </div>

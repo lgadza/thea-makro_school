@@ -73,5 +73,10 @@ export const admissionFAQ: FAQItem[] = [
     question: "Does the software provide analytics and reporting on admission trends?",
     answer: "Yes, our admission management software includes advanced analytics and reporting features. You can gain valuable insights into admission trends, conversion rates, and counselor performance to optimize your admission strategies.",
   },
+  {
+    id: 6,
+    question: "What types of schools should invest in an admission management system?",
+    answer: "Every school should have an admission management system. The software is best suited for schools of all sizes, both public and private, day school and boarding school.",
+  },
 ];
 
