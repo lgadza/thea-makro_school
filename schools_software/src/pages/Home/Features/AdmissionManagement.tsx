@@ -7,6 +7,10 @@ import { admissionBenefitsArray,characteristicsArray,admissionParagraphs } from 
 import ExploreMoreFeatures from "../../../components/ExploreMoreFeatures";
 import FAQComp from "../FAQComp";
 import { admissionFAQ } from "../../../assets/data/faqItemsData";
+import admission_img_1 from "../../../assets/candidatesAdmission.png"
+import admission_img_2 from "../../../assets/candidatesAdmission2.png"
+import "./Features.css"
+
 
 const AdmissionManagement: React.FC = () => {
     const sections = [
@@ -18,13 +22,18 @@ const AdmissionManagement: React.FC = () => {
     const AdmissionManagementContent:React.FC=()=>{
       
         return(
-            <div className="d-flex flex-column align-items-start">
+            <div className="d-flex admission-content flex-column align-items-start">
                 <div className="definition d-flex flex-column align-items-start">
                 <h3 className="my-4">What is an Admission Management Software?</h3>
                 <small className="d-flex text-start">
                 Admission management software helps streamline the admissions process. The admission management software enables educational institutions to conduct student admission and enrollment procedures online. Students and parents do not need to stand in long queues for hours to take admission to the institution. Parents and students can use the admission management system to file an online inquiry of school admissions. Makrodex makes the process of admission easy for schools, institutions, and parents.
                 </small>
                 <h4 className="my-3">Admission Management Software for Schools</h4>
+                <div className="admission-img-container d-flex justify-content-center w-100 py-5">
+                    <div className="over-sticker px-2 text-start"><small>
+                    Fast Admission Processes</small></div>
+                <img src={admission_img_1} alt="admission"  style={{width:"500px",borderRadius:"10px",objectFit:"cover"}} />
+                </div>
                 {admissionParagraphs.map((para)=>{
                     return(
                         <small key={para.id} className="text-start py-2">{para.content}</small>
@@ -33,7 +42,22 @@ const AdmissionManagement: React.FC = () => {
                 </div>
                 <div className="characteristics d-flex flex-column align-items-start">
                 <h4 className="my-3">Characteristics of Admission Management Software</h4>
-                <img src="https://cdn.targetx.in/fetch/2/01/100/blobid1625815470928.jpg" alt="" />
+                <div className="admission-img-container img-2 d-flex justify-content-center w-100 py-5">
+                    <div className="over-sticker-2 px-2 d-flex flex-column">
+                        <small>
+                            Better Record 
+                        </small>
+                        <small>
+                        Management
+                        </small>
+                    </div>
+                    <div className="over-sticker-3 py-2 px-2">
+                        <small>
+                            One-stop Solution
+                        </small>
+                    </div>
+                <img src={admission_img_2} alt="admission"  style={{width:"500px",borderRadius:"10px",objectFit:"cover"}} />
+                </div>
                 <small className="text-start mt-3">
                 Makrodex offers a host of features to educational institutions. The major characteristics of the admission management system are:
                 </small>
