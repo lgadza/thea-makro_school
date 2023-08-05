@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './HomeNavbar.css'; // Create a CSS file for styling and import it here
 import makro_logo from "../../assets/md_logo_small.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -33,19 +33,20 @@ const HomeNavbar: React.FC = () => {
           </div>
           <ul className={`nav main_bg ${isSearchActive ? 'search' : 'no-search'}`}>
             <li className="nav-item py-2 border-radius-round">
-              <a href="#">Home</a>
+              <a href="#">Solutions</a>
+              <FontAwesomeIcon className='ms-1' icon={faChevronDown} style={{fontSize:"14px"}}/>
             </li>
             <li className="nav-item py-2 border-radius-round">
-              <a href="#">About</a>
+              <a href="#">Features</a>
             </li>
             <li className="nav-item py-2 border-radius-round">
-              <a href="#">Work</a>
+              <a href="#">Plans</a>
             </li>
             <li className="nav-item  p-2 border-radius-round">
-              <a href="#">Careers</a>
+              <a href="#">Partnerships</a>
             </li>
             <li className="nav-item py-2 px-3 border-radius-round">
-              <a href="#">Contact Us</a>
+              <a href="#">About us</a>
             </li>
             {!isSearchActive && <FontAwesomeIcon
             icon={faSearch}

@@ -66,42 +66,4 @@ const PageProgress: React.FC<PageProgressProps> = ({ steps }) => {
 };
 
 export default PageProgress;
-// import React, { useState, useEffect } from "react";
-// import "./PageProgress.css";
 
-// interface Step {
-//   label: string;
-// }
-
-// interface PageProgressProps {
-//   steps: Step[];
-//   currentStep: number;
-//   fillRatio: number;
-// }
-
-// const PageProgress: React.FC<PageProgressProps> = ({ steps, currentStep, fillRatio }) => {
-//   console.log(steps,"STEPES",currentStep,"CURRECT")
-//   return (
-//     <div className="progress-container">
-//       <div className="progress">
-//         {steps.map((_, index) => (
-//           <div
-//             key={index}
-//             className={`step ${index === currentStep ? "active" : ""}`}
-//             style={{ backgroundColor: index < currentStep ? "#007bff" : "transparent" }}
-//           />
-//         ))}
-//         <div className={`progress active`} style={{ height: `${fillRatio * 100}%` }} />
-//       </div>
-//       <div className="step-labels">
-//         {steps.map((step, index) => (
-//           <div key={index} className={`step-label ${index === currentStep ? "active main_bg" : ""}`}>
-//             {step.label}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default PageProgress;
