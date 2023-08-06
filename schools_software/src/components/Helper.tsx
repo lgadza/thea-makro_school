@@ -2,6 +2,7 @@ import { faArrowCircleDown, faArrowRotateForward, faCopy, faFileArrowUp, faPaper
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
+import { CompanyName } from "../assets/data/company"
 
 const Helper=():JSX.Element=>{
     return(
@@ -18,7 +19,7 @@ const Helper=():JSX.Element=>{
                   <div className="pe-2">
                   <img
                     src={md_logo_small}
-                    alt="makrodex_logo"
+                    alt={CompanyName}
                     style={{ width: `${30}px`, height: `${30}px`, borderRadius: "0%" }}
                     className="img_component"
                     />
@@ -51,7 +52,7 @@ const Helper=():JSX.Element=>{
                   <div className="pe-2">
                   <img
                     src="https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png"
-                    alt="makrodex_logo"
+                    alt={CompanyName}
                     style={{ width: `${30}px`, height: `${30}px`, borderRadius: "0%" }}
                     className="img_component"
                     />

@@ -6,6 +6,7 @@ import { faArrowDown, faBell, faChevronDown, faMessage } from "@fortawesome/free
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 import { ApplicantRegistration } from "../../../Types"
+import { CompanyName } from "../../../assets/data/company"
 
 interface StudentNavbarProps{
   personalInfo:ApplicantRegistration | null
@@ -17,7 +18,7 @@ const StudentNavbar:React.FC<StudentNavbarProps> =({personalInfo})=>{
             <div>
             <img
                     src={md_logo}
-                    alt="makrodex_logo"
+                    alt={CompanyName}
                     className="img_component d-flex"
                     style={{height:"50px"}}
                 />
@@ -33,7 +34,7 @@ const StudentNavbar:React.FC<StudentNavbarProps> =({personalInfo})=>{
                     <li>
             <Dropdown>
             <Dropdown.Toggle>
-            <Image src={md_logo} height={30} width={30} alt="makrodex"/>
+            <Image src={md_logo} height={30} width={30} alt={CompanyName}/>
           <span className="px-2">{personalInfo?.first_name} {personalInfo?.last_name} </span>
           <FontAwesomeIcon icon={faChevronDown}/>
             </Dropdown.Toggle>

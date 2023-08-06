@@ -2,6 +2,7 @@ import { Container,Col, Row } from "react-bootstrap"
 import RegisterInfo from "../pages/admissionsManagement/student/RegisterInfo"
 import md_logo_small from "../assets/md_logo_small.png"
 import * as Icon from "react-bootstrap-icons";
+import { CompanyName } from "../assets/data/company";
 const MssRegisterPage=():JSX.Element=>{
    return(
     <Container className="application_page  d-flex align-items-center">
@@ -11,7 +12,7 @@ const MssRegisterPage=():JSX.Element=>{
             <div className="p-3">
             <img
                     src={md_logo_small}
-                    alt="makrodex_logo"
+                    alt={CompanyName}
                     className="img_component d-flex"
                 />
             </div>

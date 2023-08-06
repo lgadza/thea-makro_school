@@ -1,3 +1,4 @@
+import { CompanyName } from "./company";
 export interface FAQItem {
     id: number;
     question: string;
@@ -8,8 +9,8 @@ export interface FAQItem {
   export const  FAQItems: FAQItem[] = [
     {
         id: 1,
-        question: 'What is the main purpose of Makrodex?',
-        answer: 'Makrodex is designed to provide an integrated platform for school management, streamlining administrative tasks, and facilitating efficient student data management.',
+        question: `What is the main purpose of ${CompanyName}?`,
+        answer: `${CompanyName} is designed to provide an integrated platform for school management, streamlining administrative tasks, and facilitating efficient student data management.`,
       },
       {
         id: 2,
@@ -18,7 +19,7 @@ export interface FAQItem {
       },
     {
       id: 3,
-      question: 'Can Makrodex be customized to suit our schools specific needs?',
+      question: `Can ${CompanyName} be customized to suit our schools specific needs?`,
       answer: 'Yes, our software is highly customizable. We understand that different schools have unique requirements, so we offer flexibility in tailoring the software to meet your specific needs.',
     },
     {

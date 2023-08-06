@@ -9,7 +9,7 @@ import { Nav } from 'react-bootstrap';
 import md_logo_small from "../assets/md_logo_small.png"
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-
+import { CompanyName } from '../assets/data/company';
 const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void,activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element => {
 
   const handleToggleMenu = () => {
@@ -62,7 +62,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
     {showMenu && (
                 <img
                 src={md_logo_small}
-                alt="makrodex_logo"
+                alt={CompanyName}
                 style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%" }}
                 className="img_component"
               />

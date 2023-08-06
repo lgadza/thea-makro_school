@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faLinkedin, faPinterest, faGooglePlusG, faTelegramPlane, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelopeOpen, faHeart, faMapMarkerAlt, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
 import "./Footer.css"
+import { CompanyName } from '../assets/data/company';
 import { Container } from 'react-bootstrap';
 const Footer: React.FC = () => {
   const year=new Date().getFullYear()
@@ -43,7 +44,7 @@ const Footer: React.FC = () => {
                 <FontAwesomeIcon className='contact-icons' icon={faEnvelopeOpen} />
                 <div className="cta-text">
                   <h4>Mail us</h4>
-                  <span>makrodex@info.com</span>
+                  <span>{CompanyName}@info.com</span>
                 </div>
                 </a>
               </div>
@@ -154,7 +155,7 @@ const Footer: React.FC = () => {
                     <div className="col-xl-6 col-lg-6 text-center text-lg-left d-flex align-items-center">
                     <img src={logo} style={{width:"20px"}} alt="logo" />
                         <div className="ps-2 copyright-text">
-                            <p>Copyright	&copy; makrodex.. {year} All rights reserved.</p>
+                            <p>Copyright	&copy; {CompanyName}.. {year} All rights reserved.</p>
                         </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">

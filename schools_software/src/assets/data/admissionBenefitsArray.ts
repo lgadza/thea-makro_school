@@ -1,4 +1,4 @@
-// Define the interface for the admission benefit object
+import { CompanyName } from "./company";
 interface AdmissionBenefit {
     id:number;
     heading: string;
@@ -11,12 +11,12 @@ interface AdmissionBenefit {
     {
       id:2,
       heading: "Fast admission processes",
-      content: "Makrodex helps fasten the admission processes. Schools, colleges, and educational institutions can avoid long queues at the admission counter with the admission management software.",
+      content: `${CompanyName} helps fasten the admission processes. Schools, colleges, and educational institutions can avoid long queues at the admission counter with the admission management software.`,
     },
     {
       id:3,
       heading: "Better record management",
-      content: "Educational institutions can avoid long and tiresome manual data management processes with an online admission system. They can store huge data files safely with the admission management software. Secure your students’ data efficiently with Makrodex.",
+      content: `Educational institutions can avoid long and tiresome manual data management processes with an online admission system. They can store huge data files safely with the admission management software. Secure your students’ data efficiently with ${CompanyName}.`,
     },
     {
       id:4,
@@ -26,7 +26,7 @@ interface AdmissionBenefit {
     {
       id:5,
       heading: "Aids information flow",
-      content: "Providing the correct information at the correct time is crucial. With Makrodex, assign or transfer the inquiries to specific counselors or handle them yourself to make the admissions process easier.",
+      content: `Providing the correct information at the correct time is crucial. With ${CompanyName}, assign or transfer the inquiries to specific counselors or handle them yourself to make the admissions process easier.`,
     },
     {
       id:6,
@@ -36,7 +36,7 @@ interface AdmissionBenefit {
     {
       id:7,
       heading: "Easy follow-up process",
-      content: "Makrodex eases the follow-up process with interested candidates through calls. Educational organizations can set up a follow-up call with a single click. They can also add the admitted students directly to the student’s directory.",
+      content: `${CompanyName} eases the follow-up process with interested candidates through calls. Educational organizations can set up a follow-up call with a single click. They can also add the admitted students directly to the student’s directory.`,
     },
     {
       id:8,
@@ -46,7 +46,7 @@ interface AdmissionBenefit {
     {
       id:9,
       heading: "Enhanced productivity",
-      content: "The admission management system enhances the productivity of admission counselors and administrative staff. Increase the overall productivity throughout the institute with Makrodex",
+      content: `The admission management system enhances the productivity of admission counselors and administrative staff. Increase the overall productivity throughout the institute with ${CompanyName}`,
     },
     {
       id:10,
@@ -70,7 +70,7 @@ interface Characteristics {
       id: 2,
       heading: "Student data collection",
       imageSrc: "",
-      content: "Educational organizations can collect and manage student information effortlessly with Makrodex. Now, admins don't have to collect the data of individual students manually. They can automate the data collection process with the admission management software.",
+      content: `Educational organizations can collect and manage student information effortlessly with ${CompanyName}. Now, admins don't have to collect the data of individual students manually. They can automate the data collection process with the admission management software.`,
     },
     {
       id: 3,
@@ -82,13 +82,13 @@ interface Characteristics {
       id: 4,
       heading: "Selection",
       imageSrc: "",
-      content: "Educational organizations can generate merit lists to fasten the admission process and include top performers in the institutes. With Makrodex, educational institutes can get more learners through an automated selection process.",
+      content: `Educational organizations can generate merit lists to fasten the admission process and include top performers in the institutes. With ${CompanyName}, educational institutes can get more learners through an automated selection process.`,
     },
     {
       id: 5,
       heading: "Admissions",
       imageSrc: "",
-      content: "Automate the admission process and prevent long queues at the admission desk with Makrodex. Get the answers to all admission-related queries on the same platform.",
+      content: `Automate the admission process and prevent long queues at the admission desk with ${CompanyName}. Get the answers to all admission-related queries on the same platform.`,
     },
   ];
   
@@ -103,11 +103,11 @@ interface Paragraph {
  export const admissionParagraphs: Paragraph[] = [
     {
       id: 1,
-      content: "With Makrodex, educational institutions can automate student data and document collection, selection, and admission processes.",
+      content: `With ${CompanyName}, educational institutions can automate student data and document collection, selection, and admission processes.`,
     },
     {
       id: 2,
-      content: "As schools are heading towards new academic sessions, the need for an online admission system has increased. Schools must give admission management software a try to streamline their admissions process. Provide hassle-free admission processes to every stakeholder with Makrodex.",
+      content: `As schools are heading towards new academic sessions, the need for an online admission system has increased. Schools must give admission management software a try to streamline their admissions process. Provide hassle-free admission processes to every stakeholder with ${CompanyName}.`,
     },
     {
       id: 3,

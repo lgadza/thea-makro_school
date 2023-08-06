@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ApplicantLogin, getApplicantData } from '../redux/actions';
 import { RootState } from '../redux/store';
 import { Dispatch } from 'redux';
-
+import { CompanyName } from '../assets/data/company';
 export interface LoginCredentialsInterface {
   email: string,
   password: string
@@ -73,7 +73,7 @@ useEffect(() => {
           <div className="imageContainer mb-3">
             <img
               src={m_logo}
-              alt={"makrodex_logo"}
+              alt={CompanyName}
               style={{ width: "150px", height: "150px" }}
               className="img_component"
             />

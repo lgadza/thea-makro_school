@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import "./Carousel.css"
-
+import { CompanyName } from '../../assets/data/company';
 const Carousel: React.FC = () => {
   const [currentBanner, setCurrentBanner] = useState<number>(1);
 
@@ -28,7 +28,7 @@ const Carousel: React.FC = () => {
         <div className="slider">
         <div id="top-banner-1" className="banner">
           <div className="banner-inner-wrapper">
-            <h2>Makrodex Schools</h2>
+            <h2>{CompanyName} Schools</h2>
             <h1>Integrated school</h1>
             <h1>management platform</h1>
             <div className="line"></div>
