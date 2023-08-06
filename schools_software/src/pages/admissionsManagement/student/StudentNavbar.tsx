@@ -34,7 +34,7 @@ const StudentNavbar:React.FC<StudentNavbarProps> =({personalInfo})=>{
                     <li>
             <Dropdown>
             <Dropdown.Toggle>
-            <Image src={md_logo} height={30} width={30} alt={CompanyName}/>
+            <Image src={"https://visafoto.com/img/docs/za_passport.jpg"} height={30} width={30} alt={CompanyName}/>
           <span className="px-2">{personalInfo?.first_name} {personalInfo?.last_name} </span>
           <FontAwesomeIcon icon={faChevronDown}/>
             </Dropdown.Toggle>

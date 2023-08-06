@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { admissionFeatures } from "../../assets/data/makrohome"
+import { PushButton } from "../../components/Buttons";
 const SimplifyProcess:React.FC=()=>{
     const [currentFeature, setCurrentFeature] = useState<number>(1);
 
@@ -15,6 +16,67 @@ const SimplifyProcess:React.FC=()=>{
     const handleFeatureClick = (featureNumber: number) => {
       setCurrentFeature(featureNumber);
     };
+  
+interface AdmissionCardProps {
+  title: string;
+  content: string;
+}
+
+const AdmissionCard: React.FC<AdmissionCardProps> = ({ title, content }) => {
+  return (
+    <li className="card">
+      <h1>{title}</h1>
+      <p>{content}</p>
+    </li>
+  );
+};
+
+const AdmissionCards: React.FC = () => {
+  const admissionData: AdmissionCardProps[] = [
+    {
+      title: 'Admission Card 1',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum, lorem vel tincidunt...',
+    },
+    {
+      title: 'Admission Card 2',
+      content:
+        'Vestibulum nunc massa, gravida quis porta nec, feugiat id metus. Nunc ac arcu dolor...',
+    },
+    {
+      title: 'Admission Card 3',
+      content:
+        'Donec nunc ligula, vulputate quis mollis eu, interdum quis libero. Donec nulla ante...',
+    },
+    {
+      title: 'Admission Card 4',
+      content:
+        'Donec nunc ligula, vulputate quis mollis eu, interdum quis libero. Donec nulla ante...',
+    },
+  ];
+
+  const [currentCard, setCurrentCard] = useState(0);
+
+  const handleCardClick = (index: number) => {
+    setCurrentCard(index);
+  };
+
+  return (
+    <ul className="cards">
+      {admissionData.map((data, index) => (
+        <AdmissionCard
+          key={index}
+          title={data.title}
+          content={data.content}
+          onClick={() => handleCardClick(index)} 
+          className={index === currentCard ? 'card--current' : ''}
+        />
+      ))}
+    </ul>
+  );
+};
+
+
     return(
         <div className="p-3 simplify-feature">
              <input type="radio" id="feature1" className="sec-1-input" name="feature" checked={currentFeature === 1} />
@@ -50,6 +112,10 @@ backgroundColor: currentFeature === feature.id ? "white" : "gray",
         </div>
     </div>
 </div>
+<div className="text-start">
+<PushButton message="Learn more!"/>
+</div>
+
         </div>
     )
 }

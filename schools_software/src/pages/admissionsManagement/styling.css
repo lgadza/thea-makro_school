@@ -199,6 +199,7 @@ height: 50px;
   left: 0;
   right: 0;
   z-index: 55;
+  border-bottom: 1px solid rgba(58, 56, 56,0.5);
 }
 .student-profile-bar.content_bg{
   transform: translate(0px,50px);

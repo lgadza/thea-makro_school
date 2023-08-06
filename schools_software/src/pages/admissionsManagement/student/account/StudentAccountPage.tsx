@@ -41,7 +41,7 @@ const isError=useSelector((state:RootState)=>state.applicantData.isError)
 
                 <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar mx-2">
                 
-                    <Image src={image} height={100} width={100} alt="userName"/> 
+                    <Image src={"https://visafoto.com/img/docs/za_passport.jpg"} height={100} width={100} alt="userName"/> 
                     <div className="d-flex flex-column align-items-start px-3">
                         <h5>{personalInfo.first_name} {personalInfo.last_name}</h5>
                     <div>{personalInfo.phone_number}</div>
