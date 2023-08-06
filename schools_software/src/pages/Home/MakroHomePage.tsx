@@ -43,9 +43,13 @@ import SimplifyProcess from "./Simplifyprocess";
           <Container fluid className="px-0 mb-5">
               <HomeNavbar />
             <Container className="px-5">
+            <div className="carousel-container"> 
               <Carousel />
+            </div>
               <div className="better-for-card content_bg">
+               
                 <h3 className="p-4 text-start"> Empower and elevate success for all.</h3>
+                 
               <Row className="mb-5">
               {betterCardList.map((card,_)=>{
                 return(
@@ -64,7 +68,10 @@ import SimplifyProcess from "./Simplifyprocess";
               })}
             </Row>
               </div>
-              <div>
+              <div className="simplify-feature-container main-bg">
+              <div className="h3">
+                <h2 className="text-start color-header p-3">Streamline your institute's management<br/> with intelligent simplicity. </h2>
+                </div> 
                 <SimplifyProcess/>
               </div>
               <FAQComp FAQItems={FAQItems} />

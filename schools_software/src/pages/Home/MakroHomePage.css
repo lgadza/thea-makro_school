@@ -143,6 +143,17 @@ background-size: cover;
 }
 
 
+
+/* SimplifyFeatures */
+
+.simplify-feature{
+  background: #283048; 
+background: linear-gradient(132deg,  rgba(59, 57, 59,.4),rgba(80, 87, 90,0.3), rgba(40, 48, 72,0.6));  
+animation: Gradient 5s ease infinite;
+border-radius: 3px;
+
+
+}
 @keyframes Gradient {
   0% {
        background-position: 0% 50%
@@ -153,4 +164,73 @@ background-size: cover;
 100% {
     background-position: 0% 50%
     }
+}
+.simplify-feature-container h2{
+  font-weight: 700;
+  
+  
+}
+.simplify-feature-container .h3{
+  position: sticky;
+  top: 58px;
+  background-color: black !important ;
+  width: 100%;
+  height: 100px;
+  
+}
+.simplify-feature .simplify-progressbar {
+	background: rgb(0, 0, 0);
+}
+
+.simplify-feature li{
+position: relative;
+overflow: hidden;
+
+}
+.simplify-feature .simplify-progressbar:hover {
+	background: rgb(14, 178, 190);
+}
+.simplify-feature input {
+  display: none;
+}
+.simplify-feature .simplify-progressbar .simplify-progressbar-fill {
+    position: inherit;
+	width: inherit;
+	height: inherit;
+	margin-left: -100%;
+    background-color: rgb(14, 178, 190) !important;
+    
+}
+.simplify-feature .simplify-progressbar .simplify-progressbar-fill {
+    position: inherit;
+	width: inherit;
+	height: inherit;
+	margin-left: -100%;
+	
+}
+.simplify-feature .simplify-progressbar {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 3px;
+	width: 100%;
+	background: #f6eac5;
+	z-index: 100;
+}
+
+
+
+#feature1:checked ~ .row ul li:nth-of-type(1) .simplify-progressbar .simplify-progressbar-fill,
+#feature2:checked ~ .row ul li:nth-of-type(2) .simplify-progressbar .simplify-progressbar-fill,
+#feature3:checked ~ .row ul li:nth-of-type(3) .simplify-progressbar .simplify-progressbar-fill {
+  animation: barFill 5s linear;
+}
+
+@keyframes barFill {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0;
+  }
 }

@@ -1,6 +1,6 @@
 
 import { Container } from "react-bootstrap";
-import PageProgress from "../PageProgress";
+import PageProgress from "../../../components/PageProgress";
 import HomeNavbar from "../HomeNavbar";
 import Footer from "../../../components/Footer";
 
