@@ -29,3 +29,29 @@ export interface imgProps {
     imageUrl:parent,
     description: "Monitor & track your children’s progress with complete transparency and stay on top of all the school updates with ease",},
 ]
+export interface admissionFeatureProps{
+    id:number;
+    heading:string;
+    content:string;
+
+}
+
+
+export const admissionFeatures: admissionFeatureProps[] = [
+    {
+      id: 1,
+      heading: `Digitize Student Records with Ease`,
+      content: `Go paperless by securely storing all essential data and documents in an accessible digital platform.`,
+    },
+    {
+      id: 2,
+      heading: `Deliver with Speed and Efficiency`,
+      content: `Streamline the entire process and eliminate delays with our automated admissions system.`,
+    },
+    {
+      id: 3,
+      heading: `Create a Delightful Experience`,
+      content: `Make admissions a joy for everyone, from administrators and counselors to students and parents.`,
+    },
+  ];
+  

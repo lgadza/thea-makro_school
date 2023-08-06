@@ -362,7 +362,23 @@ background-color: #BFBFBF;
     left: 100%;
   }
 }
-
+.color-header{
+  display: inline-block;
+  display: flex;
+  background: linear-gradient(90deg, #2a86bb, #00ff00, #225b81);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+  animation: colorMove 3s ease-in-out infinite;
+}
+@keyframes colorMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}
 .glow-btn button span:nth-child(2) {
   top: -100%;
   right: 0;

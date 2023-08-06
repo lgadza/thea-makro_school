@@ -4,11 +4,12 @@
   import Carousel from "./Carousel";
   import FAQComp from "./FAQComp";
   import Footer from "../../components/Footer";
-  import PageProgress from "./PageProgress";
+  import PageProgress from "../../components/PageProgress";
   import { FAQItems } from "../../assets/data/faqItemsData";
  import { imgProps } from "../../assets/data/makrohome";
  import { betterCardList } from "../../assets/data/makrohome";
   import "./MakroHomePage.css"
+import SimplifyProcess from "./Simplifyprocess";
   // const BetterOutCard: React.FC<imgProps> = ({imgProps}) => {
   //   return (
   //     <div className="role_card" key={imgProps.id} id={imgProps.title}>
@@ -63,7 +64,9 @@
               })}
             </Row>
               </div>
-         
+              <div>
+                <SimplifyProcess/>
+              </div>
               <FAQComp FAQItems={FAQItems} />
             </Container>
             <Footer />

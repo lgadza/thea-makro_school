@@ -10,8 +10,8 @@ import { Container } from 'react-bootstrap';
 const Footer: React.FC = () => {
   const year=new Date().getFullYear()
   return (
-    <Container fluid className='px-0 new_footer_area'>
-    <footer className="footer-section main_bg">
+    <Container fluid className='px-0 new_footer_area '>
+    <footer className="footer-section mainbg content_bg">
       <div className="new_footer_top ">
         <div className="container">
         <div className="footer-cta pt-5 pb-5">
