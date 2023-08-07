@@ -18,6 +18,7 @@ import Page404 from './components/Page404.js'
 import MakroHomePage from './pages/Home/MakroHomePage.js'
 import Features from './pages/Home/Features/Features.js'
 import AdmissionManagement from './pages/Home/Features/AdmissionManagement.js'
+import CALAFeature from './pages/Home/Features/CALA.js'
 
 // mss makro_school_solution
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="mss/login" element={<Login/>}/>
         <Route path="mss/makro/features" element={<Features/>}/>
         <Route path="mss/makro/features/admission-management-software" element={<AdmissionManagement/>}/>
+        <Route path="mss/makro/features/CALA" element={<CALAFeature/>}/>
         <Route path="mss/:user_role/account/:user_id" element={<Pages/>}/>
        <Route path="mss/school_account/login" element={<SchoolAccountLogin/>}/>
        <Route path="mss/cala" element={<CalaPage/>}/>
