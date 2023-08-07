@@ -46,9 +46,9 @@ import SimplifyProcess from "./Simplifyprocess";
             <div className="carousel-container"> 
               <Carousel />
             </div>
-              <div className="better-for-card content_bg">
+              <div className="better-for-card">
                
-                <h3 className="p-4 text-start"> Empower and elevate success for all.</h3>
+                <h2 className="p-4 text-start color-header"> Empower and elevate success for all.</h2>
                  
               <Row className="mb-5">
               {betterCardList.map((card,_)=>{

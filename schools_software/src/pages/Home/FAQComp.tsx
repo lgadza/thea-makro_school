@@ -13,7 +13,7 @@ const FAQComp: React.FC<FAQCompoProps> = ({FAQItems}) => {
 
   return (
     <div className="container FAQ">
-      <h2 className='d-flex py-2'>Frequently Asked Questions</h2>
+      <h2 className='d-flex py-2 color-header text-start'>Frequently Asked Questions</h2>
       <div className="FAQ">
         {FAQItems.map((item:FAQItem) => (
           <div className="FAQ-item" key={item.id}>

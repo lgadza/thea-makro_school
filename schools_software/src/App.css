@@ -365,6 +365,7 @@ background-color: #BFBFBF;
 .color-header{
   display: inline-block;
   display: flex;
+  font-weight: 700;
   background: linear-gradient(90deg, #2a86bb, #00ff00, #225b81);
   background-clip: text;
   -webkit-background-clip: text; 
