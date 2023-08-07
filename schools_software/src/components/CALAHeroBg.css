@@ -1,18 +1,4 @@
-/* :root {
-    font-size: 62.5%;
-  }
-  
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eee;
-    color: #000;
-    z-index: 1;
-    min-height: 100vh;
-    min-width: 100vw;
-  } */
-  
+
   .cala-hero.container {
     width: 10rem;
     height: 10rem;
@@ -24,11 +10,10 @@
     content: "";
     width: 20rem;
     height: 20rem;
-    /* background: #000; */
     position: absolute;
     top: -10rem;
     left: -7rem;
-    /* box-shadow: rgba(49, 49, 49, 0.2) 0px 60px 40px -7px; */
+
   }
   
   .cell {
