@@ -249,8 +249,19 @@
 @media only screen and (max-width: 1366px) {
 	body { font-size: 16px; }
 	.main-header .header-wrapper { width: 70%; }
+	#section-1 .content-slider nav { 
+		bottom: 3em; 
+	}
 }
 
+@media only screen and (max-width: 1220px) {
+	.main-header .header-wrapper .main-menu li { padding: 0.75em 1.4em; }
+	#section-1 { height: 35em; }
+	#section-1 .content-slider nav { bottom: -0.2em; }
+	#section-1 .content-slider .slider .banner .banner-inner-wrapper { padding-top: 7em; }
+	#section-1 .content-slider .slider .banner .banner-inner-wrapper .line { margin: 2em auto; }
+	#section-1 .content-slider nav .controls { width: 80%; }
+}
 @media only screen and (max-width: 1120px) {
 	.main-header .header-wrapper .main-menu li { padding: 0.75em 1.4em; }
 	#section-1 { height: 35em; }

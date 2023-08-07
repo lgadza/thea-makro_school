@@ -1,9 +1,4 @@
 
-
-
-
-
-
 .role_card {
   position: relative;
   display: block;
@@ -43,52 +38,6 @@
   
 }
 
-@media screen and (min-width: 768px) {
-  .role_header {
-    width: 60%;
-  }
-  
-  .role_desc {
-    width: 50%;
-  }
-  
-  .info_section {
-    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
-  }
-  
-  .blur_back {
-    width: 80%;
-    background-position: -100% 10% !important;  
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .role_card {
-    width: 95%;
-    margin: 70px auto; 
-    min-height: 350px;
-    height: auto;
-  }
-  
-  .blur_back {
-    width: 100%;
-    background-position: 50% 50% !important;  
-  }
-  
-  .role_header {
-    width: 100%;
-    margin-top: 85px;
-  }
-  
-  .role_desc {
-    width: 100%;
-  }
-  
-  .info_section {
-    background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
-    display: inline-grid;
-  }
-}
 
 
 .Teachers{
@@ -310,6 +259,89 @@ overflow: hidden;
   background: #363232;
   transform: rotate(-1deg) translateX(0%) scale(1);
 }
-@media only screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) {
+  .role_header {
+    width: 60%;
+  }
   
+  .role_desc {
+    width: 50%;
+  }
+  
+  .info_section {
+    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+  }
+  
+  .blur_back {
+    width: 80%;
+    background-position: -100% 10% !important;  
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .role_card {
+    width: 95%;
+    margin: 10px auto; 
+    min-height: 200px;
+    height: auto;
+  }
+ 
+  .blur_back {
+    width: 100%;
+    background-position: 50% 50% !important;  
+  }
+  
+  .role_header {
+    width: 100%;
+    margin-top: 85px;
+  }
+  
+  .role_desc {
+    width: 100%;
+  }
+  
+  .info_section {
+    background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
+    display: inline-grid;
+  }
+  .container-fluid .container{
+    padding-left:0 !important;
+    padding-right:0 !important ;
+  }
+
+  .simplify-feature-container .h3 br{
+display: none;
+  }
+  .simplify-feature-container .h3{
+   
+    height: 120px;
+   
+    
+  }
+  .simplify-feature  h4{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 650px){
+  .container-fluid .container{
+    padding-left:20px !important;
+    padding-right:20px !important ;
+  }
+
+  .simplify-feature-container .h3 br{
+display: none;
+  }
+  .simplify-feature-container .h3{
+   
+    height: 80px;
+   
+    
+  }
+  .simplify-feature  h4{
+    font-size: 16px;
+  }
+  .info_section {
+    border-radius: 0px !important;
+    
+  }
 }

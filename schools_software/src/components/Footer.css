@@ -270,7 +270,7 @@
   width: 100%;
   padding: 5px 10px;
   font-size: 1rem;
-  background: #0e0d0d !important;
+  /* background: #0e0d0d !important; */
   color: #fff;
   border-radius: 3px;
   
@@ -316,6 +316,11 @@
   font-size: 14px;
   color: #878787 !important;
 }
+@media only screen and (max-width: 992px){
+  .footer-social-icon svg{
+    font-size: 16px !important;
+  }
+}
 @media only screen and (max-width: 720px){
  .footer-cta svg{
     font-size: 20px !important;
@@ -326,4 +331,8 @@
  .footer-content .footer-logo img{
     width: 60px;
   }
+  .new_footer_top,.copyright-area{
+    padding-left: 20px !important;
+  }
+ 
 }

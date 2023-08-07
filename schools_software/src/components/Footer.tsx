@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
   const year=new Date().getFullYear()
   return (
     <Container fluid className='px-0 new_footer_area '>
-    <footer className="footer-section mainbg content_bg">
+    <footer className="footer-section main_bg content_bg">
       <div className="new_footer_top ">
         <div className="container">
         <div className="footer-cta pt-5 pb-5">
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
         <div className="footer_bg">
-          <div className="footer_bg_one"></div>
+          {/* <div className="footer_bg_one"></div> */}
           <div className="footer_bg_one_two"></div>
           <div className="footer_bg_two"></div>
           <div className="footer_bg_two-two"></div>
