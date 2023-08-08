@@ -59,7 +59,6 @@ const VerticalTimeline: React.FC = () => {
 
       <section className="timeline">
         <div className="container px-0">
-          {/* Add your timeline items here */}
           <div className="timeline-item">
             <div className="timeline-img"></div>
             <div className="timeline-content js--fadeInLeft">
