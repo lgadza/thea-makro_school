@@ -3,8 +3,9 @@ import ScrollReveal from 'scrollreveal';
 import './VerticalTimeline.css'; // Create a CSS file for styling
 import { PushButton } from './Buttons';
 import img1 from "../assets/candidatesAdmission.png"
+import * as Icon from 'react-bootstrap-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faListCheck, faVials } from '@fortawesome/free-solid-svg-icons';
 const VerticalTimeline: React.FC = () => {
   useEffect(() => {
     const sr = ScrollReveal();
@@ -62,48 +63,48 @@ const VerticalTimeline: React.FC = () => {
           <div className="timeline-item">
             <div className="timeline-img"></div>
             <div className="timeline-content js--fadeInLeft">
-                <div className='timeline-img-container'>
-
+                <div className='timeline-img-container cala-content'>
                 <img className='time-img' src={img1} alt='img'/>
                 </div>
                 <div className='text-start px-2 mt-3'>
-
                 <FontAwesomeIcon icon={faLightbulb} style={{fontSize:"2rem",color:"rgb(247, 195, 49)"}}/>
                 </div>
-              <h5 className='text-start my-2 px-2 '>CALA Generation Assistance</h5>
-           
+              <h5 className='text-start my-2 px-2 color-header'>CALA Generation Assistance</h5>
              <div className='text-start px-2'>
              <small > Harness AI to assist in generating educational content, CALA projects, including quizzes, practice exercises, and lesson plans, based on specific learning objectives and curriculum requirements.</small>
              </div>
              <a href="" className='header d-flex px-2 my-2'>Learn more!</a>
-              {/* <PushButton message='Learn more!'/> */}
             </div>
           </div>
           <div className="timeline-item">
             <div className="timeline-img"></div>
             <div className="timeline-content js--fadeInRight">
-              <h5 className='text-start  my-3'>Title</h5>
-           
-              <p className='text-start'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-              <PushButton message='Learn more!'/>
+              <h5 className='text-start  my-3'>Create Tests Within Seconds</h5>
+              <div className='text-start px-2 my-3'>
+                <FontAwesomeIcon icon={faVials} style={{fontSize:"2rem",color:"red"}}/>
+                </div>
+              <div className='text-start '>
+             <small > Choose from over 20L+ subjective and objective questions and create your test within seconds! Plan, Conduct & Evaluate Exams with Ease.</small>
+             </div>
+             <a href="" className='header d-flex px-2 my-2'>Learn more!</a>
             </div>
           </div>
+       
           <div className="timeline-item">
             <div className="timeline-img"></div>
             <div className="timeline-content js--fadeInLeft">
-              <h5 className='text-start  my-3'>Title</h5>
-           
-              <p className='text-start'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-              <PushButton message='Learn more!'/>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="timeline-img"></div>
-            <div className="timeline-content js--fadeInLeft">
-              <h2 className='text-start'>Title</h2>
-           
-              <p className='text-start'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-              <PushButton message='Learn more!'/>
+                <div className='timeline-img-container cala-content'>
+                <img className='time-img' src={img1} alt='img'/>
+                </div>
+                <div className='text-start px-2 mt-3'>
+                <Icon.FileEarmarkCheck size={32} />
+                
+                </div>
+              <h5 className='text-start my-2 px-2 '>Automated Grading and Assessment</h5>
+             <div className='text-start px-2'>
+             <small > Utilize AI-powered tools to automatically grade objective assessments, such as CALA projects, multiple-choice questions or fill-in-the-blank exercises, saving time and providing instant feedback to students.</small>
+             </div>
+             <a href="" className='header d-flex px-2 my-2'>Learn more!</a>
             </div>
           </div>
 

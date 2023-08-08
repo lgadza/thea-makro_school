@@ -19,6 +19,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChalkboardTeacher, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { quickFeatures } from "../../../assets/data/calaFeature";
 import VerticalTimeline from "../../../components/VerticalTimeline";
+import HorizontalTimeline from "../../../components/HorizontalTimeline";
 
 
 
@@ -85,6 +86,7 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                             <ExploreMoreFeatures/>
                         </Col>
                     </Row>
+                    <HorizontalTimeline/>
                   <FAQComp FAQItems={admissionFAQ} />
                 </Container>
                 <Footer />
