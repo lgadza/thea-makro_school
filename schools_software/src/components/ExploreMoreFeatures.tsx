@@ -1,6 +1,8 @@
+import "./ExploreMoreFeatures.css"
 const ExploreMoreFeatures:React.FC=()=>{
     return(
         <div className="more-features ms-5">
+            <span></span>
             <h4 className="text-start my-3">Explore more features</h4>
             <ul className="text-start">
                 <li className="header cursor-pointer my-2">CALA AI Assistance</li>

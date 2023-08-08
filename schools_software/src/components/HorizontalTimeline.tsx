@@ -81,7 +81,7 @@ const HorizontalTimeline: React.FC = () => {
     <section id="horizontal-process">
       <div className="row">
         <div className="section-heading">
-          <h2 className="text-center orange my-3 color-header">How it works</h2>
+          <h4 className="text-center orange my-3 color-header">How it works</h4>
         </div>
       </div>
       <div className="container-fluid">
