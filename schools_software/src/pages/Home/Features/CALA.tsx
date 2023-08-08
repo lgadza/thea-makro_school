@@ -35,17 +35,17 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
     return (
         <div className="page-container">
             <div className="progress-container">
-              <PageProgress steps={sections} />
+              {/* <PageProgress steps={sections} /> */}
             </div>
             <div className="content-container">
               <Container fluid className="px-0 mb-5">
                   <HomeNavbar />
                 <Container className="px-5">
-                    <div className="cala-hero-container d-flex align-items-center">    
+                    <div className=" cala-hero-container d-flex align-items-center">    
                 <CALAHeroBg/>
                 <div className="ms-5">
-                    <h1 className="fw-bold text-start">
-                        Use AI to 
+                    <h1 className="text-start text-nowrap">
+                        Use {CompanyName} AI to 
                     </h1>
                     <div className="typing text ">
                         <TypingEffect  words={words} typingSpeed={100} eraseSpeed={100}/>
@@ -54,7 +54,7 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                         </div> 
                         
                     <Row className="my-5">
-                        <Col md={8}>
+                        <Col lg={8}>
                             <div className="cala-content p-3 mt-3">
                             <h2 className="text-start mb-3">Learn <br/>Faster.💪</h2>
                 <h2 className="text-start header "> Work Smarter. 🧠 </h2>
@@ -79,10 +79,8 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                                 <h4 className="mt-4">For teachers</h4>
                                 <VerticalTimeline/>
                              </div>
-                        
-                
                         </Col>
-                        <Col md={4}>
+                        <Col lg={4}>
                             <ExploreMoreFeatures/>
                         </Col>
                     </Row>

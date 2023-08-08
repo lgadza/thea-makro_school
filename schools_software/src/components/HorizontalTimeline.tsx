@@ -19,8 +19,8 @@ const HorizontalTimeline: React.FC = () => {
         <div className="row">
           <div className="steps-timeline text-center">
             <div className="steps-one">
-              <h5>Upload Your Files</h5>
-              <div className="end-circle back-orange"></div>
+              <h5>Upload Files</h5>
+              
               <div className="step-wrap">
                 <div className="steps-stops">
                   <div className="verticle-line back-orange"></div>
@@ -35,14 +35,14 @@ const HorizontalTimeline: React.FC = () => {
                 </div>
               </div>
               <div className="inverted-pane-warp back-blue">
-                <div className="ps-2 inverted-steps-pane text-start">
+                <div className="ps-2 pt-2 inverted-steps-pane text-start">
                   <small>Upload multiple PDF files or any kind of text file directly from your device</small>
                 </div>
               </div>
             </div>
-            <div className="steps-one">
-              <h5>Text Extraction</h5>
-              <div className="end-circle back-orange"></div>
+            <div className="steps-two">
+              <h5>Extraction</h5>
+              
               <div className="step-wrap">
                 <div className="steps-stops">
                   <div className="verticle-line back-orange"></div>
@@ -57,14 +57,14 @@ const HorizontalTimeline: React.FC = () => {
                 </div>
               </div>
               <div className="inverted-pane-warp back-blue">
-                <div className="ps-2 inverted-steps-pane text-start">
+                <div className="ps-2 pt-2 inverted-steps-pane text-start">
                   <small>Extract text and data from uploaded files through advanced parsing.</small>
                 </div>
               </div>
             </div>
-            <div className="steps-one">
-              <h5>Content Categorization</h5>
-              <div className="end-circle back-orange"></div>
+            <div className="steps-three">
+              <h5>Categorization</h5>
+              
               <div className="step-wrap">
                 <div className="steps-stops">
                   <div className="verticle-line back-orange"></div>
@@ -79,14 +79,14 @@ const HorizontalTimeline: React.FC = () => {
                 </div>
               </div>
               <div className="inverted-pane-warp back-blue">
-                <div className="ps-2 inverted-steps-pane text-start">
+                <div className="ps-2 pt-2 inverted-steps-pane text-start">
                   <small>Categorize and organize extracted content by subject and type for efficient access.</small>
                 </div>
               </div>
             </div>
-            <div className="steps-one">
-              <h5>Search Interface</h5>
-              <div className="end-circle back-orange"></div>
+            <div className="steps-four">
+              <h5>Search</h5>
+              
               <div className="step-wrap">
                 <div className="steps-stops">
                   <div className="verticle-line back-orange"></div>
@@ -96,19 +96,19 @@ const HorizontalTimeline: React.FC = () => {
                 <div className="steps-pane">
                   <img src={calaInterface} alt="CalaUpload" />
                   <div className='Icon chat' >
-                  <Icon.ChatDots className='color-header' size={30} color=""/>
+                  <Icon.ChatDots className='color-header' size={30} color="red"/>
                   </div>
                 </div>
               </div>
               <div className="inverted-pane-warp back-blue">
-                <div className="ps-2 inverted-steps-pane text-start">
+                <div className="ps-2 pt-2 inverted-steps-pane text-start">
                   <small>Query the AI using natural language to find specific information from categorized content.</small>
                 </div>
               </div>
             </div>
             <div className="steps-one">
-              <h5>Personalized Insights</h5>
-              <div className="end-circle back-orange"></div>
+              <h5>Insights</h5>
+              
               <div className="step-wrap">
                 <div className="steps-stops">
                   <div className="verticle-line back-orange"></div>
@@ -123,7 +123,7 @@ const HorizontalTimeline: React.FC = () => {
                 </div>
               </div>
               <div className="inverted-pane-warp back-blue">
-                <div className="ps-2 inverted-steps-pane text-start">
+                <div className="ps-2 pt-2 inverted-steps-pane text-start">
                   <small>Get tailored recommendations and insights based on your queries and preferences.</small>
                 </div>
               </div>

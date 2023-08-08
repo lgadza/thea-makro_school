@@ -8,18 +8,18 @@
     padding: 0.5em 0;
     border-left: 2px solid transparent;
     color: white;
-    text-transform: capitalize !important;
     font-size: 3em;
     padding: 0 5rem;
-    background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+background-image: linear-gradient(160deg, rgba(0, 147, 233,.3) 0%, rgba(128, 208, 199,.8) 100%);
 
-    box-shadow: rgba(46, 201, 240, 0.4) -5px 5px, rgba(46, 195, 240, 0.3) -10px 10px, rgba(46, 195, 240, 0.2) -15px 15px, rgba(46, 146, 240, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+    box-shadow: rgba(0, 201, 240, 0.3) -5px 5px, rgba(0, 195, 240, 0.2) -10px 10px, rgba(0, 195, 240, 0.2) -15px 15px, rgba(46, 146, 240, 0.1) -20px 20px, rgba(240, 46, 170, 0.09) -25px 25px;
     width: 100%;
     height: 5rem;
     border-radius: 5px;
   }
-  
+  .text.typing .text3d{
+
+  }
   .typing::after {
     content: "";
     display: block;
@@ -57,6 +57,8 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   }
   .cala-content h2{
     font-weight: 700;
+    text-transform: capitalize ;
+
   }
   .cala-content {
 	background: linear-gradient(-45deg, rgba(237, 118, 82,0.15), rgba(231, 60, 126,0.15), rgba(35, 166, 213,0.15), rgba(35, 213, 171,0.15));
@@ -80,4 +82,25 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 .teacher{
     background-color: rgba(35, 213, 171,0.3);
     border-radius: 50%;
+}
+
+@media screen and (max-width: 1200px){
+  .text.typing .text3d{
+    font-weight: 600;
+  }
+  .text.typing{
+    width: fit-content;
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 0.5em ;
+    border-left: 2px solid transparent;
+    color: white;
+    font-size: 2em;
+   
+  }
+  .cala-hero-container h1{
+    font-weight: 600 !important;
+    font-size: 2rem;
+
+  }
 }
