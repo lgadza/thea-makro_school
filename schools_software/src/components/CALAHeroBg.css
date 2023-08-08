@@ -507,4 +507,17 @@
       opacity: 0;
     }
   }
+  @media screen and (max-width:768px){
+    .cala-hero.container {
   
+      margin: 10rem 2rem 0 4rem;
+    }
+  }
+  @media screen and (max-width:486px){
+    .cala-hero.container {
+      width: 4rem;
+      height: 4rem;
+      margin: 10rem 4rem 0 2rem;
+    }
+    
+  }

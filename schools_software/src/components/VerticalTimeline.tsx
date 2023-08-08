@@ -69,11 +69,11 @@ const VerticalTimeline: React.FC = () => {
                 <div className='text-start px-2 mt-3'>
                 <FontAwesomeIcon icon={faLightbulb} style={{fontSize:"2rem",color:"rgb(247, 195, 49)"}}/>
                 </div>
-              <h5 className='text-start my-2 px-2 color-header'>CALA Generation Assistance</h5>
+              <h5 className='text-start d-flex my-2 px-2 color-header'>CALA Generation Assistance</h5>
              <div className='text-start px-2'>
              <small > Harness AI to assist in generating educational content, CALA projects, including quizzes, practice exercises, and lesson plans, based on specific learning objectives and curriculum requirements.</small>
              </div>
-             <a href="" className='header d-flex px-2 my-2'>Learn more!</a>
+             <a href="" className='header d-flex px-2 mt-4'>Learn more!</a>
             </div>
           </div>
           <div className="timeline-item">
@@ -86,7 +86,7 @@ const VerticalTimeline: React.FC = () => {
               <div className='text-start '>
              <small > Choose from over 20L+ subjective and objective questions and create your test within seconds! Plan, Conduct & Evaluate Exams with Ease.</small>
              </div>
-             <a href="" className='header d-flex px-2 my-2'>Learn more!</a>
+             <a href="" className='header d-flex px-2 mt-4'>Learn more!</a>
             </div>
           </div>
        
@@ -97,14 +97,14 @@ const VerticalTimeline: React.FC = () => {
                 <img className='time-img' src={img1} alt='img'/>
                 </div>
                 <div className='text-start px-2 mt-3'>
-                <Icon.FileEarmarkCheck size={32} />
+                <Icon.FileEarmarkCheck size={32} color='rgb(180, 253, 163)' />
                 
                 </div>
-              <h5 className='text-start my-2 px-2 '>Automated Grading and Assessment</h5>
+              <h5 className='text-start d-flex my-2 px-2 color-header'>Automated Grading and Assessment</h5>
              <div className='text-start px-2'>
              <small > Utilize AI-powered tools to automatically grade objective assessments, such as CALA projects, multiple-choice questions or fill-in-the-blank exercises, saving time and providing instant feedback to students.</small>
              </div>
-             <a href="" className='header d-flex px-2 my-2'>Learn more!</a>
+             <a href="" className='header d-flex px-2 mt-4'>Learn more!</a>
             </div>
           </div>
 

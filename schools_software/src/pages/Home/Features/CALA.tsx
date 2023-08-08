@@ -40,8 +40,7 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
             <div className="content-container">
               <Container fluid className="px-0 mb-5">
                   <HomeNavbar />
-                <Container className="px-5">
-                    <div className=" cala-hero-container d-flex align-items-center">    
+                  <div className=" cala-hero-container d-flex align-items-center">    
                 <CALAHeroBg/>
                 <div className="ms-5">
                     <h1 className="text-start text-nowrap">
@@ -52,7 +51,7 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                     </div>
                 </div>
                         </div> 
-                        
+                <Container className="px-5 calaAI">    
                     <Row className="my-5">
                         <Col lg={8}>
                             <div className="cala-content p-3 mt-3">

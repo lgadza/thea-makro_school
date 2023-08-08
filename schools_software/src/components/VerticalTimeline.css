@@ -14,13 +14,23 @@ section.timeline {
   .timeline::before {
     content: '';
     background: #9698a0;
-    width: 2px;
-    height: 95%;
+    width: 4px;
+    height: 80%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    background: linear-gradient( 180deg, #1e5799 0%, #2ce0bf 19%, #76dd2c 40%, #dba62b 60%, #e02cbf 83%, #1e5799 100%);
+    animation: bg 1s ease-in-out infinite;
   }
   
+@keyframes bg {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 4px;
+  }
+}
   .timeline-item {
     width: 100%;
     margin-bottom: 70px;
@@ -31,6 +41,7 @@ section.timeline {
     float: right;
     padding: 15px 15px 15px 15px;
     background: #0F2027;  
+    margin-bottom: 70px;
 background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); 
 background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
 box-shadow: 0 20px 25px -5px rgba(69, 146, 209, 0.3);
