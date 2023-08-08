@@ -18,6 +18,7 @@ import SimplifyProcess from "../Simplifyprocess";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChalkboardTeacher, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { quickFeatures } from "../../../assets/data/calaFeature";
+import VerticalTimeline from "../../../components/VerticalTimeline";
 
 
 
@@ -51,12 +52,8 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                 </div>
                         </div> 
                         
-                    <Row className="mb-5">
+                    <Row className="my-5">
                         <Col md={8}>
-                            <div className="cala-user mb-5">
-                                <span className="teacher p-4"><FontAwesomeIcon icon={faChalkboardTeacher}/></span>
-                                <h6 className="mt-4">For teachers</h6>
-                             </div>
                             <div className="cala-content p-3 mt-3">
                             <h2 className="text-start mb-3">Learn <br/>Faster.💪</h2>
                 <h2 className="text-start header "> Work Smarter. 🧠 </h2>
@@ -76,7 +73,11 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                     })}
                 </ul>
                             </div>
-            
+                            <div className="cala-user mt-5">
+                                <span className="teacher p-4"><FontAwesomeIcon icon={faChalkboardTeacher}/></span>
+                                <h4 className="mt-4">For teachers</h4>
+                                <VerticalTimeline/>
+                             </div>
                         
                 
                         </Col>
