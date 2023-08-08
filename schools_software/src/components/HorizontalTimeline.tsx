@@ -3,6 +3,8 @@ import './HorizontalTimeline.css';
 import calaUpload from "../assets/CALAUpload.png"
 import textExtration from "../assets/textExtraction2.png"
 import contentCategory from "../assets/contentCategory.png"
+import calaInterface from "../assets/calaSearchInterface.png"
+import personalInsights from "../assets/personalInsights.jpg"
 import * as Icon from "react-bootstrap-icons"
 const HorizontalTimeline: React.FC = () => {
   return (
@@ -92,9 +94,9 @@ const HorizontalTimeline: React.FC = () => {
               </div>
               <div className="pane-warp back-blue">
                 <div className="steps-pane">
-                  <img src={calaUpload} alt="CalaUpload" />
-                  <div className='Icon' >
-                  <Icon.FilePdf size={30} color="red"/>
+                  <img src={calaInterface} alt="CalaUpload" />
+                  <div className='Icon chat' >
+                  <Icon.ChatDots className='color-header' size={30} color=""/>
                   </div>
                 </div>
               </div>
@@ -114,9 +116,9 @@ const HorizontalTimeline: React.FC = () => {
               </div>
               <div className="pane-warp back-blue">
                 <div className="steps-pane">
-                  <img src={calaUpload} alt="CalaUpload" />
-                  <div className='Icon' >
-                  <Icon.FilePdf size={30} color="red"/>
+                  <img src={personalInsights} alt="PersonalInsights" />
+                  <div className='Icon light-bulb' >
+                  <Icon.LightbulbFill className='bulb' size={30} color="rgb(253, 200, 56)"/>
                   </div>
                 </div>
               </div>

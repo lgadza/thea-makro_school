@@ -24,28 +24,33 @@ const Helper=():JSX.Element=>{
                     className="img_component"
                     />
                   </div>
-                    <p className="content_bg p-3 w-75">
-                    Designing an app involves several stages and considerations. While I can guide you through the high-level process, it's important to note that designing a complete app requires detailed planning and collaboration with a team of designers, developers, and stakeholders. Here's an overview of the steps involved in designing an app:
+                    <p className="content_bg  text-start p-3 w-75">
+                    Certainly! Here are a few examples of exothermic chemical reactions along with the state symbols of reactants and products for each reaction:
 
-                    1. Define the Purpose and Scope:
-                    - Identify the specific problem or need the app will address.
-                    - Determine the target audience and their requirements.
-                    - Outline the core features and functionalities the app should have.
+1. Combustion of Methane (CH₄):
+   Reaction: CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g)
+   Explanation: Methane gas reacts with oxygen gas to produce carbon dioxide gas and water vapor, releasing heat energy.
 
-                    2. Conduct Market Research:
-                    - Analyze existing apps in the same domain to identify gaps or opportunities.
-                    - Understand user expectations and preferences.
-                    - Gather insights into potential competitors and industry trends.
+2. Formation of Iron(III) Oxide (Fe₂O₃):
+   Reaction: 4Fe(s) + 3O₂(g) → 2Fe₂O₃(s)
+   Explanation: Solid iron reacts with oxygen gas to form solid iron(III) oxide, releasing heat in the process.
 
-                    3. Create a Concept and Wireframes:
-                    - Develop a concept for your app, including its overall structure and navigation.
-                    - Sketch rough wireframes to visualize the app's layout and flow.
-                    - Focus on key screens and user interactions.
+3. Neutralization of Hydrochloric Acid (HCl) and Sodium Hydroxide (NaOH):
+   Reaction: HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)
+   Explanation: Hydrochloric acid solution reacts with sodium hydroxide solution to form sodium chloride solution and water, releasing heat.
 
-                    4. Design the User Interface (UI):
-                    - Craft the visual elements of the app, such as colors, typography, and iconography.
-                    - Design individual screens using graphic design tools or prototyping software.
-                    - Ensure the UI aligns with the app's purpose and appeals to the target audience. 
+4. Combustion of Butane (C₄H₁₀):
+<br/>
+   Reaction: <br/> 2C₄H₁₀(g) + 13O₂(g) → 8CO₂(g) + 10H₂O(g)<br/>
+   Explanation: Butane gas reacts with oxygen gas to produce carbon dioxide gas and water vapor, releasing heat energy.
+   <br/>
+5. Decomposition of Hydrogen Peroxide (H₂O₂):
+<br/>
+   Reaction: <br/> 2H₂O₂(l) → 2H₂O(l) + O₂(g)
+   <br/>
+   Explanation:<br/> Hydrogen peroxide decomposes into water and oxygen gas, with the reaction being exothermic.
+
+In each of these reactions, the state symbols indicate the physical state of the reactants and products. "(g)" stands for gas, "(s)" for solid, "(l)" for liquid, and "(aq)" for aqueous (dissolved in water). The exothermic nature of these reactions means that they release heat energy into the surroundings as they proceed. 
                                         </p>
                 </div>
                 <div className="d-flex justify-content-center text-start">
@@ -57,8 +62,8 @@ const Helper=():JSX.Element=>{
                     className="img_component"
                     />
                   </div>
-                    <p className="px-3 w-75">
-                    Designing an app involves several stages and considerations. While I can guide you through the high-level process, it's important to note that designing a complete app requires detailed planning and collaboration with a team of designers, developers, and stakeholders. Here's an overview of the steps involved in designing an app:
+                    <p className="px-3 text-start w-75">
+                    Could you give me 5 examples of exothermic chemical reactions, indicating the state symbols of reactants and products involved in each reaction?
                     </p>
                 </div>
                 <div className="d-flex  justify-content-center">
@@ -71,7 +76,7 @@ const Helper=():JSX.Element=>{
              <div className="pb-3">
                  <div className="btn btn-secondary my-3">
                 <FontAwesomeIcon className="px-2" icon={faArrowRotateForward}/>
-                <span>Regenerate response</span>
+                <small>Regenerate response</small>
                 </div>
                 <div className="d-flex justify-content-center">
                 <div className="d-flex justify-content-between w-75 align-items-center">

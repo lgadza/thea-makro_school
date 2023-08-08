@@ -50,6 +50,19 @@
     border-radius: 2px;
     padding: 3px;
   }
+  #horizontal-process .Icon.chat{
+   background-color: rgba(2, 130, 136,0.8);
+    box-shadow: rgba(13, 253, 241, 0.4) 0px 15px 25px, rgba(36, 218, 202, 0.4) 0px 5px 10px;
+    border-radius: 2px;
+    padding: 3px;
+  }
+  #horizontal-process .Icon.light-bulb{
+   background-color:black;
+    box-shadow: rgba(253, 200, 56, 0.4) 0px 15px 25px, rgba(253, 200, 56, 0.4) 0px 5px 10px;
+    border-radius: 2px;
+    padding: 3px;
+  }
+ 
   #horizontal-process .inverted-pane-warp {
     height: 140px;
     width: 25px;
