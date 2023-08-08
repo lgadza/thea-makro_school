@@ -6,7 +6,7 @@ import { Row } from "react-bootstrap";
 import { admissionBenefitsArray,characteristicsArray,admissionParagraphs } from "../../../assets/data/admissionBenefitsArray";
 import ExploreMoreFeatures from "../../../components/ExploreMoreFeatures";
 import FAQComp from "../FAQComp";
-import { admissionFAQ } from "../../../assets/data/faqItemsData";
+import { calaFAQ } from "../../../assets/data/calaFeature";
 import admission_img_1 from "../../../assets/candidatesAdmission.png"
 import admission_img_2 from "../../../assets/candidatesAdmission2.png"
 import "./CALAFeature.css"
@@ -87,7 +87,7 @@ const words=['Automated Grading', 'Research CALA', 'Summarize long papers', 'Stu
                         </Col>
                     </Row>
                     <HorizontalTimeline/>
-                  <FAQComp FAQItems={admissionFAQ} />
+                  <FAQComp FAQItems={calaFAQ} />
                 </Container>
                 <Footer />
               </Container>

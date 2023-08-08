@@ -362,7 +362,7 @@ background-color: #BFBFBF;
     left: 100%;
   }
 }
-.color-header{
+/* .color-header{
   display: inline-block;
   display: flex;
   font-weight: 700;
@@ -379,7 +379,37 @@ background-color: #BFBFBF;
   100% {
     background-position: 100% center;
   }
+} */
+/* TEST */
+.color-header
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-weight: 700 !important;
 }
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+/* TEST */
 .glow-btn button span:nth-child(2) {
   top: -100%;
   right: 0;
