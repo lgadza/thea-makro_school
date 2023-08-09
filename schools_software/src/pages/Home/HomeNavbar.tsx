@@ -19,9 +19,9 @@ const HomeNavbar: React.FC = () => {
   };
 
   return (
-    <div className="page-wrapper main_bg glow pb-2 home-navbar">
+    <div className="page-wrapper glow pb-2 home-navbar">
       <div className="nav-wrapper px-0 container">
-        <nav className={`navbar ${!isMobileNavActive ? 'mobile-nav main_bg' : 'is-active'}`}>
+        <nav className={`navbar ${!isMobileNavActive ? 'mobile-nav' : 'is-active'}`}>
           <img
             src={makro_logo}
             alt="Makro Logo"
@@ -31,7 +31,7 @@ const HomeNavbar: React.FC = () => {
             <span className="menu-bar"></span>
             <span className="menu-bar"></span>
           </div>
-          <ul className={`nav main_bg ${isSearchActive ? 'search' : 'no-search'}`}>
+          <ul className={`nav ${isSearchActive ? 'search' : 'no-search'}`}>
             <li className="nav-item py-2 border-radius-round">
               <a href="#">Solutions</a>
               <FontAwesomeIcon className='ms-1' icon={faChevronDown} style={{fontSize:"14px"}}/>
