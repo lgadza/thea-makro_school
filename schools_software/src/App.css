@@ -362,24 +362,26 @@ background-color: #BFBFBF;
     left: 100%;
   }
 }
-/* .color-header{
-  display: inline-block;
-  display: flex;
-  font-weight: 700;
-  background: linear-gradient(90deg, #2a86bb, #00ff00, #225b81);
-  background-clip: text;
-  -webkit-background-clip: text; 
-  color: transparent;
-  animation: colorMove 3s ease-in-out infinite;
+
+/*  Scroll bar and track*/
+::-webkit-scrollbar-track {
+  background: rgba(94, 196, 221,.3);
+  border-radius: 5px;
+
 }
-@keyframes colorMove {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 100% center;
-  }
-} */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+  background: linear-gradient( 180deg, #1e5799 0%, #2ce0bf 19%, #76dd2c 40%, #dba62b 60%, #e02cbf 83%, #1e5799 100%);
+  animation: bg 1s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 5px;
+
+}
 /* TEST */
 .color-header
 {

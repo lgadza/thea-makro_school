@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './HomeNavbar.css'; // Create a CSS file for styling and import it here
 import makro_logo from "../../assets/md_logo_small.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faMagnifyingGlassMinus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -50,12 +50,20 @@ const HomeNavbar: React.FC = () => {
             </li>
             {!isSearchActive && <FontAwesomeIcon
             icon={faSearch}
-              className="search"
+              className="search color-header"
               id="search-icon"
               onClick={handleSearchIconClick}
-            ></FontAwesomeIcon>}
+            ></FontAwesomeIcon>}  
+            {isSearchActive &&
+            <FontAwesomeIcon
+            icon={faMagnifyingGlassMinus}
+              className="search "
+              id="search-icon"
+              onClick={handleSearchIconClick}
+            ></FontAwesomeIcon>
+            }
             <input
-              className={`search-input main_bg ${isSearchActive ? 'search-active' : ''}`}
+              className={`search-input ms-1 main_bg ${isSearchActive ? 'search-active' : ''}`}
               type="text"
               placeholder="Search.."
             />

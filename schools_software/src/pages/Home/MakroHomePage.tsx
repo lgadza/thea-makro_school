@@ -46,7 +46,7 @@ import SimplifyProcess from "./Simplifyprocess";
             <div className="carousel-container"> 
               <Carousel />
             </div>
-                <h2 className="p-4 text-start color-header"> Empower and elevate success for all.</h2>
+                <h4 className="p-4 d-flex text-start color-header"> Empower and elevate success for all.</h4>
               <div className="better-for-card">
                
                  
@@ -68,9 +68,9 @@ import SimplifyProcess from "./Simplifyprocess";
               })}
             </Row>
               </div>
-              <div className="simplify-feature-container main-bg">
+              <div className="simplify-feature-container mb-5 main-bg">
               <div className="h3">
-                <h2 className="text-start color-header p-3">Streamline your institute's management<br/> with intelligent simplicity. </h2>
+                <h4 className="text-start d-flex color-header p-3">Streamline your institute's management<br/> with intelligent simplicity. </h4>
                 </div> 
                 <SimplifyProcess/>
               </div>

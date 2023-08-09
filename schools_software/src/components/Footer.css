@@ -7,7 +7,7 @@
   }
   
 .new_footer_top {
-    padding: 0px 0px 260px 0px ;
+    padding: 0px 0px 120px 0px ;
     position: relative;
       overflow-x: hidden;
       
@@ -249,6 +249,7 @@
   width: 50px;
   background: rgb(3, 139, 190);
 }
+
 .new_footer_area .footer-widget ul li {
   display: inline-block;
   text-align: left;

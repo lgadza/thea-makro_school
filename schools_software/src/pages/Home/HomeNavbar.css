@@ -97,7 +97,8 @@
     margin-top: 10px;
     margin-left: 15px;
     transition: color 0.3s ease-out;
-    color: white;
+    /* color: rgb(41, 203, 214); */
+    transform: translateX(-15px);
   }
   
   .home-navbar #search-icon:hover {

@@ -144,9 +144,9 @@ const Footer: React.FC = () => {
       </div>
         <div className="footer_bg">
           {/* <div className="footer_bg_one"></div> */}
-          <div className="footer_bg_one_two"></div>
+          {/* <div className="footer_bg_one_two"></div> */}
           <div className="footer_bg_two"></div>
-          <div className="footer_bg_two-two"></div>
+          {/* <div className="footer_bg_two-two"></div> */}
         </div>
       </div>
        <div className="copyright-area">
