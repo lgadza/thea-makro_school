@@ -5,6 +5,8 @@ import ResourceCard from './ResourceCard';
 import { Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import ToggleSwitch from '../../components/ToggleSwitch';
+import RangeSlider from '../../components/RangesSlider';
 interface Resource {
     id: number;
     title: string;
@@ -63,12 +65,15 @@ const CALAOverView: React.FC = () => {
             </ul>
           </div>
         </div> */}
-        <div>
-        <span>Shared</span>
-        <span>toggle</span>
+        <div className='d-flex align-items-center justify-content-between content_bg px-3'>
+        <span className='me-5'>Shared</span>
+        <ToggleSwitch/>
         </div>
-        <div>
+        <div className='d-flex align-items-center justify-content-betwee content_bg my-4 px-3'>
+          <span>
           Temperature
+          </span>
+          <RangeSlider/>
         </div>
         <Alert variant='success' className='d-flex flex-column text-start'>
           <div>
@@ -76,15 +81,15 @@ const CALAOverView: React.FC = () => {
             <span className='mx-2'>Info</span>
           </div>
           <div className='d-flex flex-column text-dark'>
-            <span>You can give your chatbot a personality, or for instance, request specific language for the answer.</span>
-            <span>For instance, try to add</span>
-            <span> --- Answer in the German language.</span>
-            <span>to request answers to be in the German language.</span>
+            <small>You can give your chatbot a personality, or for instance, request specific language for the answer.</small>
+            <small>For instance, try to add</small>
+            <small> --- Answer in the German language.</small>
+            <small>to request answers to be in the German language.</small>
           </div>
         </Alert>
         <div className='d-flex my-4 text-start'>
           <span className='me-5'>Name</span>
-          <input type="text" placeholder='Makronexus' className='px-3 py-1 w-100'/>
+          <input type="text" placeholder='Makronexus' className='px-3 py-2 w-100'/>
           <div>
           </div>
         </div>
@@ -93,7 +98,7 @@ const CALAOverView: React.FC = () => {
           <textarea name='text' rows={5} placeholder='- Act as a document having a conversation with a human.
 - You have to be friendly.
 - You are talking to a human.
-- You NEVER answer that you are an AI language model.' className='px-3 '/>
+- You NEVER answer that you are an AI language model.' className='px-3 py-2 '/>
         </div>
       </div>
     </div>
