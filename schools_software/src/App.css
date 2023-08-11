@@ -111,12 +111,15 @@ textarea,select {
   color: var(--textColor2) !important;
   background-color: var(--bg-1) !important;
   border-color: var(--bg-2) !important;
+  border-radius: 5px;
+  font-size:medium !important;
 }
 input:focus {
   color: var(--textColor2) !important;
+  border-color: var(--textColor2) !important;
 }
 textarea {
-  color: var(--textColor) !important;
+  color: var(--textColor2) !important;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

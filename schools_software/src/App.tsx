@@ -28,7 +28,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="mss/register" element={<MssRegisterPage/>}/>
-        <Route path="mss/makro/home" element={<MakroHomePage/>}/>
+        <Route path="/" element={<MakroHomePage/>}/>
         <Route path="mss/login" element={<Login/>}/>
         <Route path="mss/makro/features" element={<Features/>}/>
         <Route path="mss/makro/features/admission-management-software" element={<AdmissionManagement/>}/>

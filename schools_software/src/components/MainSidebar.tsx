@@ -210,7 +210,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                   <FontAwesomeIcon icon={faLightbulb} className="me-2" />
                   {showMenu && (
 
-                 <span>C . A . L . A</span>
+                 <span>Makronexus AI</span>
 )}
                  </div>
                  {showMenu && (
@@ -220,25 +220,22 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                </Link>
                {showCALA && (
                     <div className=" d-flex flex-column content_bg overlap">
-                     
-                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" /> CALA  Templates
-                            </Link>
-                   
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
-                   
-                        <Link to="" onClick={()=>handleNavigationClick("ResourceUploadForm")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "ResourceUploadForm" ? "active" : ""}`}> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Upload you CALA
-                        </Link>
                         <Link
                           to=''
                           onClick={() => handleNavigationClick("Helper")}  
                           className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "Helper" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Helper?
+                        Makronexus AI
                         </Link>
-                      
+                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
+                   
+                        <Link to="" onClick={()=>handleNavigationClick("ResourceUploadForm")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "ResourceUploadForm" ? "active" : ""}`}> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Upload you CALA
+                        </Link>                      
+                        <Link to="" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2 d-flex" /> Settings
+                            </Link>
                     </div>
                   )}
             </Nav.Item>

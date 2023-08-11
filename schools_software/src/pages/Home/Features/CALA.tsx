@@ -61,9 +61,9 @@ const CALAFeature: React.FC = () => {
                   <h5 className="text-start py-2">Utilize the AI assistant to help your CALA project research</h5>
                   <ul>
                     {quickFeatures.map((feature) => (
-                      <li key={feature.id} className="d-flex align-items-center">
+                      <li key={feature.id} className="d-flex  my-3">
                         <FontAwesomeIcon icon={faCheckCircle} />
-                        <div className="d-flex ms-3 my-3 flex-column">
+                        <div className="d-flex ms-3  flex-column">
                           <span className="text-start"><strong>{feature.title} </strong></span>
                           <span className="text-start text-muted">{feature.description} </span>
                         </div>

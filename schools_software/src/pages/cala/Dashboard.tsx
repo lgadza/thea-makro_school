@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import ResourceSearch from './ResourceSearch';
 import ResourceCard from './ResourceCard';
+import { Alert } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 interface Resource {
     id: number;
     title: string;
@@ -39,27 +42,58 @@ const CALAOverView: React.FC = () => {
 
   return (
     <div className="dashboard container t-5">
-        <ResourceSearch/>
-      
+        {/* <ResourceSearch/> */}
       <div className="m-4">
-        <h6 className='d-flex pb-2'>Favorite Resources</h6>
-        <div className="row">
-          {resources.map((resource) => (
-            <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={resource.id}>
-              <ResourceCard id={resource.id} title={resource.title} thumbnail=
-             {resource.thumbnail} isFavorite={true} onShare={onShare} onFavoriteToggle={onFavoriteToggle}/>
-            </div>
-          ))}
-            <div className="recent-activity-sticky">
-        <span>Recent Activity</span>
-        <ul className="content_bg">
-          {recentActivity.map((activity) => (
-            <li  key={activity.id}>
-              <small className='text-small nowrap  text-muted'>{activity.action}- {activity.timestamp} </small> 
-            </li>
-          ))}
-        </ul>
-      </div>
+        <h4 className='d-flex pb-2'>Settings</h4>
+          {/* <div className="row">
+              {resources.map((resource) => (
+                <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={resource.id}>
+                  <ResourceCard id={resource.id} title={resource.title} thumbnail=
+                {resource.thumbnail} isFavorite={true} onShare={onShare} onFavoriteToggle={onFavoriteToggle}/>
+                </div>
+              ))}
+                <div className="recent-activity-sticky">
+            <span>Recent Activity</span>
+            <ul className="content_bg">
+              {recentActivity.map((activity) => (
+                <li  key={activity.id}>
+                  <small className='text-small nowrap  text-muted'>{activity.action}- {activity.timestamp} </small> 
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div> */}
+        <div>
+        <span>Shared</span>
+        <span>toggle</span>
+        </div>
+        <div>
+          Temperature
+        </div>
+        <Alert variant='success' className='d-flex flex-column text-start'>
+          <div>
+            <FontAwesomeIcon icon={faInfoCircle}/>
+            <span className='mx-2'>Info</span>
+          </div>
+          <div className='d-flex flex-column text-dark'>
+            <span>You can give your chatbot a personality, or for instance, request specific language for the answer.</span>
+            <span>For instance, try to add</span>
+            <span> --- Answer in the German language.</span>
+            <span>to request answers to be in the German language.</span>
+          </div>
+        </Alert>
+        <div className='d-flex my-4 text-start'>
+          <span className='me-5'>Name</span>
+          <input type="text" placeholder='Makronexus' className='px-3 py-1 w-100'/>
+          <div>
+          </div>
+        </div>
+        <div className='d-flex flex-column text-start mt-3'>
+        <div className='me-5 my-2'>Personality</div>
+          <textarea name='text' rows={5} placeholder='- Act as a document having a conversation with a human.
+- You have to be friendly.
+- You are talking to a human.
+- You NEVER answer that you are an AI language model.' className='px-3 '/>
         </div>
       </div>
     </div>
