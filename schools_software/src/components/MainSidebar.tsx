@@ -181,8 +181,8 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                         <Link
                           to=''
-                          onClick={() => handleNavigationClick("Helper")}  
-                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "Helper" ? "active" : ""}`}>
+                          onClick={() => handleNavigationClick("MakronexusAI")}  
+                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "MakronexusAI" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Makronexus AI
                         </Link>

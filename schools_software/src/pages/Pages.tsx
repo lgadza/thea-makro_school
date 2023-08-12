@@ -8,7 +8,7 @@ import CandidateDetails from "./admin/CandidateDetails"
 import ResourceUploadForm from "./cala/ResourceUploadForm"
 import CALAOverView from "./cala/Dashboard"
 import Loader from "../components/Loader"
-import Helper from "../components/Helper"
+import MakronexusAI from "../components/MakronexusAI"
 import UploadFileModal from "../components/UploadFileModal"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
@@ -59,7 +59,6 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
           rating: 0,
           reviews: [],
         };
-    
         setAddResources([...resources, newResource]);
       };
       useEffect(()=>{
@@ -97,7 +96,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                   { activeComponent ==="NewCandidate" && <AllNewCandidate/> }
                 
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
-                  { activeComponent ==="Helper" && <Helper/> }
+                  { activeComponent ==="MakronexusAI" && <MakronexusAI/> }
                   { activeComponent ==="Settings" && <Settings/>}
                 </div>
                 </Col>

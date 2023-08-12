@@ -5,10 +5,10 @@ import * as Icon from "react-bootstrap-icons";
 import { CompanyName } from "../assets/data/company";
 const MssRegisterPage=():JSX.Element=>{
    return(
-    <Container className="application_page  d-flex align-items-center">
-        <Row className="content_bg  box-shadow">
+    <Container className="application_page  d-flex align-items-center justify-content-center">
+        <Row className="content_bg">
         <Col md={4} className="d-flex flex-column justify-content-between reg-welcome">
-            <div className="wrapper d-flex flex-column justify-content-between  pb-5">
+            <div className="wrapper d-flex flex-column justify-content-between box-shadow pb-5">
             <div className="p-3">
             <img
                     src={md_logo_small}

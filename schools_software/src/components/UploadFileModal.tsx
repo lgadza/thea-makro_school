@@ -96,39 +96,11 @@ const UploadFileModal: React.FC = () => {
     }
   };
 
-  // const progressLoop = () => {
-  //   if (isUploading) {
-  //     if (progress === 0) {
-  //       setTimeout(() => {
-  //         if (!isUploading) {
-  //           return;
-  //         } else if (Utils.randomInt(0, 2) === 0) {
-  //           fail();
-  //           return;
-  //         }
-  //       }, 1000);
-  //     }
-  //     if (progress < 1) {
-  //       setProgress((prevProgress) => prevProgress + 0.01);
-  //       setProgressTimeout(setTimeout(progressLoop, 50));
-  //     } else if (progress >= 1) {
-  //       setProgressTimeout(
-  //         setTimeout(() => {
-  //           if (isUploading) {
-  //             success();
-  //             setProgressTimeout(null);
-  //           }
-  //         }, 250)
-  //       );
-  //     }
-  //   }
-  // };
-  
+
   const progressLoop = () => {
     if (isUploading) {
-      const uploadDuration = 2000; // Time in milliseconds for the upload process
-      const intervalDuration = 50; // Time interval in milliseconds for updating the progress
-      // const progressStep = (intervalDuration / uploadDuration) * 100;
+      const uploadDuration = 2000;
+      const intervalDuration = 50; 
       const progressStep = Math.min((intervalDuration / uploadDuration) * 100, 100 - progress);
 
   
@@ -172,7 +144,7 @@ useEffect(() => {
   if (isUploading) {
     progressLoop();
   } else {
-    // Clean up progressTimeout when the component unmounts or isUploading becomes false
+   
     if (progressTimeout) {
       clearTimeout(progressTimeout);
       setProgressTimeout(null);
@@ -188,13 +160,11 @@ useEffect(() => {
       data-ready={!!filename}
       onClick={(e) => action(e)}
     >
-      {/* Modal Body */}
       <div className="upload_model_body my-1">
       <span className="me-2 text-success">
         <FontAwesomeIcon icon={faCheckCircle} className="me-1" style={{ fontSize: "0.8rem" }} />
         Accepted</span>
         <div className="upload_model_col">
-          {/* File Upload Icons */}
           <svg className="upload_model_icon upload_model_icon--blue" viewBox="0 0 24 24" width="24px" height="24px" aria-hidden="true"  
            style={{ display: !filename?'block':'none'}}
           >
@@ -204,8 +174,6 @@ useEffect(() => {
               <line className="upload_model_icon-sdo10" x1="12" y1="7" x2="12" y2="17" strokeDasharray="10 10" />
             </g>
           </svg>
-        
-          {/* Error Icon */}
           <svg
             className="upload_model_icon upload_model_icon--red"
             viewBox="0 0 24 24"
@@ -220,7 +188,7 @@ useEffect(() => {
               <line className="upload_model_icon-sdo14" x1="17" y1="7" x2="7" y2="17" strokeDasharray="14.2 14.2" />
             </g>
           </svg>
-          {/* Check Icon */}
+
           <svg
             className="upload_model_icon upload_model_icon--green"
             viewBox="0 0 24 24"
@@ -237,9 +205,7 @@ useEffect(() => {
         </div>
 
         <div className="upload_model_col">
-          {/* File Upload Content */}
           <div className="upload_model_content" style={{ display: modalState === ModalState.Hidden ? 'block' : 'none' }}>
-            {/* <h5 className="d-flex">Upload a File</h5> */}
             <p className="d-flex">Select a file to upload from your computer or device.</p>
             <div className="upload_model_actions">
               <button className="upload_model_button upload_model_button--upload" type="button" onClick={file}>
@@ -270,7 +236,7 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Uploading Content */}
+         
           <div className="upload_model_content" style={{ display: modalState === ModalState.Uploading ? 'block' : 'none' }}>
             <div className="">
               <Loader/>
@@ -291,7 +257,6 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Error Content */}
           <div className="upload_model_content" style={{ display: modalState === ModalState.Error ? 'block' : 'none' }}>
             <h5 className="d-flex">Oops!</h5>
             <p className="d-flex">Your file could not be uploaded due to an error. Try uploading it again?</p>
@@ -305,9 +270,8 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Success Content */}
+        
           <div className="upload_model_content" style={{ display: modalState === ModalState.Success ? 'block' : 'none' }}>
-            {/* <h5 className="d-flex">Upload Successful!</h5> */}
             <p className="d-flex">Your file has been uploaded successful!.</p>
             <div className="d-flex justify-content-end ">
               <button className="upload_model_button" type="button" data-action="cancel" onClick={cancel}>
@@ -330,3 +294,4 @@ class Utils {
 }
 
 export default UploadFileModal;
+

@@ -319,7 +319,10 @@ background-color: #BFBFBF;
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--content-bg-2);
 }
-
+.ask-input-nav{
+  position: sticky;
+  bottom: 0;
+}
 /* GLOW STUFF */
 
 

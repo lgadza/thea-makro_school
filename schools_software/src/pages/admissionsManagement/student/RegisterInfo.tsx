@@ -9,7 +9,7 @@ import { useSelector } from "react-redux"
 import { RootState } from '../../../redux/store/index.js';
 import { useNavigate } from "react-router-dom"
 
-const PersonalDAta=():JSX.Element=>{
+const RegisterInfo=():JSX.Element=>{
 const response=useSelector((state:RootState)=>state.applicantRegistration.data)
 const errorResponse=useSelector((state:RootState)=>state.applicantRegistration.errorResponse)
 const isError=useSelector((state:RootState)=>state.applicantRegistration.isError)
@@ -31,7 +31,7 @@ const initialFormData: ApplicantRegistration = {
   data_process_acceptance: false,
   password: '',
   country_code:'',
-  role:''
+  role:'student'
 };
 
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
@@ -66,14 +66,15 @@ const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     ...prevFormData,
     [name]: checked ? true : false,
   }));
-  console.log(formData.policy_acceptance);
+  
 
 };
 
 const handleRegistration = async() => {
  const success=await dispatch<any>(ApplicantRegister(formData));
 setSignUpClicked(true)
-if(!isError && success){
+navigate("/mss/login")
+if(success && response){
   navigate("/mss/login")
 }else{
   setShow(true)
@@ -226,7 +227,10 @@ const handleClose = () => setShow(false);
                     name="data_process_acceptance"
                         onChange={handleCheckboxChange}
                     />
-                      <Form.Label className="mx-2 text-start">I consent to the processing of my data for the purposes of the current and future admission in accordance with the provisions of Regulation of Zimbabwe. More about the principles of personal data processing in the PRIVACY POLICY.</Form.Label>  
+                      <Form.Label className="mx-2 text-start">
+                        <small>
+                        I consent to the processing of my data for the purposes of the current and future admission in accordance with the provisions of Regulation of Zimbabwe. More about the principles of personal data processing in the PRIVACY POLICY
+                          </small></Form.Label>  
               </div>
           </Col>
         </Row>
@@ -234,7 +238,7 @@ const handleClose = () => setShow(false);
           <Form className="my-3" onSubmit={handleSubmit}>
             <Row>
               <Col>
-                <Button variant="primary" onClick={handleRegistration} className="w-100 mt-3 justify-content-end" type="submit" disabled={!isFormValid()}>
+                <Button variant="primary" onClick={handleRegistration} className="main_bg w-100 mt-3 justify-content-end" type="submit" disabled={!isFormValid()}>
          {
           isLoading && signUpClicked && (
             <span>
@@ -251,7 +255,7 @@ const handleClose = () => setShow(false);
             </Row>
           </Form>
           
-
+{/* 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body className="error-bg box-shadow border-radius-round">
           <h4 className="text-danger">Error</h4>
@@ -265,12 +269,12 @@ const handleClose = () => setShow(false);
            </ul>
             )}
           </div>
-          <Button className="d-flex justify-content-end" variant="primary" onClick={handleClose}>
+          <Button className="d-flex main_bg justify-content-end" variant="primary" onClick={handleClose}>
             close
           </Button>
           </Modal.Body>
-      </Modal>
+      </Modal> */}
   </div>
    )
 }
-export default PersonalDAta
+export default RegisterInfo
