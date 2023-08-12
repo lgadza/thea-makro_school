@@ -5,18 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import ToggleSwitch from '../../components/ToggleSwitch';
 import RangeSlider from '../../components/RangesSlider';
+import { PushButton } from '../../components/Buttons';
 
   
 const Settings: React.FC = () => {
 
   return (
       <div className="m-4">
-        <h4 className='d-flex pb-2'>Settings</h4>
+        <h4 className='d-flex pb-2 my-3'>Settings</h4>
         <div className='d-flex align-items-center justify-content-between content_bg px-3'>
         <span className='me-5'>Shared</span>
         <ToggleSwitch/>
         </div>
-        <div className='d-flex align-items-center justify-content-betwee content_bg my-4 px-3'>
+        <div className='d-flex align-items-center content_bg my-4 px-3'>
           <span>
           Temperature
           </span>
@@ -46,6 +47,9 @@ const Settings: React.FC = () => {
 - You have to be friendly.
 - You are talking to a human.
 - You NEVER answer that you are an AI language model.' className='px-3 py-2 '/>
+        </div>
+        <div className='d-flex justify-content-end'>
+            <PushButton message='Update'/>
         </div>
       </div>
     // </div>

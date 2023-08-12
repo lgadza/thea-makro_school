@@ -104,7 +104,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                      Admin</Link>
               
-                 <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Students</Link>
+                 <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Students</Link>
             
                  <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -184,7 +184,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Teachers</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Teachers Details</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Teachers Details</Link>
                    
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -227,13 +227,13 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                         Makronexus AI
                         </Link>
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
                    
                         <Link to="" onClick={()=>handleNavigationClick("ResourceUploadForm")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "ResourceUploadForm" ? "active" : ""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Upload you CALA
+                        Upload file
                         </Link>                      
-                        <Link to="" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <Link to="" className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "Settings" ? "active" : ""}`} onClick={() => handleNavigationClick("Settings")} >
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2 d-flex" /> Settings
                             </Link>
                     </div>
@@ -300,7 +300,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Books</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Book Details</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Book Details</Link>
                    
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -335,7 +335,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Fees Collection</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Expenses</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Expenses</Link>
                    
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
@@ -370,7 +370,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Class</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Class</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Class</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -400,7 +400,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Class Routines</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add Class Routine</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add Class Routine</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -430,7 +430,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Subjects</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add  New Subject</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add  New Subject</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -480,7 +480,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             Exam Schedule</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Exam Grades</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Exam Grades</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -510,7 +510,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Transports</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Transport</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Transport</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -540,7 +540,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Rooms</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Hostel</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Hostel</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -587,7 +587,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                             All Admins</Link>
                      
-                        <Link to="/admit-bulk" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Admin</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Admin</Link>
                     </div>
                   )}
             </Nav.Item>

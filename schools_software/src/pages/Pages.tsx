@@ -15,6 +15,7 @@ import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
 import { Dispatch } from "redux"
 import { getApplicantData } from "../redux/actions"
+import Settings from "./cala/Settings"
 interface Resource {
     id: number;
     title: string;
@@ -97,6 +98,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                 
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
                   { activeComponent ==="Helper" && <Helper/> }
+                  { activeComponent ==="Settings" && <Settings/>}
                 </div>
                 </Col>
             </Row>

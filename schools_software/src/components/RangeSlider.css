@@ -1,15 +1,4 @@
-html, body {
-    margin: 0;
-    height: 100%;
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #a9cbee;
-  }
-  
+
   .range-slider input[type="range"] {
     -webkit-appearance: none;
     background: transparent;
@@ -83,16 +72,17 @@ html, body {
     height: 10px;
     background: #eee;
     border-radius: 10px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    /* background-image: linear-gradient(160deg, rgba(0, 147, 233,.3) 0%, rgba(128, 208, 199,.8) 100%); */
+background: linear-gradient( 90deg, rgba(30, 87, 153,.5) 0%, rgba(44, 224, 191,.5) 19%, rgba(118, 221, 44,.5) 40%, rgba(219, 166, 43,.5) 60%, rgba(224, 46, 191,.5) 83%, rgba(204, 56, 46, 0.5) 100%);
     cursor: pointer;
     -webkit-appearance: none;
   }
   
   .range-slider label {
-    background: #eee;
+    background: rgb(204, 208, 212);
     border-radius: 50%;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    padding: 0px 8px;
+    padding: 7px 15px;
     margin-left: 10px;
     font-size: 16px;
     width:fit-content;
