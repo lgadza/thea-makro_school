@@ -2,13 +2,17 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faX } from '@fortawesome/free-solid-svg-icons';
 import ToggleSwitch from '../../components/ToggleSwitch';
 import RangeSlider from '../../components/RangesSlider';
 import { PushButton } from '../../components/Buttons';
 
   
 const Settings: React.FC = () => {
+  const [isAlert,setIsAlert]=useState(true)
+  const handleAlert=()=>{
+    setIsAlert(!isAlert)
+  }
 
   return (
       <div className="m-4">
@@ -23,10 +27,14 @@ const Settings: React.FC = () => {
           </span>
           <RangeSlider/>
         </div>
-        <Alert variant='success' className='d-flex flex-column text-start'>
-          <div>
+        {isAlert && (
+          <Alert variant='success' className='d-flex flex-column text-start'>
+          <div className='d-flex justify-content-between'>
+            <div>
             <FontAwesomeIcon icon={faInfoCircle}/>
             <span className='mx-2'>Info</span>
+            </div>
+            <FontAwesomeIcon className='cursor-pointer' onClick={handleAlert} icon={faX}/>
           </div>
           <div className='d-flex flex-column text-dark'>
             <small>You can give your chatbot a personality, or for instance, request specific language for the answer.</small>
@@ -35,6 +43,7 @@ const Settings: React.FC = () => {
             <small>to request answers to be in the German language.</small>
           </div>
         </Alert>
+        )}
         <div className='d-flex my-4 text-start'>
           <span className='me-5'>Name</span>
           <input type="text" placeholder='Makronexus' className='px-3 py-2 w-100'/>

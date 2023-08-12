@@ -29,7 +29,7 @@ export interface imgProps {
     imageUrl:parent,
     description: "Monitor & track your children’s progress with complete transparency and stay on top of all the school updates with ease",},
 ]
-export interface admissionFeatureProps{
+export interface homeFeatureProps{
     id:number;
     heading:string;
     content:string;
@@ -37,7 +37,7 @@ export interface admissionFeatureProps{
 }
 
 
-export const admissionFeatures: admissionFeatureProps[] = [
+export const admissionFeatures: homeFeatureProps[] = [
     {
       id: 1,
       heading: `Digitize Student Records with Ease`,
@@ -52,6 +52,24 @@ export const admissionFeatures: admissionFeatureProps[] = [
       id: 3,
       heading: `Create a Delightful Experience`,
       content: `Make admissions a joy for everyone, from administrators and counselors to students and parents.`,
+    },
+  ];
+  
+export const HomeIAFeatures: homeFeatureProps[] = [
+    {
+      id: 1,
+      heading: `Infinite saved time`,
+      content: `Highly accessible and highly relevant information at one touch`,
+    },
+    {
+      id: 2,
+      heading: `Easy & Quick Setup`,
+      content: `Integrate (no-code) & use today: low effort, do what you have to do!`,
+    },
+    {
+      id: 3,
+      heading: `Human like`,
+      content: `Verbalized and factual answering - close to no errors in interpretation of information`,
     },
   ];
   

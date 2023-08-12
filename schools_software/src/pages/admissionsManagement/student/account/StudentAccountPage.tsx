@@ -39,13 +39,13 @@ const isError=useSelector((state:RootState)=>state.applicantData.isError)
             <Row className="py-3 ">
                 {personalInfo && (
 
-                <Col className="d-flex py-3 content_bg  my-5 student_account_all_border student-profile-bar mx-2">
+                <Col className="d-flex py-3 content_bg  my-5 student_account_all_border align-items-center student-profile-bar mx-2">
                 
                     <Image src={"https://visafoto.com/img/docs/za_passport.jpg"} height={100} width={100} alt="userName"/> 
                     <div className="d-flex flex-column align-items-start px-3">
                         <h5>{personalInfo.first_name} {personalInfo.last_name}</h5>
-                    <div>{personalInfo.phone_number}</div>
-                    <div>{personalInfo.email}</div>
+                    <small className="text-muted">{personalInfo.phone_number}</small>
+                    <small className="text-muted">{personalInfo.email}</small>
                     </div>
                 </Col>
                 )}

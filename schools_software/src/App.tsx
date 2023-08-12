@@ -31,8 +31,8 @@ function App() {
         <Route path="/" element={<MakroHomePage/>}/>
         <Route path="mss/login" element={<Login/>}/>
         <Route path="mss/makro/features" element={<Features/>}/>
-        <Route path="mss/makro/features/admission-management-software" element={<AdmissionManagement/>}/>
-        <Route path="mss/makro/features/CALA" element={<CALAFeature/>}/>
+        <Route path="mss/makro/features/admission_management" element={<AdmissionManagement/>}/>
+        <Route path="mss/makro/features/ai" element={<CALAFeature/>}/>
         <Route path="mss/:user_role/account/:user_id" element={<Pages/>}/>
        <Route path="mss/school_account/login" element={<SchoolAccountLogin/>}/>
        <Route path="mss/cala" element={<CalaPage/>}/>

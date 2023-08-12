@@ -69,7 +69,7 @@ useEffect(() => {
         <Alert variant='danger'>The email/password entered is incorrect</Alert>
       )}
       <Row className='d-flex justify-content-center align-item-center'>
-        <Col className='login_container box-shadow main_bg' md={3}>
+        <Col className='login_container' md={3}>
           <div className="imageContainer mb-3">
             <img
               src={m_logo}
@@ -96,7 +96,7 @@ useEffect(() => {
             </div>
 
             <div className='my-3'>
-              <Button variant="primary" type="submit" disabled={!isFormValid()} className='w-100' onClick={handleLogin}>
+              <Button variant="primary" type="submit" disabled={!isFormValid()} className='w-100 bg-primary' onClick={handleLogin}>
                 Sign in
               </Button>
             </div>

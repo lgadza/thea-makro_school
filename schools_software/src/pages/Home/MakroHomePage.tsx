@@ -10,6 +10,7 @@
  import { betterCardList } from "../../assets/data/makrohome";
   import "./MakroHomePage.css"
 import SimplifyProcess from "./Simplifyprocess";
+import HomeAIInfo from "./HomeAIInfo";
   // const BetterOutCard: React.FC<imgProps> = ({imgProps}) => {
   //   return (
   //     <div className="role_card" key={imgProps.id} id={imgProps.title}>
@@ -48,8 +49,6 @@ import SimplifyProcess from "./Simplifyprocess";
             </div>
                 <h4 className="p-4 d-flex text-start color-header"> Empower and elevate success for all.</h4>
               <div className="better-for-card">
-               
-                 
               <Row className="mb-5">
               {betterCardList.map((card,_)=>{
                 return(
@@ -68,11 +67,17 @@ import SimplifyProcess from "./Simplifyprocess";
               })}
             </Row>
               </div>
-              <div className="simplify-feature-container mb-5 main-bg">
+              <div className="simplify-feature-container my-5 main-bg">
               <div className="h3">
                 <h4 className="text-start d-flex color-header p-3">Streamline your institute's management<br/> with intelligent simplicity. </h4>
                 </div> 
                 <SimplifyProcess/>
+              </div>
+              <div className="simplify-feature-container my-5 main-bg">
+              <div className="h3">
+                <h4 className="text-start d-flex color-header p-3">You are one question away from the correct answer. </h4>
+                </div> 
+                <HomeAIInfo/>
               </div>
               <FAQComp FAQItems={FAQItems} />
             </Container>

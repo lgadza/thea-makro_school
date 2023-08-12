@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell, faCalendar, faCheck, faChevronDown, faEnvelope, faGear, faListCheck, faMessage, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons"
 import { Dropdown } from "react-bootstrap"
 import { ApplicantRegistration } from "../Types"
-
+import { useNavigate } from "react-router-dom"
 const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=>{
+  const navigate=useNavigate()
     return(
       <>
           {user && (
@@ -26,35 +27,35 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
 </Dropdown.Toggle>
 
 <Dropdown.Menu className="py-0"  style={{width:"20rem"}}>
-  <div className="d-flex justify-content-center content_bg-2 text-white py-3">
-     <span>{user.first_name} {user.last_name}</span>
+  <div className="d-flex px-4  content_bg-2 text-white py-3">
+     <strong className="d-flex color-header">{user.first_name} {user.last_name}</strong>
   </div>
-  <Dropdown.Item>
-    <Link to="" className="textColor px-2">
+  <Dropdown.Item className="py-2" onClick={()=>navigate(`/mss/account/${user.id}`)}>
+    <Link to='' className="textColor px-2">
     <FontAwesomeIcon icon={faUser}/>
       <span className="px-2">My profile</span>
     </Link>
   </Dropdown.Item>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2">
     <FontAwesomeIcon icon={faListCheck}/>
       <span className="px-2">Task</span>
     </Link>
   </Dropdown.Item>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2">
     <FontAwesomeIcon icon={faMessage}/>
       <span className="px-2">Message</span>
     </Link>
   </Dropdown.Item>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2">
     <FontAwesomeIcon icon={faGear}/>
       <span className="px-2">Account settings</span>
     </Link>
   </Dropdown.Item>
   <hr className="my-0 py-0" />
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link
       to=""
     //   onClick={handleLogout}
@@ -78,12 +79,10 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
 </Dropdown.Toggle>
 
 <Dropdown.Menu className="py-0" style={{width:"20rem"}}>
-  <div className="d-flex justify-content-center content_bg-2 text-white py-3">
-   
-     <span>Messages</span>
-  
+  <div className="d-flex px-4  content_bg-2 text-white py-3">
+     <strong className="d-flex color-header">Messages</strong>
   </div>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2 d-flex">
     
     <Image src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&uid=R36208328&ga=GA1.1.377730112.1687240299&semt=ais" height={40} width={40} alt="avatar"/>
@@ -113,12 +112,10 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
 </Dropdown.Toggle>
 
 <Dropdown.Menu className="py-0"  style={{width:"20rem"}}>
-  <div className="d-flex justify-content-center content_bg-2 text-white py-3">
-   
-     <span>Notifications</span>
-  
+  <div className="d-flex px-4  content_bg-2 text-white py-3">
+     <strong className="d-flex color-header">Notifications</strong>
   </div>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2 d-flex align-items-center">
     
     <div className="icon-bg">
@@ -134,7 +131,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
     </div>
     </Link>
   </Dropdown.Item>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2 py-0 d-flex align-items-center">
     
     <div className="icon-bg">
@@ -150,7 +147,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
     </div>
     </Link>
   </Dropdown.Item>
-  <Dropdown.Item>
+  <Dropdown.Item className="py-2">
     <Link to="" className="textColor px-2 d-flex align-items-center">
     
     <div className="icon-bg">

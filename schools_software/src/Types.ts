@@ -7,6 +7,7 @@ export interface ImageProps {
 }
 
 export interface ApplicantRegistration{
+  id?:string;
   first_name:string;
   last_name:string;
   second_name?:string;

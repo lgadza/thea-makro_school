@@ -20,10 +20,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
     setStudentOpen(!studentOpen);
   }
   const createStateToggle = (state: boolean, setState: React.Dispatch<React.SetStateAction<boolean>>) => () => setState(!state);
-  const [showDashboard, setShowDashboard] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(true);
   const toggleDashboard = createStateToggle(showDashboard, setShowDashboard);
-  const [showCALA, setShowCALA] = useState(false);
-  const toggleCALA = createStateToggle(showCALA, setShowCALA);
+  const [showAI, setShowAI] = useState(false);
+  const toggleAI = createStateToggle(showAI, setShowAI);
   const [showMessage, setShowMessage] = useState(false);
   const toggleMessage = createStateToggle(showMessage, setShowMessage);
   const [showNotice, setShowNotice] = useState(false);
@@ -86,37 +86,37 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                }}
                 >
                  <div>
-                  <FontAwesomeIcon icon={faGauge} className="me-2" />
+                  <FontAwesomeIcon icon={faGauge} className={`me-2 ${showDashboard?"active":""}`} />
                   {showMenu && (
 
                  <span className={`${showDashboard?"active":""}`}>Dashboard</span>
                   )}
                  </div>
-                 {showMenu && (
+                 {/* {showMenu && (
                  <FontAwesomeIcon  icon={showDashboard ? faChevronDown : faChevronRight}  className="me-2" />
 
-                 )}
+                 )} */}
                </Link>
-               {showDashboard && (
+               {/* {showDashboard && (
                  <div className=" d-flex flex-column content_bg overlap">
                      
-                 <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
+                 <Link to="" className='d-flex nowrap align-items-center px-2 py-2'>
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                      Admin</Link>
               
-                 <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Students</Link>
+                 <Link to="" className={`d-flex align-items-center nowrap px-2 py-2`}><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Students</Link>
             
-                 <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                 <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                  Teachers
                  </Link>
-                 <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
+                 <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
                  <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
                  Parents
                  </Link>
                
              </div>
-               )}
+               )} */}
                </Nav.Item>
             <Nav.Item className={`${studentOpen?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2" 
@@ -126,10 +126,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                 toggleStudent()
              }}>
                  <div>
-                  <FontAwesomeIcon icon={faUsers} className="me-2" />
+                  <FontAwesomeIcon icon={faUsers} className={`me-2 ${studentOpen?"active":""}`}/>
                   {showMenu && (
 
-                 <span>Students</span>
+                 <span className={`${studentOpen?"active":""}`}>Students</span>
 )}
                  </div>
                  {showMenu && (
@@ -158,59 +158,18 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     </div>
                   )}
             </Nav.Item>
-            <Nav.Item className={`${showTeachers?"active":""}`}>
+            <Nav.Item className={`${showAI?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                onClick={(e)=>{
                 e.stopPropagation()
-                toggleTeachers()
+                toggleAI()
              }}
                >
                  <div>
-                  <FontAwesomeIcon icon={faChalkboardTeacher} className="me-2" />
+                  <FontAwesomeIcon icon={faLightbulb} className={`me-2 ${showAI?"active":""}`}/>
                   {showMenu && (
 
-                 <span>Teachers</span>
-)}
-                 </div>
-                 {showMenu && (
-                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" />
-
-                 )}
-               </Link>
-               {showTeachers && (
-                    <div className=" d-flex flex-column content_bg overlap">
-                     
-                        <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                            All Teachers</Link>
-                     
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Teachers Details</Link>
-                   
-                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Add Teacher
-                        </Link>
-                        <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Payment
-                        </Link>
-                      
-                    </div>
-                  )}
-                  
-            </Nav.Item>
-            <Nav.Item className={`${showCALA?"active":""}`}>
-               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
-               onClick={(e)=>{
-                e.stopPropagation()
-                toggleCALA()
-             }}
-               >
-                 <div>
-                  <FontAwesomeIcon icon={faLightbulb} className="me-2" />
-                  {showMenu && (
-
-                 <span>Makronexus AI</span>
+                 <span className={`${showAI?"active":""}`}>Makronexus AI</span>
 )}
                  </div>
                  {showMenu && (
@@ -218,7 +177,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 
                  )}
                </Link>
-               {showCALA && (
+               {showAI && (
                     <div className=" d-flex flex-column content_bg overlap">
                         <Link
                           to=''
@@ -239,6 +198,49 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     </div>
                   )}
             </Nav.Item>
+            {/*
+            <Nav.Item className={`${showTeachers?"active":""}`}>
+               <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
+               onClick={(e)=>{
+                e.stopPropagation()
+                toggleTeachers()
+             }}
+               >
+                 <div>
+                  <FontAwesomeIcon icon={faChalkboardTeacher} className="me-2" />
+                  {showMenu && (
+
+                 <span className={`${showTeachers?"active":""}`}>Teachers</span>
+)}
+                 </div>
+                 {showMenu && (
+                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" />
+
+                 )}
+               </Link>
+               {showTeachers && (
+                    <div className=" d-flex flex-column content_bg overlap">
+                     
+                        <Link to="" className='d-flex nowrap align-items-center px-2 py-2'>
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                            All Teachers</Link>
+                     
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Teachers Details</Link>
+                   
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Add Teacher
+                        </Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        Payment
+                        </Link>
+                      
+                    </div>
+                  )}
+                  
+            </Nav.Item>
+            
             <Nav.Item className={`${showParents?"active":""}`}>
                <Link to="" className="nav-link d-flex pe-0 justify-content-between align-items-center ps-2"
                 onClick={(e)=>{
@@ -448,10 +450,6 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                  <span>Attendance</span>
 )}
                  </div>
-                 {/* {showMenu && (
-                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> 
-
-                 )} */}
                </Link>
             </Nav.Item>
             <Nav.Item className={`${showExam?"active":""}`}>
@@ -605,13 +603,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                  <span>Notice</span>
 )}
                  </div>
-                  {/* {showMenu && (
-                   <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" /> 
-
-                  )} */}
+                  
                </Link>
                 
-            </Nav.Item>
+            </Nav.Item> */}
                </Nav>             
             </div>
             <div className='sidebar-log-out ps-4 pe-5 py-3 main_bg'>

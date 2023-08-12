@@ -1,11 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
-import { admissionFeatures } from '../../assets/data/makrohome';
+import { HomeIAFeatures } from '../../assets/data/makrohome';
 import { PushButton } from '../../components/Buttons';
 import img1 from "../../assets/imgs/candidateAccount.png";
 import img2 from "../../assets/candidatesAdmission.png";
 import img3 from "../../assets/candidatesAdmission2.png";
 import "./MakroHomePage.css"; 
+import { CompanyName } from '../../assets/data/company';
 interface AdmissionCardData {
   id: number;
   imgUrl: string;
@@ -29,7 +30,7 @@ const admissionData: AdmissionCardData[] = [
   },
 ];
 
-const SimplifyProcess: React.FC = () => {
+const HomeAIInfo: React.FC = () => {
   const [currentCard, setCurrentCard] = useState(1);
   const [previousCard, setPreviousCard] = useState(0);
   const [currentFeature, setCurrentFeature] = useState<number>(1);
@@ -70,12 +71,12 @@ const SimplifyProcess: React.FC = () => {
       <input type="radio" id="feature3" className="sec-1-input" name="feature" checked={currentFeature === 3} />
       <div className="row my-4 me-2">
         <div className="col col-12 col-sm-12 col-md-6 ">
-          <h3 className="text-start header mb-3">Admission Management</h3>
+          <h3 className="text-start header mb-3">{CompanyName} AI</h3>
           <h4 className="text-start">
-            Elevate the admissions process to deliver an enriching experience for all
+            {CompanyName} is generative AI that organizes all your knowledge
           </h4>
           <ul>
-            {admissionFeatures.map((feature) => (
+            {HomeIAFeatures.map((feature) => (
               <li
                 style={{
                   color: currentCard === feature.id ? '' : 'gray',
@@ -119,11 +120,11 @@ const SimplifyProcess: React.FC = () => {
         </div>
       </div>
       <div className="text-start">
-        <PushButton message="Learn more!" url='/mss/makro/features/admission_management' />
+        <PushButton message="Learn more!" url="/mss/makro/features/ai" />
 
       </div>
     </div>
   );
 };
 
-export default SimplifyProcess;
+export default HomeAIInfo;
