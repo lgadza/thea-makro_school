@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { AddressInterface, ApplicantRegistration } from "../../Types";
+import { AddressInterface, ApplicantRegistration, UserChatting } from "../../Types";
 import { LoginCredentialsInterface } from "../../components/Login";
 export const APPLICANT_REGISTRATION_ERROR_RESPONSE="APPLICANT_REGISTRATION_ERROR_RESPONSE"
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
@@ -9,6 +9,11 @@ export const APPLICANT_REGISTRATION_LOADING="APPLICANT_REGISTRATION_LOADING"
 export const GET_APPLICANT_DATA="GET_APPLICANT_DATA"
 export const GET_APPLICANT_DATA_ERROR="GET_APPLICANT_DATA_ERROR"
 export const GET_APPLICANT_DATA_LOADING="GET_APPLICANT_DATA_LOADING"
+
+
+export const CHAT_WITH_AI="CHAT_WITH_AI"
+export const CHAT_WITH_AI_ERROR="CHAT_WITH_AI_ERROR"
+export const CHAT_WITH_AI_LOADING="CHAT_WITH_AI_LOADING"
 
 export const EDIT_USER_ADDRESS="EDIT_USER_ADDRESS"
 export const EDIT_USER_ADDRESS_ERROR="EDIT_USER_ADDRESS_ERROR"
@@ -89,6 +94,57 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
         }
     }
 }
+export const chatWithAi = (messages:UserChatting[]) => {
+    
+    return async (dispatch:Dispatch)=>{
+        const options:RequestInit={
+            method:"POST",
+            headers:{
+                Accept:"application.json",
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify({message:messages.map((message)=>message.message).join("")})
+        }
+         
+        try{
+            const response=await fetch("http://localhost:3001/ai",options)
+            if(response.ok){
+                const answer=await response.json();
+                console.log(answer,"ANSWER")
+                dispatch({
+                    type:CHAT_WITH_AI,
+                    payload:answer
+                });
+                setTimeout(()=>{
+                   dispatch({
+                    type:CHAT_WITH_AI_LOADING,
+                    payload:false,
+                   });
+                },100);
+            }else{
+                console.log("error")
+                dispatch({
+                    type:CHAT_WITH_AI_LOADING,
+                    payload:false,
+                });
+                dispatch({
+                    type:CHAT_WITH_AI_ERROR,
+                    payload:true,
+                })
+            }
+        }catch(error){
+            console.log(error)
+            dispatch({
+                type:CHAT_WITH_AI_LOADING,
+                payload:false,
+            });
+            dispatch({
+                type:CHAT_WITH_AI_ERROR,
+                payload:true,
+            })
+        }
+    }
+  };
 export const ApplicantRegister = (formData:ApplicantRegistration) => {
     
     return async (dispatch:Dispatch)=>{

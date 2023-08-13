@@ -1,14 +1,20 @@
-import { faArrowCircleDown, faArrowRotateForward, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faSearch, faThumbsDown, faThumbsUp, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faArrowCircleDown, faArrowRotateForward, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus, faSearch, faThumbsDown, faThumbsUp, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
 import { useState } from "react"
+import { Button } from "react-bootstrap"
+import { useSelector } from "react-redux"
+import { RootState } from "../redux/store"
+import { useDispatch } from "react-redux"
+import { chatWithAi } from "../redux/actions"
+import { Dispatch } from "redux"
 interface Message {
-    altText: string;
+    altText?: string;
     message: string;
     liked?: boolean;
-    imageSrc: string;
+    imageSrc?: string;
     from:string;
   }
 const initialMessages= [
@@ -57,23 +63,28 @@ const initialMessages= [
     },
   ];
 const MakronexusAI=():JSX.Element=>{
-    const [messages, setMessages] = useState<Message[]>(initialMessages);
+    const chats=useSelector((state:RootState)=>state.chatWithAi.messages)
+    console.log(chats,"CHATS")
+    const [messages, setMessages] = useState<Message[]>([ {
+        imageSrc: "https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png",
+        altText: "user",
+        from: "user",
+        message: `Could you give me 5 examples of exothermic chemical reactions, indicating the state symbols of reactants and products involved in each reaction?
+        `,
+      }]);
+    // const [messages, setMessages] = useState<Message[]>(initialMessages);
     const [question,setQuestion]=useState<string>("")
     const [copied,setCopied]=useState<boolean>(false)
     const [liked,setLiked]=useState<boolean>(false)
     const handleInput=(e:React.ChangeEvent<HTMLInputElement>)=>{
         setQuestion(e.target.value)
     }
-   const  handleAsk=(message:string,imageSrc:string,from:string,altText:string)=>{
-    const newMessages=[...messages]
-    newMessages.push({
-        message,
-        imageSrc,
-        altText,
-        from
-    })
-    setMessages(newMessages)
+    const dispatch:Dispatch<any> =useDispatch()
+   const  handleAsk=()=>{
+    setMessages([...messages,{message:`${question}`,from:"user"}])
     setQuestion("")
+    dispatch(chatWithAi(messages))
+
    }
    
     return(
@@ -87,11 +98,11 @@ const MakronexusAI=():JSX.Element=>{
                 </div>
             </div>
         
-                {messages && messages.map((section, index) => (
+                {messages.length>0 && messages.map((section, index) => (
                     <>
                     <div className="d-flex justify-content-center text-start mt-2" key={index}>
                         <div className="pe-2">
-                        <img src={section.imageSrc} alt={section.altText} style={{ width: "30px", height: "30px", borderRadius: "0%" }} className="img_component" />
+                        <img src={`${section.from==="user"?"https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png":md_logo_small}`} alt={section.altText} style={{ width: "30px", height: "30px", borderRadius: "0%" }} className="img_component" />
                         </div>
                         {section.from==="user"?( <div className="d-flex justify-content-between w-75 ">
                         <p className={`${section.from==="user"?"main_bg":"content_bg"} text-start p-3`}>
@@ -127,7 +138,7 @@ const MakronexusAI=():JSX.Element=>{
                     <div className="d-flex align-items-center">
             <input type="text" style={{width:"30rem"}} className="search py-2 px-2 ms-1" placeholder="Ask me anything ..." value={question} onChange={handleInput}/>
         </div>
-                    <div className="btn btn-primary" onClick={()=>handleAsk(question,"https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png","user","user")}>
+                    <div className="btn btn-primary" onClick={handleAsk}>
                     <FontAwesomeIcon icon={faPaperPlane}/>
                     </div>
                 </div>
@@ -136,25 +147,31 @@ const MakronexusAI=():JSX.Element=>{
              </div>
            </div>
            <div className="col col-md-4">
-            <h5 className="d-flex justify-content-end px-5">History</h5>
-            <div>
+            <div className="d-flex">
+            <Button className="btn-primary  content_bg">
+                <FontAwesomeIcon icon={faPlus}/> New chat
+            </Button>
+            </div>
+            <div className="my-3">
                 <ul>
                     <li className="nav-item p-2 border-radius-round">
                         <span className="d-flex flex-column">
                             <strong className="d-flex">Career</strong>
-                            <span className="d-flex">How to organize productivity work ...</span>
+                            <small className="d-flex">How to organize productivity work ...</small>
                         </span>
                     </li>
                     <li className="nav-item p-2 border-radius-round">
                         <span className="d-flex flex-column">
                             <strong className="d-flex">Career</strong>
-                            <span className="d-flex">How to organize productivity work ...</span>
+                            <small className="d-flex">How to organize productivity work ...</small>
                         </span>
                     </li>
                 </ul>
-                <div className="btn btn-secondary">
+                <div className="mt-3 text-start d-flex">
+            <Button className="btn-secondary  content_bg">
             <FontAwesomeIcon icon={faTrash}/>
-            <span className="px-2">Clear history</span>    
+            <span className="px-2">Clear history</span>  
+            </Button>  
                 </div>
             </div>
            </div>

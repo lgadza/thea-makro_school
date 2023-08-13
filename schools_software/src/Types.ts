@@ -22,6 +22,10 @@ export interface ApplicantRegistration{
   country_code:string;
   role:string;
 }
+export interface UserChatting{
+from:string;
+message:string;
+}
 export interface PersonalDataInterface{
   first_name:string;
   last_name:string;
