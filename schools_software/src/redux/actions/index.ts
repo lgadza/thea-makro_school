@@ -94,58 +94,80 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
         }
     }
 }
-export const chatWithAi = (messages:UserChatting[]) => {
+// export const chatWithAi = (messages:UserChatting[]) => {
     
-    return async (dispatch:Dispatch)=>{
-        const options:RequestInit={
-            method:"POST",
-            headers:{
-                Accept:"application.json",
-                "Content-Type":"application/json",
-            },
-            body:JSON.stringify({message:messages.map((message)=>message.message).join("\n")})
-        }
+//     return async (dispatch:Dispatch)=>{
+//         const options:RequestInit={
+//             method:"POST",
+//             headers:{
+//                 Accept:"application.json",
+//                 "Content-Type":"application/json",
+//             },
+//             body:JSON.stringify({message:messages.map((message)=>message.message).join("\n")})
+//         }
          
-        try{
-            const response=await fetch("http://localhost:3001/ai",options)
-            if(response.ok){
-                const answer=await response.json();
-                console.log(answer,"ANSWER")
-                dispatch({
-                    type:CHAT_WITH_AI,
-                    payload:answer.message
-                });
-                setTimeout(()=>{
-                   dispatch({
-                    type:CHAT_WITH_AI_LOADING,
-                    payload:false,
-                   });
-                },100);
-            }else{
-                console.log("error")
-                dispatch({
-                    type:CHAT_WITH_AI_LOADING,
-                    payload:false,
-                });
-                dispatch({
-                    type:CHAT_WITH_AI_ERROR,
-                    payload:true,
-                })
-            }
-        }catch(error){
-            console.log(error)
-            dispatch({
-                type:CHAT_WITH_AI_LOADING,
-                payload:false,
-            });
-            dispatch({
-                type:CHAT_WITH_AI_ERROR,
-                payload:true,
-            })
-        }
+//         try{
+//             const response=await fetch("http://localhost:3001/ai",options)
+//             if(response.ok){
+//                 const answer=await response.json();
+//                 console.log(answer,"ANSWER")
+//                 dispatch({
+//                     type:CHAT_WITH_AI,
+//                     payload:answer.message
+//                 });
+//                 setTimeout(()=>{
+//                    dispatch({
+//                     type:CHAT_WITH_AI_LOADING,
+//                     payload:false,
+//                    });
+//                 },100);
+//                 return answer
+
+//             }else{
+//                 console.log("error")
+//                 dispatch({
+//                     type:CHAT_WITH_AI_LOADING,
+//                     payload:false,
+//                 });
+//                 dispatch({
+//                     type:CHAT_WITH_AI_ERROR,
+//                     payload:true,
+//                 })
+//             }
+//         }catch(error){
+//             console.log(error)
+//             dispatch({
+//                 type:CHAT_WITH_AI_LOADING,
+//                 payload:false,
+//             });
+//             dispatch({
+//                 type:CHAT_WITH_AI_ERROR,
+//                 payload:true,
+//             })
+//         }
+//     }
+//   };
+export const chatWithAi = async (messages: UserChatting[]) => {
+    const options:RequestInit={
+                    method:"POST",
+                    headers:{
+                        Accept:"application.json",
+                        "Content-Type":"application/json",
+                    },
+                    body:JSON.stringify({message:messages.map((message)=>message.message).join("\n")})
+                }
+    try {
+      const response=await fetch("http://localhost:3001/ai",options)
+      if (response.ok) {
+        const answer = await response.json();
+        return answer; 
+      } else {
+        console.log("ERROR")
+      }
+    } catch (error) {
+      console.log(error)
     }
   };
-
 export const ApplicantRegister = (formData:ApplicantRegistration) => {
     
     return async (dispatch:Dispatch)=>{

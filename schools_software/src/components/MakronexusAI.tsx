@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
 import { chatWithAi } from "../redux/actions"
 import { Dispatch } from "redux"
-import { createSlice } from "@reduxjs/toolkit";
+import "./MakronexusAi.css"
 interface Message {
     altText?: string;
     message: string;
@@ -19,8 +19,9 @@ interface Message {
     from:string;
   }
   const MakronexusAI: React.FC = () => {
-    const answer = useSelector((state: RootState) => state.chatWithAi.message);
+    // const answer = useSelector((state: RootState) => state.chatWithAi.message);
     const isError = useSelector((state: RootState) => state.chatWithAi.isError);
+    const [loading, setLoading] = useState(false); 
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
@@ -29,19 +30,66 @@ interface Message {
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       setQuestion(e.target.value);
     };
-  
-    const handleAsk = async () => {
-      if (question !== "") {
-        const newMessage = { message: question, from: "user" };
-        await Promise.resolve(setMessages((prev) => [...prev, newMessage]));
-        await setQuestion("");
-        await dispatch(chatWithAi([...messages, newMessage]));
+    const lastMessageRef = useRef<HTMLDivElement | null>(null);
+
+    // const handleAsk = async () => {
+    //   if (question !== "") {
+    //     const newMessage = { message: question, from: "user" };
+    //     await Promise.resolve(setMessages((prev) => [...prev, newMessage]));
+    //     await setQuestion("");
+    //     try{
+    //       const answer=  await chatWithAi([...messages, newMessage]);
+    //       await Promise.resolve(setMessages((prev) => [...prev, answer]));
+    //     }catch(error){
+    //       console.log(error)
+    //     }
         
-        if (!isError) {
-          await Promise.resolve(setMessages((prev) => [...prev, answer]));
-        }
+    //   }
+    // };
+    
+  const handleAsk = async () => {
+    if (question !== "") {
+      const newMessage = { message: question, from: "user" };
+      setMessages((prev) => [...prev, newMessage]); // Set loading and add new message
+      setQuestion("");
+      try {
+        setLoading(true); // Set loading to true before fetching
+        const answer = await chatWithAi([...messages, newMessage]);
+        setMessages((prev) => [...prev, answer]);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false); // Set loading to false after fetching
       }
-    };
+    }
+  };
+  
+  const newChat=()=>{
+    setMessages([])
+  }
+  useEffect(() => {
+   
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+      // lastMessageRef.current && autoAnimate(lastMessageRef.current)
+    }
+  }, [messages]);
+  
+const Loader: React.FC = () => {
+  return (
+    <div className="chat-loader-container w-75  py-3 d-flex justify-content-center align-items-center">
+      <div className="chat-loader ">
+        <div className="loader--dot"></div>
+        <div className="loader--dot"></div>
+        <div className="loader--dot"></div>
+        <div className="loader--dot"></div>
+        <div className="loader--dot"></div>
+        <div className="loader--dot"></div>
+        <div className="loader--text"></div>
+      </div>
+    </div>
+  );
+};
   
     return (
       <div className="row mx-3">
@@ -63,7 +111,6 @@ interface Message {
               </div>
             </div>
           </div>
-  
           {messages.length > 0 &&
             messages.map((section, index) => (
               <div key={index}>
@@ -72,8 +119,8 @@ interface Message {
                     <img
                       src={
                         section.from === "user"
-                          ? "https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png"
-                          : md_logo_small
+                        ? "https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png"
+                        : md_logo_small
                       }
                       alt={section.altText}
                       style={{
@@ -84,6 +131,7 @@ interface Message {
                       className="img_component"
                     />
                   </div>
+                      <div ref={lastMessageRef} />
                   {section.from === "user" ? (
                     <div className="d-flex justify-content-between w-75 ">
                       <p
@@ -110,7 +158,7 @@ interface Message {
                   )}
                 </div>
                 {section.from !== "user" && (
-                  <div className="d-flex justify-content-center">
+                  <div className="d-flex justify-content-center mb-3">
                     <div className="d-flex w-75 justify-content-end">
                       <FontAwesomeIcon
                         className="cursor-pointer"
@@ -142,6 +190,7 @@ interface Message {
           </div>
           <div className="pb-3 ask-input-nav main_bg py-3">
             <div className="d-flex justify-content-center ms-3">
+          {loading?( <Loader/>):(
               <div className="d-flex justify-content-between w-75 align-items-center">
                 <FontAwesomeIcon
                   className="cursor-pointer"
@@ -153,8 +202,8 @@ interface Message {
                   style={{ fontSize: "20px" }}
                   icon={faImage}
                 />
-                <div className="d-flex align-items-center">
-                  <input
+                <div className="d-flex align-items-center">  
+                    <input
                     type="text"
                     onKeyDown={(e) => {
                       e.keyCode === 13 && e.shiftKey === false && handleAsk();
@@ -165,11 +214,14 @@ interface Message {
                     value={question}
                     onChange={handleInput}
                   />
+                    
+                  
                 </div>
                 <div className="btn btn-primary" onClick={handleAsk}>
                   <FontAwesomeIcon icon={faPaperPlane} />
                 </div>
               </div>
+                  )}
             </div>
             <FontAwesomeIcon
               className="go-bottom cursor-pointer"
@@ -179,7 +231,7 @@ interface Message {
         </div>
         <div className="col col-md-4">
           <div className="d-flex">
-            <Button className="btn-primary  content_bg">
+            <Button className="btn-primary content_bg" onClick={newChat}>
               <FontAwesomeIcon icon={faPlus} /> New chat
             </Button>
           </div>
