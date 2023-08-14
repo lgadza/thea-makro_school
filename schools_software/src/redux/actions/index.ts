@@ -113,7 +113,7 @@ export const chatWithAi = (messages:UserChatting[]) => {
                 console.log(answer,"ANSWER")
                 dispatch({
                     type:CHAT_WITH_AI,
-                    payload:answer
+                    payload:answer.message
                 });
                 setTimeout(()=>{
                    dispatch({

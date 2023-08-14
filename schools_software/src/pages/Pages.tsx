@@ -39,7 +39,7 @@ const Pages=():JSX.Element=>{
     const toggleMenu = () => {
       setShowMenu(!showMenu);
     };
-    const [activeComponent,setActiveComponent]=useState<string>("dashboard")
+    const [activeComponent,setActiveComponent]=useState<string>("MakronexusAI")
 
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)

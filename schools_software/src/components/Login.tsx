@@ -17,6 +17,7 @@ const Login = (): JSX.Element => {
   const navigate = useNavigate()
   const accessToken = useSelector((state: RootState) => state.accessToken.accessToken)
   const isError = useSelector((state: RootState) => state.accessToken.isError)
+  console.log(isError,"LOGIN ISERROR")
   const userData=useSelector((state:RootState)=>state.applicantData.data)
 
   const initialLoginCred: LoginCredentialsInterface = {

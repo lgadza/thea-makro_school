@@ -71,7 +71,7 @@ import { CHAT_WITH_AI, CHAT_WITH_AI_ERROR, CHAT_WITH_AI_LOADING } from "../actio
           ...state,
           messages: [
             ...state.messages,
-            { from: "ai", message: action.payload },
+            { from: "ai", message: `${action.payload }`},
           ],
         };
       case CHAT_WITH_AI_LOADING:

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
@@ -64,14 +64,18 @@ const initialMessages= [
   ];
 const MakronexusAI=():JSX.Element=>{
     const chats=useSelector((state:RootState)=>state.chatWithAi.messages)
-    console.log(chats,"CHATS")
-    const [messages, setMessages] = useState<Message[]>([ {
-        imageSrc: "https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png",
-        altText: "user",
-        from: "user",
-        message: `Could you give me 5 examples of exothermic chemical reactions, indicating the state symbols of reactants and products involved in each reaction?
-        `,
-      }]);
+    const isError=useSelector((state:RootState)=>state.chatWithAi.isError)
+    // console.log(chats[0].from,"FROM")
+    // console.log(chats[0].message,"MESSAGE")
+    const [messages, setMessages] = useState<Message[]>([ 
+    //     {
+    //     imageSrc: "https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png",
+    //     altText: "user",
+    //     from: "user",
+    //     message: `Could you give me 5 examples of exothermic chemical reactions, indicating the state symbols of reactants and products involved in each reaction?
+    //     `,
+    //   },
+      ...chats]);
     // const [messages, setMessages] = useState<Message[]>(initialMessages);
     const [question,setQuestion]=useState<string>("")
     const [copied,setCopied]=useState<boolean>(false)
@@ -80,12 +84,25 @@ const MakronexusAI=():JSX.Element=>{
         setQuestion(e.target.value)
     }
     const dispatch:Dispatch<any> =useDispatch()
-   const  handleAsk=()=>{
-    setMessages([...messages,{message:`${question}`,from:"user"}])
-    setQuestion("")
-    dispatch(chatWithAi(messages))
+//    const  handleAsk=()=>{
+//     setMessages([...messages,{message:`${question}`,from:"user"}])
+//     setQuestion("")
+//     dispatch(chatWithAi(messages))
+//    }
+const handleAsk =async () => {
+    if(question!==""){
+    const newMessage = { message: question, from: "user" };
+    await Promise.resolve(setMessages((prev)=>[...prev,newMessage]))
+    // await setMessages([...messages, newMessage]);
+   await  setQuestion("");
+    dispatch(chatWithAi([...messages, newMessage]));
+}
+  };
+  useEffect(() => {
+    // This effect runs whenever `chats` changes
+    console.log(messages, "MESmessages");
+  }, [chats]);
 
-   }
    
     return(
         <div className="row mx-3">
@@ -136,7 +153,9 @@ const MakronexusAI=():JSX.Element=>{
                 <FontAwesomeIcon className="cursor-pointer" style={{fontSize:"20px"}} icon={faFileArrowUp}/>
                 <FontAwesomeIcon className="cursor-pointer mx-3" style={{fontSize:"20px"}} icon={faImage}/>
                     <div className="d-flex align-items-center">
-            <input type="text" style={{width:"30rem"}} className="search py-2 px-2 ms-1" placeholder="Ask me anything ..." value={question} onChange={handleInput}/>
+            <input type="text" onKeyDown={(e)=>{
+                e.keyCode===13 && e.shiftKey ===false && handleAsk()
+            }} style={{width:"30rem"}} className="search py-2 px-2 ms-1" placeholder="Ask me anything ..." value={question} onChange={handleInput}/>
         </div>
                     <div className="btn btn-primary" onClick={handleAsk}>
                     <FontAwesomeIcon icon={faPaperPlane}/>
