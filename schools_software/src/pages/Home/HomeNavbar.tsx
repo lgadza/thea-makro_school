@@ -25,6 +25,7 @@ const HomeNavbar: React.FC = () => {
           <img
             src={makro_logo}
             alt="Makro Logo"
+            style={{width:"50px"}}
           />
           <div className="menu-toggle" id="mobile-menu" onClick={handleMenuToggleClick}>
             <span className="menu-bar"></span>

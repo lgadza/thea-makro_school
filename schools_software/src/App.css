@@ -321,7 +321,11 @@ background-color: #BFBFBF;
 }
 .ask-input-nav{
   position: sticky;
+  position: fixed;
   bottom: 0;
+  left: 20%;
+  right: 30%;
+  
 }
 /* GLOW STUFF */
 
@@ -417,6 +421,7 @@ background-color: #BFBFBF;
     background-position: 200% center;
   }
 }
+
 /* TEST */
 .glow-btn button span:nth-child(2) {
   top: -100%;

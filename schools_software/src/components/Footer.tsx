@@ -57,12 +57,12 @@ const Footer: React.FC = () => {
               <div className="footer-widget">
                 <div className="footer-logo">
                   <a>
-                    <img src={logo} className="img-fluid" alt="logo" />
+                    <img src={logo} className="img-fluid" style={{width:"50px"}} alt="logo" />
                   </a>
                 </div>
                 <div className="footer-text">
                   <p>
-                  The next-gen School Learning Management System with AI-powered CALA feature for personalized learning and better student outcome
+                  The next-gen School Learning Management System with AI-powered features for personalized learning and better student outcome
                   </p>
                 </div>
                 <div className="footer-social-icon">

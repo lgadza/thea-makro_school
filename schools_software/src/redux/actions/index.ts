@@ -103,7 +103,7 @@ export const chatWithAi = (messages:UserChatting[]) => {
                 Accept:"application.json",
                 "Content-Type":"application/json",
             },
-            body:JSON.stringify({message:messages.map((message)=>message.message).join("")})
+            body:JSON.stringify({message:messages.map((message)=>message.message).join("\n")})
         }
          
         try{
@@ -145,6 +145,7 @@ export const chatWithAi = (messages:UserChatting[]) => {
         }
     }
   };
+
 export const ApplicantRegister = (formData:ApplicantRegistration) => {
     
     return async (dispatch:Dispatch)=>{
