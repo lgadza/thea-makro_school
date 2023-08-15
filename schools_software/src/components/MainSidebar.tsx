@@ -89,7 +89,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                   <FontAwesomeIcon icon={faGauge} className={`me-2 ${showDashboard?"active":""}`} />
                   {showMenu && (
 
-                 <span className={`${showDashboard?"active":""}`}>Dashboard</span>
+                 <small className={`${showDashboard?"active":""}`}>Dashboard</small>
                   )}
                  </div>
                  {/* {showMenu && (
@@ -129,7 +129,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                   <FontAwesomeIcon icon={faUsers} className={`me-2 ${studentOpen?"active":""}`}/>
                   {showMenu && (
 
-                 <span className={`${studentOpen?"active":""}`}>Students</span>
+                 <small className={`${studentOpen?"active":""}`}>Students</small>
 )}
                  </div>
                  {showMenu && (
@@ -145,14 +145,15 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                          onClick={() => handleNavigationClick("AllStudents")}  
                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "AllStudents" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                            All Students</Link>
+                            <small>All Students</small></Link>
                         <Link to='' onClick={() => handleNavigationClick("StudentAdmissions")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="StudentAdmissions"?"active":""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        All Candidates
+                        
+                        <small>All Candidates</small>
                         </Link>
                         <Link  to='' onClick={() => handleNavigationClick("NewCandidate")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="NewCandidate"?"active":""}`}> 
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Admission Form 
+                         <small>Admission Form</small>
                         </Link>
                       
                     </div>
@@ -169,7 +170,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                   <FontAwesomeIcon icon={faLightbulb} className={`me-2 ${showAI?"active":""}`}/>
                   {showMenu && (
 
-                 <span className={`${showAI?"active":""}`}>Makronexus AI</span>
+                 <small className={`${showAI?"active":""}`}>Makronexa</small>
 )}
                  </div>
                  {showMenu && (
@@ -184,7 +185,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                           onClick={() => handleNavigationClick("MakronexusAI")}  
                           className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "MakronexusAI" ? "active" : ""}`}>
                         <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Makronexus AI
+                        <small>Makronexa</small>
                         </Link>
                         <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
                    

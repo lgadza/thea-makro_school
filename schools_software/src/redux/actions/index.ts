@@ -147,20 +147,41 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
 //         }
 //     }
 //   };
-export const chatWithAi = async (messages: UserChatting[]) => {
+export const chatWithAi = async (messages: UserChatting[],model:string) => {
     const options:RequestInit={
                     method:"POST",
                     headers:{
                         Accept:"application.json",
                         "Content-Type":"application/json",
                     },
-                    body:JSON.stringify({message:messages.map((message)=>message.message).join("\n")})
+                    body:JSON.stringify({message:messages.map((message)=>message.message).join("\n"),model})
                 }
     try {
       const response=await fetch("http://localhost:3001/ai",options)
       if (response.ok) {
         const answer = await response.json();
         return answer; 
+      } else {
+        console.log("ERROR")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  };
+export const getEngines = async () => {
+    const options:RequestInit={
+                    method:"GET",
+                    headers:{
+                        Accept:"application.json",
+                        "Content-Type":"application/json",
+                    },
+                   
+                }
+    try {
+      const response=await fetch("http://localhost:3001/ai/models",options)
+      if (response.ok) {
+        const models = await response.json();
+        return models; 
       } else {
         console.log("ERROR")
       }

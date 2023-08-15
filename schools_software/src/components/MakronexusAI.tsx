@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
-import { useEffect, useRef, useState } from "react"
+import { ReactElement, useEffect, useRef, useState } from "react"
 import { Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
-import { chatWithAi } from "../redux/actions"
+import { chatWithAi, getEngines } from "../redux/actions"
 import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 interface Message {
@@ -18,10 +18,18 @@ interface Message {
     imageSrc?: string;
     from:string;
   }
+  interface Engine{
+    created:string|null;
+    id:string;
+    object:string;
+    owner:string;
+    permissions: null;
+    ready:boolean
+  }
   const MakronexusAI: React.FC = () => {
-    // const answer = useSelector((state: RootState) => state.chatWithAi.message);
-    const isError = useSelector((state: RootState) => state.chatWithAi.isError);
     const [loading, setLoading] = useState(false); 
+    const [models, setModels] = useState<Engine[]>([]); 
+    const [currentModel,setCurrentModel]=useState("text-davinci-003")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
@@ -31,35 +39,20 @@ interface Message {
       setQuestion(e.target.value);
     };
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
-
-    // const handleAsk = async () => {
-    //   if (question !== "") {
-    //     const newMessage = { message: question, from: "user" };
-    //     await Promise.resolve(setMessages((prev) => [...prev, newMessage]));
-    //     await setQuestion("");
-    //     try{
-    //       const answer=  await chatWithAi([...messages, newMessage]);
-    //       await Promise.resolve(setMessages((prev) => [...prev, answer]));
-    //     }catch(error){
-    //       console.log(error)
-    //     }
-        
-    //   }
-    // };
     
   const handleAsk = async () => {
     if (question !== "") {
       const newMessage = { message: question, from: "user" };
-      setMessages((prev) => [...prev, newMessage]); // Set loading and add new message
+      setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
       try {
-        setLoading(true); // Set loading to true before fetching
-        const answer = await chatWithAi([...messages, newMessage]);
+        setLoading(true); 
+        const answer = await chatWithAi([...messages, newMessage],currentModel);
         setMessages((prev) => [...prev, answer]);
       } catch (error) {
         console.log(error);
       } finally {
-        setLoading(false); // Set loading to false after fetching
+        setLoading(false);
       }
     }
   };
@@ -71,10 +64,18 @@ interface Message {
    
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
-      // lastMessageRef.current && autoAnimate(lastMessageRef.current)
     }
   }, [messages]);
-  
+  useEffect(()=>{
+    const getModels=async()=>{
+      const engines=await getEngines()
+
+      console.log(engines.models)
+      setModels(engines.models)
+    }
+    getModels()
+
+  },[])
 const Loader: React.FC = () => {
   return (
     <div className="chat-loader-container w-75  py-3 d-flex justify-content-center align-items-center">
@@ -230,10 +231,19 @@ const Loader: React.FC = () => {
           </div>
         </div>
         <div className="col col-md-4">
-          <div className="d-flex">
+          <div className="d-flex justify-content-between">
             <Button className="btn-primary content_bg" onClick={newChat}>
-              <FontAwesomeIcon icon={faPlus} /> New chat
+              <FontAwesomeIcon icon={faPlus} /> <small>New chat</small>
             </Button>
+           {models.length>0 && (
+             <select name="models" className="p-2" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
+              setCurrentModel(e.target.value)
+             }}>
+             {models.map((model,index)=>(
+               <option key={index} value={model.id}>{model.id}</option>
+             ))}
+           </select>
+           )}
           </div>
           <div className="my-3">
             <ul>
