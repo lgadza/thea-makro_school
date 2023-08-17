@@ -8,7 +8,7 @@ import { Button, Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
-import { chatWithAi, getEngines } from "../redux/actions"
+import { chatWithAi, deleteChat, getAllAiChats, getEngines, newChat } from "../redux/actions"
 import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
@@ -27,10 +27,21 @@ interface Message {
     permissions: null;
     ready:boolean
   }
+  interface chatProps{
+    id:string;
+    makronexaQAs:[];
+    createdAt:string;
+    updatedAt:string;
+  }
   const MakronexusAI: React.FC = () => {
     const user:ApplicantRegistration=useSelector((state:RootState)=>state.applicantData.data)
+    const allChats=useSelector((state:RootState)=>state.getAllAiChats.chats)
+    const allChatsLoading=useSelector((state:RootState)=>state.getAllAiChats.isLoading)
+    const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
     const [loading, setLoading] = useState(false); 
+    const [currentChat, setCurrentChat] = useState(""); 
     const [models, setModels] = useState<Engine[]>([]); 
+    const [chats, setchats] = useState<chatProps[]>(allChats); 
     const [currentModel,setCurrentModel]=useState("text-davinci-003")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
@@ -52,7 +63,7 @@ interface Message {
       setQuestion("");
       try {
         setLoading(true); 
-        const answer = await chatWithAi([...messages, newMessage],currentModel,question, user.id,);
+        const answer = await chatWithAi([...messages, newMessage],currentModel,question,currentChat, user.id);
         if (answer) {
           setMessages((prev) => [...prev, answer]);
         }else{
@@ -65,10 +76,32 @@ interface Message {
       }
     }
   };
-  
-  const newChat=()=>{
+  console.log(allChats,"ALL CHATS")
+  const handleNewChat=async()=>{
+    setCurrentChat("")
     setMessages([])
+    try{
+      const lastChat=chats[chats.length-1]
+      if (lastChat && lastChat.makronexaQAs.length===0) {
+        await deleteChat(lastChat.id);
+      }
+
+      if(user.id){
+      const newAiChat = await newChat(user.id)
+      if(newAiChat){
+        setCurrentChat(newAiChat)
+      }else{
+        setAiError(true)
+      }
+    }
+    }catch(error){
+      console.log(error,"ERROR")
+    }
   }
+  useEffect(()=>{
+    handleNewChat()
+    dispatch(getAllAiChats(user.id))
+  },[])
   useEffect(() => {
    
     if (lastMessageRef.current) {
@@ -302,7 +335,7 @@ console.log(question,"QUESTION")}
         </div>
         <div className="col col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
-            <Button className="btn-primary content_bg" onClick={newChat}>
+            <Button className="btn-primary content_bg" onClick={handleNewChat}>
               <FontAwesomeIcon icon={faPlus} /> <small>New chat</small>
             </Button>
            {models.length>0 && (
