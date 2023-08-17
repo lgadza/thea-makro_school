@@ -1,16 +1,17 @@
-import { faArrowCircleDown, faArrowRotateForward, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus, faSearch, faThumbsDown, faThumbsUp, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition, faArrowCircleDown, faArrowRotateForward, faBoltLightning, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus, faSearch, faSun, faThumbsDown, faThumbsUp, faTrash, faWarning } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
 import { ReactElement, useEffect, useRef, useState } from "react"
-import { Button } from "react-bootstrap"
+import { Button, Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
 import { chatWithAi, getEngines } from "../redux/actions"
 import { Dispatch } from "redux"
 import "./MakronexusAi.css"
+import { ApplicantRegistration } from "../Types"
 interface Message {
     altText?: string;
     message: string;
@@ -27,12 +28,14 @@ interface Message {
     ready:boolean
   }
   const MakronexusAI: React.FC = () => {
+    const user:ApplicantRegistration=useSelector((state:RootState)=>state.applicantData.data)
     const [loading, setLoading] = useState(false); 
     const [models, setModels] = useState<Engine[]>([]); 
     const [currentModel,setCurrentModel]=useState("text-davinci-003")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
+    const [aiError, setAiError] = useState<boolean>(false);
     const dispatch: Dispatch<any> = useDispatch();
   
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,14 +44,20 @@ interface Message {
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
     
   const handleAsk = async () => {
+    console.log("clicked 1")
     if (question !== "") {
+      console.log("clicked 2")
       const newMessage = { message: question, from: "user" };
       setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
       try {
         setLoading(true); 
-        const answer = await chatWithAi([...messages, newMessage],currentModel);
-        setMessages((prev) => [...prev, answer]);
+        const answer = await chatWithAi([...messages, newMessage],currentModel,question, user.id,);
+        if (answer) {
+          setMessages((prev) => [...prev, answer]);
+        }else{
+          setAiError(true)
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -91,29 +100,80 @@ const Loader: React.FC = () => {
     </div>
   );
 };
-  
+
+const MakronexaOverview: React.FC = () => {
+  const examplePrompts = [
+    "Explain Newton's law in simple terms",
+    "Could you suggest creative and interactive online activities",
+    "Got any tips on how to create an effective study schedule?",
+  ];
+
+  const capabilities = [
+    "Remembers what users said earlier in the conversation",
+    "Helps students find relevant and credible sources for research projects",
+    "Streamlines the grading process by automatically grading assignments, quizzes, and exams",
+  ];
+
+  const limitations = ["May occasionally generate incorrect answers"];
+  return (
+    <div>
+      <Row>
+         <Col>
+          <OverviewSection
+            icon={faSun}
+            title="Examples"
+            items={examplePrompts}
+            onItemClick={(item)=>{
+             setQuestion(item)
+              handleAsk()
+            }}
+            className="nav-item"
+          />
+        </Col>
+        <Col>
+          <OverviewSection icon={faBoltLightning} title="Capabilities" items={capabilities} />
+        </Col>
+        <Col>
+          <OverviewSection icon={faWarning} title="Limitations" items={limitations} color="yellow" />
+        </Col>
+      </Row>
+    </div>
+  );
+};
+
+const OverviewSection: React.FC<{ icon: IconDefinition; title: string; items: string[]; color?: string;className?:string;onItemClick?: (item: string) => void; }> = ({
+  icon,
+  title,
+  items,
+  color,
+  onItemClick,
+  className
+}) => {
+  return (
+    <div className="d-flex flex-column">
+      <FontAwesomeIcon icon={icon} style={{ color: color || "inherit" }} />
+      <span className="mt-1">{title}</span>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index} className={`text-start content_bg my-3 p-2 ${className}`}
+          onClick={() => {onItemClick && onItemClick(item)
+console.log(question,"QUESTION")}
+
+          }
+          >
+            <small>{item}</small>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
     return (
       <div className="row mx-3">
         <div className="col col-md-8 helper">
-          <div className="d-flex justify-content-center">
-            <div className="d-flex justify-content-end w-75">
-              <div
-                className="cursor-pointer pb-2"
-                onClick={() => setCopied(true)}
-              >
-                {!copied ? (
-                  <FontAwesomeIcon
-                    style={{ color: `${true}:"rgb(108, 117, 105)"` }}
-                    icon={faCopy}
-                  />
-                ) : (
-                  <span className="py-2 text-muted">Copied</span>
-                )}
-              </div>
-            </div>
-          </div>
-          {messages.length > 0 &&
-            messages.map((section, index) => (
+          {messages.length > 0 ?
+            (messages.map((section, index) => (
               <div key={index}>
                 <div className="d-flex justify-content-center text-start mt-2">
                   <div className="pe-2">
@@ -174,25 +234,35 @@ const Loader: React.FC = () => {
                         style={{
                           color: `${section.liked ? "white" : "red"}`,
                         }}
-                      />
-                      <FontAwesomeIcon
-                        className="cursor-pointer"
-                        icon={faCopy}
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                      />   
+                      <div
+                        className="cursor-pointer pb-2"
+                        onClick={() => setCopied(true)}>
+                        {!copied ? (
+                          <FontAwesomeIcon
+                            style={{ color: `${true}:"rgb(108, 117, 105)"` }}
+                            icon={faCopy}
+                          />
+                        ) : (
+                          <span className="py-2 text-muted">Copied</span>
+                        )}
+                      </div>
+                      </div>
+                    </div>)}
+                  </div> ))):(<MakronexaOverview/>)}
   
-          <div className="btn btn-secondary my-3" onClick={handleAsk}>
-            <FontAwesomeIcon className="px-2" icon={faArrowRotateForward} />
-            <small>Regenerate response</small>
-          </div>
+         
           <div className="pb-3 ask-input-nav main_bg py-3">
-            <div className="d-flex justify-content-center ms-3">
+            <div className="d-flex input-container justify-content-center ms-3">
           {loading?( <Loader/>):(
               <div className="d-flex justify-content-between w-75 align-items-center">
+                 {aiError?(<Button className="btn regenerate-btn-container bg-warning my-3" style={{color:"red"}} onClick={handleAsk}>
+                  <FontAwesomeIcon className="px-2" icon={faWarning} />
+                  <small>Something went wrong at our end, try later</small>
+                </Button>):(<Button className="btn regenerate-btn-container content_bg my-3" onClick={handleAsk}>
+                  <FontAwesomeIcon className="px-2" icon={faArrowRotateForward} />
+                  <small>regenerate</small>
+                </Button>)}
                 <FontAwesomeIcon
                   className="cursor-pointer"
                   style={{ fontSize: "20px" }}
@@ -230,7 +300,7 @@ const Loader: React.FC = () => {
             />
           </div>
         </div>
-        <div className="col col-md-4">
+        <div className="col col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
             <Button className="btn-primary content_bg" onClick={newChat}>
               <FontAwesomeIcon icon={faPlus} /> <small>New chat</small>
@@ -248,20 +318,12 @@ const Loader: React.FC = () => {
           <div className="my-3">
             <ul>
               <li className="nav-item p-2 border-radius-round">
-                <span className="d-flex flex-column">
+                <small className="d-flex flex-column">
                   <strong className="d-flex">Career</strong>
-                  <small className="d-flex">
+                  <span className="d-flex">
                     How to organize productivity work ...
-                  </small>
-                </span>
-              </li>
-              <li className="nav-item p-2 border-radius-round">
-                <span className="d-flex flex-column">
-                  <strong className="d-flex">Career</strong>
-                  <small className="d-flex">
-                    How to organize productivity work ...
-                  </small>
-                </span>
+                  </span>
+                </small>
               </li>
             </ul>
             <div className="mt-3 text-start d-flex">

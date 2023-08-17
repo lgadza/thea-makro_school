@@ -93,7 +93,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                   )}
                  </div>
                  {/* {showMenu && (
-                 <FontAwesomeIcon  icon={showDashboard ? faChevronDown : faChevronRight}  className="me-2" />
+                 <FontAwesomeIcon  icon={showDashboard ? faChevronDown : faChevronRight} style={{fontSize:".85rem"}}  className="me-2" />
 
                  )} */}
                </Link>
@@ -101,17 +101,17 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                  <div className=" d-flex flex-column content_bg overlap">
                      
                  <Link to="" className='d-flex nowrap align-items-center px-2 py-2'>
-                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                      Admin</Link>
               
-                 <Link to="" className={`d-flex align-items-center nowrap px-2 py-2`}><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Students</Link>
+                 <Link to="" className={`d-flex align-items-center nowrap px-2 py-2`}><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Students</Link>
             
                  <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
-                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                  Teachers
                  </Link>
                  <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
-                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                 <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                  Parents
                  </Link>
                
@@ -133,7 +133,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon  icon={studentOpen ? faChevronDown : faChevronRight}  className="me-2" />
+                 <FontAwesomeIcon  icon={studentOpen ? faChevronDown : faChevronRight} style={{fontSize:".85rem"}}  className="me-2" />
 
                  )}
                </Link>
@@ -144,15 +144,15 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                         to=''
                          onClick={() => handleNavigationClick("AllStudents")}  
                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "AllStudents" ? "active" : ""}`}>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             <small>All Students</small></Link>
                         <Link to='' onClick={() => handleNavigationClick("StudentAdmissions")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="StudentAdmissions"?"active":""}`}> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                         
                         <small>All Candidates</small>
                         </Link>
                         <Link  to='' onClick={() => handleNavigationClick("NewCandidate")} className={`d-flex align-items-center nowrap px-2 py-2 ${activeComponent==="NewCandidate"?"active":""}`}> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                          <small>Admission Form</small>
                         </Link>
                       
@@ -174,7 +174,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={!showAI?faChevronRight:faChevronDown} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -184,17 +184,18 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                           to=''
                           onClick={() => handleNavigationClick("MakronexusAI")}  
                           className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "MakronexusAI" ? "active" : ""}`}>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                         <small>Makronexa</small>
                         </Link>
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />My Projects</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" /><small>My Projects</small></Link>
                    
                         <Link to="" onClick={()=>handleNavigationClick("ResourceUploadForm")} className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "ResourceUploadForm" ? "active" : ""}`}> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
-                        Upload file
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
+                        
+                        <small>Upload file</small>
                         </Link>                      
                         <Link to="" className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "Settings" ? "active" : ""}`} onClick={() => handleNavigationClick("Settings")} >
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2 d-flex" /> Settings
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2 d-flex" /> <small>Settings</small>
                             </Link>
                     </div>
                   )}
@@ -215,7 +216,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showTeachers? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -223,17 +224,17 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Teachers</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Teachers Details</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Teachers Details</Link>
                    
                         <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                         Add Teacher
                         </Link>
                         <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                         Payment
                         </Link>
                       
@@ -257,7 +258,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showParents? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showParents? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -265,13 +266,13 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Parents</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Parent Details</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Parent Details</Link>
                    
                         <Link to="" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                        Add Parent
                         </Link>
                     </div>
@@ -292,7 +293,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showLibrary? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showLibrary? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -300,13 +301,13 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Books</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Book Details</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Book Details</Link>
                    
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                         Add New Book
                         </Link>
                     </div>
@@ -327,7 +328,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showInventory? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showInventory? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -335,13 +336,13 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Fees Collection</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Expenses</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Expenses</Link>
                    
                         <Link to="/student-info" className='d-flex align-items-center nowrap px-2 py-2'> 
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                         Add Expenses
                         </Link>
                     </div>
@@ -362,7 +363,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showClass? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showClass? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -370,10 +371,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Class</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Class</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Add New Class</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -392,7 +393,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showClassRoutine? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showClassRoutine? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -400,10 +401,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Class Routines</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add Class Routine</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Add Class Routine</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -422,7 +423,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showSubjects? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showSubjects? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -430,10 +431,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Subjects</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add  New Subject</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Add  New Subject</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -468,7 +469,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                {showMenu && (
-                 <FontAwesomeIcon icon={showExam? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showExam? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                )}
                </Link>
@@ -476,10 +477,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             Exam Schedule</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Exam Grades</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Exam Grades</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -498,7 +499,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showTransport? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showTransport? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -506,10 +507,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Transports</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Transport</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Add New Transport</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -528,7 +529,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                  {showMenu && (
-                 <FontAwesomeIcon icon={showHostel? faChevronDown : faChevronRight} className="me-2" />
+                 <FontAwesomeIcon icon={showHostel? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                  )}
                </Link>
@@ -536,10 +537,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Rooms</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Hostel</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Add New Hostel</Link>
                     </div>
                   )}
             </Nav.Item>
@@ -575,7 +576,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 )}
                  </div>
                   {showMenu && (
-                  <FontAwesomeIcon icon={showUsers? faChevronDown : faChevronRight} className="me-2" />
+                  <FontAwesomeIcon icon={showUsers? faChevronDown : faChevronRight} style={{fontSize:".85rem"}} className="me-2" />
 
                   )}
                </Link>
@@ -583,10 +584,10 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
                     <div className=" d-flex flex-column content_bg overlap">
                      
                         <Link to="/admit-student" className='d-flex nowrap align-items-center px-2 py-2'>
-                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />
+                        <FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />
                             All Admins</Link>
                      
-                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".8rem"}} className="me-2" />Add New Admin</Link>
+                        <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><FontAwesomeIcon icon={faChevronRight} style={{fontSize:".7rem"}} className="me-2" />Add New Admin</Link>
                     </div>
                   )}
             </Nav.Item>

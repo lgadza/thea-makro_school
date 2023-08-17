@@ -61,7 +61,10 @@ color: white !important;
   background-color: var(--bg-1);
 }
 .border-radius-round{
-  border-radius: 3px ;
+  border-radius: 5px ;
+ }
+.border-round{
+  border: 2px solid var(--content-bg);
  }
 @keyframes logo-spin {
   from {
@@ -326,6 +329,14 @@ background-color: #BFBFBF;
   left: 20%;
   right: 30%;
   
+}
+.input-container {
+  position: relative;
+}
+.regenerate-btn-container{
+  position: absolute;
+  right:10%;
+  bottom: 80% ;
 }
 /* GLOW STUFF */
 

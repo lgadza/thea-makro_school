@@ -147,17 +147,17 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
 //         }
 //     }
 //   };
-export const chatWithAi = async (messages: UserChatting[],model:string) => {
+export const chatWithAi = async (messages: UserChatting[],model:string,question:string,applicant_id?:string,) => {
     const options:RequestInit={
                     method:"POST",
                     headers:{
                         Accept:"application.json",
                         "Content-Type":"application/json",
                     },
-                    body:JSON.stringify({message:messages.map((message)=>message.message).join("\n"),model})
+                    body:JSON.stringify({message:messages.map((message)=>message.message).join("\n"),model,applicant_id,question})
                 }
     try {
-      const response=await fetch("http://localhost:3001/ai",options)
+      const response=await fetch("http://localhost:3001/ai/chats/dccddaba-ed8f-4e24-ba2f-4cf21ecab6bb/messages",options)
       if (response.ok) {
         const answer = await response.json();
         return answer; 
