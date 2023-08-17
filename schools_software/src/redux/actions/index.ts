@@ -94,59 +94,99 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
         }
     }
 }
-export const getAllAiChats = (user_id?:string) => {
+// export const getAllAiChats = (user_id?:string) => {
     
-    return async (dispatch:Dispatch)=>{
+//     return async (dispatch:Dispatch)=>{
+//         const options:RequestInit={
+//             method:"GET",
+//             headers:{
+//                 Accept:"application.json",
+//                 "Content-Type":"application/json",
+//             },
+            
+//         }
+         
+//         try{
+//             const response=await fetch(`http://localhost:3001/ai/${user_id}/chats`,options)
+//             if(response.ok){
+//                 const chats=await response.json();
+//                 console.log(chats,"CHATS")
+//                 dispatch({
+//                     type:GET_ALL_AI_CHATS,
+//                     payload:chats
+//                 });
+//                 setTimeout(()=>{
+//                    dispatch({
+//                     type:GET_ALL_AI_CHATS_LOADING,
+//                     payload:false,
+//                    });
+//                 },100);
+               
+
+//             }else{
+//                 console.log("error")
+//                 dispatch({
+//                     type:GET_ALL_AI_CHATS_LOADING,
+//                     payload:false,
+//                 });
+//                 dispatch({
+//                     type:GET_ALL_AI_CHATS_ERROR,
+//                     payload:true,
+//                 })
+//             }
+//         }catch(error){
+//             console.log(error)
+//             dispatch({
+//                 type:GET_ALL_AI_CHATS_LOADING,
+//                 payload:false,
+//             });
+//             dispatch({
+//                 type:GET_ALL_AI_CHATS_ERROR,
+//                 payload:true,
+//             })
+//         }
+//     }
+//   };
+export const getAllAiChats = async(user_id?:string) => {
         const options:RequestInit={
             method:"GET",
             headers:{
                 Accept:"application.json",
                 "Content-Type":"application/json",
-            },
-            
+            },    
         }
-         
         try{
             const response=await fetch(`http://localhost:3001/ai/${user_id}/chats`,options)
             if(response.ok){
                 const chats=await response.json();
-                console.log(chats,"CHATS")
-                dispatch({
-                    type:GET_ALL_AI_CHATS,
-                    payload:chats
-                });
-                setTimeout(()=>{
-                   dispatch({
-                    type:GET_ALL_AI_CHATS_LOADING,
-                    payload:false,
-                   });
-                },100);
-               
-
+                return chats
             }else{
                 console.log("error")
-                dispatch({
-                    type:GET_ALL_AI_CHATS_LOADING,
-                    payload:false,
-                });
-                dispatch({
-                    type:GET_ALL_AI_CHATS_ERROR,
-                    payload:true,
-                })
             }
         }catch(error){
             console.log(error)
-            dispatch({
-                type:GET_ALL_AI_CHATS_LOADING,
-                payload:false,
-            });
-            dispatch({
-                type:GET_ALL_AI_CHATS_ERROR,
-                payload:true,
-            })
         }
-    }
-  };
+    };
+export const getChatMessages = async(chat_id:string,user_id?:string) => {
+        const options:RequestInit={
+            method:"GET",
+            headers:{
+                Accept:"application.json",
+                "Content-Type":"application/json",
+            },    
+        }
+        try{
+            const response=await fetch(`http://localhost:3001/ai/${user_id}/chats/${chat_id}`,options)
+            if(response.ok){
+                const chats=await response.json();
+                return chats
+            }else{
+                console.log("error")
+            }
+        }catch(error){
+            console.log(error)
+        }
+    };
 export const chatWithAi = async (messages: UserChatting[],model:string,question:string,currentChat:string,applicant_id?:string) => {
     const options:RequestInit={
                     method:"POST",
@@ -203,11 +243,29 @@ export const deleteChat = async (chat_id:string,applicant_id?:string,) => {
       if (response.ok) {
         const res = await response.json();
         console.log(res," CHAT DELETED")
-      } else {
-        console.log("ERROR DELETING  CHAT")
       }
     } catch (error) {
       console.log(error,"ERROR DELETING  CHAT")
+    }
+  };
+export const deleteAllChats = async (applicant_id?:string,) => {
+    const options:RequestInit={
+                    method:"DELETE",
+                    headers:{
+                        Accept:"application.json",
+                        "Content-Type":"application/json",
+                    },
+                   
+                }
+    try {
+      const response=await fetch(`http://localhost:3001/ai/${applicant_id}/chats`,options)
+      if (response.ok) {
+        getAllAiChats(applicant_id)
+        const res = await response.json();
+        console.log(res," ALL CHATS DELETED")
+      } 
+    } catch (error) {
+      console.log(error,"ERROR DELETING ALL CHATS")
     }
   };
 export const getEngines = async () => {

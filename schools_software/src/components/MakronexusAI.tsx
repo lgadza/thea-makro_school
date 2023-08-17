@@ -1,4 +1,4 @@
-import { IconDefinition, faArrowCircleDown, faArrowRotateForward, faBoltLightning, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus, faSearch, faSun, faThumbsDown, faThumbsUp, faTrash, faWarning } from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition, faArrowCircleDown, faArrowRotateForward, faBoltLightning, faComments, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus, faSearch, faSun, faThumbsDown, faThumbsUp, faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
@@ -8,7 +8,7 @@ import { Button, Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
-import { chatWithAi, deleteChat, getAllAiChats, getEngines, newChat } from "../redux/actions"
+import { chatWithAi, deleteAllChats, deleteChat, getAllAiChats, getChatMessages, getEngines, newChat } from "../redux/actions"
 import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
@@ -35,13 +35,14 @@ interface Message {
   }
   const MakronexusAI: React.FC = () => {
     const user:ApplicantRegistration=useSelector((state:RootState)=>state.applicantData.data)
-    const allChats=useSelector((state:RootState)=>state.getAllAiChats.chats)
+    // const allChats=useSelector((state:RootState)=>state.getAllAiChats.chats)
     const allChatsLoading=useSelector((state:RootState)=>state.getAllAiChats.isLoading)
     const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
     const [loading, setLoading] = useState(false); 
     const [currentChat, setCurrentChat] = useState(""); 
     const [models, setModels] = useState<Engine[]>([]); 
-    const [chats, setchats] = useState<chatProps[]>(allChats); 
+    const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
+    const [chats, setChats] = useState<chatProps[]>([]); 
     const [currentModel,setCurrentModel]=useState("text-davinci-003")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
@@ -76,14 +77,24 @@ interface Message {
       }
     }
   };
-  console.log(allChats,"ALL CHATS")
+  const getAllChats=async()=>{
+    if(user.id){
+      const allChats=await getAllAiChats(user.id)
+      if(allChats){
+        setChats(allChats)
+      }
+    }
+  }
+
   const handleNewChat=async()=>{
     setCurrentChat("")
     setMessages([])
     try{
+     
       const lastChat=chats[chats.length-1]
-      if (lastChat && lastChat.makronexaQAs.length===0) {
-        await deleteChat(lastChat.id);
+      if (lastChat && lastChat.makronexaQAs.length===0 && !question) {
+        await deleteChat(lastChat.id,user.id);
+       
       }
 
       if(user.id){
@@ -94,15 +105,19 @@ interface Message {
         setAiError(true)
       }
     }
+    getAllChats()
     }catch(error){
       console.log(error,"ERROR")
     }
   }
-  useEffect(()=>{
-    handleNewChat()
-    dispatch(getAllAiChats(user.id))
-  },[])
+ const handleGetChatMessages=async()=>{
+  const chatMessages=await getChatMessages(currentChat,user.id)
+  if(chatMessages){
+    setMessages(chatMessages)
+  }
+ }
   useEffect(() => {
+    getAllChats()
    
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
@@ -111,8 +126,6 @@ interface Message {
   useEffect(()=>{
     const getModels=async()=>{
       const engines=await getEngines()
-
-      console.log(engines.models)
       setModels(engines.models)
     }
     getModels()
@@ -205,7 +218,7 @@ console.log(question,"QUESTION")}
     return (
       <div className="row mx-3">
         <div className="col col-md-8 helper">
-          {messages.length > 0 ?
+          {messages.length > 0 || currentChat ?
             (messages.map((section, index) => (
               <div key={index}>
                 <div className="d-flex justify-content-center text-start mt-2">
@@ -284,7 +297,7 @@ console.log(question,"QUESTION")}
                     </div>)}
                   </div> ))):(<MakronexaOverview/>)}
   
-         
+         {currentChat &&(
           <div className="pb-3 ask-input-nav main_bg py-3">
             <div className="d-flex input-container justify-content-center ms-3">
           {loading?( <Loader/>):(
@@ -332,10 +345,14 @@ console.log(question,"QUESTION")}
               icon={faArrowCircleDown}
             />
           </div>
+          )}
         </div>
         <div className="col col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
-            <Button className="btn-primary content_bg" onClick={handleNewChat}>
+            <Button className="btn-primary content_bg header" onClick={async()=>{
+              await handleNewChat()
+              getAllChats()
+              }}>
               <FontAwesomeIcon icon={faPlus} /> <small>New chat</small>
             </Button>
            {models.length>0 && (
@@ -350,21 +367,42 @@ console.log(question,"QUESTION")}
           </div>
           <div className="my-3">
             <ul>
-              <li className="nav-item p-2 border-radius-round">
-                <small className="d-flex flex-column">
-                  <strong className="d-flex">Career</strong>
-                  <span className="d-flex">
-                    How to organize productivity work ...
+              {chats.length>0 &&(
+                chats
+                .filter((chat) => chat.makronexaQAs.length !==0)
+                .map((chat,index)=>{
+                  return(
+              <li className="nav-item p-2 border-radius-round my-1 d-flex justify-content-between align-items-center" key={index}>
+                <small className="d-flex" onClick={async()=>{
+                  await setCurrentChat(chat.id)
+                  handleGetChatMessages()
+                }}>
+                <FontAwesomeIcon 
+                  icon={faComments} style={{color:"gray"}} />
+                  <span className=" ms-2 text-start chat_header_name">
+                    {chat.makronexaQAs[0].content}
                   </span>
                 </small>
+                <FontAwesomeIcon onClick={async()=>{
+                  await deleteChat(chat.id,user.id)
+                  getAllChats()
+                  setMessages([])
+                  }} 
+                  icon={faTrashCan} style={{color:"red",fontSize:"0.8rem"}} />
               </li>
+                  )
+                })
+              )}
             </ul>
-            <div className="mt-3 text-start d-flex">
-              <Button className="btn-secondary  content_bg">
-                <FontAwesomeIcon icon={faTrash} />
-                <span className="px-2">Clear history</span>
+            {/* <div className="mt-3 text-start d-flex">
+              <Button className="btn-secondary  content_bg" onClick={async()=>{
+                  await deleteAllChats(user.id)
+                  getAllChats()
+                  }}  >
+                <FontAwesomeIcon icon={faTrashCan} />
+                <span className="px-2">Clear all chats </span>
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
