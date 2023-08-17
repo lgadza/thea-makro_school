@@ -87,7 +87,7 @@ interface Message {
   }
 
   const handleNewChat=async()=>{
-    setCurrentChat("")
+    // setCurrentChat("")
     setMessages([])
     try{
      
@@ -257,9 +257,11 @@ console.log(question,"QUESTION")}
                       <p
                         className={`chat-content ${
                           section.from === "user" ? "main_bg" : "content_bg"
-                        } text-start p-3`}
+                        } text-start p-2`}
                       >
+                        <small>
                         {section.message}
+                        </small>
                       </p>
                       <FontAwesomeIcon icon={faPencilSquare} className="mt-3" />
                     </div>
@@ -267,13 +269,15 @@ console.log(question,"QUESTION")}
                     <p
                       className={`chat-content ${
                         section.from === "user" ? "main_bg" : "content_bg"
-                      } text-start p-3 w-75`}
+                      } text-start p-2 w-75`}
                     >
+                      <small>
                       <pre  style={{
                         whiteSpace: "pre-wrap",
                         wordWrap: "break-word",
                         overflowWrap: "break-word",
                       }}>{section.message.trimStart()}</pre>
+                      </small>
                     </p>
                   )}
                 </div>
@@ -318,10 +322,12 @@ console.log(question,"QUESTION")}
                  {aiError?(<Button className="btn regenerate-btn-container bg-warning my-3" style={{color:"red"}} onClick={handleAsk}>
                   <FontAwesomeIcon className="px-2" icon={faWarning} />
                   <small>Something went wrong at our end, try later</small>
-                </Button>):(<Button className="btn regenerate-btn-container content_bg my-3" onClick={handleAsk}>
+                </Button>)
+                :(<Button className="btn regenerate-btn-container content_bg my-3" onClick={handleAsk}>
                   <FontAwesomeIcon className="px-2" icon={faArrowRotateForward} />
                   <small>regenerate</small>
-                </Button>)}
+                </Button>)
+                }
                 <FontAwesomeIcon
                   className="cursor-pointer"
                   style={{ fontSize: "20px" }}
@@ -360,7 +366,7 @@ console.log(question,"QUESTION")}
           </div>
           )}
         </div>
-        <div className="col col-md-4 border-round pt-3 border-radius-round">
+        <div className="col chat-nav col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
             <Button className="btn-primary content_bg header" onClick={async()=>{
               await handleNewChat()
@@ -385,11 +391,12 @@ console.log(question,"QUESTION")}
                 .filter((chat) => chat.makronexaQAs.length !==0)
                 .map((chat,index)=>{
                   return(
-              <li className="nav-item p-2 border-radius-round my-1 d-flex justify-content-between align-items-center" key={index}>
+              <li className={`nav-item p-2 border-radius-round my-1  d-flex justify-content-between align-items-center ${currentChat===chat.id?"content_bg":"header"}`} key={index}>
                 <small className="d-flex" 
                 onClick={() => handleChatItemClick(chat.id)}
                 >
                 <FontAwesomeIcon 
+                className={`${currentChat===chat.id?"":"header"}`}
                   icon={faComments} style={{color:"gray"}} />
                   {chat.makronexaQAs.length > 0 &&(
                   <span className=" ms-2 text-start chat_header_name">

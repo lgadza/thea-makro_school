@@ -73,12 +73,12 @@ const CALAFeature: React.FC = () => {
                 </div>
                 <div className="cala-user mt-5">
                     <div className='for-teachers'>
-                        <span className="teacher p-4"><FontAwesomeIcon icon={faChalkboardTeacher} style= {{fontSize:"30px"}}/></span>
+                        <span className="teacher p-4"><FontAwesomeIcon icon={faChalkboardTeacher} style= {{fontSize:"20px"}}/></span>
                         <h4 className="mt-4">For teachers</h4>
                         <VerticalTimeline  timelineItems={teacherItems}/>
                     </div>
                     <div className='for-student'>
-                        <span className="student p-4"><FontAwesomeIcon icon={faGraduationCap} color='black' style={{fontSize:"30px"}}/></span>
+                        <span className="student p-4"><FontAwesomeIcon icon={faGraduationCap} color='black' style={{fontSize:"20px"}}/></span>
                         <h4 className="mt-4">For Students</h4>
                         <VerticalTimeline timelineItems={studentsItems} />
                     </div>
