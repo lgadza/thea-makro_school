@@ -29,7 +29,7 @@ interface Message {
   }
   interface chatProps{
     id:string;
-    makronexaQAs:[];
+    makronexaQAs:Message[];
     createdAt:string;
     updatedAt:string;
   }
@@ -111,11 +111,24 @@ interface Message {
     }
   }
  const handleGetChatMessages=async()=>{
-  const chatMessages=await getChatMessages(currentChat,user.id)
-  if(chatMessages){
-    setMessages(chatMessages)
+  if(currentChat){
+    const chatMessages:chatProps=await getChatMessages(currentChat,user.id)
+    if(chatMessages.makronexaQAs.length>0){
+      setMessages(chatMessages.makronexaQAs)
+    } 
   }
  }
+const handleChatItemClick = (chat_id: string) => {
+  setMessages([]);
+  setCurrentChat(chat_id);
+};
+
+useEffect(() => {
+  if (currentChat) {
+    console.log(currentChat, "CURRENT CHAT");
+    handleGetChatMessages();
+  }
+}, [currentChat]);
   useEffect(() => {
     getAllChats()
    
@@ -229,7 +242,7 @@ console.log(question,"QUESTION")}
                         ? "https://whatsondisneyplus.com/wp-content/uploads/2021/12/merida-avatar-wodp.png"
                         : md_logo_small
                       }
-                      alt={section.altText}
+                      alt={section.from}
                       style={{
                         width: "20px",
                         height: "20px",
@@ -373,15 +386,16 @@ console.log(question,"QUESTION")}
                 .map((chat,index)=>{
                   return(
               <li className="nav-item p-2 border-radius-round my-1 d-flex justify-content-between align-items-center" key={index}>
-                <small className="d-flex" onClick={async()=>{
-                  await setCurrentChat(chat.id)
-                  handleGetChatMessages()
-                }}>
+                <small className="d-flex" 
+                onClick={() => handleChatItemClick(chat.id)}
+                >
                 <FontAwesomeIcon 
                   icon={faComments} style={{color:"gray"}} />
+                  {chat.makronexaQAs.length > 0 &&(
                   <span className=" ms-2 text-start chat_header_name">
-                    {chat.makronexaQAs[0].content}
+                    {chat.makronexaQAs[chat.makronexaQAs.length-1].message}
                   </span>
+                  )}
                 </small>
                 <FontAwesomeIcon onClick={async()=>{
                   await deleteChat(chat.id,user.id)
@@ -394,15 +408,6 @@ console.log(question,"QUESTION")}
                 })
               )}
             </ul>
-            {/* <div className="mt-3 text-start d-flex">
-              <Button className="btn-secondary  content_bg" onClick={async()=>{
-                  await deleteAllChats(user.id)
-                  getAllChats()
-                  }}  >
-                <FontAwesomeIcon icon={faTrashCan} />
-                <span className="px-2">Clear all chats </span>
-              </Button>
-            </div> */}
           </div>
         </div>
       </div>

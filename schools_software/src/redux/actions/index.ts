@@ -178,8 +178,8 @@ export const getChatMessages = async(chat_id:string,user_id?:string) => {
         try{
             const response=await fetch(`http://localhost:3001/ai/${user_id}/chats/${chat_id}`,options)
             if(response.ok){
-                const chats=await response.json();
-                return chats
+                const chat=await response.json();
+                return chat
             }else{
                 console.log("error")
             }
