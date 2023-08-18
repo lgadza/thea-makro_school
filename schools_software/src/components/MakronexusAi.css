@@ -55,7 +55,14 @@
     background-color: #fbef5a;
     animation-delay: 0s;
   }
-  
+  .makronexa-alert{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .makronexa-alert.hidden{
+  display: none;
+  }
   .loader--text {
     position: absolute;
     top: 200%;

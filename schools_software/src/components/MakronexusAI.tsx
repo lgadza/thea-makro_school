@@ -12,6 +12,7 @@ import { chatWithAi, deleteAllChats, deleteChat, getAllAiChats, getChatMessages,
 import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
+import AlertBox from "./Alerts"
 interface Message {
     altText?: string;
     message: string;
@@ -49,7 +50,24 @@ interface Message {
     const [copied, setCopied] = useState<boolean>(false);
     const [aiError, setAiError] = useState<boolean>(false);
     const dispatch: Dispatch<any> = useDispatch();
-  
+    
+    const [showAlert, setShowAlert] = useState(true);
+
+    useEffect(() => {
+      let timeout: NodeJS.Timeout;
+      if (loading) {
+        setShowAlert(true);
+      } else {
+        timeout = setTimeout(() => {
+          setShowAlert(false);
+        }, 2000);
+      }
+      return () => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+      };
+    }, [loading]);
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       setQuestion(e.target.value);
     };
@@ -93,10 +111,7 @@ interface Message {
      
       const lastChat=chats[chats.length-1]
       if (lastChat && lastChat.makronexaQAs.length===0 && !question) {
-        await deleteChat(lastChat.id,user.id);
-       
-      }
-
+        await deleteChat(lastChat.id,user.id);  }
       if(user.id){
       const newAiChat = await newChat(user.id)
       if(newAiChat){
@@ -227,10 +242,16 @@ console.log(question,"QUESTION")}
     </div>
   );
 };
-
     return (
       <div className="row mx-3">
         <div className="col col-md-8 helper">
+          <div className={`makronexa-alert ${showAlert ? 'visible' : 'hidden'}`}>
+            {loading?(
+              <AlertBox type="info" message="Makronexas is thinking..." loading={loading} />
+            ):(
+        <AlertBox type="success" message="Makronexas has responded!" loading={loading} />
+            )}
+          </div>
           {messages.length > 0 || currentChat ?
             (messages.map((section, index) => (
               <div key={index}>
@@ -319,15 +340,16 @@ console.log(question,"QUESTION")}
             <div className="d-flex input-container justify-content-center ms-3">
           {loading?( <Loader/>):(
               <div className="d-flex justify-content-between w-75 align-items-center">
-                 {aiError?(<Button className="btn regenerate-btn-container bg-warning my-3" style={{color:"red"}} onClick={handleAsk}>
-                  <FontAwesomeIcon className="px-2" icon={faWarning} />
-                  <small>Something went wrong at our end, try later</small>
-                </Button>)
-                :(<Button className="btn regenerate-btn-container content_bg my-3" onClick={handleAsk}>
-                  <FontAwesomeIcon className="px-2" icon={faArrowRotateForward} />
-                  <small>regenerate</small>
-                </Button>)
-                }
+                 {aiError &&(
+                <div className="regenerate-btn-container">
+                  <AlertBox message="Something went wrong at our end, try later" type="danger" loading={false}/>
+                </div>
+                )
+                // :(<Button className="btn regenerate-btn-container content_bg my-3" onClick={handleAsk}>
+                //   <FontAwesomeIcon className="px-2" icon={faArrowRotateForward} />
+                //   <small>regenerate</small>
+                // </Button>)
+              }
                 <FontAwesomeIcon
                   className="cursor-pointer"
                   style={{ fontSize: "20px" }}
@@ -350,8 +372,6 @@ console.log(question,"QUESTION")}
                     value={question}
                     onChange={handleInput}
                   />
-                    
-                  
                 </div>
                 <div className="btn btn-primary" onClick={handleAsk}>
                   <FontAwesomeIcon icon={faPaperPlane} />
@@ -410,10 +430,7 @@ console.log(question,"QUESTION")}
                   setMessages([])
                   }} 
                   icon={faTrashCan} style={{color:"red",fontSize:"0.8rem"}} />
-              </li>
-                  )
-                })
-              )}
+              </li>)}))}
             </ul>
           </div>
         </div>
