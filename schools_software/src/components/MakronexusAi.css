@@ -35,7 +35,10 @@
     background-color: #8c6daf;
     animation-delay: 0.4s;
   }
-  
+  .helper{
+    height: 85vh !important;
+    overflow-y: scroll;
+  }
   .loader--dot:nth-child(3) {
     background-color: #ef5d74;
     animation-delay: 0.3s;

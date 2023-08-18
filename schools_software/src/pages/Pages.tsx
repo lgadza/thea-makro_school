@@ -87,7 +87,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
             />
         </div>
           </Col>
-                <Col className="mx-3">
+                <Col className="px-3">
         <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
                   { activeComponent ==="dashboard" && <CALAOverView/>}

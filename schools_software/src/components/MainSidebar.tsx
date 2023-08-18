@@ -57,7 +57,7 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
 
   return (
     
-          <div className={showMenu?"main_bg sidebar ":"main_bg sidebar hide-menu"}>
+          <div className={showMenu?"main_bg sidebar border-round":"main_bg sidebar hide-menu border-round"}>
             <div className='d-flex sidebar-head justify-content-between ps-2 py-2 align-items-center'>
     {showMenu && (
                 <img

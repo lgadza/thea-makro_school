@@ -44,7 +44,7 @@ interface Message {
     const [models, setModels] = useState<Engine[]>([]); 
     const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
     const [chats, setChats] = useState<chatProps[]>([]); 
-    const [currentModel,setCurrentModel]=useState("text-davinci-003")
+    const [currentModel,setCurrentModel]=useState("gpt-3.5-turbo")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
@@ -247,9 +247,9 @@ console.log(question,"QUESTION")}
         <div className="col col-md-8 helper">
           <div className={`makronexa-alert ${showAlert ? 'visible' : 'hidden'}`}>
             {loading?(
-              <AlertBox type="info" message="Makronexas is thinking..." loading={loading} />
+              <AlertBox type="info" message="Makronexa is thinking..." loading={loading} />
             ):(
-        <AlertBox type="success" message="Makronexas has responded!" loading={loading} />
+        <AlertBox type="success" message="Makronexa has responded!" loading={loading} />
             )}
           </div>
           {messages.length > 0 || currentChat ?
