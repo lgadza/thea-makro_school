@@ -112,15 +112,15 @@ interface Message {
       const lastChat=chats[chats.length-1]
       if (lastChat && lastChat.makronexaQAs.length===0 && !question) {
         await deleteChat(lastChat.id,user.id);  }
-      if(user.id){
+      else if(user.id){
       const newAiChat = await newChat(user.id)
       if(newAiChat){
         setCurrentChat(newAiChat)
+        getAllChats()
       }else{
         setAiError(true)
       }
     }
-    getAllChats()
     }catch(error){
       console.log(error,"ERROR")
     }
@@ -144,13 +144,17 @@ useEffect(() => {
     handleGetChatMessages();
   }
 }, [currentChat]);
+
+const scrollToLastMessage=()=>{
+  if (lastMessageRef.current) {
+    lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+}
   useEffect(() => {
     getAllChats()
-   
-    if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollToLastMessage()
   }, [messages]);
+
   useEffect(()=>{
     const getModels=async()=>{
       const engines=await getEngines()
@@ -382,6 +386,7 @@ console.log(question,"QUESTION")}
             <FontAwesomeIcon
               className="go-bottom cursor-pointer"
               icon={faArrowCircleDown}
+              onClick={scrollToLastMessage}
             />
           </div>
           )}
@@ -395,7 +400,7 @@ console.log(question,"QUESTION")}
               <FontAwesomeIcon icon={faPlus} /> <small>New chat</small>
             </Button>
            {models.length>0 && (
-             <select name="models" className="p-2" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
+             <select name="models" className="p-2 content_bg" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
               setCurrentModel(e.target.value)
              }}>
              {models.map((model,index)=>(

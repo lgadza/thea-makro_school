@@ -76,7 +76,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                     handleNavigationClick={handleNavigationClick}
                  />    
                 </Col> */}
-          <Col md={2} className={showMenu ? "" : " hide-menu md-1"}>
+          <Col md={2} className={showMenu ? "pe-0":"pe-0 hide-menu md-1"}>
                    <div className="px-0" style={{ height: "100vh", overflowY: "scroll" }}>
             <MainSidebar
               toggleMenu={toggleMenu}
@@ -87,7 +87,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
             />
         </div>
           </Col>
-                <Col className="px-3">
+                <Col className="ps-0 pe-3">
         <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
                   { activeComponent ==="dashboard" && <CALAOverView/>}

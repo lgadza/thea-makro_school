@@ -78,6 +78,9 @@ color: white !important;
   background-color: var(--main-bg) !important;
   
 }
+.user_signing{
+  height: 100vh !important;
+ }
 .content_bg-2{
   background-color: var(--content-bg-2) !important;
 }
@@ -315,7 +318,7 @@ overflow-x: hidden;
   position: fixed;
   bottom: 0;
   left: 20%;
-  right: 30%;
+  right: 35%;
   
 }
 .input-container {
