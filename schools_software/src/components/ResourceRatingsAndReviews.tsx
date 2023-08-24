@@ -24,7 +24,7 @@ const ResourceRatingsAndReviews: React.FC<ResourceRatingsAndReviewsProps> = ({
     setRating(newRating);
     // onRatingSubmit(resourceId, newRating);
   };
-
+console.log(resourceId)
   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setReview(e.target.value);
   };

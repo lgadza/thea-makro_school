@@ -1,5 +1,4 @@
-import { faCircle } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 import { Col, Row } from "react-bootstrap"
 
 const Interview=():JSX.Element=>{

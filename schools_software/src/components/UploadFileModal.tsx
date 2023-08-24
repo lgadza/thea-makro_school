@@ -4,7 +4,7 @@ import Loader from "./Loader";
 import "./UploadFile.css"
 
 import React, { useEffect, useState } from 'react';
-import { faCheckCircle, faUpload, faX, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import { faX, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
 enum ModalState {
   Hidden,
@@ -26,7 +26,7 @@ const UploadFileModal: React.FC = () => {
     const fileTarget = target?.files?.[0];
     if (fileTarget) {
       const reader = new FileReader();
-      reader.onload = (e2) => {
+      reader.onload = () => {
         setFilename(fileTarget.name);
         setModalState(ModalState.Hidden);
       };
@@ -106,7 +106,7 @@ const UploadFileModal: React.FC = () => {
   
       if (progress < 100) {
         setProgress((prevProgress) => Math.min(prevProgress + progressStep, 100));
-        setProgressTimeout(setTimeout(progressLoop, intervalDuration));
+        // setProgressTimeout(setTimeout(progressLoop, intervalDuration));
       } else {
         success();
       }
@@ -285,13 +285,13 @@ useEffect(() => {
   );
 };
 
-class Utils {
-  static randomInt(min = 0, max: number = 2 ** 32): number {
-    const percent = crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32;
-    const relativeValue = (max - min) * percent;
-    return Math.round(min + relativeValue);
-  }
-}
+// class Utils {
+//   static randomInt(min = 0, max: number = 2 ** 32): number {
+//     const percent = crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32;
+//     const relativeValue = (max - min) * percent;
+//     return Math.round(min + relativeValue);
+//   }
+// }
 
 export default UploadFileModal;
 

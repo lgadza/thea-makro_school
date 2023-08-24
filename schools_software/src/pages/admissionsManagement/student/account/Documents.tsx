@@ -1,38 +1,38 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { Alert, Col, Form, Row } from "react-bootstrap"
-import { ApplicantRegistration, GuardianInterface } from "../../../../Types"
-import { useSelector } from "react-redux"
-import { getApplicantData } from "../../../../redux/actions"
-import { useDispatch } from "react-redux"
+// import {  GuardianInterface } from "../../../../Types"
+// import { useSelector } from "react-redux"
+// import { getApplicantData } from "../../../../redux/actions"
+// import { useDispatch } from "react-redux"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheck, faCheckCircle, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons"
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons"
 import { Button } from "react-bootstrap"
 import UploadFileModal from "../../../../components/UploadFileModal"
 
 
 const Documents=():JSX.Element=>{
-    const dispatch:any=useDispatch()
-    const data=useSelector((state:any)=>state.applicantData.data)
-const initialGuardian:GuardianInterface={
-    first_name:"",
-    last_name:"",
-    phone_number:"",
-    email:"",
-    country_code:"",
-    relationship:""
-}
+    // const dispatch:any=useDispatch()
+    // const data=useSelector((state:any)=>state.applicantData.data)
+// const initialGuardian:GuardianInterface={
+//     first_name:"",
+//     last_name:"",
+//     phone_number:"",
+//     email:"",
+//     country_code:"",
+//     relationship:""
+// }
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
-const handleChange=(e:any)=>{
-const {name,value}=e.target;
-setGuardian((data)=>({
-    ...data,
-    [name]:value
-}))
-console.log(guardian);
-}
-    const [guardian,setGuardian]=useState<GuardianInterface>(initialGuardian)
+// const handleChange=(e:any)=>{
+// const {name,value}=e.target;
+// setGuardian((data)=>({
+//     ...data,
+//     [name]:value
+// }))
+// console.log(guardian);
+// }
+    // const [guardian,setGuardian]=useState<GuardianInterface>(initialGuardian)
     useEffect(()=>{
         // dispatch(getApplicantData())
     },[])

@@ -1,5 +1,7 @@
 
-import { faBars,faChalkboardTeacher, faUsers, faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen, faGauge, faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser, faXmark, faBell, faLightbulb, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faLightbulb, faRightFromBracket,faXmark,faGauge,faUsers,  
+} from '@fortawesome/free-solid-svg-icons';
+// faChalkboardTeacher,  faBook, faBed, faFileAlt,faInfo, faIdCard,faBookOpen,  faPeopleGroup, faBuilding, faReceipt, faPenRuler, faCalendar, faClipboardUser, faClipboardCheck, faBus, faMessage, faUser,  faBell,
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,8 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Nav } from 'react-bootstrap';
 import md_logo_small from "../assets/md_logo_small.png"
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+// import { useSelector,useDispatch } from 'react-redux';
 import { CompanyName } from '../assets/data/company';
 const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}:{showMenu:boolean;toggleMenu:(page:boolean)=>void,activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element => {
 
@@ -24,36 +25,36 @@ const MainSidebar = ({showMenu,toggleMenu,activeComponent,handleNavigationClick}
   const toggleDashboard = createStateToggle(showDashboard, setShowDashboard);
   const [showAI, setShowAI] = useState(false);
   const toggleAI = createStateToggle(showAI, setShowAI);
-  const [showMessage, setShowMessage] = useState(false);
-  const toggleMessage = createStateToggle(showMessage, setShowMessage);
-  const [showNotice, setShowNotice] = useState(false);
-  const toggleNotice = createStateToggle(showNotice, setShowNotice);
-  const [showAttendance, setShowAttendance] = useState(false);
-  const toggleAttendance = createStateToggle(showAttendance, setShowAttendance);
-  const [showTeachers, setShowTeachers] = useState(false);
-  const toggleTeachers = createStateToggle(showTeachers, setShowTeachers);
-  const [showParents, setShowParents] = useState(false);
-  const toggleParents = createStateToggle(showParents, setShowParents);
-  const [showLibrary, setShowLibrary] = useState(false);
-  const toggleLibrary = createStateToggle(showLibrary, setShowLibrary);
-  const [showInventory, setShowInventory] = useState(false);
-  const toggleInventory = createStateToggle(showInventory, setShowInventory);
-  const [showClass, setShowClass] = useState(false);
-  const toggleClass = createStateToggle(showClass, setShowClass);
-  const [showClassRoutine, setShowClassRoutine] = useState(false);
-  const toggleClassRoutine = createStateToggle(showClassRoutine, setShowClassRoutine);
-  const [showSubjects, setShowSubjects] = useState(false);
-  const toggleSubjects = createStateToggle(showSubjects, setShowSubjects);
-  const [showExam, setShowExam] = useState(false);
-  const toggleExam = createStateToggle(showExam, setShowExam);
-  const [showTransport, setShowTransport] = useState(false);
-  const toggleTransport = createStateToggle(showTransport, setShowTransport);
-  const [showHostel, setShowHostel] = useState(false);
-  const toggleHostel = createStateToggle(showHostel, setShowHostel);
-  const [showUsers, setShowUsers] = useState(false);
-  const toggleUsers = createStateToggle(showUsers, setShowUsers);
-// const activeComponent=useSelector((state:any)=>state.activeNav)
-  const dispatch=useDispatch()
+  // const [showMessage, setShowMessage] = useState(false);
+//   const toggleMessage = createStateToggle(showMessage, setShowMessage);
+//   const [showNotice, setShowNotice] = useState(false);
+//   const toggleNotice = createStateToggle(showNotice, setShowNotice);
+//   const [showAttendance, setShowAttendance] = useState(false);
+//   const toggleAttendance = createStateToggle(showAttendance, setShowAttendance);
+//   const [showTeachers, setShowTeachers] = useState(false);
+//   const toggleTeachers = createStateToggle(showTeachers, setShowTeachers);
+//   const [showParents, setShowParents] = useState(false);
+//   const toggleParents = createStateToggle(showParents, setShowParents);
+//   const [showLibrary, setShowLibrary] = useState(false);
+//   const toggleLibrary = createStateToggle(showLibrary, setShowLibrary);
+//   const [showInventory, setShowInventory] = useState(false);
+//   const toggleInventory = createStateToggle(showInventory, setShowInventory);
+//   const [showClass, setShowClass] = useState(false);
+//   const toggleClass = createStateToggle(showClass, setShowClass);
+//   const [showClassRoutine, setShowClassRoutine] = useState(false);
+//   const toggleClassRoutine = createStateToggle(showClassRoutine, setShowClassRoutine);
+//   const [showSubjects, setShowSubjects] = useState(false);
+//   const toggleSubjects = createStateToggle(showSubjects, setShowSubjects);
+//   const [showExam, setShowExam] = useState(false);
+//   const toggleExam = createStateToggle(showExam, setShowExam);
+//   const [showTransport, setShowTransport] = useState(false);
+//   const toggleTransport = createStateToggle(showTransport, setShowTransport);
+//   const [showHostel, setShowHostel] = useState(false);
+//   const toggleHostel = createStateToggle(showHostel, setShowHostel);
+//   const [showUsers, setShowUsers] = useState(false);
+//   const toggleUsers = createStateToggle(showUsers, setShowUsers);
+// // const activeComponent=useSelector((state:any)=>state.activeNav)
+//   const dispatch=useDispatch()
 
   return (
     

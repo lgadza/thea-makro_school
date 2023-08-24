@@ -1,10 +1,10 @@
-import { Col, Container, Row,Form, Button, Spinner, Modal } from "react-bootstrap" 
+import { Col, Row,Form, Button, Spinner } from "react-bootstrap" 
 import "../styling.css"
 import { ApplicantRegistration } from "../../../Types"
-import { useState,ChangeEvent, useEffect } from "react"
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { ApplicantRegister } from "../../../redux/actions"
-import { Dispatch } from 'redux';
+// import { Dispatch } from 'redux';
 import { useSelector } from "react-redux"
 import { RootState } from '../../../redux/store/index.js';
 import { useNavigate } from "react-router-dom"
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom"
 const RegisterInfo=():JSX.Element=>{
 const response=useSelector((state:RootState)=>state.applicantRegistration.data)
 const errorResponse=useSelector((state:RootState)=>state.applicantRegistration.errorResponse)
-const isError=useSelector((state:RootState)=>state.applicantRegistration.isError)
+// const isError=useSelector((state:RootState)=>state.applicantRegistration.isError)
 const isLoading=useSelector((state:RootState)=>state.applicantRegistration.isLoading)
 const dispatch=useDispatch()
 const navigate=useNavigate()
@@ -33,7 +33,7 @@ const initialFormData: ApplicantRegistration = {
   country_code:'',
   role:'student'
 };
-
+console.log(show)
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
 const  handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
@@ -84,7 +84,7 @@ if(errorResponse){
   console.log(errorResponse. errorsList,"ERROR RESPONSE")
 
 }
-const handleClose = () => setShow(false);
+// const handleClose = () => setShow(false);
    return( 
     <div className="content_bg  p-3">
           <Form onSubmit={handleSubmit}>

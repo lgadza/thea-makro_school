@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher, faCheckCircle, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import PageProgress from '../../../components/PageProgress';
 import HomeNavbar from '../HomeNavbar';
 import Footer from '../../../components/Footer';
 import ExploreMoreFeatures from '../../../components/ExploreMoreFeatures';
@@ -14,22 +13,10 @@ import TypingEffect from '../../../components/TypingText';
 import { CompanyName } from '../../../assets/data/company';
 import { calaFAQ, studentsItems } from '../../../assets/data/calaFeature';
 import { quickFeatures } from '../../../assets/data/calaFeature';
-import admission_img_1 from '../../../assets/candidatesAdmission.png';
-import admission_img_2 from '../../../assets/candidatesAdmission2.png';
-import {
-  admissionBenefitsArray,
-  characteristicsArray,
-  admissionParagraphs,
-} from '../../../assets/data/admissionBenefitsArray';
+
 import './CALAFeature.css';
 import {teacherItems} from '../../../assets/data/calaFeature';
 const CALAFeature: React.FC = () => {
-  const sections = [
-    { label: 'Home' },
-    { label: 'Admission' },
-    { label: 'FAQ' },
-    { label: 'Footer' },
-  ];
 
   const words = ['Automated Grading', 'Research CALA', 'Summarize long papers', 'Study Assistance', 'Career Guidance'];
 

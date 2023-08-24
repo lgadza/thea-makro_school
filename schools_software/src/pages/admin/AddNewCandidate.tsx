@@ -1,5 +1,4 @@
-import { Row ,Container, Col, Dropdown} from "react-bootstrap"
-import MainSidebar from "../../components/MainSidebar"
+import { Row , Col} from "react-bootstrap"
 import { useState } from "react"
 import StudentSideBar from "../admissionsManagement/student/StudentSideBar"
 import PersonalData from "../admissionsManagement/student/account/PersonalData"
@@ -10,20 +9,19 @@ import Settings from "../admissionsManagement/student/account/Settings"
 import Interview from "../admissionsManagement/student/account/Interview"
 import ApplicationStatus from "../admissionsManagement/student/account/Status"
 import ProgramInformation from "../admissionsManagement/student/ProgramInformation"
-import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
 
 
 const AllNewCandidate=():JSX.Element=>{
-    const [showMenu, setShowMenu] = useState(true);
+    // const [showMenu, setShowMenu] = useState(true);
 
-    const toggleMenu = () => {
-      setShowMenu(!showMenu);
-    };
-    const [activePage,setActivePage]=useState<string>("PersonalData")
+    // const toggleMenu = () => {
+    //   setShowMenu(!showMenu);
+    // };
+    // const [activePage,setActivePage]=useState<string>("PersonalData")
   
-    const handlePageNavigationClick=(page:string)=>{
-        setActivePage(page)
-    }
+    // const handlePageNavigationClick=(page:string)=>{
+    //     setActivePage(page)
+    // }
     const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
 
     const handleNavigationClick=(component:string)=>{

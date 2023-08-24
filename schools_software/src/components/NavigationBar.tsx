@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navbar, Nav,Button } from 'react-bootstrap';
+
+import { Navbar, Nav} from 'react-bootstrap';
 import fhs1 from '../assets/fhs_img/fhs1.jpg'
 import fhs_logo from "../assets/fhs_img/fhs_logo.png"
 

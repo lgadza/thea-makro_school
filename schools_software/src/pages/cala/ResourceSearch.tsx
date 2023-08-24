@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import SearchBar from '../../components/SearchBar';
 
 
 const ResourceSearch: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
     subject: '',
     gradeLevel: [] as string[],

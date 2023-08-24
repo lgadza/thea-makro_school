@@ -6,7 +6,7 @@
   import Footer from "../../components/Footer";
   import PageProgress from "../../components/PageProgress";
   import { FAQItems } from "../../assets/data/faqItemsData";
- import { imgProps } from "../../assets/data/makrohome";
+//  import { imgProps } from "../../assets/data/makrohome";
  import { betterCardList } from "../../assets/data/makrohome";
   import "./MakroHomePage.css"
 import SimplifyProcess from "./Simplifyprocess";
@@ -50,7 +50,7 @@ import HomeAIInfo from "./HomeAIInfo";
                 <h4 className="p-4 d-flex text-start color-header"> Empower and elevate success for all.</h4>
               <div className="better-for-card">
               <Row className="mb-5">
-              {betterCardList.map((card,_)=>{
+              {betterCardList.map((card)=>{
                 return(
                   <Col md={6} className="role_card" key={card.id}>
                   <div id={card.title} className="info_section mx-3">

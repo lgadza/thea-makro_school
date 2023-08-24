@@ -1,6 +1,5 @@
-import { faCircleInfo, faCircleNotch, faFile, faGear, faLocation, faPenSquare, faPenToSquare, faPeopleGroup, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faCircleInfo, faCircleNotch, faFile, faGear, faLocation, faPenToSquare, faPeopleGroup, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from "react-router-dom"
 
 const StudentSideBar=({source,activeComponent,handleNavigationClick}:{activeComponent:string;source:string;handleNavigationClick:(component:string)=>void}):JSX.Element=>{
     

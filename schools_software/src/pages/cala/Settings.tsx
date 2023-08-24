@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faX } from '@fortawesome/free-solid-svg-icons';
 import ToggleSwitch from '../../components/ToggleSwitch';
 import RangeSlider from '../../components/RangesSlider';
-import { PushButton } from '../../components/Buttons';
 
   
 const Settings: React.FC = () => {

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ResourceRatingsAndReviews from '../../components/ResourceRatingsAndReviews';
+// import ResourceRatingsAndReviews from '../../components/ResourceRatingsAndReviews';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
 
@@ -32,30 +32,30 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
     e.preventDefault();
     onShare(id);
   };
-  const [rating, setRating] = useState<number>(5);
-  const [review, setReview] = useState<string>('');
-  const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newRating = parseInt(e.target.value);
-    setRating(newRating);
-  };
+//   const [rating, setRating] = useState<number>(5);
+//   const [review, setReview] = useState<string>('');
+//   const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const newRating = parseInt(e.target.value);
+//     setRating(newRating);
+//   };
 
-  const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setReview(e.target.value);
-  };
-const onRatingSubmit=(id:string,rating:number)=>{
-    // 
-}
-const onReviewSubmit=(id:string,review:number)=>{
-    // 
-}
-  const handleSubmitRating = (id:string,rating:number) => {
-    onRatingSubmit(id, rating);
-  };
+//   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+//     setReview(e.target.value);
+//   };
+// const onRatingSubmit=(id:string,rating:number)=>{
+//     // 
+// }
+// const onReviewSubmit=(id:string,review:number)=>{
+//     // 
+// }
+//   const handleSubmitRating = (id:string,rating:number) => {
+//     onRatingSubmit(id, rating);
+//   };
 
-  const handleSubmitReview = (id:string,review:number) => {
-    onReviewSubmit(id, review);
-    setReview(''); 
-  };
+//   const handleSubmitReview = (id:string,review:number) => {
+//     onReviewSubmit(id, review);
+//     setReview(''); 
+//   };
 
   return (
     <div onClick={(e) => e.stopPropagation()}>

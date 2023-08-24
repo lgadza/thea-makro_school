@@ -1,10 +1,9 @@
 
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import './VerticalTimeline.css'; 
 import img1 from "../assets/candidatesAdmission.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faListCheck, faVials } from '@fortawesome/free-solid-svg-icons';
 import { timelineItemsProps } from '../assets/data/calaFeature';
 const VerticalTimeline = ({timelineItems}:{timelineItems:timelineItemsProps[]}):JSX.Element => {
   useEffect(() => {

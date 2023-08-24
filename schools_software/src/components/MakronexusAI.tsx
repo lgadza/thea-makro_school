@@ -1,15 +1,15 @@
-import { IconDefinition, faArrowCircleDown, faArrowRotateForward, faBoltLightning, faComments, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus, faSearch, faSun, faThumbsDown, faThumbsUp, faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition, faArrowCircleDown,faBoltLightning, faComments, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus,  faSun, faThumbsDown, faThumbsUp, faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import SearchBar from "./SearchBar"
+// import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
-import { CompanyName } from "../assets/data/company"
-import { ReactElement, useEffect, useRef, useState } from "react"
+// import { CompanyName } from "../assets/data/company"
+import {  useEffect, useRef, useState } from "react"
 import { Button, Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
-import { useDispatch } from "react-redux"
-import { chatWithAi, deleteAllChats, deleteChat, getAllAiChats, getChatMessages, getEngines, newChat } from "../redux/actions"
-import { Dispatch } from "redux"
+// import { useDispatch } from "react-redux"
+import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, newChat } from "../redux/actions"
+// import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
 import AlertBox from "./Alerts"
@@ -37,19 +37,19 @@ interface Message {
   const MakronexusAI: React.FC = () => {
     const user:ApplicantRegistration=useSelector((state:RootState)=>state.applicantData.data)
     // const allChats=useSelector((state:RootState)=>state.getAllAiChats.chats)
-    const allChatsLoading=useSelector((state:RootState)=>state.getAllAiChats.isLoading)
-    const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
+    // const allChatsLoading=useSelector((state:RootState)=>state.getAllAiChats.isLoading)
+    // const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
     const [loading, setLoading] = useState(false); 
     const [currentChat, setCurrentChat] = useState(""); 
     const [models, setModels] = useState<Engine[]>([]); 
-    const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
+    // const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
     const [chats, setChats] = useState<chatProps[]>([]); 
     const [currentModel,setCurrentModel]=useState("gpt-3.5-turbo")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
     const [aiError, setAiError] = useState<boolean>(false);
-    const dispatch: Dispatch<any> = useDispatch();
+    // const dispatch: Dispatch<any> = useDispatch();
     
     const [showAlert, setShowAlert] = useState(true);
 

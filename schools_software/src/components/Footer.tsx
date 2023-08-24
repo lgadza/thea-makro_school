@@ -2,8 +2,8 @@
 import React from 'react';
 import logo from "../assets/md_logo_small.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faLinkedin, faPinterest, faGooglePlusG, faTelegramPlane, faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelopeOpen, faHeart, faMapMarkerAlt, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
+import {  faTwitter, faLinkedin, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelopeOpen,  faMapMarkerAlt, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
 import "./Footer.css"
 import { CompanyName } from '../assets/data/company';
 import { Container } from 'react-bootstrap';

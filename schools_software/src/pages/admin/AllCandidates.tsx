@@ -3,7 +3,7 @@ import StudentOverviewRow from "../../components/StudentOverviewRow";
 import { Link } from "react-router-dom";
 import { Dropdown, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBullseye, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../../components/SearchBar";
 import CandidateDetails from "./CandidateDetails";
 
@@ -57,7 +57,7 @@ const AllCandidates=():JSX.Element=>{
                                <Form.Check
                                type="checkbox"
                                // checked={`${filter==="Form 1"?true:false}`}
-                               onChange={(e) => setFilter("Form 1")}
+                               onChange={() => setFilter("Form 1")}
                                className="me-3"
                                name="filter"
                                label="Form 1"

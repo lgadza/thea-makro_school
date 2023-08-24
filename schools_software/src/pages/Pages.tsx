@@ -1,15 +1,12 @@
-import { Row ,Container, Col, Dropdown, Form} from "react-bootstrap"
+import { Row ,Container, Col} from "react-bootstrap"
 import MainSidebar from "../components/MainSidebar"
 import AccountTopNavigationBar from "../components/AccountTopNavigationBar"
 import { useEffect, useState } from "react"
 import AllCandidates from "./admin/AllCandidates"
 import AllNewCandidate from "./admin/AddNewCandidate"
-import CandidateDetails from "./admin/CandidateDetails"
 import ResourceUploadForm from "./cala/ResourceUploadForm"
 import CALAOverView from "./cala/Dashboard"
-import Loader from "../components/Loader"
 import MakronexusAI from "../components/MakronexusAI"
-import UploadFileModal from "../components/UploadFileModal"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
@@ -47,14 +44,11 @@ const Pages=():JSX.Element=>{
 const [addResources, setAddResources] = useState<Resource[]>([]);
 
     const handleResourceUpload = (title: string, description:string, file: File, tags: string[]) => {
-        // Implement the resource upload logic here
-        // For example, you can upload the resource to a server and get a response with the resource details
-        // Then, add the new resource to the resources array
         const newResource: Resource = {
           id: addResources.length + 1,
           title,
           thumbnail: URL.createObjectURL(file),
-          description: 'Sample description for the uploaded resource.',
+          description,
           tags:[],
           rating: 0,
           reviews: [],

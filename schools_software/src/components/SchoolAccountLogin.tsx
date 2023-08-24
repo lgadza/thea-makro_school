@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './SchoolAccountLogin.css'; 
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ApplicantLogin, getApplicantData } from '../redux/actions';
 import { RootState } from '../redux/store';

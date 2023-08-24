@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
-import { ApplicantRegistration, GuardianInterface } from "../../../../Types"
+import { GuardianInterface } from "../../../../Types"
 import { useSelector } from "react-redux"
-import { getApplicantData, getGuardianType } from "../../../../redux/actions"
+import { getGuardianType } from "../../../../redux/actions"
 import { useDispatch } from "react-redux"
 import { RootState } from "../../../../redux/store"
 import { Dispatch } from "redux"
@@ -11,7 +11,7 @@ import { Dispatch } from "redux"
 const Guardian=():JSX.Element=>{
     const dispatch:Dispatch<any> = useDispatch()
     const guardian_types=useSelector((state:RootState)=>state.getGuardianTypes.guardian_types)
-    const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
+    // const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
 const initialGuardian:GuardianInterface={
     first_name:"",
     last_name:"",

@@ -1,12 +1,7 @@
 // src/components/CALAOverView.tsx
 import React, { useState } from 'react';
-import ResourceSearch from './ResourceSearch';
 import ResourceCard from './ResourceCard';
-import { Alert } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import ToggleSwitch from '../../components/ToggleSwitch';
-import RangeSlider from '../../components/RangesSlider';
+
 interface Resource {
     id: number;
     title: string;
@@ -37,6 +32,7 @@ const CALAOverView: React.FC = () => {
       setFavoriteResources((prevFavorites) => prevFavorites.filter((favId) => favId !== id));
     }
   };
+  console.log(favoriteResources,"FAVORITE RESOURCES")
 
   const onShare = (id: number) => {
     alert(`Share resource with ID ${id}`);
