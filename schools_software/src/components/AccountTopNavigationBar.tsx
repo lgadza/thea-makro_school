@@ -89,7 +89,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
     <div className="ps-2">
         <div className="d-flex justify-content-between">
             <span>
-                Louis
+                Gadza
             </span>
             <span className="d-flex ">
                 10:30
