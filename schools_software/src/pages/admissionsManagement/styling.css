@@ -93,7 +93,11 @@
   cursor: pointer;
 }
 
-
+.register-alert{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
 
 .box-shadow{
  box-shadow: 0px 0px 5px var(--bg-2) ;

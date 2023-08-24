@@ -8,6 +8,7 @@ import { ApplicantRegister } from "../../../redux/actions"
 import { useSelector } from "react-redux"
 import { RootState } from '../../../redux/store/index.js';
 import { useNavigate } from "react-router-dom"
+import AlertBox from "../../../components/Alerts.js"
 
 const RegisterInfo=():JSX.Element=>{
 const response=useSelector((state:RootState)=>state.applicantRegistration.data)
@@ -16,24 +17,24 @@ const errorResponse=useSelector((state:RootState)=>state.applicantRegistration.e
 const isLoading=useSelector((state:RootState)=>state.applicantRegistration.isLoading)
 const dispatch=useDispatch()
 const navigate=useNavigate()
-const [show, setShow] = useState(false);
+const [isError, setIsError] = useState(false);
 const [signUpClicked, setSignUpClicked] = useState(false);
 const initialFormData: ApplicantRegistration = {
   first_name: '',
+  email: '',
   last_name: '',
+  role:'student',
   second_name: '',
   date_of_birth: '',
   gender: '',
   citizenship: '',
   phone_number:'' ,
-  email: '',
   policy_acceptance: false,
   data_process_acceptance: false,
   password: '',
   country_code:'',
-  role:'student'
 };
-console.log(show)
+console.log(isError)
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
 const  handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
@@ -42,12 +43,12 @@ const isFormValid = (): boolean => {
   return (
     formData.first_name.trim() !== "" &&
     formData.last_name.trim() !== "" &&
-    formData.country_code.trim() !== "" &&
-    formData.phone_number.trim() !== "" &&
-    formData.citizenship.trim() !== "" &&
+    // formData.country_code.trim() !== "" &&
+    // formData.phone_number.trim() !== "" &&
+    // formData.citizenship.trim() !== "" &&
     formData.gender.trim() !== "" &&
     formData.email.trim() !== "" &&
-    formData.date_of_birth.trim() !== "" &&
+    // formData.date_of_birth.trim() !== "" &&
     formData.password.trim() !== "" &&
     formData.data_process_acceptance === true
   );
@@ -73,20 +74,25 @@ const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 const handleRegistration = async() => {
  const success=await dispatch<any>(ApplicantRegister(formData));
 setSignUpClicked(true)
-navigate("/mss/login")
-if(success && response){
+if(response){
   navigate("/mss/login")
 }else{
-  setShow(true)
+  console.log(errorResponse. errorsList,"ERROR RESPONSE")
 }
 };
 if(errorResponse){
+  setIsError(true)
   console.log(errorResponse. errorsList,"ERROR RESPONSE")
 
 }
 // const handleClose = () => setShow(false);
    return( 
     <div className="content_bg  p-3">
+        {isError ? (
+      <div className="register-alert">
+      <AlertBox type="danger" message={`${isError && errorResponse.errorsList.length>0?errorResponse.errorsList[0]:"Error during  registration, try again later!"}`}  />
+      </div>
+        ):("")}
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col>
@@ -111,7 +117,7 @@ if(errorResponse){
               </Col>
             </Row>
           </Form>
-          <Form className="my-3" onSubmit={handleSubmit}>
+          {/* <Form className="my-3" onSubmit={handleSubmit}>
             <Row>
               <Col>
               <Form.Label className="d-flex">Country code<span className="text-danger">*</span></Form.Label>
@@ -138,21 +144,19 @@ if(errorResponse){
                 />
               </Col>
             </Row>
-          </Form>
+          </Form> */}
           <Form className="my-3" onSubmit={handleSubmit}>
             <Row>
-              <Col>
-              <Form.Label className="d-flex">Citizenship<span className="text-danger">*</span></Form.Label>
-                <Form.Control
-                placeholder="Citizenship" 
+            <Col>
+              <Form.Label className="d-flex">Email <span className="text-danger">*</span> </Form.Label>
+                <Form.Control placeholder="Email" 
                 required
-                name="citizenship"
-                value={formData.citizenship}
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
                 />
-              </Col>
+              </Col>             
               <Col>
-            
               <Form.Label className="d-flex">Gender<span className="text-danger">*</span></Form.Label>
           <Form.Control as="select" required
           name="gender"
@@ -168,16 +172,7 @@ if(errorResponse){
           </Form>
           <Form className="my-3" onSubmit={handleSubmit}>
             <Row>
-              <Col>
-              <Form.Label className="d-flex">Email <span className="text-danger">*</span> </Form.Label>
-                <Form.Control placeholder="Email" 
-                required
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                />
-              </Col>
-              <Col>
+              {/* <Col>
               <Form.Label className="d-flex">Date of birth<span className="text-danger">*</span></Form.Label>
                 <Form.Control 
                 placeholder="Date of birth" 
@@ -186,7 +181,17 @@ if(errorResponse){
                 value={formData.date_of_birth}
                 onChange={handleChange}
                 />
-              </Col>
+              </Col> */}
+               {/* <Col>
+              <Form.Label className="d-flex">Citizenship<span className="text-danger">*</span></Form.Label>
+                <Form.Control
+                placeholder="Citizenship" 
+                required
+                name="citizenship"
+                value={formData.citizenship}
+                onChange={handleChange}
+                />
+              </Col> */}
             </Row>
           </Form>
           <Form className="my-3" onSubmit={handleSubmit}>

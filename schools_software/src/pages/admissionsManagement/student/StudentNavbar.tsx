@@ -19,7 +19,7 @@ const StudentNavbar:React.FC<StudentNavbarProps> =({personalInfo})=>{
                     src={md_logo}
                     alt={CompanyName}
                     className="img_component d-flex"
-                    style={{height:"50px"}}
+                    style={{height:"30px"}}
                 />
             </div>
             

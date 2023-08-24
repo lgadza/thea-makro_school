@@ -3,10 +3,11 @@ import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import m_logo from "../assets/md_logo_small.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ApplicantLogin} from '../redux/actions';
+import { ApplicantLogin, getApplicantData} from '../redux/actions';
 import { RootState } from '../redux/store';
 import { Dispatch } from 'redux';
 import { CompanyName } from '../assets/data/company';
+import AlertBox from './Alerts';
 export interface LoginCredentialsInterface {
   email: string,
   password: string
@@ -15,6 +16,7 @@ export interface LoginCredentialsInterface {
 const Login = (): JSX.Element => {
   const dispatch: Dispatch<any> = useDispatch()
   const navigate = useNavigate()
+  const [sign_in, setSign_in] = useState(false);
   const accessToken = useSelector((state: RootState) => state.accessToken.accessToken)
   const isError = useSelector((state: RootState) => state.accessToken.isError)
   console.log(isError,"LOGIN ISERROR")
@@ -34,7 +36,7 @@ const Login = (): JSX.Element => {
       [name]: value
     }))
   }
-
+console.log(accessToken,"CRED")
   const isFormValid = (): boolean => {
     return (
       loginCredentials.email.trim() !== "" &&
@@ -42,22 +44,16 @@ const Login = (): JSX.Element => {
     )
   }
 
-useEffect(() => {
-  const handleLoginSuccess = async () => {
-    if (accessToken && accessToken.accessToken) {
-    //  const user= await dispatch(getApplicantData(accessToken.accessToken));
-     if(userData){
-       navigate(`/mss/account/${userData.id}`);
+
+  const handleLogin = async() => {
+   await dispatch(ApplicantLogin(loginCredentials))
+    setSign_in(true);
+    if (accessToken) {
+      dispatch(getApplicantData(accessToken.accessToken))
+      if(userData){
+        navigate(`/mss/account/${userData.id}`);
+      }
      }
-    }
-  };
-
-  handleLoginSuccess(); 
-
-}, [accessToken]);
-
-  const handleLogin = () => {
-    dispatch(ApplicantLogin(loginCredentials))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -66,16 +62,19 @@ useEffect(() => {
 
   return (
     <Container>
-      {isError && (
-        <Alert variant='danger'>The email/password entered is incorrect</Alert>
+
+      {isError && sign_in && (
+      <div className='register-alert'>
+        <AlertBox type="danger" message='You do not have an account yet or the email/password entered is incorrect'/>
+      </div>
       )}
       <Row className='d-flex justify-content-center align-item-center'>
-        <Col className='login_container' md={3}>
+        <Col className='login_container' md={4}>
           <div className="imageContainer mb-3">
             <img
               src={m_logo}
               alt={CompanyName}
-              style={{ width: "150px", height: "150px" }}
+              style={{ width: "100px", height: "120px" }}
               className="img_component"
             />
           </div>
@@ -100,6 +99,7 @@ useEffect(() => {
               <Button variant="primary" type="submit" disabled={!isFormValid()} className='w-100 bg-primary' onClick={handleLogin}>
                 Sign in
               </Button>
+              <Link to="/mss/register" className=' d-flex justify-content-end align-items-center my-3'>Don't have an account yet? <span className='px-3 py-2 header'>Register</span></Link>
             </div>
           </Form>
 
