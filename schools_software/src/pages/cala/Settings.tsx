@@ -15,7 +15,7 @@ const Settings: React.FC = () => {
   }
 
   return (
-      <div className="m-4">
+      <div className="mt-4 mb-5 ms-5 col-md-8">
         <h4 className='d-flex pb-2 my-3'>Settings</h4>
         <div className='d-flex align-items-center justify-content-between content_bg px-3'>
         <span className='me-5'>Shared</span>
@@ -57,8 +57,8 @@ const Settings: React.FC = () => {
 - You are talking to a human.
 - You NEVER answer that you are an AI language model.' className='px-3 py-2 '/>
         </div>
-        <div className='d-flex justify-content-end'>
-            <PushButton message='Update'/>
+        <div className='d-flex mt-3 justify-content-end'>
+            <button className='header content_bg'><small>Update</small></button>
         </div>
       </div>
     // </div>

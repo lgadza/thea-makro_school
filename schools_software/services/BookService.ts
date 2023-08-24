@@ -8,7 +8,7 @@ class BookService {
       { id: 3, title: 'Book 3', author: 'Author 3' },
     ];
   
-    async checkoutBook(bookId) {
+    async checkoutBook(bookId:number) {
       try {
         // Simulated API call or database update for book checkout
         const book = this.books.find((b) => b.id === bookId);
@@ -25,7 +25,7 @@ class BookService {
       }
     }
   
-    async returnBook(bookId) {
+    async returnBook(bookId:number) {
       try {
         // Simulated API call or database update for book return
         const book = this.books.find((b) => b.id === bookId);

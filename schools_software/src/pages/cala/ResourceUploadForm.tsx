@@ -124,6 +124,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import UploadFileModal from '../../components/UploadFileModal';
 
 interface ResourceUploadFormProps {
   onResourceUpload: (title: string, description: string, file: File, tags: string[]) => void;
@@ -177,10 +178,10 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
   };
 
   return (
-    <div className="container content_bg p-3 glow-btn mt-5">
-      <h5 className="d-flex">Resource Upload</h5>
+    <div className="p-3  ms-5  mt-4">
+      <h4 className="d-flex mb-4">Resource Upload</h4>
       <Row>
-        <Col sm={6}>
+        <Col sm={6} md={4} >
           <Form.Group className="mb-3">
             <Form.Label className="d-flex">Title</Form.Label>
             <Form.Control
@@ -199,7 +200,7 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
             />
           </Form.Group>
         </Col>
-        <Col sm={6}>
+        <Col sm={6} md={4}>
           <Form.Group className="mb-3">
             <Form.Label className="d-flex">Subject</Form.Label>
             <Form.Select value={subject} onChange={handleSubjectChange}>
@@ -222,13 +223,14 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
         </Col>
       </Row>
       <Row>
-        <Col sm={6}>
+        <Col sm={6} md={8}>
           <Form.Group className="mb-3">
-            <Form.Label className="d-flex">File</Form.Label>
-            <Form.Control type="file" onChange={handleFileChange} />
+            {/* <Form.Label className="d-flex">File</Form.Label> */}
+            {/* <Form.Control type="file" onChange={handleFileChange} /> */}
+            <UploadFileModal/>
           </Form.Group>
         </Col>
-        <Col sm={6}>
+        {/* <Col sm={6} md={4}>
           <Form.Group className="mb-3">
             <Form.Label className="d-flex">Tags</Form.Label>
             <div className="d-flex">
@@ -253,14 +255,11 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
                 })}
             </ul>
           </Form.Group>
-        </Col>
+        </Col> */}
       </Row>
-      <Button
-        className="btn btn-primary d-flex justify-content-end"
-        onClick={handleResourceUpload}
-      >
-        Upload
-      </Button>
+      <div className='d-flex '>
+      <button className='header content_bg' onClick={handleResourceUpload}><small>Upload</small></button>
+      </div>
     </div>
   );
 };
