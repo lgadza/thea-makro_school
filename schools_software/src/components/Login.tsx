@@ -44,17 +44,25 @@ console.log(accessToken,"CRED")
     )
   }
 
-
-  const handleLogin = async() => {
-   await dispatch(ApplicantLogin(loginCredentials))
-    setSign_in(true);
+  const handleLogin = () => {
+    dispatch(ApplicantLogin(loginCredentials));
+    setSign_in(true)
+  };
+  
+  useEffect(() => {
     if (accessToken) {
-      dispatch(getApplicantData(accessToken.accessToken))
-      if(userData){
-        navigate(`/mss/account/${userData.id}`);
-      }
-     }
-  }
+      dispatch(getApplicantData(accessToken.accessToken));
+    }
+  }, [accessToken, dispatch]);
+
+  useEffect(() => {
+    if (userData) {
+      navigate(`/mss/account/${userData.id}`);
+    }
+  }, [userData, navigate]);
+
+  
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
