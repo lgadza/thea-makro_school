@@ -42,6 +42,7 @@ function App() {
        {/* <Route path="mss/checkouts" element={<CheckoutsPage/>}/> */}
        <Route path="mss/account/:id" element={<StudentAccountPage/>}/>
        <Route path="/ask.makronexus.com" element={<Makronexa/>}/>
+       <Route path="ask" element={<Makronexa/>}/>
        <Route path='*' element={<Page404/>} />
       </Routes>
     </BrowserRouter>

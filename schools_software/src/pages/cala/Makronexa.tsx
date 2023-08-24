@@ -1,18 +1,21 @@
-import { Row ,Container, Col} from "react-bootstrap"
-import MainSidebar from "../components/MainSidebar"
-import AccountTopNavigationBar from "../components/AccountTopNavigationBar"
+import { Row ,Container, Col, Nav} from "react-bootstrap"
+import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
 import { useEffect, useState } from "react"
-import AllCandidates from "./admin/AllCandidates"
-import AllNewCandidate from "./admin/AddNewCandidate"
-import ResourceUploadForm from "./cala/ResourceUploadForm"
-import CALAOverView from "./cala/Dashboard"
-import MakronexusAI from "../components/MakronexusAI"
+import ResourceUploadForm from "../cala/ResourceUploadForm"
+import CALAOverView from "../cala/Dashboard"
+import MakronexusAI from "../../components/MakronexusAI"
 import { useSelector } from "react-redux"
-import { RootState } from "../redux/store"
+import { RootState } from "../../redux/store"
 import { useDispatch } from "react-redux"
 import { Dispatch } from "redux"
-import { getApplicantData } from "../redux/actions"
-import Settings from "./cala/Settings"
+import { getApplicantData } from "../../redux/actions"
+import Settings from "../cala/Settings"
+import { Link } from "react-router-dom"
+import md_logo_small from "../../assets/md_logo_small.png"
+import { CompanyName } from '../../assets/data/company';
+
+
+
 interface Resource {
     id: number;
     title: string;
@@ -71,25 +74,44 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                     handleNavigationClick={handleNavigationClick}
                  />    
                 </Col> */}
-          <Col md={2} className={showMenu ? "pe-0":"pe-0 hide-menu md-1"}>
-                   <div className="px-0" style={{ height: "100vh", overflowY: "scroll" }}>
-            <MainSidebar
-              toggleMenu={toggleMenu}
-              showMenu={showMenu}
-              source="studentSchoolAccount"
-              activeComponent={activeComponent}
-              handleNavigationClick={handleNavigationClick}
-            />
+          <Col md={2} className={"pe-0 hide-menu border-round"}>
+                   <div className="px-4 w-100" style={{ height: "100vh", overflowY: "scroll" }}>
+            <div className="d-flex px-2">
+              <img
+                src={md_logo_small}
+                alt={CompanyName}
+                style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%",objectFit:"contain" }}
+                className="img_component"
+              />
+            </div>
+            <Nav className="flex-column w-100">
+                <Nav.Item>
+                <Link to=''
+                          onClick={() => handleNavigationClick("MakronexusAI")}  
+                          className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "MakronexusAI" ? "active" : ""}`}>
+                        <small>Makronexa</small>
+                </Link>
+                </Nav.Item>
+                <Nav.Item>
+                <Link to="" className='d-flex align-items-center nowrap px-2 py-2'><small>My Projects</small></Link>
+                </Nav.Item>
+                <Nav.Item>
+                   <Link to="" onClick={()=>handleNavigationClick("ResourceUploadForm")} className={`d-flex w-100 nowrap align-items-center px-2 py-2 ${activeComponent === "ResourceUploadForm" ? "active" : ""}`}> 
+                   <small>Upload file</small>
+                   </Link> 
+                   </Nav.Item> 
+                   <Nav.Item>
+                   <Link to="" className={`d-flex nowrap align-items-center px-2 py-2 ${activeComponent === "Settings" ? "active" : ""}`} onClick={() => handleNavigationClick("Settings")} >
+                    <small>Settings</small>
+                       </Link>
+                </Nav.Item>
+            </Nav>
         </div>
           </Col>
                 <Col className="ps-0 pe-3">
         <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
                   { activeComponent ==="dashboard" && <CALAOverView/>}
-                  { activeComponent ==="AllStudents" && <AllCandidates/>  }
-                  { activeComponent ==="StudentAdmissions" && <AllCandidates/>  }
-                  { activeComponent ==="NewCandidate" && <AllNewCandidate/> }
-                
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
                   { activeComponent ==="MakronexusAI" && <MakronexusAI/> }
                   { activeComponent ==="Settings" && <Settings/>}
