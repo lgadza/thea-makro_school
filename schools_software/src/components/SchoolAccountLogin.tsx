@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './SchoolAccountLogin.css'; 
 import {  useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ApplicantLogin } from '../redux/actions';
+import { ApplicantLogin, getApplicantData } from '../redux/actions';
 import { RootState } from '../redux/store';
 import { Dispatch } from 'redux';
 import { LoginCredentialsInterface } from './Login';
 import { Alert } from 'react-bootstrap';
+import AlertBox from './Alerts';
 
 const SchoolAccountLogin: React.FC = () => {
 
@@ -35,29 +36,34 @@ const SchoolAccountLogin: React.FC = () => {
     )
   }
 useEffect(() => {
-  const handleLoginSuccess = async () => {
-    if (accessToken && accessToken.accessToken) {
-    //  const user= await dispatch(getApplicantData(accessToken.accessToken));
-     if(userData){
-       navigate(`/mss/${userData.role}/account/${userData.id}`);
-     }
-    }
-  };
-  handleLoginSuccess(); 
 
-}, [accessToken]);
-  const handleLogin = async () => {
-   await dispatch(ApplicantLogin(loginCredentials))
+    if (accessToken) {
+      dispatch(getApplicantData(accessToken.accessToken));
+    }
+  
+}, [accessToken,dispatch]);
+useEffect(()=>{
+  if(userData){
+    navigate(`/mss/${userData.role}/account/${userData.id}`);
+  }
+},[userData,navigate])
+  const handleLogin =  () => {
+   dispatch(ApplicantLogin(loginCredentials))
 console.log(isError, "ERROR")
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
   return (
-    <div className="login-box main_bg d-flex flex-column justify-content-center">
-          {isError && (
-        <Alert variant='danger'>The email/password entered is incorrect</Alert>
+    <div>
+     {isError && (
+            <div className='register-alert'>
+              <AlertBox type='danger' message='The email/password entered is incorrect'/>
+            </div>
       )}
+    
+    <div className="login-box main_bg d-flex flex-column justify-content-center">
+     
       <h4>Login</h4>
       <form onSubmit={handleSubmit}>
         <div className="user-box">
@@ -88,6 +94,7 @@ console.log(isError, "ERROR")
         </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

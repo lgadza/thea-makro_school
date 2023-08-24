@@ -12,12 +12,10 @@ import AlertBox from "../../../components/Alerts.js"
 
 const RegisterInfo=():JSX.Element=>{
 const response=useSelector((state:RootState)=>state.applicantRegistration.data)
-const errorResponse=useSelector((state:RootState)=>state.applicantRegistration.errorResponse)
-// const isError=useSelector((state:RootState)=>state.applicantRegistration.isError)
+const isError=useSelector((state:RootState)=>state.applicantRegistration.isError)
 const isLoading=useSelector((state:RootState)=>state.applicantRegistration.isLoading)
 const dispatch=useDispatch()
 const navigate=useNavigate()
-const [isError, setIsError] = useState(false);
 const [signUpClicked, setSignUpClicked] = useState(false);
 const initialFormData: ApplicantRegistration = {
   first_name: '',
@@ -34,7 +32,6 @@ const initialFormData: ApplicantRegistration = {
   password: '',
   country_code:'',
 };
-console.log(isError)
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
 const  handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
@@ -77,20 +74,16 @@ setSignUpClicked(true)
 if(response){
   navigate("/mss/login")
 }else{
-  console.log(errorResponse. errorsList,"ERROR RESPONSE")
+  console.log(success)
 }
 };
-if(errorResponse){
-  setIsError(true)
-  console.log(errorResponse. errorsList,"ERROR RESPONSE")
 
-}
 // const handleClose = () => setShow(false);
    return( 
     <div className="content_bg  p-3">
         {isError ? (
       <div className="register-alert">
-      <AlertBox type="danger" message={`${isError && errorResponse.errorsList.length>0?errorResponse.errorsList[0]:"Error during  registration, try again later!"}`}  />
+      <AlertBox type="danger" message={`${isError && "Error during  registration, try again later!"}`}  />
       </div>
         ):("")}
           <Form onSubmit={handleSubmit}>
