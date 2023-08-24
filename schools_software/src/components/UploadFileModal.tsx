@@ -4,7 +4,7 @@ import Loader from "./Loader";
 import "./UploadFile.css"
 
 import React, { useEffect, useState } from 'react';
-import { faX, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 enum ModalState {
   Hidden,
@@ -20,7 +20,7 @@ const UploadFileModal: React.FC = () => {
   const [progress, setProgress] = useState<number>(0);
   const [progressTimeout, setProgressTimeout] = useState<number | null>(null);
   const [modalState, setModalState] = useState<ModalState>(ModalState.Hidden);
-  const [state, setState] = useState(1)
+  const [state] = useState(1)
   const fileHandle = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = e;
     const fileTarget = target?.files?.[0];

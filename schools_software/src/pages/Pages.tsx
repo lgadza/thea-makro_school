@@ -53,6 +53,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
           rating: 0,
           reviews: [],
         };
+        console.log(tags)
         setAddResources([...resources, newResource]);
       };
       useEffect(()=>{

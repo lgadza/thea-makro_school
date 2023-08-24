@@ -2,7 +2,6 @@ import { Col, Container,Row } from "react-bootstrap"
 import StudentSideBar from "../StudentSideBar"
 import PersonalData from "./PersonalData"
 import Image from "../../../../components/Image"
-import image from "../../../../assets/fhs_img/fhs1.jpg"
 import Address from "./Adress"
 import Guardian from "./Guardian"
 import Documents from "./Documents"
@@ -12,23 +11,23 @@ import ApplicationStatus from "./Status"
 import ProgramInformation from "../ProgramInformation"
 import { useEffect, useState } from "react"
 import StudentNavbar from "../StudentNavbar"
-import { useDispatch } from "react-redux"
-import { Dispatch } from "redux"
-import { getApplicantData } from "../../../../redux/actions"
+// import { useDispatch } from "react-redux"
+// import { Dispatch } from "redux"
+// import { getApplicantData } from "../../../../redux/actions"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../../redux/store"
 
 const StudentAccountPage=():JSX.Element=>{
 const personalInfo=useSelector((state:RootState)=>state.applicantData.data)
-const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
-const isError=useSelector((state:RootState)=>state.applicantData.isError)
+// const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
+// const isError=useSelector((state:RootState)=>state.applicantData.isError)
     const [activeComponent,setActiveComponent]=useState<string>("PersonalData")
     const handleNavigationClick=(component:string)=>{
         setActiveComponent(component)
     }
 
 
-    const dispatch:Dispatch<any> =useDispatch()
+    // const dispatch:Dispatch<any> =useDispatch()
     useEffect(()=>{
 // dispatch(getApplicantData(accessToken.accessToken))
     },[])

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SchoolAccountLogin.css'; 
 import {  useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ApplicantLogin, getApplicantData } from '../redux/actions';
+import { ApplicantLogin } from '../redux/actions';
 import { RootState } from '../redux/store';
 import { Dispatch } from 'redux';
 import { LoginCredentialsInterface } from './Login';
@@ -37,7 +37,7 @@ const SchoolAccountLogin: React.FC = () => {
 useEffect(() => {
   const handleLoginSuccess = async () => {
     if (accessToken && accessToken.accessToken) {
-     const user= await dispatch(getApplicantData(accessToken.accessToken));
+    //  const user= await dispatch(getApplicantData(accessToken.accessToken));
      if(userData){
        navigate(`/mss/${userData.role}/account/${userData.id}`);
      }

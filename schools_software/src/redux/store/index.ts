@@ -4,7 +4,6 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import persistReducer from "redux-persist/lib/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import applicantRegistration from "../reducers/applicantRegistration";
-import localStorage from "redux-persist/es/storage";
 import AsyncStorage from "@react-native-async-storage/async-storage"; 
 import getApplicantData from "../reducers/getApplicantData";
 import activeNav from "../reducers/activeNav";

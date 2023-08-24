@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import m_logo from "../assets/md_logo_small.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ApplicantLogin, getApplicantData } from '../redux/actions';
+import { ApplicantLogin} from '../redux/actions';
 import { RootState } from '../redux/store';
 import { Dispatch } from 'redux';
 import { CompanyName } from '../assets/data/company';
@@ -45,7 +45,7 @@ const Login = (): JSX.Element => {
 useEffect(() => {
   const handleLoginSuccess = async () => {
     if (accessToken && accessToken.accessToken) {
-     const user= await dispatch(getApplicantData(accessToken.accessToken));
+    //  const user= await dispatch(getApplicantData(accessToken.accessToken));
      if(userData){
        navigate(`/mss/account/${userData.id}`);
      }

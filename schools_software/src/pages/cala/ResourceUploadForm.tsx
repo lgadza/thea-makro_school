@@ -12,9 +12,9 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
   const [level, setLevel] = useState('');
   const [subject, setSubject] = useState('');
   const [description, setDescription] = useState('');
-  const [file, setFile] = useState<File | null>(null);
-  const [tags, setTags] = useState<string[]>([]);
-  const [tag, setTag] = useState<string>('');
+  const [file ] = useState<File | null>(null);
+  const [tags] = useState<string[]>([]);
+  // const [tag, setTag] = useState<string>('');
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
@@ -29,24 +29,24 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
     setTitle(e.target.value);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFile(e.target.files[0]);
-    }
-  };
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files && e.target.files.length > 0) {
+  //     setFile(e.target.files[0]);
+  //   }
+  // };
 
-  const handleTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const tag = e.target.value.trim();
-    setTag(tag);
-  };
-  const handleAddTag = () => {
-    if (tag && !tags.includes(tag)) {
-      setTags([...tags, tag]);
-      setTag('');
-    } else {
-      setTag('already available');
-    }
-  };
+  // const handleTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const tag = e.target.value.trim();
+  //   setTag(tag);
+  // };
+  // const handleAddTag = () => {
+  //   if (tag && !tags.includes(tag)) {
+  //     setTags([...tags, tag]);
+  //     setTag('');
+  //   } else {
+  //     setTag('already available');
+  //   }
+  // };
   const handleResourceUpload = () => {
     // Validation and resource upload logic here
     if (title && file) {
