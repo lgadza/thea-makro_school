@@ -486,6 +486,21 @@ overflow-x: hidden;
  .progress{
   display: none !important;
  }
+ .ask-input-nav{
+  position: sticky;
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  right: 0%;
+  
+}
+.input-container.ms-3{
+  margin-left: 0 !important;
+}
+p.chat-content{
+  font-size: 1rem;
+  
+}
 
 }
 .all-pages{

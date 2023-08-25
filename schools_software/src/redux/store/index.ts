@@ -14,6 +14,7 @@ import getGuardianTypes from "../reducers/getGuardianTypes";
 import editUserAddress from "../reducers/editUserAddress";
 import postUserAddress from "../reducers/postUserAddress";
 import getAllAiChats from "../reducers/getAllAiChats";
+import { chatReducer } from "../actions";
 
 
 const persistConfig = {
@@ -36,7 +37,8 @@ const mainReducer = combineReducers({
   getGuardianTypes:getGuardianTypes,
   editUserAddress:editUserAddress,
   postUserAddress:postUserAddress,
-  getAllAiChats:getAllAiChats
+  getAllAiChats:getAllAiChats,
+  chat:chatReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);

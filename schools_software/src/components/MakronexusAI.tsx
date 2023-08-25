@@ -2,7 +2,7 @@ import { IconDefinition, faArrowCircleDown,faBoltLightning, faComments, faCopy, 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
-// import { CompanyName } from "../assets/data/company"
+import { CompanyName } from "../assets/data/company"
 import {  useEffect, useRef, useState } from "react"
 import { Button, Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
@@ -13,7 +13,8 @@ import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, new
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
 import AlertBox from "./Alerts"
-interface Message {
+
+export interface Message {
     altText?: string;
     message: string;
     liked?: boolean;
@@ -27,6 +28,9 @@ interface Message {
     owner:string;
     permissions: null;
     ready:boolean
+  }
+  interface MobileNavProps{
+    chats:chatProps[]
   }
   interface chatProps{
     id:string;
@@ -246,8 +250,89 @@ console.log(question,"QUESTION")}
     </div>
   );
 };
+const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
+  const [navActive, setNavActive] = useState(false);
+
+  const toggleNav = () => {
+    setNavActive(!navActive);
+  };
+
+  return (
+    <nav className="mobile-nav d-md-none content_bg mb-5  px-4">
+      <div className="logo">
+      <div className="d-flex px-2">
+            <img
+              src={md_logo_small}
+              alt={CompanyName}
+              style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%",objectFit:"contain" }}
+              className="img_component"
+            />
+          </div>
+      </div>
+      
+      <div className={`nav-links content_bg px-2 ${navActive ? 'nav-active pt-3' : ''}`}>
+      <div className="d-flex justify-content-between px-2">
+            <Button className="btn-primary d-flex me-2 main_bg header" onClick={async()=>{
+              await handleNewChat()
+              getAllChats()
+              }}>
+              <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
+            </Button>
+           {models.length>0 && (
+             <select name="models" className="p-2 main_bg w-100" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
+              setCurrentModel(e.target.value)
+             }}>
+             {models.map((model,index)=>(
+               <option key={index} value={model.id}>{model.id}</option>
+             ))}
+           </select>
+           )}
+          </div>
+          <ul className="d-flex flex-column px-5 ">  
+      {chats.length>0 &&(
+              chats
+              .filter((chat) => chat.makronexaQAs.length !==0)
+              .map((chat,index)=>{
+                return(
+            <li className={`nav-item p-2  my-1  d-flex justify-content-center align-items-center ${currentChat===chat.id?"content_bg":"header"}`} key={index}>
+              <small className="d-flex w-75" 
+              onClick={() => handleChatItemClick(chat.id)}
+              >
+              <FontAwesomeIcon 
+              className={`${currentChat===chat.id?"":"header"}`}
+                icon={faComments} style={{color:"gray"}} />
+                {chat.makronexaQAs.length > 0 &&(
+                <span className=" ms-2 text-start chat_header_name">
+                  {chat.makronexaQAs[chat.makronexaQAs.length-1].message}
+                </span>
+                )}
+              </small>
+              <FontAwesomeIcon onClick={async()=>{
+                await deleteChat(chat.id,user.id)
+                getAllChats()
+                setMessages([])
+                }} 
+                icon={faTrashCan} style={{color:"red",fontSize:"0.8rem"}} />
+            </li>)}))}
+            </ul>
+      </div>
+      <div className={`burger ${navActive ? 'toggle' : ''}`} onClick={toggleNav}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
+      </div>
+      <div>
+          <span className="header">new chat</span>
+      </div>
+    </nav>
+  );
+}
+
     return (
       <div className="row ask-makronexa ms-4 me-2">
+        <div>
+          <MobileNav chats={chats}/>
+        </div>
         <div className="col col-md-8 helper">
           <div className={`makronexa-alert ${showAlert ? 'visible' : 'hidden'}`}>
             {loading?(

@@ -1,6 +1,7 @@
 import { Dispatch } from "redux";
 import { AddressInterface, ApplicantRegistration, UserChatting } from "../../Types";
 import { LoginCredentialsInterface } from "../../components/Login";
+import { Message } from "../../components/MakronexusAI";
 export const APPLICANT_REGISTRATION_ERROR_RESPONSE="APPLICANT_REGISTRATION_ERROR_RESPONSE"
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
 export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
@@ -38,13 +39,32 @@ export const LOGIN_APPLICANT="LOGIN_APPLICANT"
 export const LOGIN_APPLICANT_ERROR="LOGIN_APPLICANT_ERROR"
 export const LOGIN_APPLICANT_LOADING="LOGIN_APPLICANT_LOADING"
 export const ACTIVE_NAV="ACTIVE_NAV"
-
-export const ActiveNav=(component:string)=>{
-    return{
-        type:ACTIVE_NAV,
-        payload:component
+export const setChatMessages = (messages: Message[]) => ({
+    type: 'SET_CHAT_MESSAGES',
+    payload: messages,
+  });
+  
+  // redux/reducers/chatReducer.ts
+  interface ChatState {
+    messages: Message[];
+  }
+  
+  const initialState: ChatState = {
+    messages: [],
+  };
+  
+ export const chatReducer = (state = initialState, action: { type: string; payload: Message[] }) => {
+    switch (action.type) {
+      case 'SET_CHAT_MESSAGES':
+        return {
+          ...state,
+          messages: action.payload,
+        };
+      default:
+        return state;
     }
-}
+  };
+
 export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
     return async(dispatch:Dispatch)=>{
         const options={

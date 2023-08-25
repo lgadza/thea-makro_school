@@ -14,6 +14,7 @@ import { Link } from "react-router-dom"
 import md_logo_small from "../../assets/md_logo_small.png"
 import { CompanyName } from '../../assets/data/company';
 import "./MobileNav.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
 
@@ -32,49 +33,6 @@ interface Resource {
     
   ];
   
-
-  const MobileNav: React.FC = () => {
-    const [navActive, setNavActive] = useState(false);
-
-    const toggleNav = () => {
-      setNavActive(!navActive);
-    };
-  
-    return (
-      <nav className="mobile-nav d-md-none content_bg mb-5  px-4">
-        <div className="logo">
-        <div className="d-flex px-2">
-              <img
-                src={md_logo_small}
-                alt={CompanyName}
-                style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%",objectFit:"contain" }}
-                className="img_component"
-              />
-            </div>
-        </div>
-        <ul className={`nav-links content_bg ${navActive ? 'nav-active pt-3' : ''}`}>
-          <li>Home</li>
-          <li>About</li>
-          <li>Work</li>
-          <li>Projects</li>
-        </ul>
-        <div className={`burger ${navActive ? 'toggle' : ''}`} onClick={toggleNav}>
-          <div className="line1"></div>
-          <div className="line2"></div>
-          <div className="line3"></div>
-        </div>
-        <div>
-            <span className="header">new chat</span>
-        </div>
-      </nav>
-    );
-  }
-  
-
-  
-
-
-
 const Makronexa=():JSX.Element=>{
   const dispatch:Dispatch<any> =useDispatch()
   const user=useSelector((state:RootState)=>state.applicantData.data)
@@ -108,7 +66,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
       },[])
     return(
         <Container fluid className="ps-0 ms-0 pages scrollbar">
-            <MobileNav/>
+            {/* <MobileNav/> */}
             <Row>
           <Col md={2} className={"pe-0 d-none d-md-block hide-menu border-round"}>
                    <div className="px-4 w-100" style={{ height: "100vh", overflowY: "scroll" }}>
