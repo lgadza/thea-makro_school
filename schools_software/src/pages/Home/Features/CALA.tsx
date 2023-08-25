@@ -10,7 +10,6 @@ import VerticalTimeline from '../../../components/VerticalTimeline';
 import HorizontalTimeline from '../../../components/HorizontalTimeline';
 import CALAHeroBg from '../../../components/CALAHeroBg';
 import TypingEffect from '../../../components/TypingText';
-import { CompanyName } from '../../../assets/data/company';
 import { calaFAQ, studentsItems } from '../../../assets/data/calaFeature';
 import { quickFeatures } from '../../../assets/data/calaFeature';
 

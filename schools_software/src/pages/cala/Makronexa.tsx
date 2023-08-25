@@ -14,7 +14,6 @@ import { Link } from "react-router-dom"
 import md_logo_small from "../../assets/md_logo_small.png"
 import { CompanyName } from '../../assets/data/company';
 import "./MobileNav.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
 
