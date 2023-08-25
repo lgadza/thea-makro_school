@@ -112,4 +112,16 @@
   @media screen and (max-width:768px){
     
   }
-  
+  /* Blinker */
+  span#blinker{
+    animation: blinker 0.8s linear infinite;
+    color: rgb(255, 255, 255);
+    width: 3px;
+    background-color: white;
+    height: 2rem;
+  }
+  @keyframes blinker{
+    50%{
+      opacity: 0;
+    }
+  }

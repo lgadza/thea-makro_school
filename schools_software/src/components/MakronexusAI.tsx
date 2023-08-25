@@ -53,9 +53,27 @@ export interface Message {
     const [question, setQuestion] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
     const [aiError, setAiError] = useState<boolean>(false);
+    const [currentAnswer,setCurrentAnswer]=useState<string>("")
+    const [animatedText, setAnimatedText] = useState<string>("");
+    const [blinkerVisible, setBlinkerVisible] = useState(true);
+
     // const dispatch: Dispatch<any> = useDispatch();
-    
     const [showAlert, setShowAlert] = useState(true);
+    const startTypewriterAnimation = (text: string) => {
+      setAnimatedText(text.charAt(0))
+      setBlinkerVisible(true);
+      let charIndex = 0;
+  
+      const interval = setInterval(() => {
+        if (charIndex < text.length) {
+          setAnimatedText((prevText) => prevText + text.charAt(charIndex));
+          charIndex++;
+        } else {
+          clearInterval(interval); 
+          setBlinkerVisible(false);
+        }
+      }, 20); 
+    };
 
     useEffect(() => {
       let timeout: NodeJS.Timeout;
@@ -78,9 +96,7 @@ export interface Message {
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
     
   const handleAsk = async () => {
-    console.log("clicked 1")
     if (question !== "") {
-      console.log("clicked 2")
       const newMessage = { message: question, from: "user" };
       setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
@@ -88,7 +104,10 @@ export interface Message {
         setLoading(true); 
         const answer = await chatWithAi([...messages, newMessage],currentModel,question,currentChat, user.id);
         if (answer) {
+          setCurrentAnswer(answer.message)
+          setAnimatedText("");
           setMessages((prev) => [...prev, answer]);
+          startTypewriterAnimation(answer.message);
         }else{
           setAiError(true)
         }
@@ -250,6 +269,7 @@ console.log(question,"QUESTION")}
     </div>
   );
 };
+
 const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
   const [navActive, setNavActive] = useState(false);
 
@@ -382,11 +402,20 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       } text-start p-2 w-75`}
                     >
                       <small>
-                      <pre  style={{
-                        whiteSpace: "pre-wrap",
-                        wordWrap: "break-word",
-                        overflowWrap: "break-word",
-                      }}>{section.message.trimStart()}</pre>
+                            <pre id="ai-respond-text-holder" style={{
+                              whiteSpace: "pre-wrap",
+                              wordWrap: "break-word",
+                              overflowWrap: "break-word",
+                              fontFamily:"sans-serif",
+                              lineHeight: "1.8"
+                            }}>
+                              {section.from !== "user" && section.message.trimStart() === currentAnswer.trimStart()
+                                ? animatedText
+                                : section.message.trimStart()}
+                                {blinkerVisible && section.message === currentAnswer.trimStart()&&  (
+        <span id="blinker">|</span> 
+      )}
+                            </pre>
                       </small>
                     </p>
                   )}
