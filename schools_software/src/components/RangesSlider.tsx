@@ -24,7 +24,7 @@ const RangeSlider: React.FC = () => {
   }, []);
 
   return (
-    <div className='w-100 range-slider my-3'>
+    <div className='w-100 d-flex range-slider my-3'>
       <input
         id='slider'
         name='slider'

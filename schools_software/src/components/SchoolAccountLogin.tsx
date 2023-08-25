@@ -6,7 +6,6 @@ import { ApplicantLogin, getApplicantData } from '../redux/actions';
 import { RootState } from '../redux/store';
 import { Dispatch } from 'redux';
 import { LoginCredentialsInterface } from './Login';
-import { Alert } from 'react-bootstrap';
 import AlertBox from './Alerts';
 
 const SchoolAccountLogin: React.FC = () => {

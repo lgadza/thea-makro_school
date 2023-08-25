@@ -247,7 +247,7 @@ console.log(question,"QUESTION")}
   );
 };
     return (
-      <div className="row mx-3">
+      <div className="row ms-4 me-2">
         <div className="col col-md-8 helper">
           <div className={`makronexa-alert ${showAlert ? 'visible' : 'hidden'}`}>
             {loading?(
@@ -391,16 +391,16 @@ console.log(question,"QUESTION")}
           </div>
           )}
         </div>
-        <div className="col chat-nav d-none d-lg-block col-md-4 border-round pt-3 border-radius-round">
+        <div className="col chat-nav d-none d-md-block col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
-            <Button className="btn-primary content_bg header" onClick={async()=>{
+            <Button className="btn-primary me-2 content_bg header" onClick={async()=>{
               await handleNewChat()
               getAllChats()
               }}>
-              <FontAwesomeIcon icon={faPlus} /> <small>New chat</small>
+              <FontAwesomeIcon className="d-xl-block d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
            {models.length>0 && (
-             <select name="models" className="p-2 content_bg" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
+             <select name="models" className="p-2 content_bg w-100" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
               setCurrentModel(e.target.value)
              }}>
              {models.map((model,index)=>(
@@ -417,7 +417,7 @@ console.log(question,"QUESTION")}
                 .map((chat,index)=>{
                   return(
               <li className={`nav-item p-2 border-radius-round my-1  d-flex justify-content-between align-items-center ${currentChat===chat.id?"content_bg":"header"}`} key={index}>
-                <small className="d-flex" 
+                <small className="d-flex w-100" 
                 onClick={() => handleChatItemClick(chat.id)}
                 >
                 <FontAwesomeIcon 
