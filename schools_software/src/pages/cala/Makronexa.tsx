@@ -41,7 +41,7 @@ interface Resource {
     };
   
     return (
-      <nav className="mobile-nav d-md-none  mb-5  px-4">
+      <nav className="mobile-nav d-md-none content_bg mb-5  px-4">
         <div className="logo">
         <div className="d-flex px-2">
               <img
@@ -52,7 +52,7 @@ interface Resource {
               />
             </div>
         </div>
-        <ul className={`nav-links ${navActive ? 'nav-active' : ''}`}>
+        <ul className={`nav-links content_bg ${navActive ? 'nav-active pt-3' : ''}`}>
           <li>Home</li>
           <li>About</li>
           <li>Work</li>

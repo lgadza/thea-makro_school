@@ -55,10 +55,10 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
   };
 
   return (
-    <div className="pb-3    mt-4">
+    <div className="pb-3 component-margin-top   mt-4">
       <h4 className="d-flex mb-4">Resource Upload</h4>
       <Row>
-        <Col sm={6} lg={6} >
+        <Col sm={6} lg={4} >
           <Form.Group className="mb-3">
             <Form.Label className="d-flex">Title</Form.Label>
             <Form.Control
@@ -77,7 +77,7 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
             />
           </Form.Group>
         </Col>
-        <Col sm={6} lg={6}>
+        <Col sm={6} lg={4}>
           <Form.Group className="mb-3">
             <Form.Label className="d-flex">Subject</Form.Label>
             <Form.Select value={subject} onChange={handleSubjectChange}>
@@ -107,7 +107,7 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
             <UploadFileModal/>
           </Form.Group>
         </Col>
-        {/* <Col sm={6} lg={6}>
+        {/* <Col sm={6} lg={4}>
           <Form.Group className="mb-3">
             <Form.Label className="d-flex">Tags</Form.Label>
             <div className="d-flex">

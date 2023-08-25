@@ -82,9 +82,10 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
             />
         </div>
           </Col>
-                <Col className="ps-0 pe-3">
+                <Col className="ps-0 all-pages pe-3">
         <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
+                   <div className="px-5">
                   { activeComponent ==="dashboard" && <CALAOverView/>}
                   { activeComponent ==="AllStudents" && <AllCandidates/>  }
                   { activeComponent ==="StudentAdmissions" && <AllCandidates/>  }
@@ -93,6 +94,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
                   { activeComponent ==="MakronexusAI" && <MakronexusAI/> }
                   { activeComponent ==="Settings" && <Settings/>}
+                </div>
                 </div>
                 </Col>
             </Row>

@@ -247,7 +247,7 @@ console.log(question,"QUESTION")}
   );
 };
     return (
-      <div className="row ms-4 me-2">
+      <div className="row ask-makronexa ms-4 me-2">
         <div className="col col-md-8 helper">
           <div className={`makronexa-alert ${showAlert ? 'visible' : 'hidden'}`}>
             {loading?(
@@ -393,11 +393,11 @@ console.log(question,"QUESTION")}
         </div>
         <div className="col chat-nav d-none d-md-block col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
-            <Button className="btn-primary me-2 content_bg header" onClick={async()=>{
+            <Button className="btn-primary d-flex me-2 content_bg header" onClick={async()=>{
               await handleNewChat()
               getAllChats()
               }}>
-              <FontAwesomeIcon className="d-xl-block d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
+              <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
            {models.length>0 && (
              <select name="models" className="p-2 content_bg w-100" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{

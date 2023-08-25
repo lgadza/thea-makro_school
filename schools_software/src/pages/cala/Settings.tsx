@@ -14,7 +14,7 @@ const Settings: React.FC = () => {
   }
 
   return (
-      <div className="mt-4 mb-5 col-sm-12  col-xl-8">
+      <div className="mt-4 component-margin-top my-5 col-sm-12  col-xl-8">
         <h4 className='d-flex pb-2 my-3'>Settings</h4>
         <div className='d-flex align-items-center justify-content-between content_bg px-3'>
         <span className='me-5'>Shared</span>

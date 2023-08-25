@@ -63,6 +63,9 @@
     top: 0;
     right: 0;
   }
+  .ask-makronexa{
+    margin-top: 8%;
+  }
   .makronexa-alert.hidden{
   display: none;
   }
@@ -101,7 +104,11 @@
       transform: translateX(0);
     }
   }
-  
+  @media screen and (max-width:1200px){
+    .ask-makronexa{
+      margin-top: 10%;
+    }
+  }
   @media screen and (max-width:768px){
     
   }

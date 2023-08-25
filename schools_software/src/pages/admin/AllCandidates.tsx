@@ -14,8 +14,8 @@ const AllCandidates=():JSX.Element=>{
         setShow(false)
     }
     return(
-        <div>
-        <h4 className="d-flex">All Candidates</h4>
+        <div className="component-margin-top">
+        <h4 className="d-flex mb-2">All Candidates</h4>
        <div className="d-flex align-items-center">
            <span>Students</span> 
            <FontAwesomeIcon className="px-2 header" icon={faChevronRight} style={{fontSize:".8rem"}}/>

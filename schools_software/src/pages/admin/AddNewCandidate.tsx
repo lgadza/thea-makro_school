@@ -28,7 +28,7 @@ const AllNewCandidate=():JSX.Element=>{
         setActiveComponent(component)
     }
     return(
-        <div>
+        <div className="component-margin-top">
              <h5 className="d-flex">Add new candidate</h5>
                 <Row className="student_account_all_border py-3 mt-4 ">
                       <Col sm={3} className="student_account_border  py-3 ">
