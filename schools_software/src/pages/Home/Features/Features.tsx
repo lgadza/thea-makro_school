@@ -23,7 +23,6 @@ const Features: React.FC = () => {
         <Container fluid className="px-0 mb-5">
             <HomeNavbar />
           <Container className="px-5">
-
             {/* <FAQComp /> */}
           </Container>
           <Footer />

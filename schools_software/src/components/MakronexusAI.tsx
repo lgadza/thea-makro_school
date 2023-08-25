@@ -528,4 +528,4 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
     );
   };
   
-  export default MakronexusAI;
+  export default MakronexusAI

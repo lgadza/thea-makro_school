@@ -110,10 +110,10 @@ const AdmissionManagement: React.FC = () => {
                 <Container className="px-5">
                 <SunRaise/>
                     <Row className="mb-5">
-                        <Col md={8}>
+                        <Col xl={8}>
                   <AdmissionManagementContent/>
                         </Col>
-                        <Col md={4} className="px-5">
+                        <Col md={4} className="d-none d-xl-block px-5">
                             <ExploreMoreFeatures/>
                         </Col>
                     </Row>
