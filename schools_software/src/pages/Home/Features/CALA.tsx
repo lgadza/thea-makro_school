@@ -33,14 +33,14 @@ const CALAFeature: React.FC = () => {
       <div className="progress-container">
         <PageProgress steps={sections} />
       </div>
-      <div className="content-container">
+      <div className="content-container cala-main-feature">
         <Container fluid className="px-0 mb-5">
           <HomeNavbar />
           <div className="cala-hero-container d-flex align-items-center justify-content-center">
             <CALAHeroBg />
             <div className="ms-5">
               <h1 className="text-start text-nowrap">
-                Use {CompanyName} AI to
+                Use Makronexa to
               </h1>
               <div className="typing text ">
                 <TypingEffect words={words} typingSpeed={100} eraseSpeed={100} />
@@ -79,7 +79,7 @@ const CALAFeature: React.FC = () => {
                     </div>
                 </div>
               </Col>
-              <Col lg={4}>
+              <Col lg={4} className="d-none d-xl-block px-5">
                 <ExploreMoreFeatures />
               </Col>
             </Row>

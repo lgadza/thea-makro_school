@@ -22,11 +22,13 @@ const HomeNavbar: React.FC = () => {
     <div className="page-wrapper glow pb-2 home-navbar">
       <div className="nav-wrapper px-0 container">
         <nav className={`navbar ${!isMobileNavActive ? 'mobile-nav' : 'is-active'}`}>
+          <a href='/'>
           <img
             src={makro_logo}
             alt="Makro Logo"
             style={{width:"50px"}}
-          />
+            />
+            </a>
           <div className="menu-toggle" id="mobile-menu" onClick={handleMenuToggleClick}>
             <span className="menu-bar"></span>
             <span className="menu-bar"></span>

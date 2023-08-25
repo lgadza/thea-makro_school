@@ -6,7 +6,7 @@ import img1 from "../../assets/imgs/candidateAccount.png";
 import img2 from "../../assets/candidatesAdmission.png";
 import img3 from "../../assets/candidatesAdmission2.png";
 import "./MakroHomePage.css"; 
-import { CompanyName } from '../../assets/data/company';
+
 interface AdmissionCardData {
   id: number;
   imgUrl: string;
@@ -71,9 +71,9 @@ const HomeAIInfo: React.FC = () => {
       <input type="radio" id="feature3" className="sec-1-input" name="feature" checked={currentFeature === 3} />
       <div className="row my-4 me-2">
         <div className="col col-12 col-sm-12 col-md-6 ">
-          <h3 className="text-start header mb-3">{CompanyName} AI</h3>
+          <h3 className="text-start header mb-3">Mankronexa </h3>
           <h4 className="text-start">
-            {CompanyName} is generative AI that organizes all your knowledge
+            Mankronexa is generative AI that organizes all your knowledge
           </h4>
           <ul>
             {HomeIAFeatures.map((feature) => (
