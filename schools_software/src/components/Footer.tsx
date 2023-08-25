@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
         <div className="container">
         <div className="footer-cta pt-5 pb-5">
           <div className="row">
-            <div className="col-xl-4 col-md-4 mb-30">
+            <div className="col-xl-4 my-4 col-md-4 mb-30">
               <div className="single-cta">
               <a href='https://www.google.com/maps/search/06 Zwierzyniecka, Bialystok, Poland'>
                 <FontAwesomeIcon className='contact-icons' icon={faMapMarkerAlt} />
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="col-xl-4 col-md-4 mb-30">
+            <div className="col-xl-4 my-4 col-md-4 mb-30">
               <div className="single-cta">
                 <a href='tel:+48794144892'>
                 <FontAwesomeIcon className='contact-icons' icon={faPhone} />
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="col-xl-4 col-md-4 mb-30">
+            <div className="col-xl-4 my-4 col-md-4 mb-30">
               <div className="single-cta">
               <a href='mailto:siuolgadza@gmail.com'>
                 <FontAwesomeIcon className='contact-icons' icon={faEnvelopeOpen} />
@@ -155,7 +155,7 @@ const Footer: React.FC = () => {
                     <div className="col-xl-6 col-lg-6 text-center text-lg-left d-flex align-items-center">
                     <img src={logo} style={{width:"20px"}} alt="logo" />
                         <div className="ps-2 copyright-text">
-                            <p>Copyright	&copy; {CompanyName}.. {year} All rights reserved.</p>
+                            <p className='text-nowrap'>Copyright	&copy; {CompanyName}.. {year} All rights reserved.</p>
                         </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">

@@ -29,10 +29,10 @@ import HomeAIInfo from "./HomeAIInfo";
   // };
   const MakroHomePage: React.FC = () => {
     const sections = [
-      { label: "Home" },
-      { label: "Carousel" },
-      { label: "FAQ" },
-      { label: "Footer" },
+      { label: "Makronexus" },
+      { label: "Makronexus" },
+      { label: "Makronexus" },
+      { label: "Makronexus" },
     ];
 
     return (

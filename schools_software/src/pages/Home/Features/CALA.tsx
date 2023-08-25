@@ -16,14 +16,22 @@ import { quickFeatures } from '../../../assets/data/calaFeature';
 
 import './CALAFeature.css';
 import {teacherItems} from '../../../assets/data/calaFeature';
+import PageProgress from '../../../components/PageProgress';
 const CALAFeature: React.FC = () => {
 
   const words = ['Automated Grading', 'Research CALA', 'Summarize long papers', 'Study Assistance', 'Career Guidance'];
 
+  const sections = [
+    {label:"Makronexus"},
+    { label: "Makronexus" },
+    { label: "Makronexus" },
+    { label: "Makronexus" },
+  ];
+
   return (
     <div className="page-container">
       <div className="progress-container">
-        {/* <PageProgress steps={sections} /> */}
+        <PageProgress steps={sections} />
       </div>
       <div className="content-container">
         <Container fluid className="px-0 mb-5">

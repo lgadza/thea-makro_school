@@ -102,6 +102,7 @@
   }
   .FAQ .FAQ-title {
    font-size: 1rem;
+   color: white !important;
   }
   .FAQ h2{
     font-size: 1.5rem;

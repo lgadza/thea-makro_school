@@ -16,10 +16,10 @@ import { CompanyName } from "../../../assets/data/company";
 
 const AdmissionManagement: React.FC = () => {
     const sections = [
-        {label:"Home"},
-        { label: "Admission" },
-        { label: "FAQ" },
-        { label: "Footer" },
+        {label:"Makronexus"},
+        { label: "Makronexus" },
+        { label: "Makronexus" },
+        { label: "Makronexus" },
     ];
 
     const AdmissionManagementContent:React.FC=()=>{

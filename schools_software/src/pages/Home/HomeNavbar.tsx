@@ -46,12 +46,13 @@ const HomeNavbar: React.FC = () => {
             <li className="nav-item  p-2 border-radius-round">
               <a href="#">Partnerships</a>
             </li>
-            <li className="nav-item py-2 px-3 border-radius-round">
+            <li className="nav-item py-2 me-2 px-3 border-radius-round">
               <a href="#">About us</a>
             </li>
+            <div className="d-flex mt-1">
             {!isSearchActive && <FontAwesomeIcon
             icon={faSearch}
-              className="search color-header"
+              className="search ms-5 color-header"
               id="search-icon"
               onClick={handleSearchIconClick}
             ></FontAwesomeIcon>}  
@@ -64,10 +65,11 @@ const HomeNavbar: React.FC = () => {
             ></FontAwesomeIcon>
             }
             <input
-              className={`search-input ms-1 main_bg ${isSearchActive ? 'search-active' : ''}`}
+              className={`search-input mt-2 ms-1 main_bg ${isSearchActive ? 'search-active' : ''}`}
               type="text"
               placeholder="Search.."
             />
+            </div> 
           </ul>
           <div className='px-2 d-flex'>
           <Button

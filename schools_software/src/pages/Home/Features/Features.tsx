@@ -8,8 +8,10 @@ import Footer from "../../../components/Footer";
 
 const Features: React.FC = () => {
   const sections = [
-    {label:"Home"},
-    { label: "Footer" },
+    {label:"Makronexus"},
+    { label: "Makronexus" },
+    { label: "Makronexus" },
+    { label: "Makronexus" },
   ];
 
   return (
