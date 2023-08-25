@@ -482,3 +482,9 @@ overflow-x: hidden;
     bottom: 100%;
   }
 }
+@media screen and (max-width: 768px) {
+ .progress{
+  display: none !important;
+ }
+
+}

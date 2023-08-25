@@ -391,7 +391,7 @@ console.log(question,"QUESTION")}
           </div>
           )}
         </div>
-        <div className="col chat-nav col-md-4 border-round pt-3 border-radius-round">
+        <div className="col chat-nav d-none d-lg-block col-md-4 border-round pt-3 border-radius-round">
           <div className="d-flex justify-content-between">
             <Button className="btn-primary content_bg header" onClick={async()=>{
               await handleNewChat()

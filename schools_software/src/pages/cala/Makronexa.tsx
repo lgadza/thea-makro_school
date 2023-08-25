@@ -13,7 +13,7 @@ import Settings from "../cala/Settings"
 import { Link } from "react-router-dom"
 import md_logo_small from "../../assets/md_logo_small.png"
 import { CompanyName } from '../../assets/data/company';
-
+import "./MobileNav.css"
 
 
 interface Resource {
@@ -30,6 +30,46 @@ interface Resource {
     { id: 2, title: 'Resource 2', thumbnail: 'https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg',description:"", tags:[],reviews:[],rating:3},
     
   ];
+  
+
+  const MobileNav: React.FC = () => {
+    const [navActive, setNavActive] = useState(false);
+
+    const toggleNav = () => {
+      setNavActive(!navActive);
+    };
+  
+    return (
+      <nav className="mobile-nav px-4">
+        <div className="logo">
+        <div className="d-flex px-2">
+              <img
+                src={md_logo_small}
+                alt={CompanyName}
+                style={{ width: `${50}px`, height: `${50}px`, borderRadius: "0%",objectFit:"contain" }}
+                className="img_component"
+              />
+            </div>
+        </div>
+        <ul className={`nav-links ${navActive ? 'nav-active' : ''}`}>
+          <li>Home</li>
+          <li>About</li>
+          <li>Work</li>
+          <li>Projects</li>
+        </ul>
+        <div className={`burger ${navActive ? 'toggle' : ''}`} onClick={toggleNav}>
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
+      </nav>
+    );
+  }
+  
+
+  
+
+
 
 const Makronexa=():JSX.Element=>{
   const dispatch:Dispatch<any> =useDispatch()
@@ -64,17 +104,9 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
       },[])
     return(
         <Container fluid className="ps-0 ms-0 pages scrollbar">
+            <MobileNav/>
             <Row>
-                 {/* <Col md={2} className={showMenu?"":" hide-menu md-1"} >
-                <MainSidebar 
-                toggleMenu={toggleMenu} 
-                showMenu={showMenu}
-                 source="studentSchoolAccount"
-                    activeComponent={activeComponent}
-                    handleNavigationClick={handleNavigationClick}
-                 />    
-                </Col> */}
-          <Col md={2} className={"pe-0 hide-menu border-round"}>
+          <Col md={2} className={"pe-0 d-none d-lg-block hide-menu border-round"}>
                    <div className="px-4 w-100" style={{ height: "100vh", overflowY: "scroll" }}>
             <div className="d-flex px-2">
               <img
@@ -118,6 +150,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                 </div>
                 </Col>
             </Row>
+            
         </Container>
     )
 }

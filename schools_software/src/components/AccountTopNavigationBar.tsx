@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=>{
   const navigate=useNavigate()
     return(
-      <>
+      <div className=" d-none d-lg-block">
           {user && (
         <div className="search-bar py-2 px-3 mb-4 d-flex align-items-center sidebar-head justify-content-between">
         <SearchBar placeholder="Find Something . . ."/>
@@ -169,7 +169,7 @@ const AccountTopNavigationBar=({user}:{user:ApplicantRegistration}):JSX.Element=
         </ul>
     </div>
         )}
-    </>
+    </div>
     )
 }
 
