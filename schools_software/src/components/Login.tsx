@@ -77,7 +77,7 @@ console.log(accessToken,"CRED")
       </div>
       )}
       <Row className='d-flex justify-content-center align-item-center'>
-        <Col className='login_container' md={4}>
+        <Col className='login_container content_bg col-sm-10 col-md-6 col-xl-4' >
           <div className="imageContainer mb-3">
             <img
               src={m_logo}
@@ -87,7 +87,7 @@ console.log(accessToken,"CRED")
             />
           </div>
 
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className='px-2'>
             <Form.Group>
               <Form.Control type="email" name='email' value={loginCredentials.email} onChange={handleChange} placeholder="Enter email" className="mb-3" />
             </Form.Group>

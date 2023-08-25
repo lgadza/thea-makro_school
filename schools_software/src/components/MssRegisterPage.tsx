@@ -6,9 +6,9 @@ import { CompanyName } from "../assets/data/company";
 const MssRegisterPage=():JSX.Element=>{
    return(
     <Container className="application_page  d-flex align-items-center justify-content-center">
-        <Row className="">
-        <Col md={4} className="d-flex flex-column justify-content-between reg-welcome">
-            <div className="wrapper d-flex flex-column justify-content-between pb-5">
+        <Row>
+        <Col md={4} className="d-flex d-none d-md-block flex-column justify-content-between reg-welcome">
+            <div className="wrapper  d-flex flex-column justify-content-between pb-5">
             <div className="p-3 d-flex justify-content-center">
             <img
                     src={md_logo_small}
