@@ -1,4 +1,7 @@
 import { IconDefinition, faBookOpen, faLightbulb, faListCheck, faMagnifyingGlass, faPenToSquare, faPencil, faVials } from '@fortawesome/free-solid-svg-icons';
+import img1 from "../makronexa.png"
+import img2 from "../settings.png"
+import img3 from "../uploadFile.png"
 export interface calaProps {
     id: number;
     title: string;
@@ -16,6 +19,7 @@ export interface timelineItemsProps {
     color:string;
     title: string;
     description: string;
+    imgUrl?:string;
   }
   export const studentsItems:timelineItemsProps[] = [
   
@@ -26,6 +30,7 @@ export interface timelineItemsProps {
       color:"rgb(41, 128, 185)",
       title: 'Content Summarization',
       description: 'Instantly obtain concise summaries of lengthy articles, research papers, and textbooks.',
+      imgUrl:img1 
     },
     {
       id:2,
@@ -33,6 +38,7 @@ export interface timelineItemsProps {
       color:"rgb(192, 57, 43)",
       title: 'Research Support',
       description: 'Effortlessly find relevant research materials, articles, and sources to enhance your assignments and CALA projects',
+      
     },
     {
       id:3,
@@ -40,6 +46,7 @@ export interface timelineItemsProps {
       color:"rgb(250, 147, 37)",
       title: 'Study Assistance & Homework Help',
       description: 'Get step-by-step solutions and explanations for math, science, and other subjects.',
+      imgUrl:img1 
     },
     {
       id:4,
@@ -57,6 +64,8 @@ export interface timelineItemsProps {
     color: 'rgb(247, 195, 49)',
     title: 'CALA Generation Assistance',
     description: 'Harness AI to assist in generating educational content, CALA projects, including quizzes, practice exercises, and lesson plans, based on specific learning objectives and curriculum requirements.',
+    imgUrl:img1 
+
   },
   {
     id:2,
@@ -64,6 +73,8 @@ export interface timelineItemsProps {
     color: 'red',
     title: 'Create Exams Within Seconds',
     description: 'Choose from over 20L+ subjective and objective questions and create your test within seconds! Plan, Conduct & Evaluate Exams with Ease.',
+    imgUrl:img2 
+    
   },
   {
     id:3,
@@ -71,6 +82,7 @@ export interface timelineItemsProps {
     color: 'rgb(0, 123, 255)',
     title: 'Automated Grading and Assessment',
     description: 'Utilize AI-powered tools to automatically grade objective assessments, such as CALA projects, multiple-choice questions or fill-in-the-blank exercises, saving time and providing instant feedback to students.',
+    imgUrl:img3
   },
  
 ];

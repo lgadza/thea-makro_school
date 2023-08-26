@@ -2,7 +2,6 @@
 import  { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import './VerticalTimeline.css'; 
-import img1 from "../assets/candidatesAdmission.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { timelineItemsProps } from '../assets/data/calaFeature';
 const VerticalTimeline = ({timelineItems}:{timelineItems:timelineItemsProps[]}):JSX.Element => {
@@ -29,7 +28,10 @@ const VerticalTimeline = ({timelineItems}:{timelineItems:timelineItemsProps[]}):
             <div className="timeline-img"></div>
             <div className={`timeline-content ${index % 2 === 0 ? 'js--fadeInLeft' : 'js--fadeInRight'}`}>
               <div className='timeline-img-container cala-content'>
-                <img className='time-img' src={img1} alt='img'/>
+              {item.imgUrl && (
+
+                <img className='time-img' src={item.imgUrl} alt='img'/>
+              )}
               </div>
               <div className='text-start px-2 mt-3'>
                 <FontAwesomeIcon icon={item.icon} style={{ fontSize: "2rem", color: item.color }} />
