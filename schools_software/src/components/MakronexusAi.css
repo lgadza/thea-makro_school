@@ -70,8 +70,7 @@
   display: none;
   }
   .chat-nav{
-    /* box-shadow: rgb  a(2, 2, 2, .6) 60px 30px 60px -12px inset, rgba(0, 0, 0, 0.5) 30px 18px 36px -18px inset; */
-    box-shadow: rgba(50, 51, 52, 0.3) -5px 5px, rgba(74, 78, 79, 0.2) -10px 10px, rgba(47, 47, 48, 0.15) -15px 15px, rgba(49, 50, 50, 0.15) -20px 20px, rgba(46, 47, 47, 0.025) -25px 25px;
+    /* box-shadow: rgba(50, 51, 52, 0.3) -5px 5px, rgba(74, 78, 79, 0.2) -10px 10px, rgba(47, 47, 48, 0.15) -15px 15px, rgba(49, 50, 50, 0.15) -20px 20px, rgba(46, 47, 47, 0.025) -25px 25px; */
   }
   .loader--text {
     position: absolute;
@@ -110,7 +109,97 @@
     }
   }
   @media screen and (max-width:768px){
+    input.search{
+      width: 30rem !important;
+    }
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
+  }
+  @media screen and (max-width:708px){
+    input.search{
+      width: 25rem !important;
+    }
+  }
+  @media screen and (max-width:600px){
+    input.search{
+      width: 23rem !important;
+    }
+    .input-container{
+      left: -5%;
+    }
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
+  }
+  @media screen and (max-width:500px){
+    input.search{
+      width: 22rem !important;
+      
+    }
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
+   .helper{
+    padding-left: 0;
+   }
+    .chats-messages .w-75{
+      width: 100% !important;
+    }
     
+  }
+  @media screen and (max-width:450px){
+    input.search{
+      width: 20rem !important;
+    }
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
+  }
+  @media screen and (max-width:420px){
+    input.search{
+      width: 18rem !important;
+    }
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
+    
+  }
+  @media screen and (max-width:400px){
+    input.search{
+      width: 17rem !important;
+    }  
+    .input-container{
+      left: -8%;
+    }
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
+  }
+  @media screen and (max-width:350px){
+    input.search{
+      width: 15rem !important;
+    }
+    .input-container{
+      left: -8%;
+    }  
+    .makronexa-alert{
+      position: sticky;
+      top: 23px;
+      right:0;    
+    }
   }
   /* Blinker */
   span#blinker{
@@ -124,4 +213,34 @@
     50%{
       opacity: 0;
     }
+  }
+
+  /* cliping files */
+  .clip-files {
+    position: relative;
+  }
+  .files {
+    position: absolute;
+    bottom: 15px;
+    left: -10px;
+  }
+ 
+  .clip-file {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(95, 102, 205);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.clip-image {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(172, 68, 207);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -10px;
   }

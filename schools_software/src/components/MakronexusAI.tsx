@@ -1,4 +1,4 @@
-import { IconDefinition, faArrowCircleDown,faBoltLightning, faComments, faCopy, faFileArrowUp, faImage, faPaperPlane, faPencilSquare, faPlus,  faSun, faThumbsDown, faThumbsUp, faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition, faArrowCircleDown,faBoltLightning, faComments,  faPaperPlane,  faPlus,  faSun,  faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
@@ -13,6 +13,7 @@ import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, new
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
 import AlertBox from "./Alerts"
+import * as Icon from "react-bootstrap-icons"
 
 export interface Message {
     altText?: string;
@@ -51,7 +52,7 @@ export interface Message {
     const [currentModel,setCurrentModel]=useState("gpt-3.5-turbo")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
-    const [copied, setCopied] = useState<boolean>(false);
+    // const [copied, setCopied] = useState<boolean>(false);
     const [aiError, setAiError] = useState<boolean>(false);
     const [currentAnswer,setCurrentAnswer]=useState<string>("")
     const [animatedText, setAnimatedText] = useState<string>("");
@@ -187,6 +188,7 @@ const scrollToLastMessage=()=>{
 
   },[])
 const Loader: React.FC = () => {
+
   return (
     <div className="chat-loader-container w-75  py-3 d-flex justify-content-center align-items-center">
       <div className="chat-loader ">
@@ -201,6 +203,46 @@ const Loader: React.FC = () => {
     </div>
   );
 };
+
+const FilesIcons:React.FC=()=>{
+     const [isClipping, setIsClipping] = useState(false);
+  const handleClipping = () => {
+    isClipping ? setIsClipping(false) : setIsClipping(true);
+  };
+  return(
+    <div className="clip-files">
+            <Icon.Paperclip onClick={handleClipping} size={25} />
+            {isClipping && (
+              <div className="d-flex files flex-column">
+                <label htmlFor="image">
+                  <span className=" clip-image ">
+                    {" "}
+                    <Icon.ImageFill size={20} />
+                  </span>
+                </label>
+                <input
+                  id="image"
+                  type="file"
+                  style={{ visibility: "hidden" }}
+                  //   onChange={handleAvatar}
+                />
+                <label htmlFor="file">
+                  <span className="clip-file ">
+                    {" "}
+                    <Icon.FileEarmarkFill size={20} />
+                  </span>
+                </label>
+                <input
+                  id="file"
+                  type="file"
+                  style={{ visibility: "hidden" }}
+                  //   onChange={handleAvatar}
+                />
+              </div>
+            )}
+          </div>
+  )
+}
 
 const MakronexaOverview: React.FC = () => {
   const examplePrompts = [
@@ -278,7 +320,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
   };
 
   return (
-    <nav className="mobile-nav d-md-none content_bg mb-5  px-4">
+    <nav className="mobile-nav d-md-none border-round mb-5  px-4">
       <div className="logo">
       <div className="d-flex px-2">
             <img
@@ -341,13 +383,9 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
-      <div>
-          <span className="header">new chat</span>
-      </div>
     </nav>
   );
 }
-
     return (
       <div className="row ask-makronexa ms-4 me-2">
         <div>
@@ -364,7 +402,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
           {messages.length > 0 || currentChat ?
             (messages.map((section, index) => (
               <div key={index}>
-                <div className="d-flex justify-content-center text-start mt-2">
+                <div className="d-flex chats-messages justify-content-center text-start mt-2">
                   <div className="pe-2">
                     <img
                       src={
@@ -374,8 +412,8 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       }
                       alt={section.from}
                       style={{
-                        width: "20px",
-                        height: "20px",
+                        width: "30px",
+                        height: "30px",
                         borderRadius: "0%",
                       }}
                       className="img_component"
@@ -393,7 +431,6 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                         {section.message}
                         </small>
                       </p>
-                      <FontAwesomeIcon icon={faPencilSquare} className="mt-3" />
                     </div>
                   ) : (
                     <p
@@ -420,7 +457,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                     </p>
                   )}
                 </div>
-                {section.from !== "user" && (
+                {/* {section.from !== "user" && (
                   <div className="d-flex justify-content-center mb-3">
                     <div className="d-flex w-75 justify-content-end">
                       <FontAwesomeIcon
@@ -440,17 +477,17 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       <div
                         className="cursor-pointer pb-2"
                         onClick={() => setCopied(true)}>
-                        {!copied ? (
+                        {copied &&  section.message.trimStart() === currentAnswer.trimStart() ? (
+                          <span className="py-2 text-muted">Copied</span>
+                        ) : (
                           <FontAwesomeIcon
                             style={{ color: `${true}:"rgb(108, 117, 105)"` }}
                             icon={faCopy}
                           />
-                        ) : (
-                          <span className="py-2 text-muted">Copied</span>
                         )}
                       </div>
                       </div>
-                    </div>)}
+                    </div>)} */}
                   </div> ))):(<MakronexaOverview/>)}
   
          {currentChat &&(
@@ -463,21 +500,8 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                   <AlertBox message="Something went wrong at our end, try later" type="danger" loading={false}/>
                 </div>
                 )
-                // :(<Button className="btn regenerate-btn-container content_bg my-3" onClick={handleAsk}>
-                //   <FontAwesomeIcon className="px-2" icon={faArrowRotateForward} />
-                //   <small>regenerate</small>
-                // </Button>)
               }
-                <FontAwesomeIcon
-                  className="cursor-pointer"
-                  style={{ fontSize: "20px" }}
-                  icon={faFileArrowUp}
-                />
-                <FontAwesomeIcon
-                  className="cursor-pointer mx-3"
-                  style={{ fontSize: "20px" }}
-                  icon={faImage}
-                />
+                <FilesIcons/>
                 <div className="d-flex align-items-center">  
                     <input
                     type="text"
@@ -498,7 +522,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                   )}
             </div>
             <FontAwesomeIcon
-              className="go-bottom cursor-pointer"
+              className="go-bottom d-none d-md-block cursor-pointer"
               icon={faArrowCircleDown}
               onClick={scrollToLastMessage}
             />
