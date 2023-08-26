@@ -79,3 +79,13 @@
   z-index: 1;
   transition: height 0.3s;
 }
+
+
+
+@media screen and (max-width:500px){
+
+  .step-labels {
+    left: 0%; 
+  }
+  
+}

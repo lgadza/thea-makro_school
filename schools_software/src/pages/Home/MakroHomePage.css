@@ -36,17 +36,21 @@
   
 }
 
-.Teachers{
+.Teachers_back{
   background: url("../../assets/imgs/teacher.jpg");
 background-size: cover; 
-  background-position: center
+  background-position: center;
+  background-repeat: no-repeat
+
 }
 
 
-.Schools{
+.Schools_back{
   background: url("../../assets/imgs/schoolChairs.jpg") ;
 background-size: cover; 
-  background-position: center
+  background-position: center;
+  background-repeat: no-repeat
+
 }
 
 .better-for-card h3{
@@ -262,7 +266,7 @@ overflow: hidden;
   }
   
   .info_section {
-    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+    background: linear-gradient(to right, rgb(13, 13, 12) 30%, transparent 100%);
   }
   
   .blur_back {

@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { HomeIAFeatures } from '../../assets/data/makrohome';
 import { PushButton } from '../../components/Buttons';
-import img1 from "../../assets/imgs/candidateAccount.png";
-import img2 from "../../assets/candidatesAdmission.png";
-import img3 from "../../assets/candidatesAdmission2.png";
+import img1 from "../../assets/settings.png";
+import img2 from "../../assets/makronexa.png";
+import img3 from "../../assets/uploadFile.png";
 import "./MakroHomePage.css"; 
 
 interface AdmissionCardData {

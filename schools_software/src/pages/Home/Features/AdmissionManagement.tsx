@@ -78,7 +78,7 @@ const AdmissionManagement: React.FC = () => {
                 }
                 </div>
                 <div className="benefits d-flex flex-column align-items-start">
-                <h4 className="my-3">Benefits of Admission Management Software</h4>
+                <h4 className="my-3">Benefits of Admission Software</h4>
                 <small className="text-start">
                 With a host of features, {CompanyName} provides various advantages to everyone connected to the education system. Some key benefits of the admission management system are:
                 </small>
