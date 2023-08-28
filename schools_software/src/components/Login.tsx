@@ -73,7 +73,7 @@ console.log(accessToken,"CRED")
 
       {isError && sign_in && (
       <div className='register-alert'>
-        <AlertBox type="danger" message='You do not have an account yet or the email/password entered is incorrect'/>
+        <AlertBox type="danger" message='The email/password entered is incorrect'/>
       </div>
       )}
       <Row className='d-flex justify-content-center align-item-center'>

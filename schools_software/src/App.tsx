@@ -27,19 +27,19 @@ function App() {
     <div className='App'>
     <BrowserRouter>
       <Routes>
-        <Route path="mss/register" element={<MssRegisterPage/>}/>
+       {/* <Route path="mss/cala" element={<CalaPage/>}/> */}
+       {/* <Route path="mss/news" element={<News/>}/> */}
+       {/* <Route path="mss/students" element={<Students/>}/> */}
+       {/* <Route path="mss/library" element={<LibraryPage/>}/> */}
+       {/* <Route path="mss/checkouts" element={<CheckoutsPage/>}/> */}
         <Route path="/" element={<MakroHomePage/>}/>
+        <Route path="mss/register" element={<MssRegisterPage/>}/>
         <Route path="mss/login" element={<Login/>}/>
         <Route path="mss/makro/features" element={<Features/>}/>
         <Route path="mss/makro/features/admission_management" element={<AdmissionManagement/>}/>
         <Route path="mss/makro/features/ai" element={<CALAFeature/>}/>
         <Route path="mss/:user_role/account/:user_id" element={<Pages/>}/>
        <Route path="mss/school_account/login" element={<SchoolAccountLogin/>}/>
-       {/* <Route path="mss/cala" element={<CalaPage/>}/> */}
-       {/* <Route path="mss/news" element={<News/>}/> */}
-       {/* <Route path="mss/students" element={<Students/>}/> */}
-       {/* <Route path="mss/library" element={<LibraryPage/>}/> */}
-       {/* <Route path="mss/checkouts" element={<CheckoutsPage/>}/> */}
        <Route path="mss/account/:id" element={<StudentAccountPage/>}/>
        <Route path="/ask.makronexus.com" element={<Makronexa/>}/>
        <Route path="ask" element={<Makronexa/>}/>

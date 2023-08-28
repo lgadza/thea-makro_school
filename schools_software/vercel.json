@@ -1,0 +1,17 @@
+{
+    "routes" : [
+        { "src": "/", "dest": "/" },
+        { "src": "mss/register", "dest": "/" },
+        { "src": "mss/login", "dest": "/" },
+        { "src": "mss/makro/features", "dest": "/" },
+        { "src": "mss/makro/features/admission_management", "dest": "/" },
+        { "src": "mss/makro/features/ai", "dest": "/" },
+        { "src": "mss/:user_role/account/:user_id", "dest": "/" },
+        { "src": "mss/school_account/login", "dest": "/" },
+        { "src": "mss/account/:id", "dest": "/" },
+        { "src": "/ask.makronexus.com", "dest": "/" },
+        { "src": "ask", "dest": "/" },
+        { "src": "*", "dest": "/" }
+      ]
+      
+}
