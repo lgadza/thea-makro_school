@@ -39,6 +39,8 @@ export const LOGIN_APPLICANT="LOGIN_APPLICANT"
 export const LOGIN_APPLICANT_ERROR="LOGIN_APPLICANT_ERROR"
 export const LOGIN_APPLICANT_LOADING="LOGIN_APPLICANT_LOADING"
 export const ACTIVE_NAV="ACTIVE_NAV"
+
+const BE_PROD_URL=process.env.VITE_BE_PROD_URL
 export const setChatMessages = (messages: Message[]) => ({
     type: 'SET_CHAT_MESSAGES',
     payload: messages,
@@ -76,7 +78,7 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
             body:JSON.stringify(cred)
         }
         try{
-            const response=await fetch("http://localhost:3001/applicants/login",options)
+            const response=await fetch(`${BE_PROD_URL}/applicants/login`,options)
             if(response.ok){
                 const accessToken=await response.json()
                 dispatch({
@@ -127,7 +129,7 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
 //         }
          
 //         try{
-//             const response=await fetch(`http://localhost:3001/ai/${user_id}/chats`,options)
+//             const response=await fetch(`${BE_PROD_URL}/ai/${user_id}/chats`,options)
 //             if(response.ok){
 //                 const chats=await response.json();
 //                 console.log(chats,"CHATS")
@@ -176,7 +178,7 @@ export const getAllAiChats = async(user_id?:string) => {
             },    
         }
         try{
-            const response=await fetch(`http://localhost:3001/ai/${user_id}/chats`,options)
+            const response=await fetch(`${BE_PROD_URL}/ai/${user_id}/chats`,options)
             if(response.ok){
                 const chats=await response.json();
                 return chats
@@ -196,7 +198,7 @@ export const getChatMessages = async(chat_id:string,user_id?:string) => {
             },    
         }
         try{
-            const response=await fetch(`http://localhost:3001/ai/${user_id}/chats/${chat_id}`,options)
+            const response=await fetch(`${BE_PROD_URL}/ai/${user_id}/chats/${chat_id}`,options)
             if(response.ok){
                 const chat=await response.json();
                 return chat
@@ -217,7 +219,7 @@ export const chatWithAi = async (messages: UserChatting[],model:string,question:
                     body:JSON.stringify({message:messages.map((message)=>message.message).join("\n"),model,applicant_id,question})
                 }
     try {
-      const response=await fetch(`http://localhost:3001/ai/chats/${currentChat}/messages`,options)
+      const response=await fetch(`${BE_PROD_URL}/ai/chats/${currentChat}/messages`,options)
       if (response.ok) {
         const answer = await response.json();
         return answer; 
@@ -238,7 +240,7 @@ export const newChat = async (applicant_id?:string,) => {
                    
                 }
     try {
-      const response=await fetch(`http://localhost:3001/ai/${applicant_id}/chats`,options)
+      const response=await fetch(`${BE_PROD_URL}/ai/${applicant_id}/chats`,options)
       if (response.ok) {
         const newChat = await response.json();
         return newChat.id; 
@@ -259,7 +261,7 @@ export const deleteChat = async (chat_id:string,applicant_id?:string,) => {
                    
                 }
     try {
-      const response=await fetch(`http://localhost:3001/ai/${applicant_id}/chats/${ chat_id}`,options)
+      const response=await fetch(`${BE_PROD_URL}/ai/${applicant_id}/chats/${ chat_id}`,options)
       if (response.ok) {
         const res = await response.json();
         console.log(res," CHAT DELETED")
@@ -278,7 +280,7 @@ export const deleteAllChats = async (applicant_id?:string,) => {
                    
                 }
     try {
-      const response=await fetch(`http://localhost:3001/ai/${applicant_id}/chats`,options)
+      const response=await fetch(`${BE_PROD_URL}/ai/${applicant_id}/chats`,options)
       if (response.ok) {
         getAllAiChats(applicant_id)
         const res = await response.json();
@@ -298,7 +300,7 @@ export const getEngines = async () => {
                    
                 }
     try {
-      const response=await fetch("http://localhost:3001/ai/models",options)
+      const response=await fetch(`${BE_PROD_URL}/ai/models`,options)
       if (response.ok) {
         const models = await response.json();
         return models; 
@@ -321,7 +323,7 @@ export const ApplicantRegister = (formData:ApplicantRegistration) => {
             body:JSON.stringify(formData)
         }
         try{
-            const response=await fetch("http://localhost:3001/applicants/register",options)
+            const response=await fetch(`${BE_PROD_URL}/applicants/register`,options)
             if(response.ok){
                 const status=await response.json();
                 dispatch({
@@ -378,7 +380,7 @@ export const editApplicantData = (accessToken:string,formData:ApplicantRegistrat
             
         }
         try{
-            const response=await fetch(`http://localhost:3001/applicants/${user_id}`,options)
+            const response=await fetch(`${BE_PROD_URL}/applicants/${user_id}`,options)
             if(response.ok){
                 const personalData=await response.json();
                 dispatch({
@@ -429,7 +431,7 @@ export const postUserAddress = (accessToken:string,address:AddressInterface,user
             
         }
         try{
-            const response=await fetch(`http://localhost:3001/address/${user_id}`,options)
+            const response=await fetch(`${BE_PROD_URL}/address/${user_id}`,options)
             if(response.ok){
                 const address=await response.json();
                 dispatch({
@@ -480,7 +482,7 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
             
         }
         try{
-            const response=await fetch(`http://localhost:3001/address/${address_id}`,options)
+            const response=await fetch(`${BE_PROD_URL}/address/${address_id}`,options)
             if(response.ok){
                 const address=await response.json();
                 dispatch({
@@ -534,7 +536,7 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
         };
 
             try{
-                const response=await fetch("http://localhost:3001/applicants/me",options)
+                const response=await fetch(`${BE_PROD_URL}/applicants/me`,options)
                 
                 if(response.ok){
                     const data= await response.json()
@@ -587,7 +589,7 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
         };
 
             try{
-                const response=await fetch(`http://localhost:3001/address/${user_id}`,options)
+                const response=await fetch(`${BE_PROD_URL}/address/${user_id}`,options)
                 
                 if(response.ok){
                     const address= await response.json()
@@ -640,7 +642,7 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
         };
 
             try{
-                const response=await fetch(`http://localhost:3001/guardians/types/all`,options)
+                const response=await fetch(`${BE_PROD_URL}/guardians/types/all`,options)
                 
                 if(response.ok){
                     const guardian_type= await response.json()
