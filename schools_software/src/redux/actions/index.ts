@@ -40,7 +40,7 @@ export const LOGIN_APPLICANT_ERROR="LOGIN_APPLICANT_ERROR"
 export const LOGIN_APPLICANT_LOADING="LOGIN_APPLICANT_LOADING"
 export const ACTIVE_NAV="ACTIVE_NAV"
 
-const BE_PROD_URL=process.env.VITE_BE_PROD_URL
+const BE_PROD_URL=import.meta.env.VITE_BE_PROD_URL
 export const setChatMessages = (messages: Message[]) => ({
     type: 'SET_CHAT_MESSAGES',
     payload: messages,
