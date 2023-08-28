@@ -1,16 +1,16 @@
 {
     "routes" : [
         { "src": "/", "dest": "/" },
-        { "src": "register", "dest": "/" },
-        { "src": "login", "dest": "/" },
-        { "src": "features", "dest": "/" },
-        { "src": "features/admission_management", "dest": "/" },
-        { "src": "features/ai", "dest": "/" },
-        { "src": ":user_role/account/:user_id", "dest": "/" },
-        { "src": "school_account/login", "dest": "/" },
-        { "src": "account/:id", "dest": "/" },
+        { "src": "/register", "dest": "/" },
+        { "src": "/login", "dest": "/" },
+        { "src": "/features", "dest": "/" },
+        { "src": "/features/admission_management", "dest": "/" },
+        { "src": "/features/ai", "dest": "/" },
+        { "src": "/:user_role/account/:user_id", "dest": "/" },
+        { "src": "/school_account/login", "dest": "/" },
+        { "src": "/account/:id", "dest": "/" },
         { "src": "/ask.makronexus.com", "dest": "/" },
-        { "src": "ask", "dest": "/" },
+        { "src": "/ask", "dest": "/" },
         { "src": "*", "dest": "/" }
       ]
       

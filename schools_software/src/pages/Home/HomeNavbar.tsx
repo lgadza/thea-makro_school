@@ -19,9 +19,9 @@ const HomeNavbar: React.FC = () => {
   };
 
   return (
-    <div className="page-wrapper glow pb-2 home-navbar">
+    <div className="page-wrapper container glow pb-2 home-navbar">
       <div className="nav-wrapper px-0 container">
-        <nav className={`navbar ${!isMobileNavActive ? 'mobile-nav' : 'is-active'}`}>
+        <nav className={`navbar text-nowrap ${!isMobileNavActive ? 'mobile-nav' : 'is-active'}`}>
           <a href='/'>
           <img
             src={makro_logo}
@@ -34,15 +34,15 @@ const HomeNavbar: React.FC = () => {
             <span className="menu-bar"></span>
             <span className="menu-bar"></span>
           </div>
-          <ul className={`nav ${isSearchActive ? 'search' : 'no-search'}`}>
-            <li className="nav-item py-2 border-radius-round">
+          <ul className={`nav ms-5 ${isSearchActive ? 'search' : 'no-search'}`}>
+            <li className="nav-item py-2 px-3 border-radius-round">
               <a href="#">Solutions</a>
               <FontAwesomeIcon className='ms-1' icon={faChevronDown} style={{fontSize:"14px"}}/>
             </li>
-            <li className="nav-item py-2 border-radius-round">
+            <li className="nav-item p-2  border-radius-round">
               <a href="#">Features</a>
             </li>
-            <li className="nav-item py-2 border-radius-round">
+            <li className="nav-item px-3 py-2 border-radius-round">
               <a href="#">Plans</a>
             </li>
             <li className="nav-item  p-2 border-radius-round">
@@ -51,7 +51,7 @@ const HomeNavbar: React.FC = () => {
             <li className="nav-item py-2 me-2 px-3 border-radius-round">
               <a href="#">About us</a>
             </li>
-            <div className="d-flex mt-1">
+            <div className="d-flex search-container mt-1">
             {!isSearchActive && <FontAwesomeIcon
             icon={faSearch}
               className="search ms-5 color-header"
