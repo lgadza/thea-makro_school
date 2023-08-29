@@ -19,7 +19,6 @@
 
 
 
-/* CLEARFIX */
 
 .cf:before,
 .cf:after {
@@ -72,7 +71,6 @@
     }
   }
   
-  /* Net loader */
   .makronexa-alert{
     position: absolute;
     top: 0;
