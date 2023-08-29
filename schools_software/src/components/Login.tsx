@@ -105,10 +105,10 @@ console.log(accessToken,"CRED")
             </div>
 
             <div className='my-3'>
-              <Button variant="primary" type="submit" disabled={!isFormValid()} className='w-100 bg-primary' onClick={handleLogin}>
+              <Button variant="primary" type="submit" disabled={!isFormValid()} className={`main_bg w-100 mt-3 justify-content-end ${isFormValid()?"content_bg-2":""}`} onClick={handleLogin}>
                 Sign in
               </Button>
-              <Link to="/mss/register" className=' d-flex justify-content-end align-items-center my-3'>Don't have an account yet? <span className='px-3 py-2 header'>Register</span></Link>
+              <Link to="/register" className=' d-flex justify-content-end align-items-center my-3'>Don't have an account yet? <span className='px-3 py-2 header'>Register</span></Link>
             </div>
           </Form>
 

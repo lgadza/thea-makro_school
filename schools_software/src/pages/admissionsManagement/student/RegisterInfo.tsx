@@ -9,6 +9,7 @@ import { useSelector } from "react-redux"
 import { RootState } from '../../../redux/store/index.js';
 import { useNavigate } from "react-router-dom"
 import AlertBox from "../../../components/Alerts.js"
+import { Link } from "react-router-dom"
 
 const RegisterInfo=():JSX.Element=>{
 const response=useSelector((state:RootState)=>state.applicantRegistration.data)
@@ -72,7 +73,7 @@ const handleRegistration = async() => {
  const success=await dispatch<any>(ApplicantRegister(formData));
 setSignUpClicked(true)
 if(response){
-  navigate("/mss/login")
+  navigate("/login")
 }else{
   console.log(success)
 }
@@ -236,7 +237,7 @@ if(response){
           <Form className="my-3" onSubmit={handleSubmit}>
             <Row>
               <Col>
-                <Button variant="primary" onClick={handleRegistration} className="main_bg w-100 mt-3 justify-content-end" type="submit" disabled={!isFormValid()}>
+                <Button variant="primary" onClick={handleRegistration} className={`main_bg w-100 mt-3 justify-content-end ${isFormValid()?"content_bg-2":""}`} type="submit" disabled={!isFormValid()}>
          {
           isLoading && signUpClicked && (
             <span>
@@ -251,6 +252,8 @@ if(response){
                 </Button>
               </Col>
             </Row>
+            
+<Link to="/login" className=' d-flex justify-content-end align-items-center my-3'> Already have an account yet? <span className='px-3 py-2 header'>Sign in</span></Link>
           </Form>
           
 {/* 
@@ -276,3 +279,5 @@ if(response){
    )
 }
 export default RegisterInfo
+
+                                                                                                                                                                           

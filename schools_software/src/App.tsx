@@ -42,7 +42,7 @@ function App() {
        <Route path="school_account/login" element={<SchoolAccountLogin/>}/>
        <Route path="account/:id" element={<StudentAccountPage/>}/>
        <Route path="/ask.makronexus.com" element={<Makronexa/>}/>
-       <Route path="ask" element={<Makronexa/>}/>
+       <Route path="ask/:user_id" element={<Makronexa/>}/>
        <Route path='*' element={<Page404/>} />
       </Routes>
     </BrowserRouter>

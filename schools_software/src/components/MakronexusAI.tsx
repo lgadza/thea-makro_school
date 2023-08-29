@@ -190,15 +190,15 @@ const scrollToLastMessage=()=>{
 const Loader: React.FC = () => {
 
   return (
-    <div className="chat-loader-container w-75  py-3 d-flex justify-content-center align-items-center">
-      <div className="chat-loader ">
-        <div className="loader--dot"></div>
-        <div className="loader--dot"></div>
-        <div className="loader--dot"></div>
-        <div className="loader--dot"></div>
-        <div className="loader--dot"></div>
-        <div className="loader--dot"></div>
-        <div className="loader--text"></div>
+    <div className="chat-loader-container  py-3 d-flex justify-content-center align-items-center">
+      <div className="chat-loader cf ">
+      <div className="three col">
+        <div className="loader" id="loader-4">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
       </div>
     </div>
   );
@@ -423,13 +423,16 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                   {section.from === "user" ? (
                     <div className="d-flex justify-content-between w-75 ">
                       <p
-                        className={`chat-content ${
+                        className={`chat-content w-100 ${
                           section.from === "user" ? "main_bg" : "content_bg"
                         } text-start p-2`}
                       >
+                        <div className="d-flex align-items-center">
                         <small>
                         {section.message}
                         </small>
+                        {section.message===messages[messages.length-1].message && loading && <Loader/>}
+                        </div>
                       </p>
                     </div>
                   ) : (
@@ -493,7 +496,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
          {currentChat &&(
           <div className="pb-3 ask-input-nav main_bg py-3">
             <div className="d-flex input-container justify-content-center ms-3">
-          {loading?( <Loader/>):(
+          {!loading && (
               <div className="d-flex justify-content-between w-75 align-items-center">
                  {aiError &&(
                 <div className="regenerate-btn-container">

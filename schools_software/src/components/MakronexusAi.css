@@ -1,63 +1,78 @@
-:root {
-    --loader--width: 250px;
-    --loader-dot--size: 10px;
-  }
-  
-  .chat-loader-container {
-  position: relative;
-}
-  
-  .chat-loader {
- position: absolute;
- left: 30%;
- right: 0;
-  }
-  
-  .loader--dot {
-    animation-name: loader;
-    animation-timing-function: ease-in-out;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    height: var(--loader-dot--size);
-    width: var(--loader-dot--size);
-    border-radius: 100%;
-    background-color: black;
-    position: absolute;
-    border: 2px solid white;
-  }
-  
-  .loader--dot:first-child {
-    background-color: #8cc759;
-    animation-delay: 0.5s;
-  }
-  
-  .loader--dot:nth-child(2) {
-    background-color: #8c6daf;
-    animation-delay: 0.4s;
-  }
+
   .helper{
     height: 85vh !important;
     overflow-y: scroll;
+    padding-bottom: 40px;
   }
-  .loader--dot:nth-child(3) {
-    background-color: #ef5d74;
-    animation-delay: 0.3s;
+ 
+/* COLUMNS */
+
+.three.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.three.col:first-of-type {
+  margin-left: 0;
+}
+
+
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+
+/* ALL LOADERS */
+
+.loader{
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+  #loader-4 span{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    margin: 35px 5px;
+    opacity: 0;
   }
   
-  .loader--dot:nth-child(4) {
-    background-color: #f9a74b;
-    animation-delay: 0.2s;
+  #loader-4 span:nth-child(1){
+    animation: opacitychange 1s ease-in-out infinite;
   }
   
-  .loader--dot:nth-child(5) {
-    background-color: #60beeb;
-    animation-delay: 0.1s;
+  #loader-4 span:nth-child(2){
+    animation: opacitychange 1s ease-in-out 0.33s infinite;
   }
   
-  .loader--dot:nth-child(6) {
-    background-color: #fbef5a;
-    animation-delay: 0s;
+  #loader-4 span:nth-child(3){
+    animation: opacitychange 1s ease-in-out 0.66s infinite;
   }
+  
+  @keyframes opacitychange{
+    0%, 100%{
+      opacity: 0;
+    }
+  
+    60%{
+      opacity: 1;
+    }
+  }
+  
+  /* Net loader */
   .makronexa-alert{
     position: absolute;
     top: 0;
@@ -69,40 +84,9 @@
   .makronexa-alert.hidden{
   display: none;
   }
-  .chat-nav{
-    /* box-shadow: rgba(50, 51, 52, 0.3) -5px 5px, rgba(74, 78, 79, 0.2) -10px 10px, rgba(47, 47, 48, 0.15) -15px 15px, rgba(49, 50, 50, 0.15) -20px 20px, rgba(46, 47, 47, 0.025) -25px 25px; */
-  }
-  .loader--text {
-    position: absolute;
-    top: 200%;
-    left: 0;
-    right: 0;
-    width: 4rem;
-    margin: auto;
-  }
-  
-  .loader--text:after {
-    content: "";
-    font-weight: bold;
-    animation-name: loading-text;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-  }
-  
-  @keyframes loader {
-    15% {
-      transform: translateX(0);
-    }
-    45% {
-      transform: translateX(calc(var(--loader--width) - var(--loader-dot--size)));
-    }
-    65% {
-      transform: translateX(calc(var(--loader--width) - var(--loader-dot--size)));
-    }
-    95% {
-      transform: translateX(0);
-    }
-  }
+
+
+
   @media screen and (max-width:1200px){
     .ask-makronexa{
       margin-top: 10%;
