@@ -37,7 +37,7 @@ function App() {
         <Route path="login" element={<Login/>}/>
         <Route path="features" element={<Features/>}/>
         <Route path="features/admission_management" element={<AdmissionManagement/>}/>
-        <Route path="features/ai" element={<CALAFeature/>}/>
+        <Route path="features/makronexa" element={<CALAFeature/>}/>
         <Route path=":user_role/account/:user_id" element={<Pages/>}/>
        <Route path="school_account/login" element={<SchoolAccountLogin/>}/>
        <Route path="account/:id" element={<StudentAccountPage/>}/>

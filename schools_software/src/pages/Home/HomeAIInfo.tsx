@@ -120,7 +120,7 @@ const HomeAIInfo: React.FC = () => {
         </div>
       </div>
       <div className="text-start">
-        <PushButton message="Learn more!" url="/mss/makro/features/ai" />
+        <PushButton message="Learn more!" url="/features/makronexa" />
 
       </div>
     </div>

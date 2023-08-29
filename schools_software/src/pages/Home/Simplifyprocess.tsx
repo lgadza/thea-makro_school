@@ -119,7 +119,7 @@ const SimplifyProcess: React.FC = () => {
         </div>
       </div>
       <div className="text-start">
-        <PushButton message="Learn more!" url='/mss/makro/features/admission_management' />
+        <PushButton message="Learn more!" url='/features/admission_management' />
 
       </div>
     </div>

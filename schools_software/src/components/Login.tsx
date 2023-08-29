@@ -57,7 +57,8 @@ console.log(accessToken,"CRED")
 
   useEffect(() => {
     if (userData) {
-      navigate(`/mss/account/${userData.id}`);
+      // navigate(`/account/${userData.id}`);
+      navigate(`/ask/${userData.id}`);
     }
   }, [userData, navigate]);
 
