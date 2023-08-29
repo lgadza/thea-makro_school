@@ -1,17 +1,17 @@
 {
-    "routes" : [
-        { "src": "/", "dest": "/" },
-        { "src": "/register", "dest": "/" },
-        { "src": "/login", "dest": "/" },
-        { "src": "/features", "dest": "/" },
-        { "src": "/features/admission_management", "dest": "/" },
-        { "src": "/features/ai", "dest": "/" },
-        { "src": "/:user_role/account/:user_id", "dest": "/" },
-        { "src": "/school_account/login", "dest": "/" },
-        { "src": "/account/:id", "dest": "/" },
-        { "src": "/ask.makronexus.com", "dest": "/" },
-        { "src": "/ask", "dest": "/" },
-        { "src": "*", "dest": "/" }
+    "rewrites" : [
+        { "source": "/", "destination": "/" },
+        { "source": "/register", "destination": "/" },
+        { "source": "/login", "destination": "/" },
+        { "source": "/features", "destination": "/" },
+        { "source": "/features/admission_management", "destination": "/" },
+        { "source": "/features/ai", "destination": "/" },
+        { "source": "/:user_role/account/:user_id", "destination": "/" },
+        { "source": "/school_account/login", "destination": "/" },
+        { "source": "/account/:id", "destination": "/" },
+        { "source": "/ask.makronexus.com", "destination": "/" },
+        { "source": "/ask", "destination": "/" },
+        { "source": "*", "destination": "/" }
       ]
       
 } 
