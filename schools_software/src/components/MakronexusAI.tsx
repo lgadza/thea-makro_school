@@ -63,7 +63,6 @@ export interface Message {
     const [animatedText, setAnimatedText] = useState<string>("");
     const [blinkerVisible, setBlinkerVisible] = useState(true);
     const navigate=useNavigate()
-
     // const dispatch: Dispatch<any> = useDispatch();
     const [showAlert, setShowAlert] = useState(true);
     const startTypewriterAnimation = (text: string) => {
@@ -456,7 +455,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
             )}
           </div>
           {messages.length > 0 || currentChat ?
-            (messages.map((section, index) => (
+            (<div> {messages?( messages.map((section, index) => (
               <div key={index}>
                 <div className="d-flex chats-messages justify-content-center text-start mt-2">
                   <div className="pe-2">
@@ -547,7 +546,10 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       </div>
                       </div>
                     </div>)} */}
-                  </div> ))):(<MakronexaOverview/>)}
+                  </div> ))):(<Spinner className="spinner-border-sm"/>)}
+             
+                  </div>
+                  ):(<MakronexaOverview/>)}
   
          {currentChat &&(
           <div className="pb-3 ask-input-nav main_bg py-3">
