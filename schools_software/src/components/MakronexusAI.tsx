@@ -46,6 +46,7 @@ export interface Message {
   const MakronexusAI: React.FC = () => {
     const user:ApplicantRegistration=useSelector((state:RootState)=>state.applicantData.data)
     const token=useSelector((state:RootState)=>state.accessToken.accessToken)
+    const isTokenExpired=useSelector((state:RootState)=>state.applicantData.isTokenExpired)
     // const allChats=useSelector((state:RootState)=>state.getAllAiChats.chats)
     // const allChatsLoading=useSelector((state:RootState)=>state.getAllAiChats.isLoading)
     // const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
@@ -64,6 +65,7 @@ export interface Message {
     const [blinkerVisible, setBlinkerVisible] = useState(true);
     const navigate=useNavigate()
     // const dispatch: Dispatch<any> = useDispatch();
+    const dispatch = useDispatch();
     const [showAlert, setShowAlert] = useState(true);
     const startTypewriterAnimation = (text: string) => {
       setAnimatedText(text.charAt(0))
@@ -84,8 +86,17 @@ export interface Message {
       if(!token){
         navigate("/login")
       }
+      if(isTokenExpired){
+        const handleLogout = () => {
+          dispatch(logoutUser());
+          localStorage.removeItem('accessToken');
+          navigate('/login') ; 
+        
+      }
+        handleLogout()
+      }
     },[])
-
+console.log(isTokenExpired,"TOKEN EXPIRED")
     useEffect(() => {
       let timeout: NodeJS.Timeout;
       if (loading) {
@@ -455,7 +466,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
             )}
           </div>
           {messages.length > 0 || currentChat ?
-            (<div> {messages?( messages.map((section, index) => (
+            (<div> {messages.length>0?( messages.map((section, index) => (
               <div key={index}>
                 <div className="d-flex chats-messages justify-content-center text-start mt-2">
                   <div className="pe-2">

@@ -1,15 +1,16 @@
 
 
-import { GET_APPLICANT_DATA, GET_APPLICANT_DATA_ERROR, GET_APPLICANT_DATA_LOADING } from "../actions";
+import { GET_APPLICANT_DATA, GET_APPLICANT_DATA_ERROR, GET_APPLICANT_DATA_LOADING,IS_TOKEN_EXPIRED } from "../actions";
 
 export interface GetApplicantDataActionPayload {
     data: any;
     isLoading: boolean;
     isError: boolean;
+    isTokenExpired:boolean;
   }
 interface GetApplicantDataActionBase{
     type:string;
-    payload:GetApplicantDataActionPayload
+    payload:any
 }
 
 export interface GetApplicantDataAction extends GetApplicantDataActionBase {
@@ -23,12 +24,16 @@ export interface GetApplicantDataAction extends GetApplicantDataActionBase {
   export interface GetApplicantDataErrorAction extends GetApplicantDataActionBase {
     type: typeof GET_APPLICANT_DATA_ERROR;
   }
-  type AllActions = GetApplicantDataAction | GetApplicantDataLoadingAction | GetApplicantDataErrorAction
+  export interface IsTokenExpiredAction extends GetApplicantDataActionBase {
+    type: typeof IS_TOKEN_EXPIRED;
+  }
+  type AllActions = GetApplicantDataAction | GetApplicantDataLoadingAction | GetApplicantDataErrorAction |IsTokenExpiredAction
 
 const initialState: GetApplicantDataActionPayload = {
   data:null,
   isLoading: true,
   isError: false,
+  isTokenExpired:false,
 };
 
 const getApplicantData = (state: GetApplicantDataActionPayload = initialState, action: AllActions): GetApplicantDataActionPayload=> {
@@ -41,12 +46,17 @@ const getApplicantData = (state: GetApplicantDataActionPayload = initialState, a
     case GET_APPLICANT_DATA_LOADING:
       return {
         ...state,
-        isLoading: action.payload.isLoading,
+        isLoading: action.payload,
       };
     case GET_APPLICANT_DATA_ERROR:
       return {
         ...state,
-        isError: action.payload.isError,
+        isError: action.payload,
+      };
+    case IS_TOKEN_EXPIRED:
+      return {
+        ...state,
+        isTokenExpired: action.payload,
       };
     default:
       return state;

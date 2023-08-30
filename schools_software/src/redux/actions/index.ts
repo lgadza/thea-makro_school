@@ -2,6 +2,8 @@ import { Dispatch } from "redux";
 import { AddressInterface, ApplicantRegistration, UserChatting } from "../../Types";
 import { LoginCredentialsInterface } from "../../components/Login";
 import { Message } from "../../components/MakronexusAI";
+export const IS_TOKEN_EXPIRED="IS_TOKEN_EXPIRED"
+
 export const APPLICANT_REGISTRATION_ERROR_RESPONSE="APPLICANT_REGISTRATION_ERROR_RESPONSE"
 export const APPLICANT_REGISTRATION="APPLICANT_REGISTRATION"
 export const APPLICANT_REGISTRATION_ERROR="APPLICANT_REGISTRATION_ERROR"
@@ -58,6 +60,8 @@ export const setChatMessages = (messages: Message[]) => ({
     messages: [],
   };
   export const logoutUser = () => ({
+  
+    
     type: LOGOUT_USER,
   });
  export const chatReducer = (state = initialState, action: { type: string; payload: Message[] }) => {
@@ -551,6 +555,10 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
                 if(response.ok){
                     const data= await response.json()
                     dispatch({
+                        type:IS_TOKEN_EXPIRED,
+                        payload:false,
+                    })
+                    dispatch({
                         type:GET_APPLICANT_DATA,
                         payload:data,
                     })
@@ -561,6 +569,12 @@ export const editUserAddress = (accessToken:string,address:AddressInterface,addr
                         })
                     },100);
 
+                }else if (response.status===401){
+                    console.log("TOKEN EXPIRED")
+                      dispatch({
+                        type:IS_TOKEN_EXPIRED,
+                        payload:true,
+                    })
                 }else{
                     console.log("ERROR")
                     dispatch({
