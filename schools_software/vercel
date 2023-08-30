@@ -1,0 +1,17 @@
+{
+    "rewrites" : [
+        { "source": "/", "destination": "/" },
+        { "source": "/register", "destination": "/" },
+        { "source": "/login", "destination": "/" },
+        { "source": "/features", "destination": "/" },
+        { "source": "/features/admission_management", "destination": "/" },
+        { "source": "/features/ai", "destination": "/" },
+        { "source": "/:user_role/account/:user_id", "destination": "/" },
+        { "source": "/school_account/login", "destination": "/" },
+        { "source": "/account/:id", "destination": "/" },
+        { "source": "/ask.makronexus.com", "destination": "/" },
+        { "source": "/ask", "destination": "/" },
+        { "source": "*", "destination": "/" }
+      ]
+      
+} 

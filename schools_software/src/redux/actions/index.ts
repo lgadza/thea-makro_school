@@ -169,12 +169,13 @@ export const ApplicantLogin=(cred:LoginCredentialsInterface)=>{
 //         }
 //     }
 //   };
-export const getAllAiChats = async(user_id?:string) => {
+export const getAllAiChats = async(token:string,user_id?:string) => {
         const options:RequestInit={
             method:"GET",
             headers:{
                 Accept:"application.json",
                 "Content-Type":"application/json",
+                Authorization: `Bearer ${token}`,
             },    
         }
         try{
@@ -189,12 +190,13 @@ export const getAllAiChats = async(user_id?:string) => {
             console.log(error)
         }
     };
-export const getChatMessages = async(chat_id:string,user_id?:string) => {
+export const getChatMessages = async(token:string,chat_id:string,user_id?:string) => {
         const options:RequestInit={
             method:"GET",
             headers:{
                 Accept:"application.json",
                 "Content-Type":"application/json",
+                Authorization: `Bearer ${token}`,
             },    
         }
         try{
@@ -209,12 +211,13 @@ export const getChatMessages = async(chat_id:string,user_id?:string) => {
             console.log(error)
         }
     };
-export const chatWithAi = async (messages: UserChatting[],model:string,question:string,currentChat:string,applicant_id?:string) => {
+export const chatWithAi = async (token:string,messages: UserChatting[],model:string,question:string,currentChat:string,applicant_id?:string) => {
     const options:RequestInit={
                     method:"POST",
                     headers:{
                         Accept:"application.json",
                         "Content-Type":"application/json",
+                        Authorization: `Bearer ${token}`,
                     },
                     body:JSON.stringify({message:messages.map((message)=>message.message).join("\n"),model,applicant_id,question})
                 }
@@ -230,12 +233,13 @@ export const chatWithAi = async (messages: UserChatting[],model:string,question:
       console.log(error)
     }
   };
-export const newChat = async (applicant_id?:string,) => {
+export const newChat = async (token:string,applicant_id:string,) => {
     const options:RequestInit={
                     method:"POST",
                     headers:{
                         Accept:"application.json",
                         "Content-Type":"application/json",
+                        Authorization: `Bearer ${token}`,
                     },
                    
                 }
@@ -251,12 +255,13 @@ export const newChat = async (applicant_id?:string,) => {
       console.log(error)
     }
   };
-export const deleteChat = async (chat_id:string,applicant_id?:string,) => {
+export const deleteChat = async (token:string,chat_id:string,applicant_id?:string,) => {
     const options:RequestInit={
                     method:"DELETE",
                     headers:{
                         Accept:"application.json",
                         "Content-Type":"application/json",
+                        Authorization: `Bearer ${token}`,
                     },
                    
                 }
@@ -270,7 +275,7 @@ export const deleteChat = async (chat_id:string,applicant_id?:string,) => {
       console.log(error,"ERROR DELETING  CHAT")
     }
   };
-export const deleteAllChats = async (applicant_id?:string,) => {
+export const deleteAllChats = async (token:string,applicant_id?:string,) => {
     const options:RequestInit={
                     method:"DELETE",
                     headers:{
@@ -282,7 +287,7 @@ export const deleteAllChats = async (applicant_id?:string,) => {
     try {
       const response=await fetch(`${BE_PROD_URL}/ai/${applicant_id}/chats`,options)
       if (response.ok) {
-        getAllAiChats(applicant_id)
+        getAllAiChats(token,applicant_id)
         const res = await response.json();
         console.log(res," ALL CHATS DELETED")
       } 

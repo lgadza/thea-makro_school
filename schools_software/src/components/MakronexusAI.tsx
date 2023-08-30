@@ -41,6 +41,7 @@ export interface Message {
   }
   const MakronexusAI: React.FC = () => {
     const user:ApplicantRegistration=useSelector((state:RootState)=>state.applicantData.data)
+    const token=useSelector((state:RootState)=>state.accessToken.accessToken)
     // const allChats=useSelector((state:RootState)=>state.getAllAiChats.chats)
     // const allChatsLoading=useSelector((state:RootState)=>state.getAllAiChats.isLoading)
     // const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
@@ -103,7 +104,7 @@ export interface Message {
       setQuestion("");
       try {
         setLoading(true); 
-        const answer = await chatWithAi([...messages, newMessage],currentModel,question,currentChat, user.id);
+        const answer = await chatWithAi(token.accessToken,[...messages, newMessage],currentModel,question,currentChat, user.id);
         if (answer) {
           setCurrentAnswer(answer.message)
           setAnimatedText("");
@@ -121,7 +122,7 @@ export interface Message {
   };
   const getAllChats=async()=>{
     if(user.id){
-      const allChats=await getAllAiChats(user.id)
+      const allChats=await getAllAiChats(token.accessToken,user.id)
       if(allChats){
         setChats(allChats)
       }
@@ -135,12 +136,12 @@ export interface Message {
      
       const lastChat=chats[chats.length-1]
       if (lastChat && lastChat.makronexaQAs.length===0 && !question) {
-        await deleteChat(lastChat.id,user.id);  }
+        await deleteChat(token.accessToken,lastChat.id,user.id);  }
       else if(user.id){
-      const newAiChat = await newChat(user.id)
+      const newAiChat = await newChat(token.accessToken,user.id)
       if(newAiChat){
         setCurrentChat(newAiChat)
-        getAllChats()
+        // getAllChats()
       }else{
         setAiError(true)
       }
@@ -151,7 +152,7 @@ export interface Message {
   }
  const handleGetChatMessages=async()=>{
   if(currentChat){
-    const chatMessages:chatProps=await getChatMessages(currentChat,user.id)
+    const chatMessages:chatProps=await getChatMessages(token.accessToken,currentChat,user.id)
     if(chatMessages.makronexaQAs.length>0){
       setMessages(chatMessages.makronexaQAs)
     } 
@@ -336,7 +337,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
       <div className="d-flex justify-content-between px-2">
             <Button className="btn-primary d-flex me-2 main_bg header" onClick={async()=>{
               await handleNewChat()
-              getAllChats()
+              // getAllChats()
               }}>
               <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
@@ -370,7 +371,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                 )}
               </small>
               <FontAwesomeIcon onClick={async()=>{
-                await deleteChat(chat.id,user.id)
+                await deleteChat(token.accessToken,chat.id,user.id)
                 getAllChats()
                 setMessages([])
                 }} 
@@ -536,7 +537,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
           <div className="d-flex justify-content-between">
             <Button className="btn-primary d-flex me-2 content_bg header" onClick={async()=>{
               await handleNewChat()
-              getAllChats()
+              // getAllChats()
               }}>
               <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
@@ -571,7 +572,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                   )}
                 </small>
                 <FontAwesomeIcon onClick={async()=>{
-                  await deleteChat(chat.id,user.id)
+                  await deleteChat(token.accessToken,chat.id,user.id)
                   getAllChats()
                   setMessages([])
                   }} 
