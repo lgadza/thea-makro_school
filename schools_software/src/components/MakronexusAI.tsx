@@ -161,9 +161,9 @@ export interface Message {
   }
  const handleGetChatMessages=async()=>{
   if(currentChat){
-    const chatMessages:chatProps=await getChatMessages(token.accessToken,currentChat,user.id)
-    if(chatMessages.makronexaQAs.length>0){
-      setMessages(chatMessages.makronexaQAs)
+    const chatMessages:chatProps[]=await getChatMessages(token.accessToken,currentChat,user.id)
+    if(chatMessages[0].makronexaQAs.length>0){
+      setMessages(chatMessages[0].makronexaQAs)
     } 
   }
  }
