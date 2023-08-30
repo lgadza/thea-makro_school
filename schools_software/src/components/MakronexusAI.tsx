@@ -270,9 +270,9 @@ const MakronexaOverview: React.FC = () => {
 
   const limitations = ["May occasionally generate incorrect answers"];
   return (
-    <div>
+    <div className="container">
       <Row>
-         <Col>
+         <Col className="col-12 col-lg-4">
           <OverviewSection
             icon={faSun}
             title="Examples"
@@ -284,10 +284,10 @@ const MakronexaOverview: React.FC = () => {
             className="nav-item"
           />
         </Col>
-        <Col>
+        <Col className="col-12 col-lg-4">
           <OverviewSection icon={faBoltLightning} title="Capabilities" items={capabilities} />
         </Col>
-        <Col>
+        <Col className="col-12 col-lg-4">
           <OverviewSection icon={faWarning} title="Limitations" items={limitations} color="yellow" />
         </Col>
       </Row>
