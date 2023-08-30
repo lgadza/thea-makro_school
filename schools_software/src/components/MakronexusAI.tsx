@@ -1,19 +1,23 @@
-import { IconDefinition, faArrowCircleDown,faBoltLightning, faComments,  faPaperPlane,  faPlus,  faSun,  faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition, faArrowCircleDown,faBoltLightning, faChevronUp, faComments,  faGear,  faPaperPlane,  faPlus,  faPowerOff,  faSun,  faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
 import {  useEffect, useRef, useState } from "react"
-import { Button, Col, Row } from "react-bootstrap"
+import { Button, Col, Dropdown, Row, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 // import { useDispatch } from "react-redux"
-import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, newChat } from "../redux/actions"
+import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, logoutUser, newChat } from "../redux/actions"
 // import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
 import AlertBox from "./Alerts"
 import * as Icon from "react-bootstrap-icons"
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import Image from "./Image"
+import { Link } from "react-router-dom"
 
 export interface Message {
     altText?: string;
@@ -58,6 +62,7 @@ export interface Message {
     const [currentAnswer,setCurrentAnswer]=useState<string>("")
     const [animatedText, setAnimatedText] = useState<string>("");
     const [blinkerVisible, setBlinkerVisible] = useState(true);
+    const navigate=useNavigate()
 
     // const dispatch: Dispatch<any> = useDispatch();
     const [showAlert, setShowAlert] = useState(true);
@@ -76,6 +81,11 @@ export interface Message {
         }
       }, 20); 
     };
+    useEffect(()=>{
+      if(!token){
+        navigate("/login")
+      }
+    },[])
 
     useEffect(() => {
       let timeout: NodeJS.Timeout;
@@ -315,7 +325,14 @@ console.log(question,"QUESTION")}
 
 const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
   const [navActive, setNavActive] = useState(false);
-
+  const navigate=useNavigate()
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    localStorage.removeItem('accessToken');
+    navigate('/login') ; 
+  
+}
   const toggleNav = () => {
     setNavActive(!navActive);
   };
@@ -333,8 +350,10 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
           </div>
       </div>
       
-      <div className={`nav-links content_bg px-2 ${navActive ? 'nav-active pt-3' : ''}`}>
-      <div className="d-flex justify-content-between px-2">
+      <div className={`nav-links content_bg d-flex flex-column justify-content-between ms-3 ${navActive ? 'nav-active pt-3' : ''}`}>
+        <div>
+          {chats.length>0 && models.length>0 ?(<ul className="d-flex flex-column px-5 ">  
+       <div className="d-flex w-75 ms-4 justify-content-between px-2">
             <Button className="btn-primary d-flex me-2 main_bg header" onClick={async()=>{
               await handleNewChat()
               // getAllChats()
@@ -351,7 +370,6 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
            </select>
            )}
           </div>
-          <ul className="d-flex flex-column px-5 ">  
       {chats.length>0 &&(
               chats
               .filter((chat) => chat.makronexaQAs.length !==0)
@@ -377,7 +395,44 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                 }} 
                 icon={faTrashCan} style={{color:"red",fontSize:"0.8rem"}} />
             </li>)}))}
-            </ul>
+            </ul>):(
+          <Spinner className="spinner-border-sm"/>
+          )}
+          
+            </div>
+            <div className="user-logout w-100 main_bg pb-2">
+            <Dropdown>
+<Dropdown.Toggle className="navbar-item w-100 d-flex justify-content-between align-items-center">
+      <div className="pt-2">
+            <Image src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&uid=R36208328&ga=GA1.1.377730112.1687240299&semt=ais" height={30} width={30} alt="avatar"/>
+                <span className="px-2 py-0">{user.first_name} {user.last_name}</span>
+            </div>
+             <FontAwesomeIcon style={{fontSize:"0.8rem"}} icon={faChevronUp}/>         
+</Dropdown.Toggle>
+
+<Dropdown.Menu className="py-0 main_bg w-75"  style={{width:"20rem"}}>
+  <Dropdown.Item className="py-2">
+    <Link to="" className="textColor px-2">
+    <FontAwesomeIcon icon={faGear}/>
+      <span className="px-2">Settings</span>
+    </Link>
+  </Dropdown.Item>
+  <hr className="my-0 py-0" />
+  <Dropdown.Item className="py-2">
+    <div
+      onClick={handleLogout}
+      className="textColor px-2"
+    >
+    <FontAwesomeIcon icon={faPowerOff}/>
+<span className="px-2">
+      Log out
+</span>
+    </div>
+  </Dropdown.Item>
+ 
+</Dropdown.Menu>
+</Dropdown>
+            </div>
       </div>
       <div className={`burger ${navActive ? 'toggle' : ''}`} onClick={toggleNav}>
         <div className="line1"></div>
@@ -534,7 +589,9 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
           )}
         </div>
         <div className="col chat-nav d-none d-md-block col-md-4 border-round pt-3 border-radius-round">
-          <div className="d-flex justify-content-between">
+          {chats.length>0 && models.length>0 ?(
+          <div>
+              <div className="d-flex justify-content-between">
             <Button className="btn-primary d-flex me-2 content_bg header" onClick={async()=>{
               await handleNewChat()
               // getAllChats()
@@ -580,6 +637,8 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
               </li>)}))}
             </ul>
           </div>
+          </div>):(<Spinner/>)}
+        
         </div>
       </div>
     );

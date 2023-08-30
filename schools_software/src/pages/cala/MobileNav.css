@@ -90,7 +90,9 @@ nav.mobile-nav{
     display:block;
   }
 }
-
+.user-logout{
+  color: white;
+}
 .nav-active{
   transform: translateX(0%);
 }
