@@ -32,6 +32,9 @@ export const GET_USER_ADDRESS="GET_USER_ADDRESS"
 export const GET_USER_ADDRESS_ERROR="GET_USER_ADDRESS_ERROR"
 export const GET_USER_ADDRESS_LOADING="GET_USER_ADDRESS_LOADING"
 
+export const LOGOUT_USER="LOGOUT_USER"
+
+
 export const EDIT_APPLICANT_DATA="EDIT_APPLICANT_DATA"
 export const EDIT_APPLICANT_DATA_ERROR="EDIT_APPLICANT_DATA_ERROR"
 export const EDIT_APPLICANT_DATA_LOADING="EDIT_APPLICANT_DATA_LOADING"
@@ -54,7 +57,9 @@ export const setChatMessages = (messages: Message[]) => ({
   const initialState: ChatState = {
     messages: [],
   };
-  
+  export const logoutUser = () => ({
+    type: LOGOUT_USER,
+  });
  export const chatReducer = (state = initialState, action: { type: string; payload: Message[] }) => {
     switch (action.type) {
       case 'SET_CHAT_MESSAGES':

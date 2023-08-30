@@ -17,6 +17,7 @@ const isError=useSelector((state:RootState)=>state.applicantRegistration.isError
 const isLoading=useSelector((state:RootState)=>state.applicantRegistration.isLoading)
 const dispatch=useDispatch()
 const navigate=useNavigate()
+const [alertVisible, setAlertVisible] = useState(true);
 const [signUpClicked, setSignUpClicked] = useState(false);
 const initialFormData: ApplicantRegistration = {
   first_name: '',
@@ -33,6 +34,7 @@ const initialFormData: ApplicantRegistration = {
   password: '',
   country_code:'',
 };
+console.log(isLoading,"ISLOADING")
 const [formData, setFormData] = useState<ApplicantRegistration>(initialFormData);
 const  handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
@@ -70,23 +72,36 @@ const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 };
 
 const handleRegistration = async() => {
+  setSignUpClicked(true)
  const success=await dispatch<any>(ApplicantRegister(formData));
-setSignUpClicked(true)
+
 if(response){
   navigate("/login")
 }else{
   console.log(success)
 }
+const timer = setTimeout(() => {
+  setAlertVisible(false);
+}, 3000); 
+
+return () => {
+  clearTimeout(timer);
+};
 };
 
 // const handleClose = () => setShow(false);
    return( 
     <div className="content_bg  p-3">
-        {isError ? (
+        {isError && alertVisible && (
       <div className="register-alert">
       <AlertBox type="danger" message={`${isError && "Error during  registration, try again later!"}`}  />
       </div>
-        ):("")}
+        )}
+        {response && response.message=="This email has already been registered. Please login." && alertVisible && (
+      <div className="register-alert">
+      <AlertBox type="danger" message={`This email has already been registered. Please login.`}  />
+      </div>
+        )}
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col>
@@ -237,18 +252,13 @@ if(response){
           <Form className="my-3" onSubmit={handleSubmit}>
             <Row>
               <Col>
-                <Button variant="primary" onClick={handleRegistration} className={`main_bg w-100 mt-3 justify-content-end ${isFormValid()?"content_bg-2":""}`} type="submit" disabled={!isFormValid()}>
-         {
-          isLoading && signUpClicked && (
-            <span>
-               <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-               <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-               <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-            </span>
-          )
-         }
+                <Button variant="primary" onClick={handleRegistration} className={`main_bg w-100 mt-3 d-flex justify-content-center align-items-center ${isFormValid()?"content_bg-2":""}`} type="submit" disabled={!isFormValid()}>
+                {isLoading && signUpClicked && (
+
+<Spinner className='spinner-border-sm me-2'/>
+)}
           <span>Sign Up</span>
-        { isLoading && signUpClicked && (<span>...</span>)}
+        
                 </Button>
               </Col>
             </Row>

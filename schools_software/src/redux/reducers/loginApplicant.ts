@@ -2,6 +2,7 @@ import {
   LOGIN_APPLICANT,
   LOGIN_APPLICANT_ERROR,
   LOGIN_APPLICANT_LOADING,
+  LOGOUT_USER
 } from "../actions";
 
 interface LoginApplicantActionPayload {
@@ -26,14 +27,21 @@ export interface LoginApplicantLoadingAction extends LoginApplicantActionBase {
   type: typeof LOGIN_APPLICANT_LOADING;
   payload: boolean;
 }
+export interface LogoutUserLoadingAction extends LoginApplicantActionBase {
+  type: typeof LOGOUT_USER;
+  payload:{
+    accessToken:""
+  };
+}
 
 export interface LoginApplicantErrorAction extends LoginApplicantActionBase {
   type: typeof LOGIN_APPLICANT_ERROR;
-  payload: boolean;
+  payload:boolean;
 }
 
 type AllActions =
   | LoginApplicantAction
+  |LogoutUserLoadingAction
   | LoginApplicantLoadingAction
   | LoginApplicantErrorAction;
 
@@ -65,6 +73,8 @@ const loginApplicant = (
         ...state,
         isError: action.payload,
       };
+      case LOGOUT_USER:
+      return initialState;
 
     default:
       return state;

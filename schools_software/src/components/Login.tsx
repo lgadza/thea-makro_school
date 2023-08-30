@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Form, Button} from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Spinner} from 'react-bootstrap';
 import m_logo from "../assets/md_logo_small.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ const Login = (): JSX.Element => {
   const navigate = useNavigate()
   const [sign_in, setSign_in] = useState(false);
   const accessToken = useSelector((state: RootState) => state.accessToken.accessToken)
+  const isLoading = useSelector((state: RootState) => state.accessToken.isLoading)
   const isError = useSelector((state: RootState) => state.accessToken.isError)
   console.log(isError,"LOGIN ISERROR")
   const userData=useSelector((state:RootState)=>state.applicantData.data)
@@ -56,7 +57,7 @@ console.log(accessToken,"CRED")
   }, [accessToken, dispatch]);
 
   useEffect(() => {
-    if (userData) {
+    if (userData && accessToken) {
       // navigate(`/account/${userData.id}`);
       navigate(`/ask/${userData.id}`);
     }
@@ -105,7 +106,11 @@ console.log(accessToken,"CRED")
             </div>
 
             <div className='my-3'>
-              <Button variant="primary" type="submit" disabled={!isFormValid()} className={`main_bg w-100 mt-3 justify-content-end ${isFormValid()?"content_bg-2":""}`} onClick={handleLogin}>
+              <Button variant="primary" type="submit" disabled={!isFormValid()} className={`main_bg w-100 mt-3 d-flex align-items-center justify-content-center ${isFormValid()?"content_bg-2":""}`} onClick={handleLogin}>
+                {isLoading && sign_in&& (
+
+                <Spinner className='spinner-border-sm me-2'/>
+                )}
                 Sign in
               </Button>
               <Link to="/register" className=' d-flex justify-content-end align-items-center my-3'>Don't have an account yet? <span className='px-3 py-2 header'>Register</span></Link>
