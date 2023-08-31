@@ -22,7 +22,7 @@ const Documents=():JSX.Element=>{
 //     relationship:""
 // }
 const [file, setFile] = useState<File | null>(null);
-
+console.log(file,"FILE")
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
