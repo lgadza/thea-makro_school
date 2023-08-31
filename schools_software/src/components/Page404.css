@@ -198,3 +198,48 @@ h1 + p {
     border: 1px dashed rgba(255, 255, 255, 0.1);
   }
 }
+@media  screen and (max-width: 768px) {
+  .page404 .shelf {
+    width: 20rem;
+  }
+  .page404 .book.not-found::after {
+    width: 10rem;
+  font-size: 16px;
+  content: 'this page can\'t be found';
+  transform: rotate(90deg) translate(2rem, -2.5rem);
+  opacity: 0.3;
+  }
+    .page404 .book.not-found {
+      width: 10rem;
+      height: 3rem;
+    
+    }
+    .page404 .book {
+      padding: 0.8rem 2rem 0.8rem 1rem;
+    
+    }
+    .page404 .book.contact {
+      right: 1rem;
+     
+    }
+    .page404 .book.faq {
+      bottom: 3.5rem;
+    }
+    @keyframes leftDoorOpen {
+      60% {
+        transform: rotateY(-85deg);
+      }
+      100% {
+        transform: rotateY(-50deg);
+      }
+    }
+    
+    @keyframes rightDoorOpen {
+      60% {
+        transform: rotateY(5deg);
+      }
+      100% {
+        transform: rotateY(10deg);
+      }
+    }
+}

@@ -242,6 +242,28 @@ export const chatWithAi = async (token:string,messages: UserChatting[],model:str
       console.log(error)
     }
   };
+export const imageQuery = async (token:string,model:string,prompt:string,currentChat:string,applicant_id?:string) => {
+    const options:RequestInit={
+                    method:"POST",
+                    headers:{
+                        Accept:"application.json",
+                        "Content-Type":"application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body:JSON.stringify({model,applicant_id,prompt})
+                }
+    try {
+      const response=await fetch(`${BE_PROD_URL}/ai/chats/${currentChat}/image-search`,options)
+      if (response.ok) {
+        const answer = await response.json();
+        return answer; 
+      } else {
+        console.log("ERROR")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  };
 export const newChat = async (token:string,applicant_id:string,) => {
     const options:RequestInit={
                     method:"POST",

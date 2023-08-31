@@ -13,7 +13,7 @@ enum ModalState {
   Success,
 }
 
-const UploadFileModal: React.FC = () => {
+const UploadFileModal: React.FC<{ onFileUpload: (file: File) => void }> = ({ onFileUpload }) => {
   const [filename, setFilename] = useState<string>('');
   const [isCopying, setIsCopying] = useState<boolean>(false);
   const [isUploading, setIsUploading] = useState<boolean>(false);
@@ -29,11 +29,12 @@ const UploadFileModal: React.FC = () => {
       reader.onload = () => {
         setFilename(fileTarget.name);
         setModalState(ModalState.Hidden);
+        onFileUpload(fileTarget);
       };
       reader.readAsDataURL(fileTarget);
     }
   };
-  
+ 
   const fileReset = () => {
     setFilename('');
   };
@@ -151,6 +152,7 @@ useEffect(() => {
     }
   }
 }, [isUploading, progress, progressTimeout]);
+
 
   return (
     <div

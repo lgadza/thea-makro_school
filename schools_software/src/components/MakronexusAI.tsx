@@ -8,7 +8,7 @@ import { Button, Col, Dropdown, Row, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 // import { useDispatch } from "react-redux"
-import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, logoutUser, newChat } from "../redux/actions"
+import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, imageQuery, logoutUser, newChat } from "../redux/actions"
 // import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
@@ -25,6 +25,7 @@ export interface Message {
     liked?: boolean;
     imageSrc?: string;
     from:string;
+    type:string;
   }
   interface Engine{
     created:string|null;
@@ -55,7 +56,7 @@ export interface Message {
     const [models, setModels] = useState<Engine[]>([]); 
     // const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
     const [chats, setChats] = useState<chatProps[]>([]); 
-    const [currentModel,setCurrentModel]=useState("gpt-3.5-turbo")
+    const [currentModel,setCurrentModel]=useState("dalle")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     // const [copied, setCopied] = useState<boolean>(false);
@@ -63,15 +64,16 @@ export interface Message {
     const [currentAnswer,setCurrentAnswer]=useState<string>("")
     const [animatedText, setAnimatedText] = useState<string>("");
     const [blinkerVisible, setBlinkerVisible] = useState(true);
+    const [alertVisible, setAlertVisible] = useState(true);
     const navigate=useNavigate()
     // const dispatch: Dispatch<any> = useDispatch();
     const dispatch = useDispatch();
+  
     const [showAlert, setShowAlert] = useState(true);
     const startTypewriterAnimation = (text: string) => {
       setAnimatedText(text.charAt(0))
       setBlinkerVisible(true);
       let charIndex = 0;
-  
       const interval = setInterval(() => {
         if (charIndex < text.length) {
           setAnimatedText((prevText) => prevText + text.charAt(charIndex));
@@ -96,7 +98,7 @@ export interface Message {
         handleLogout()
       }
     },[])
-console.log(isTokenExpired,"TOKEN EXPIRED")
+
     useEffect(() => {
       let timeout: NodeJS.Timeout;
       if (loading) {
@@ -118,8 +120,36 @@ console.log(isTokenExpired,"TOKEN EXPIRED")
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
     
   const handleAsk = async () => {
+     
     if (question !== "") {
-      const newMessage = { message: question, from: "user" };
+      if (question.startsWith('/img:')) {
+        const prompt = question.slice(5); 
+      const newMessage = { message: prompt, from: "user" };
+      setQuestion("");
+        try {
+          setLoading(true); 
+          const answer = await imageQuery(token.accessToken,currentModel,prompt,currentChat, user.id);
+          if (answer) {
+            console.log(answer.message,"IMAGE ANSWER")
+            // setCurrentAnswer(answer)
+            // setMessages((prev) => [...prev, answer]);
+          }else{
+            setAiError(true)
+            const timer = setTimeout(() => {
+              setAlertVisible(false);
+            }, 3000); 
+            return () => {
+              clearTimeout(timer);
+            };
+          }
+        } catch (error) {
+          console.log(error);
+
+        }finally {
+          setLoading(false);
+        }
+      }else{
+      const newMessage = { message: question, type:"text", from: "user" };
       setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
       try {
@@ -132,12 +162,19 @@ console.log(isTokenExpired,"TOKEN EXPIRED")
           startTypewriterAnimation(answer.message);
         }else{
           setAiError(true)
+            const timer = setTimeout(() => {
+              setAlertVisible(false);
+            }, 3000); 
+            return () => {
+              clearTimeout(timer);
+            };
         }
       } catch (error) {
         console.log(error);
       } finally {
         setLoading(false);
       }
+    }
     }
   };
   const getAllChats=async()=>{
@@ -185,7 +222,7 @@ const handleChatItemClick = (chat_id: string) => {
 
 useEffect(() => {
   if (currentChat) {
-    console.log(currentChat, "CURRENT CHAT");
+
     handleGetChatMessages();
   }
 }, [currentChat]);
@@ -506,7 +543,22 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       className={`chat-content ${
                         section.from === "user" ? "main_bg" : "content_bg"
                       } text-start p-2 w-75`}
-                    >
+                    > {section.type==="imageUrl"?(
+                      <div className="row">
+                        {JSON.parse(section.message).map((imgUrl:{url:string},index:number)=>{
+                          return(
+                            <div key={index} className="col-12 mb-3">
+                              <img
+                                src={imgUrl.url}
+                                alt={"img"}
+                                style={{width: `${100}%`, height: `${100}%`, borderRadius: "0%", objectFit:"contain" }}
+                                className="img_component"
+                              />
+                            </div>
+                          )
+                        })}
+                      </div>
+                    ):(
                       <small>
                             <pre id="ai-respond-text-holder" style={{
                               whiteSpace: "pre-wrap",
@@ -523,6 +575,8 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
       )}
                             </pre>
                       </small>
+                    )}
+                      
                     </p>
                   )}
                 </div>
@@ -567,7 +621,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
             <div className="d-flex input-container justify-content-center ms-3">
           {!loading && (
               <div className="d-flex justify-content-between w-75 align-items-center">
-                 {aiError &&(
+                 {aiError &&alertVisible&&(
                 <div className="regenerate-btn-container">
                   <AlertBox message="Something went wrong at our end, try later" type="danger" loading={false}/>
                 </div>

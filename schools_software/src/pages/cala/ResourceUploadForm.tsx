@@ -2,20 +2,22 @@
 import React, { useState } from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
 import UploadFileModal from '../../components/UploadFileModal';
+import AlertBox from '../../components/Alerts';
+import axios from 'axios';
 
 interface ResourceUploadFormProps {
-  onResourceUpload: (title: string, description: string, file: File, tags: string[]) => void;
+  onResourceUpload: (title: string, description: string, file: File,subject:string, level:string ) => void;
 }
 
 const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUpload }) => {
   const [title, setTitle] = useState('');
+  const [showSuccessMessage,setShowSuccessMessage] = useState(false);
+  const [showErrorMessage,setShowErrorMessage] = useState(false);
   const [level, setLevel] = useState('');
   const [subject, setSubject] = useState('');
   const [description, setDescription] = useState('');
-  const [file ] = useState<File | null>(null);
-  const [tags] = useState<string[]>([]);
-  // const [tag, setTag] = useState<string>('');
-
+  const [file, setFile] = useState<File | null>(null);
+console.log(file,"FILEs")
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
   };
@@ -29,33 +31,67 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
     setTitle(e.target.value);
   };
 
-  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.target.files && e.target.files.length > 0) {
-  //     setFile(e.target.files[0]);
-  //   }
-  // };
-
-  // const handleTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const tag = e.target.value.trim();
-  //   setTag(tag);
-  // };
-  // const handleAddTag = () => {
-  //   if (tag && !tags.includes(tag)) {
-  //     setTags([...tags, tag]);
-  //     setTag('');
-  //   } else {
-  //     setTag('already available');
-  //   }
-  // };
-  const handleResourceUpload = () => {
-    // Validation and resource upload logic here
-    if (title && file) {
-      onResourceUpload(title, description, file, tags);
-    }
+  
+  const handleFileUpload = (uploadedFile: File) => {
+    setFile(uploadedFile);
   };
 
+  const handleResourceUpload = async () => {
+    if (title && file && subject && level) {
+      const fileExtension = file.name.split('.').pop();
+
+      try {
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('file', file);
+        formData.append('subject', subject);
+        formData.append('level', level);
+        formData.append('fileExtension', fileExtension!);
+
+        const response = await axios.post('http://localhost:3001/langchain/qdrant/save', formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",}
+          });
+
+        if (response.status === 200) {
+          setTitle('');
+          setDescription('');
+          setFile(null);
+          setSubject('');
+          setLevel('');
+
+          setShowSuccessMessage(true);
+
+          setTimeout(() => {
+            setShowSuccessMessage(false);
+          }, 5000);
+        } else {
+          setShowErrorMessage(true);
+
+          setTimeout(() => {
+            setShowErrorMessage(false);
+          }, 5000);
+          console.error('Error uploading resource');
+        }
+      } catch (error) {
+        setShowErrorMessage(true);
+
+        setTimeout(() => {
+          setShowErrorMessage(false);
+        }, 5000);
+        console.error('Error uploading resource:', error);
+      }
+    }
+  };
   return (
     <div className="pb-3 component-margin-top   mt-4">
+      <div className={`makronexa-alert ${showSuccessMessage ? 'visible' : 'hidden'}`}>
+      <AlertBox type='success' message='Resource upload successful'/>
+      </div>
+      <div className={`makronexa-alert ${showErrorMessage ? 'visible' : 'hidden'}`}>
+      <AlertBox type='warning' message='Error uploading resource'/>
+      </div>
       <h4 className="d-flex mb-4">Resource Upload</h4>
       <Row>
         <Col sm={6} lg={4} >
@@ -102,40 +138,16 @@ const ResourceUploadForm: React.FC<ResourceUploadFormProps> = ({ onResourceUploa
       <Row>
         <Col sm={6} md={8}>
           <Form.Group className="mb-3">
-            {/* <Form.Label className="d-flex">File</Form.Label> */}
-            {/* <Form.Control type="file" onChange={handleFileChange} /> */}
-            <UploadFileModal/>
+            <UploadFileModal onFileUpload={handleFileUpload}/>
           </Form.Group>
         </Col>
-        {/* <Col sm={6} lg={4}>
-          <Form.Group className="mb-3">
-            <Form.Label className="d-flex">Tags</Form.Label>
-            <div className="d-flex">
-              <Form.Control
-                type="text"
-                className="me-3"
-                value={tag}
-                onChange={handleTagChange}
-              />
-              <Button className="btn btn-dark" onClick={handleAddTag}>
-                <FontAwesomeIcon icon={faPlus} />
-              </Button>
-            </div>
-            <ul className="px-0 d-flex">
-              {tags.length > 0 &&
-                tags.map((tag: string, index: number) => {
-                  return (
-                    <li className="d-flex px-1" key={index}>
-                      #{tag}
-                    </li>
-                  );
-                })}
-            </ul>
-          </Form.Group>
-        </Col> */}
+   
       </Row>
       <div className='d-flex '>
-      <button className='header content_bg' onClick={handleResourceUpload}><small>Upload</small></button>
+      <button  className={`header content_bg`} style={{
+    backgroundColor: file ? '#007bff' : 'gray',
+    cursor: file ? 'pointer' : 'not-allowed',
+  }} disabled={file?false:true} onClick={handleResourceUpload}><small>Upload</small></button>
       </div>
     </div>
   );
