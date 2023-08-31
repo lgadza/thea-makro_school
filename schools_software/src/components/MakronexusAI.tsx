@@ -56,7 +56,7 @@ export interface Message {
     const [models, setModels] = useState<Engine[]>([]); 
     // const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
     const [chats, setChats] = useState<chatProps[]>([]); 
-    const [currentModel,setCurrentModel]=useState("dalle")
+    const [currentModel,setCurrentModel]=useState("gpt-3.5-turbo")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     // const [copied, setCopied] = useState<boolean>(false);
@@ -546,6 +546,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                     > {section.type==="imageUrl"?(
                       <div className="row">
                         {JSON.parse(section.message).map((imgUrl:{url:string},index:number)=>{
+                          console.log(imgUrl.url)
                           return(
                             <div key={index} className="col-12 mb-3">
                               <img
