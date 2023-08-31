@@ -73,7 +73,7 @@ export interface Message {
     const startTypewriterAnimation = (text: string) => {
       setAnimatedText(text.charAt(0))
       setBlinkerVisible(true);
-      let charIndex = 0;
+      let charIndex = 1;
       const interval = setInterval(() => {
         if (charIndex < text.length) {
           setAnimatedText((prevText) => prevText + text.charAt(charIndex));
