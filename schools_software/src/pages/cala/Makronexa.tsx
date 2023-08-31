@@ -22,13 +22,12 @@ interface Resource {
     title: string;
     thumbnail: string;
     description:string;
-    tags:[];
     reviews:[];
     rating:number
   }
   const resources:Resource[] = [
-    { id: 1, title: 'Resource 1', thumbnail: 'https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_2560%2Cc_limit/phonepicutres-TA.jpg',description:"", tags:[],reviews:[],rating:3},
-    { id: 2, title: 'Resource 2', thumbnail: 'https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg',description:"", tags:[],reviews:[],rating:3},
+    { id: 1, title: 'Resource 1', thumbnail: 'https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_2560%2Cc_limit/phonepicutres-TA.jpg',description:"", reviews:[],rating:3},
+    { id: 2, title: 'Resource 2', thumbnail: 'https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg',description:"", reviews:[],rating:3},
     
   ];
   
@@ -47,17 +46,15 @@ const Makronexa=():JSX.Element=>{
     }
 const [addResources, setAddResources] = useState<Resource[]>([]);
 
-    const handleResourceUpload = (title: string, description:string, file: File, tags: string[]) => {
+    const handleResourceUpload = (title: string, description:string, file: File, ) => {
         const newResource: Resource = {
           id: addResources.length + 1,
           title,
           thumbnail: URL.createObjectURL(file),
           description,
-          tags:[],
           rating: 0,
           reviews: [],
         };
-        console.log(tags)
         setAddResources([...resources, newResource]);
       };
       useEffect(()=>{

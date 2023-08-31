@@ -124,7 +124,7 @@ export interface Message {
     if (question !== "") {
       if (question.startsWith('/img:')) {
         const prompt = question.slice(5); 
-      const newMessage = { message: prompt, from: "user" };
+     
       setQuestion("");
         try {
           setLoading(true); 

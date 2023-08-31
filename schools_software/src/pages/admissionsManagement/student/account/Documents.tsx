@@ -1,4 +1,4 @@
-import { useEffect} from "react"
+import { useEffect, useState} from "react"
 import { Alert, Col, Form, Row } from "react-bootstrap"
 // import {  GuardianInterface } from "../../../../Types"
 // import { useSelector } from "react-redux"
@@ -21,6 +21,8 @@ const Documents=():JSX.Element=>{
 //     country_code:"",
 //     relationship:""
 // }
+const [file, setFile] = useState<File | null>(null);
+
 const handleSubmit=(e:React.FormEvent)=>{
 e.preventDefault()
 }
@@ -36,6 +38,9 @@ e.preventDefault()
     useEffect(()=>{
         // dispatch(getApplicantData())
     },[])
+    const handleFileUpload = (uploadedFile: File) => {
+      setFile(uploadedFile);
+    };
     return(
 <div>
 <Alert  variant="danger">
@@ -67,7 +72,7 @@ e.preventDefault()
             required 
             onChange={handleChange}
             /> */}
-            <UploadFileModal/>
+            <UploadFileModal onFileUpload={handleFileUpload}/>
             </div>
         </Col>    
       </Row>
@@ -85,7 +90,7 @@ e.preventDefault()
           value={guardian.phone_number}
           onChange={handleChange}
           /> */}
-            <UploadFileModal/>
+            <UploadFileModal onFileUpload={handleFileUpload}/>
           </div>
         </Col>    
       </Row>
@@ -104,7 +109,7 @@ e.preventDefault()
         //   value={guardian.transfer_letter}
           onChange={handleChange}
           /> */}
-            <UploadFileModal/>
+            <UploadFileModal onFileUpload={handleFileUpload}/>
           </div>
         </Col>
       </Row>
@@ -123,7 +128,7 @@ e.preventDefault()
         //   value={guardian.other_supporting_docs}
           onChange={handleChange}
           /> */}
-            <UploadFileModal/>
+            <UploadFileModal onFileUpload={handleFileUpload}/>
           </div>
         </Col>
       </Row>
