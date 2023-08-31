@@ -124,7 +124,8 @@ export interface Message {
     if (question !== "") {
       if (question.startsWith('/img:')) {
         const prompt = question.slice(5); 
-     
+      const newMessage = { message: prompt, type:"text", from: "user" };
+      setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
         try {
           setLoading(true); 
@@ -132,7 +133,7 @@ export interface Message {
           if (answer) {
             console.log(answer.message,"IMAGE ANSWER")
             // setCurrentAnswer(answer)
-            // setMessages((prev) => [...prev, answer]);
+            setMessages((prev) => [...prev, {type: "imageUrl",message:answer.message,from:"makronexa"}]);
           }else{
             setAiError(true)
             const timer = setTimeout(() => {
