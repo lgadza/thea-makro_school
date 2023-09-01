@@ -24,6 +24,7 @@ interface MathEquationProps {
   latex: string;
 }
 
+
 const MathEquation: React.FC<MathEquationProps> = ({ latex }) => {
   const container = useRef<HTMLSpanElement | null>(null);
 
@@ -37,48 +38,43 @@ const MathEquation: React.FC<MathEquationProps> = ({ latex }) => {
     }
   }, [latex]);
 
-  return <span  ref={container} />;
+  return <span ref={container} />;
 };
 
 interface ExtractLaTeXExpressionsProps {
   text: string;
 }
+// eslint-disable-next-line no-useless-escape
+const latexRegex = /\\\((.*?)\\\)|\\\[([\s\S]*?)\\\]|\$\$(.*?)\$\$|\$([^\$]+)\$/g;
 
 const ExtractLaTeXExpressions: React.FC<ExtractLaTeXExpressionsProps> = ({ text }) => {
-  // eslint-disable-next-line
-  const latexRegex = /(\$[^\$]+\$)/g;
-  // const latexRegex = /\\\((.*?)\\\)/g;
+  const parts: (string | { latex: string })[] = [];
+  let lastIndex = 0;
+  let match;
 
-  const parts = text.split(latexRegex);
-  console.log(parts,"PARTS")
+  while ((match = latexRegex.exec(text)) !== null) {
+    const latexContent = match[1] || match[2] || match[3] || match[4]; 
+    parts.push(text.slice(lastIndex, match.index)); 
+    parts.push({ latex: latexContent }); 
+    lastIndex = match.index + match[0].length; 
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex)); 
+  }
 
   return (
     <div>
       {parts.map((part, index) => {
-        if (part.match(latexRegex)) {
-          console.log(part,"PART")
-          const latexContent = part.slice(1, -1);
-          if (latexContent.length > 1) {
-            return (
-              <div key={index} className="text-center my-2">
-              <MathEquation latex={latexContent} />
-            </div>
-            );
-          } else {
-            return (
-              <MathEquation key={index} latex={latexContent} />
-            );
-          }
-          // return <MathEquation key={index} latex={latexContent} />;
-        } else {
+        if (typeof part === 'string') {
           return <span key={index}>{part}</span>;
+        } else {
+          return <MathEquation key={index} latex={part.latex} />;
         }
       })}
     </div>
   );
 };
-
-
 export interface Message {
     altText?: string;
     message: string;
@@ -471,8 +467,8 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
       
       <div className={`nav-links content_bg d-flex flex-column justify-content-between ms-3 ${navActive ? 'nav-active pt-3' : ''}`}>
         <div>
-          <ul className="d-flex flex-column px-5 ">  
-       <div className="d-flex w-75 ms-4 justify-content-between px-2">
+          <ul className="d-flex flex-column  ">  
+       <div className={`${chats.length>0?"d-flex w-75 mb-2  ps-5 justify-content-between px-2":"d-flex w-100  justify-content-between px-2"}`}>
             <Button className="btn-primary d-flex me-2 main_bg header" onClick={async()=>{
               await handleNewChat()
               }}>
@@ -493,7 +489,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
               .filter((chat) => chat.makronexaQAs.length !==0)
               .map((chat,index)=>{
                 return(
-            <li className={`nav-item p-2  my-1  d-flex justify-content-center align-items-center ${currentChat===chat.id?"content_bg":"header"}`} key={index}>
+            <li className={`nav-item p-2 w-100 my-1  d-flex justify-content-center align-items-center ${currentChat===chat.id?"content_bg":"header"}`} key={index}>
               <small className="d-flex w-75" 
               onClick={() => handleChatItemClick(chat.id)}
               >
@@ -515,7 +511,9 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
             </li>)}))
             
             :(
-          <Spinner className="spinner-border-sm"/>
+              <li className="mt-5">
+                <Spinner className="spinner-border-sm"/>
+              </li>
           )
             }
             </ul>
