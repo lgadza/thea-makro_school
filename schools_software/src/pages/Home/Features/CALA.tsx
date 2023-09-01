@@ -12,7 +12,7 @@ import CALAHeroBg from '../../../components/CALAHeroBg';
 import TypingEffect from '../../../components/TypingText';
 import { calaFAQ, studentsItems } from '../../../assets/data/calaFeature';
 import { quickFeatures } from '../../../assets/data/calaFeature';
-
+import makronexaGif from "../../../assets/mobile.gif"
 import './CALAFeature.css';
 import {teacherItems} from '../../../assets/data/calaFeature';
 import PageProgress from '../../../components/PageProgress';
@@ -79,6 +79,9 @@ const CALAFeature: React.FC = () => {
                 </div>
               </Col>
               <Col lg={4} className="d-none d-xl-block px-5">
+                <div className='mb-4'>
+                      <img src={makronexaGif} alt='makronexaGif'/> 
+                </div>
                 <ExploreMoreFeatures />
               </Col>
             </Row>

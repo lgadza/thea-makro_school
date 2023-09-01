@@ -18,6 +18,66 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import Image from "./Image"
 import { Link } from "react-router-dom"
+import katex from 'katex';
+import 'katex/dist/katex.min.css'
+interface MathEquationProps {
+  latex: string;
+}
+
+const MathEquation: React.FC<MathEquationProps> = ({ latex }) => {
+  const container = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    if (container.current) {
+      try {
+        katex.render(latex, container.current);
+      } catch (error) {
+        console.error('KaTeX rendering error:', error);
+      }
+    }
+  }, [latex]);
+
+  return <span  ref={container} />;
+};
+
+interface ExtractLaTeXExpressionsProps {
+  text: string;
+}
+
+const ExtractLaTeXExpressions: React.FC<ExtractLaTeXExpressionsProps> = ({ text }) => {
+  // eslint-disable-next-line
+  const latexRegex = /(\$[^\$]+\$)/g;
+  // const latexRegex = /\\\((.*?)\\\)/g;
+
+  const parts = text.split(latexRegex);
+  console.log(parts,"PARTS")
+
+  return (
+    <div>
+      {parts.map((part, index) => {
+        if (part.match(latexRegex)) {
+          console.log(part,"PART")
+          const latexContent = part.slice(1, -1);
+          if (latexContent.length > 1) {
+            return (
+              <div key={index} className="text-center my-2">
+              <MathEquation latex={latexContent} />
+            </div>
+            );
+          } else {
+            return (
+              <MathEquation key={index} latex={latexContent} />
+            );
+          }
+          // return <MathEquation key={index} latex={latexContent} />;
+        } else {
+          return <span key={index}>{part}</span>;
+        }
+      })}
+    </div>
+  );
+};
+
 
 export interface Message {
     altText?: string;
@@ -65,6 +125,7 @@ export interface Message {
     const [animatedText, setAnimatedText] = useState<string>("");
     const [blinkerVisible, setBlinkerVisible] = useState(true);
     const [alertVisible, setAlertVisible] = useState(true);
+    const [autoFilled, setAutoFilled] = useState<boolean>(false);
     const navigate=useNavigate()
     // const dispatch: Dispatch<any> = useDispatch();
     const dispatch = useDispatch();
@@ -115,7 +176,13 @@ export interface Message {
       };
     }, [loading]);
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setQuestion(e.target.value);
+      const newQuestion = e.target.value;
+      if (newQuestion.startsWith('/') && !autoFilled) {
+        setQuestion('/img:'+ newQuestion.substring(1));
+        setAutoFilled(true);
+      } else {
+        setQuestion(newQuestion);
+      }
     };
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
     
@@ -127,6 +194,8 @@ export interface Message {
       const newMessage = { message: prompt, type:"text", from: "user" };
       setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
+      setAutoFilled(false);
+
         try {
           setLoading(true); 
           const answer = await imageQuery(token.accessToken,currentModel,prompt,currentChat, user.id);
@@ -153,6 +222,8 @@ export interface Message {
       const newMessage = { message: question, type:"text", from: "user" };
       setMessages((prev) => [...prev, newMessage]);
       setQuestion("");
+      setAutoFilled(false);
+
       try {
         setLoading(true); 
         const answer = await chatWithAi(token.accessToken,[...messages, newMessage],currentModel,question,currentChat, user.id);
@@ -404,7 +475,6 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
        <div className="d-flex w-75 ms-4 justify-content-between px-2">
             <Button className="btn-primary d-flex me-2 main_bg header" onClick={async()=>{
               await handleNewChat()
-              // getAllChats()
               }}>
               <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
@@ -570,8 +640,8 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                               lineHeight: "1.8"
                             }}>
                               {section.from !== "user" && section.message.trimStart() === currentAnswer.trimStart()
-                                ? animatedText
-                                : section.message.trimStart()}
+                                ? <ExtractLaTeXExpressions text={animatedText} />
+                                : <ExtractLaTeXExpressions text={section.message.trimStart()} />}
                                 {blinkerVisible && section.message === currentAnswer.trimStart()&&  (
         <span id="blinker">|</span> 
       )}
@@ -658,25 +728,24 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
           )}
         </div>
         <div className="col chat-nav d-none d-md-block col-md-4 border-round pt-3 border-radius-round">
-          {chats.length>0 && models.length>0 ?(
           <div>
               <div className="d-flex justify-content-between">
             <Button className="btn-primary d-flex me-2 content_bg header" onClick={async()=>{
               await handleNewChat()
-              // getAllChats()
-              }}>
+            }}>
               <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
            {models.length>0 && (
              <select name="models" className="p-2 content_bg w-100" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
-              setCurrentModel(e.target.value)
+               setCurrentModel(e.target.value)
              }}>
              {models.map((model,index)=>(
                <option key={index} value={model.id}>{model.id}</option>
-             ))}
+               ))}
            </select>
            )}
           </div>
+           {chats.length>0 && models.length>0 ?(
           <div className="my-3">
             <ul>
               {chats.length>0 &&(
@@ -706,7 +775,12 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
               </li>)}))}
             </ul>
           </div>
-          </div>):(<Spinner/>)}
+          ):(
+          <div className="mt-5" >
+            <Spinner/>
+          </div>
+          )}
+          </div>
         
         </div>
       </div>
