@@ -471,7 +471,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
       
       <div className={`nav-links content_bg d-flex flex-column justify-content-between ms-3 ${navActive ? 'nav-active pt-3' : ''}`}>
         <div>
-          {chats.length>0 && models.length>0 ?(<ul className="d-flex flex-column px-5 ">  
+          <ul className="d-flex flex-column px-5 ">  
        <div className="d-flex w-75 ms-4 justify-content-between px-2">
             <Button className="btn-primary d-flex me-2 main_bg header" onClick={async()=>{
               await handleNewChat()
@@ -488,7 +488,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
            </select>
            )}
           </div>
-      {chats.length>0 &&(
+      {chats.length>0 ?(
               chats
               .filter((chat) => chat.makronexaQAs.length !==0)
               .map((chat,index)=>{
@@ -512,10 +512,14 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                 setMessages([])
                 }} 
                 icon={faTrashCan} style={{color:"red",fontSize:"0.8rem"}} />
-            </li>)}))}
-            </ul>):(
+            </li>)}))
+            
+            :(
           <Spinner className="spinner-border-sm"/>
-          )}
+          )
+            }
+            </ul>
+          
           
             </div>
             <div className="user-logout w-100 main_bg pb-2">
