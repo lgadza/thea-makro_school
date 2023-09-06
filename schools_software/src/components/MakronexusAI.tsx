@@ -618,12 +618,12 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       } text-start p-2 w-75`}
                     > {section.type==="imageUrl"?(
                       <div className="row">
-                        {JSON.parse(section.message).map((imgUrl:{url:string},index:number)=>{
-                          console.log(imgUrl.url)
+                        {JSON.parse(section.message).map((imgUrl:string,index:number)=>{
+                          console.log(imgUrl,"IMAGW URAKAKAJHDGGAVH")
                           return(
                             <div key={index} className="col-12 mb-3">
                               <img
-                                src={imgUrl.url}
+                                src={imgUrl}
                                 alt={"img"}
                                 style={{width: `${100}%`, height: `${100}%`, borderRadius: "0%", objectFit:"contain" }}
                                 className="img_component"
