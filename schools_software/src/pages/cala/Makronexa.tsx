@@ -63,7 +63,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
     return(
         <Container fluid className="ps-0 ms-0 pages scrollbar">
             {/* <MobileNav/> */}
-            <Row>
+            <Row className="ai-container">
           <Col md={2} className={"pe-0 d-none d-md-block hide-menu border-round"}>
                    <div className="px-4 w-100" style={{ height: "100vh", overflowY: "scroll" }}>
             <div className="d-flex px-2">
@@ -98,7 +98,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
             </Nav>
         </div>
           </Col>
-                <Col className="px-0 makronexa-container">
+                <Col className="px-0 makronexa-container" md={10}>
         <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
                    <div className="px-5">

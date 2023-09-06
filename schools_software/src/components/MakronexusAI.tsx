@@ -38,7 +38,7 @@ const MathEquation: React.FC<MathEquationProps> = ({ latex }) => {
     }
   }, [latex]);
 
-  return <span ref={container} />;
+  return <span  ref={container} />;
 };
 
 interface ExtractLaTeXExpressionsProps {
@@ -154,7 +154,7 @@ export interface Message {
       }
         handleLogout()
       }
-    },[])
+    },[isTokenExpired])
 
     useEffect(() => {
       let timeout: NodeJS.Timeout;
