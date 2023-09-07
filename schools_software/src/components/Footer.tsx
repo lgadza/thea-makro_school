@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 <FontAwesomeIcon className='contact-icons' icon={faEnvelopeOpen} />
                 <div className="cta-text">
                   <h4>Mail us</h4>
-                  <span>{CompanyName}@info.com</span>
+                  <span>info@makronexus.com</span>
                 </div>
                 </a>
               </div>
@@ -142,12 +142,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-        <div className="footer_bg">
-          {/* <div className="footer_bg_one"></div> */}
-          {/* <div className="footer_bg_one_two"></div> */}
+        {/* <div className="footer_bg">
+          <div className="footer_bg_one"></div>
+          <div className="footer_bg_one_two"></div>
           <div className="footer_bg_two"></div>
-          {/* <div className="footer_bg_two-two"></div> */}
-        </div>
+          <div className="footer_bg_two-two"></div>
+        </div> */}
       </div>
        <div className="copyright-area">
             <div className="container">

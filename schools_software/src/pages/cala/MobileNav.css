@@ -69,7 +69,7 @@ nav.mobile-nav{
     margin-top: 0% !important;
   }
   .makronexa-container{
-    margin-top: 15%;
+    margin-top: 0%;
   }
   .nav-links{
     position:absolute;
@@ -126,7 +126,7 @@ nav.mobile-nav{
       overflow-x: hidden;
     }
     .makronexa-container{
-      margin-top: 20%;
+      margin-top: 10%;
     }
     .nav-links{
       width: 60%;
