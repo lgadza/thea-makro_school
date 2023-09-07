@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import "./Carousel.css"
 import { CompanyName } from '../../assets/data/company';
 import { PushButton } from '../../components/Buttons';
-import { useNavigate } from 'react-router-dom';
 const Carousel: React.FC = () => {
   const [currentBanner, setCurrentBanner] = useState<number>(1);
   const bannerSwitcher = () => {
