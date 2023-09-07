@@ -6,7 +6,6 @@ import { PushButton } from '../../components/Buttons';
 import { useNavigate } from 'react-router-dom';
 const Carousel: React.FC = () => {
   const [currentBanner, setCurrentBanner] = useState<number>(1);
- const navigate=useNavigate()
   const bannerSwitcher = () => {
     setCurrentBanner((prevBanner) => (prevBanner % 4) + 1);
   };

@@ -291,6 +291,7 @@ to {
     
   }
 }
+  }
   /* Blinker */
   span#blinker{
     animation: blinker 0.8s linear infinite;
@@ -334,3 +335,4 @@ to {
     justify-content: center;
     margin-bottom: -10px;
   }
+  
