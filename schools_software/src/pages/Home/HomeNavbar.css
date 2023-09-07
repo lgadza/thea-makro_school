@@ -157,7 +157,7 @@
   
   .home-navbar .menu-toggle .menu-bar{
     width: 25px;
-    height: 3px;
+    height: 1px;
     background-color: white;
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
@@ -342,7 +342,3 @@
 
   }
 }
-   /* LOGO DISABLED ON MOBILE */
-   /* .navbar img{
-    display: none;
-   } */

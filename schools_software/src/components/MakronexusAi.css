@@ -129,7 +129,7 @@
   @media screen and (max-width:980px){
  /*Skeleton Screen with CSS */
 
-.skeleton:empty {
+.chat-skeleton:empty {
   margin: auto;
   width: 400px;
   height: 600px; 
@@ -227,13 +227,13 @@ to {
     }
     /*Skeleton Screen with CSS */
 
-.skeleton:empty {
+.chat-skeleton:empty {
   margin: auto;
   width: 325px;
   height: 600px; 
   
   background-image:
-    radial-gradient( circle 20px at 20px 20px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
+    radial-gradient( circle 15px at 15px 15px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
     linear-gradient( 135deg, rgba(19, 18, 18, 0.1), rgba(34, 32, 32, 0.1) 10%, rgba(22, 21, 21, 0.05) 100% ),
     linear-gradient( rgb(105, 102, 102) 30px 30px, transparent 0 );
 
@@ -277,13 +277,13 @@ to {
     }
     /*Skeleton Screen with CSS */
 
-.skeleton:empty {
+.chat-skeleton:empty {
   margin: auto;
   width: 300px;
   height: 600px; 
   
   background-image:
-    radial-gradient( circle 20px at 20px 20px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
+    radial-gradient( circle 15px at 15px 15px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
     linear-gradient( 135deg, rgba(19, 18, 18, 0.1), rgba(34, 32, 32, 0.1) 10%, rgba(22, 21, 21, 0.05) 100% ),
     linear-gradient( rgb(105, 102, 102) 30px 30px, transparent 0 );
 
@@ -335,4 +335,3 @@ to {
     justify-content: center;
     margin-bottom: -10px;
   }
-  

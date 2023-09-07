@@ -385,7 +385,7 @@ const MakronexaOverview: React.FC = () => {
 
   const limitations = ["May occasionally generate incorrect answers"];
   return (
-    <div className="container">
+    <div className="container mt-5">
       <Row>
          <Col className="col-12 col-lg-4">
           <OverviewSection
@@ -576,7 +576,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
             )}
           </div>
           {messages.length > 0 || currentChat ?
-            (<div> {messages.length>0?( messages.map((section, index) => (
+            (<div className="mt-5"> {messages.length>0?( messages.map((section, index) => (
               <div key={index}>
                 <div className="d-flex chats-messages justify-content-center text-start mt-2">
                   <div className="pe-2">
@@ -686,7 +686,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       </div>
                     </div>)} */}
                   </div> ))):(
-                  <div className="chat-skeleton "></div>
+                  <div className="chat-skeleton mt-5"></div>
                   )}
              
                   </div>
