@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import "./Carousel.css"
 import { CompanyName } from '../../assets/data/company';
 import { PushButton } from '../../components/Buttons';
+import { useNavigate } from 'react-router-dom';
 const Carousel: React.FC = () => {
   const [currentBanner, setCurrentBanner] = useState<number>(1);
-
+ const navigate=useNavigate()
   const bannerSwitcher = () => {
     setCurrentBanner((prevBanner) => (prevBanner % 4) + 1);
   };
@@ -33,8 +34,7 @@ const Carousel: React.FC = () => {
             <h1>Integrated school</h1>
             <h1>management platform</h1>
             <div className="line"></div>
-            <PushButton message='Learn more!'/>
-            {/* <div className="learn-more-button"><a href="#section-2">Learn More</a></div> */}
+            {/* <PushButton url='' message='Learn more!'/> */}
           </div>
         </div>
         <div id="top-banner-2" className="banner">
@@ -43,8 +43,7 @@ const Carousel: React.FC = () => {
             <h1>AI-powered CALA</h1>
             <h1>project assistance</h1>
             <div className="line"></div>
-            <PushButton message='Learn more!'/>
-            {/* <div className="learn-more-button"><a href="#section-4">Learn More</a></div> */}
+            <PushButton url='/features/makronexa' message='Learn more!'/>
           </div>
         </div>
         <div id="top-banner-3" className="banner">
@@ -53,8 +52,7 @@ const Carousel: React.FC = () => {
             <h1>Effortlessly</h1>
             <h1>manage student data</h1>
             <div className="line"></div>
-            <PushButton message='Learn more!'/>
-            {/* <div className="learn-more-button"><a href="#section-6">Learn More</a></div> */}
+            {/* <PushButton url='' message='Learn more!'/> */}
           </div>
         </div>
         <div id="top-banner-4" className="banner">
@@ -63,8 +61,7 @@ const Carousel: React.FC = () => {
             <h1>Simplify </h1>
             <h1> administrative tasks </h1>
             <div className="line"></div>
-            <PushButton message='Learn more!'/>
-            {/* <div className="learn-more-button"><a href="#main-footer">Learn More</a></div> */}
+            <PushButton url='/features/admission_management' message='Learn more!'/>
           </div>
         </div>
         </div>

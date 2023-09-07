@@ -619,7 +619,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                     > {section.type==="imageUrl"?(
                       <div className="row">
                         {JSON.parse(section.message).map((imgUrl:string,index:number)=>{
-                          console.log(imgUrl,"IMAGW URAKAKAJHDGGAVH")
+                        
                           return(
                             <div key={index} className="col-12 mb-3">
                               <img
@@ -685,7 +685,9 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                       </div>
                       </div>
                     </div>)} */}
-                  </div> ))):(<Spinner className="spinner-border-sm"/>)}
+                  </div> ))):(
+                  <div className="chat-skeleton "></div>
+                  )}
              
                   </div>
                   ):(<MakronexaOverview/>)}

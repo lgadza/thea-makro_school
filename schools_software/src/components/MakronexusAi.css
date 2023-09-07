@@ -30,7 +30,43 @@
     clear: both;
 }
 
+/*Skeleton Screen with CSS */
 
+.chat-skeleton:empty {
+  margin: auto;
+  width: 500px;
+  height: 600px; 
+  
+  background-image:
+    radial-gradient( circle 30px at 30px 30px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
+    linear-gradient( 135deg, rgba(19, 18, 18, 0.1), rgba(34, 32, 32, 0.1) 10%, rgba(22, 21, 21, 0.05) 100% ),
+    linear-gradient( rgb(105, 102, 102) 50px 50px, transparent 0 );
+
+  background-repeat: repeat-y;
+
+  background-size:
+    100px 100px, 
+    50px 200px, 
+    400px 100px,
+    250px 200px;
+
+  background-position:
+    0 0, 
+    0 0, 
+    70px 0;
+  animation: shine 1s infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position:
+      0 0,
+      100% 0, 
+      70px 0,
+      70px 120px;
+  }
+}
+/*Skeleton Screen with CSS */
 
 /* ALL LOADERS */
 
@@ -90,6 +126,46 @@
       margin-top: 10%;
     }
   }
+  @media screen and (max-width:980px){
+ /*Skeleton Screen with CSS */
+
+.skeleton:empty {
+  margin: auto;
+  width: 400px;
+  height: 600px; 
+  
+  background-image:
+    radial-gradient( circle 20px at 20px 20px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
+    linear-gradient( 135deg, rgba(19, 18, 18, 0.1), rgba(34, 32, 32, 0.1) 10%, rgba(22, 21, 21, 0.05) 100% ),
+    linear-gradient( rgb(105, 102, 102) 40px 40px, transparent 0 );
+
+  background-repeat: repeat-y;
+
+  background-size:
+    100px 100px, 
+    50px 200px, 
+    350px 100px,
+    250px 200px;
+    
+  background-position:
+  0 0, 
+  0 0, 
+  50px 0;
+animation: shine 1s infinite;
+}
+
+@keyframes shine {
+to {
+  background-position:
+    0 0,
+    100% 0, 
+    50px 0,
+    50px 120px;
+}
+}
+
+/*Skeleton Screen with CSS */
+  }
   @media screen and (max-width:768px){
     input.search{
       width: 30rem !important;
@@ -99,6 +175,7 @@
       top: 23px;
       right:0;    
     }
+    
   }
   @media screen and (max-width:708px){
     input.search{
@@ -148,6 +225,19 @@
       top: 23px;
       right:0;    
     }
+    /*Skeleton Screen with CSS */
+
+.skeleton:empty {
+  margin: auto;
+  width: 325px;
+  height: 600px; 
+  
+  background-image:
+    radial-gradient( circle 20px at 20px 20px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
+    linear-gradient( 135deg, rgba(19, 18, 18, 0.1), rgba(34, 32, 32, 0.1) 10%, rgba(22, 21, 21, 0.05) 100% ),
+    linear-gradient( rgb(105, 102, 102) 30px 30px, transparent 0 );
+
+/*Skeleton Screen with CSS */
   }
   @media screen and (max-width:420px){
     input.search{
@@ -185,7 +275,22 @@
       top: 23px;
       right:0;    
     }
+    /*Skeleton Screen with CSS */
+
+.skeleton:empty {
+  margin: auto;
+  width: 300px;
+  height: 600px; 
+  
+  background-image:
+    radial-gradient( circle 20px at 20px 20px, rgb(105, 102, 102) 20px 99%, transparent 0 ),
+    linear-gradient( 135deg, rgba(19, 18, 18, 0.1), rgba(34, 32, 32, 0.1) 10%, rgba(22, 21, 21, 0.05) 100% ),
+    linear-gradient( rgb(105, 102, 102) 30px 30px, transparent 0 );
+
+/*Skeleton Screen with CSS */
+    
   }
+}
   /* Blinker */
   span#blinker{
     animation: blinker 0.8s linear infinite;
