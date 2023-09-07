@@ -3,6 +3,7 @@
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
+    "allowJs": true, //IF THINGS ARE NOT WORKING REMOVE ME AND THE JS FILES
     "skipLibCheck": true,
     
 

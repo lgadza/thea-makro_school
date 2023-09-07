@@ -8,7 +8,7 @@ interface TypingProps {
   eraseSpeed?: number;
 }
 
-const TypingEffect: React.FC<TypingProps> = ({ words, typingSpeed = 100, eraseSpeed = 100 }) => {
+const TypingEffect: React.FC<TypingProps> = ({ words, typingSpeed = 5, eraseSpeed = 5 }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
   const [isErasing, setIsErasing] = useState(false);
@@ -46,7 +46,7 @@ const TypingEffect: React.FC<TypingProps> = ({ words, typingSpeed = 100, eraseSp
     setDisplayedText(currentWord.substring(0, currentLetterIndex));
   }, [currentLetterIndex, words, currentWordIndex]);
 
-  return <div className=' text3d'>{displayedText}</div>;
+  return <div>{displayedText}</div>;
 };
 
 export default TypingEffect;

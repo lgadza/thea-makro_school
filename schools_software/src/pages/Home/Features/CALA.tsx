@@ -8,7 +8,6 @@ import ExploreMoreFeatures from '../../../components/ExploreMoreFeatures';
 import FAQComp from '../FAQComp';
 import VerticalTimeline from '../../../components/VerticalTimeline';
 import HorizontalTimeline from '../../../components/HorizontalTimeline';
-import CALAHeroBg from '../../../components/CALAHeroBg';
 import TypingEffect from '../../../components/TypingText';
 import { calaFAQ, studentsItems } from '../../../assets/data/calaFeature';
 import { quickFeatures } from '../../../assets/data/calaFeature';
@@ -16,6 +15,8 @@ import makronexaGif from "../../../assets/mobile.gif"
 import './CALAFeature.css';
 import {teacherItems} from '../../../assets/data/calaFeature';
 import PageProgress from '../../../components/PageProgress';
+import AICanvasAnimation from '../../../components/AICanvasAnimation'; 
+
 const CALAFeature: React.FC = () => {
 
   const words = ['Automated Grading', 'Research CALA', 'Summarize long papers', 'Study Assistance', 'Career Guidance'];
@@ -35,14 +36,25 @@ const CALAFeature: React.FC = () => {
       <div className="content-container cala-main-feature">
         <Container fluid className="px-0 mb-5">
           <HomeNavbar />
-          <div className="cala-hero-container d-flex align-items-center justify-content-center">
-            <CALAHeroBg />
-            <div className="ms-5">
+          <div className="cala-hero-container row my-5 ">
+            {/* <CALAHeroBg /> */}
+            <div className="col-md-4 d-flex align-items-center justify-content-around"> 
+    <AICanvasAnimation/>
+  </div>
+            <div className="col-md-8 d-none d-md-block d-flex align-items-start justify-content-center flex-column ">
               <h1 className="text-start text-nowrap">
                 Use Makronexa to
               </h1>
               <div className="typing text ">
-                <TypingEffect words={words} typingSpeed={100} eraseSpeed={100} />
+                <TypingEffect words={words} typingSpeed={80} eraseSpeed={80} />
+              </div>
+            </div>
+            <div className="col-md-8 d-md-none d-flex align-items-center justify-content-center flex-column ">
+              <h1 className="text-start text-nowrap">
+                Use Makronexa to
+              </h1>
+              <div className="typing text ">
+                <TypingEffect words={words} typingSpeed={80} eraseSpeed={80} />
               </div>
             </div>
           </div>
