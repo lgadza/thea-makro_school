@@ -19,12 +19,86 @@
     line-height: 1.4;
     margin-bottom: 10px;
   }
-  
-  /* BASIC SETUP */
-  /* .nav-wrapper{
-   background: rgba(0, 0, 0,0.8) !important;
+/* Dropdown */
 
-  } */
+
+.solutions-dropdown {
+  /* display: none; */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw; 
+  background-color: rgba(0, 0, 0,.95); 
+  z-index: 1;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); 
+}
+.nav-item-solutions:hover .solutions-dropdown {
+  display: block;
+}
+
+.solutions-column {
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+
+.solutions-column ul {
+  list-style: none;
+  padding: 0;
+}
+.solution-icon-bg{
+  background-color: rgb(14, 178, 190) ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+}
+.makronexa-icon{
+  background-color:rgb(113, 8, 43) ; 
+}
+.report-card-icon{
+  background-color:rgb(15, 29, 34) ; 
+}
+.solutions-column ul li {
+  margin-bottom: 10px;
+}
+.nav-list-item{
+  font-size: 16px;
+}
+.nav-list-item:hover{
+  color:rgb(14, 178, 190) ;
+}
+.solutions-column ul li a {
+  display: block;
+  transition: color 0.2s; 
+  /* width: 300px; */
+}
+.admission-link:hover{
+  background-color:rgba(14, 178, 190,.3) ;
+  border-radius: 5px;
+}
+.report-card-link:hover{
+  background-color:rgba(15, 29, 34,.8) ;
+  border-radius: 5px;
+}
+.makronexa-link:hover{
+  background-color:rgba(113, 8, 43,.3) ;
+  border-radius: 5px;
+}
+
+.solutions-column ul li:hover {
+  color: rgb(14, 178, 190)  !important; 
+}
+.solutions-column ul li a small {
+  display: block;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Dropdown */
   .home-navbar.page-wrapper {
     width: 100%;
     height: auto;
@@ -34,7 +108,6 @@
     top: 0;
     left: 0;
     right: 0;
-    border-bottom: 2px solid rgba(80, 87, 90, 0.3);
    background: rgba(0, 0, 0,0.8) !important;
 
   }
@@ -61,7 +134,7 @@
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   
   .home-navbar .navbar img {
@@ -72,9 +145,6 @@
   .home-navbar .navbar ul {
     list-style: none;
     display: flex;
-    /* display: grid;
-    grid-template-columns: repeat(6,1fr);
-    justify-self: end; */
     
   }
   
@@ -98,8 +168,6 @@
     margin-top: 10px;
     margin-left: 15px;
     transition: color 0.3s ease-out;
-    /* color: rgb(41, 203, 214); */
-    /* transform: translateX(-255px); */
   }
   
   .home-navbar #search-icon:hover {
@@ -148,7 +216,7 @@
   }
     border: 0;
     border-left: 1px solid #ccc;
-    border-radius: 0; /* FOR SAFARI */
+    border-radius: 0;
     outline: 0;
     padding: 5px;
   }
@@ -259,7 +327,10 @@
     .home-navbar .no-search {
       transform: translateX(100%);
       transition: transform 0.5s ease-in;
+      background-color: #000 !important;
+
     }
+  
     .navbar.navbar.is-active{
       position: fixed;
       top: 0;
@@ -292,17 +363,21 @@
       display: flex !important;
       flex-direction: column;
       position: fixed;
-      justify-content: start;
+      justify-content: start !important;
+      align-items: start;
       top: 55px;
       width: 100%;
       height: calc(100vh - 55px);
       transform: translate(-101%);
       text-align: center;
       overflow: hidden;
+      padding-left: 20px;
     }
     
     .navbar li {
       padding: 15px 0px !important;
+      font-weight: 700;
+      color:rgb(0, 157, 196) ;
     }
     
     .navbar li:first-child {
@@ -310,6 +385,7 @@
     }
     
     .navbar li a {
+      color:rgb(0, 157, 196) !important ;
       font-size: 1rem;
     }
      
@@ -338,7 +414,7 @@
   .glow.home-navbar .btn.btn-primary{
   transition: .3s;
   border-radius: 5px ;
-  /* border-color:rgb(14, 178, 190) !important; */
+
 
   }
 }

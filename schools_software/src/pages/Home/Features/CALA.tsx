@@ -38,7 +38,7 @@ const CALAFeature: React.FC = () => {
           <HomeNavbar />
           <div className="cala-hero-container row my-5 ">
             {/* <CALAHeroBg /> */}
-            <div className="col-md-4 d-flex align-items-center justify-content-around"> 
+            <div className="col-md-4 d-flex cala-background-ai align-items-center justify-content-around"> 
     <AICanvasAnimation/>
   </div>
             <div className="col-md-8 d-none d-md-block d-flex align-items-start justify-content-center flex-column ">

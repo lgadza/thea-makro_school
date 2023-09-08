@@ -19,6 +19,7 @@ import Features from './pages/Home/Features/Features.js'
 import AdmissionManagement from './pages/Home/Features/AdmissionManagement.js'
 import CALAFeature from './pages/Home/Features/CALA.js'
 import Makronexa from "./pages/cala/Makronexa.js"
+import Plans from "./pages/Home/Plans.js"
 
 // mss makro_school_solution
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/" element={<MakroHomePage/>}/>
         <Route path="register" element={<MssRegisterPage/>}/>
         <Route path="login" element={<Login/>}/>
+        <Route path="plans" element={<Plans/>}/>
         <Route path="features" element={<Features/>}/>
         <Route path="features/admission_management" element={<AdmissionManagement/>}/>
         <Route path="features/makronexa" element={<CALAFeature/>}/>

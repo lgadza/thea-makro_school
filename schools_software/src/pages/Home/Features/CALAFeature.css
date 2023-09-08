@@ -35,7 +35,14 @@ animation: bg 1s ease-in-out infinite;
   .cala-main-feature{
     overflow-x: hidden;
   }
-  
+  /* .cala-background-ai {
+    position: fixed;
+    left: 30%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+  } */
 @keyframes bg {
   0% {
     background-position-x: 0;

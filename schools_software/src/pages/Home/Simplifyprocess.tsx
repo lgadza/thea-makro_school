@@ -58,7 +58,7 @@ const SimplifyProcess: React.FC = () => {
         }`}
         onClick={() => handleCardClick(id)}
       >
-        <img src={imgUrl} alt={`img${id}`} style={{ width: "100%", height: "300px" }} />
+        <img src={imgUrl} alt={`img${id}`} style={{ width: "100%", height: "100%" }} />
       </li>
     );
   };
