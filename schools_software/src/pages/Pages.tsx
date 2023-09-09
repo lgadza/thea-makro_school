@@ -6,13 +6,13 @@ import AllCandidates from "./admin/AllCandidates"
 import AllNewCandidate from "./admin/AddNewCandidate"
 import ResourceUploadForm from "./cala/ResourceUploadForm"
 import CALAOverView from "./cala/Dashboard"
-import MakronexusAI from "../components/MakronexusAI"
+// import MakronexusAI from "../components/MakronexusAI"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
 import { Dispatch } from "redux"
-import { getApplicantData } from "../redux/actions"
-import Settings from "./cala/DataSetSettings"
+import { getUserData } from "../redux/actions"
+// import Settings from "./cala/DataSetSettings"
 interface Resource {
     id: number;
     title: string;
@@ -29,7 +29,7 @@ interface Resource {
 
 const Pages=():JSX.Element=>{
   const dispatch:Dispatch<any> =useDispatch()
-  const user=useSelector((state:RootState)=>state.applicantData.data)
+  const user=useSelector((state:RootState)=>state.userData.data)
   const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
     const [showMenu, setShowMenu] = useState(true);
     const toggleMenu = () => {
@@ -54,7 +54,7 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
         setAddResources([...resources, newResource]);
       };
       useEffect(()=>{
-        dispatch(getApplicantData(accessToken.accessToken))
+        dispatch(getUserData(accessToken.accessToken))
       },[])
     return(
         <Container fluid className="ps-0 ms-0 pages scrollbar">
@@ -89,8 +89,8 @@ const [addResources, setAddResources] = useState<Resource[]>([]);
                   { activeComponent ==="NewCandidate" && <AllNewCandidate/> }
                 
                   { activeComponent ==="ResourceUploadForm" && <ResourceUploadForm onResourceUpload={handleResourceUpload}/> }
-                  { activeComponent ==="MakronexusAI" && <MakronexusAI/> }
-                  { activeComponent ==="Settings" && <Settings/>}
+                  {/* { activeComponent ==="MakronexusAI" && <MakronexusAI/> } */}
+                  {/* { activeComponent ==="Settings" && <Settings/>} */}
                 </div>
                 </div>
                 </Col>
