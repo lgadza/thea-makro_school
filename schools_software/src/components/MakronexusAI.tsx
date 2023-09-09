@@ -8,7 +8,7 @@ import { Button, Col, Dropdown, Row, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 // import { useDispatch } from "react-redux"
-import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, getEngines, imageQuery, logoutUser, newChat } from "../redux/actions"
+import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, imageQuery, logoutUser, newChat } from "../redux/actions"
 // import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { ApplicantRegistration } from "../Types"
@@ -83,14 +83,7 @@ export interface Message {
     from:string;
     type:string;
   }
-  interface Engine{
-    created:string|null;
-    id:string;
-    object:string;
-    owner:string;
-    permissions: null;
-    ready:boolean
-  }
+  
   interface MobileNavProps{
     chats:chatProps[]
   }
@@ -109,10 +102,9 @@ export interface Message {
     // const allError=useSelector((state:RootState)=>state.getAllAiChats.isError)
     const [loading, setLoading] = useState(false); 
     const [currentChat, setCurrentChat] = useState(""); 
-    const [models, setModels] = useState<Engine[]>([]); 
     // const [deleteNowChat, setDeleteNowChat] = useState<boolean>(false); 
     const [chats, setChats] = useState<chatProps[]>([]); 
-    const [currentModel,setCurrentModel]=useState("gpt-3.5-turbo")
+    const [currentModel]=useState("gpt-3.5-turbo")
     const [messages, setMessages] = useState<Message[]>([]);
     const [question, setQuestion] = useState<string>("");
     // const [copied, setCopied] = useState<boolean>(false);
@@ -305,14 +297,7 @@ const scrollToLastMessage=()=>{
     scrollToLastMessage()
   }, [messages]);
 
-  useEffect(()=>{
-    const getModels=async()=>{
-      const engines=await getEngines()
-      setModels(engines.models)
-    }
-    getModels()
 
-  },[])
 const Loader: React.FC = () => {
 
   return (
@@ -474,15 +459,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
               }}>
               <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
-           {models.length>0 && (
-             <select name="models" className="p-2 main_bg w-100" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
-              setCurrentModel(e.target.value)
-             }}>
-             {models.map((model,index)=>(
-               <option key={index} value={model.id}>{model.id}</option>
-             ))}
-           </select>
-           )}
+         
           </div>
       {chats.length>0 ?(
               chats
@@ -732,24 +709,13 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
           )}
         </div>
         <div className="col chat-nav d-none d-md-block col-md-4 border-round pt-3 border-radius-round">
-          <div>
-              <div className="d-flex justify-content-between">
-            <Button className="btn-primary d-flex me-2 content_bg header" onClick={async()=>{
+          <div>    
+            <Button className="btn-primary py-2 d-flex justify-content-center me-2 w-100 content_bg header" onClick={async()=>{
               await handleNewChat()
             }}>
               <FontAwesomeIcon className="d-xl-block me-1 d-none" icon={faPlus} /> <small className="text-nowrap">New chat</small>
             </Button>
-           {models.length>0 && (
-             <select name="models" className="p-2 content_bg w-100" id="model" onChange={(e:React.ChangeEvent<HTMLSelectElement>)=>{
-               setCurrentModel(e.target.value)
-             }}>
-             {models.map((model,index)=>(
-               <option key={index} value={model.id}>{model.id}</option>
-               ))}
-           </select>
-           )}
-          </div>
-           {chats.length>0 && models.length>0 ?(
+           {chats.length>0 ?(
           <div className="my-3">
             <ul>
               {chats.length>0 &&(

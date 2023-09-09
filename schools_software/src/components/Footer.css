@@ -142,10 +142,11 @@
 }
 .new_footer_area .single-cta .contact-icons {
   color: rgb(3, 139, 190);
-  font-size: 30px;
+  font-size: 22px;
   float: left;
   margin-top: 8px;
 }
+
 .new_footer_area .cta-text {
   padding-left: 15px;
   display: block;

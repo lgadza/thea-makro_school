@@ -16,7 +16,7 @@ const ToggleSwitch: React.FC = () => {
   };
 
   return (
-    <div className="toggle_switcher d-flex align-items-center py-1">
+    <div className="toggle_switcher d-flex align-items-center">
       <div className="toggle">
         <input type="checkbox" checked={isChecked1} onChange={handleToggle1} />
         <span className="button no"></span>

@@ -1,18 +1,28 @@
 import { Row ,Container, Col} from "react-bootstrap"
 import AccountTopNavigationBar from "../../components/AccountTopNavigationBar"
 import { useEffect } from "react"
-import MakronexusAI from "../../components/MakronexusAI"
 import { useSelector,useDispatch } from "react-redux"
 import { RootState } from "../../redux/store"
 import { Dispatch } from "redux"
 import { getApplicantData } from "../../redux/actions"
 import "./MobileNav.css"
 import CalaSideNavbar from "./CalaSideNavbar"
+import DataSetSettings from "./DataSetSettings"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDatabase } from "@fortawesome/free-solid-svg-icons"
+import { DataSetItem } from "./DataSets"
   
-const Makronexa=():JSX.Element=>{
+const DataSetSettingsPage=():JSX.Element=>{
   const dispatch:Dispatch<any> =useDispatch()
   const user=useSelector((state:RootState)=>state.applicantData.data)
   const accessToken=useSelector((state:RootState)=>state.accessToken.accessToken)
+  const dataSetItems: DataSetItem = 
+    {
+      icon: <FontAwesomeIcon icon={faDatabase} />,
+      name: 'DataSet 1',
+      created: '2023-07-17',
+    }
+  
    
       useEffect(()=>{
         dispatch(getApplicantData(accessToken.accessToken))
@@ -26,7 +36,7 @@ const Makronexa=():JSX.Element=>{
                 <Col className="px-0 makronexa-container" md={10}>
         <div className="py-0" style={{ height: "100vh", overflowY: "scroll" }}>
                    <AccountTopNavigationBar user={user}/>
-                   <MakronexusAI/> 
+                   <DataSetSettings dataSet={dataSetItems}/> 
                 </div>
                 </Col>
             </Row>   
@@ -34,4 +44,4 @@ const Makronexa=():JSX.Element=>{
     )
 }
 
-export default Makronexa
+export default DataSetSettingsPage

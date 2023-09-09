@@ -20,6 +20,8 @@ import AdmissionManagement from './pages/Home/Features/AdmissionManagement.js'
 import CALAFeature from './pages/Home/Features/CALA.js'
 import Makronexa from "./pages/cala/Makronexa.js"
 import Plans from "./pages/Home/Plans.js"
+import DataSetsPage from "./pages/cala/DataSetsPage.js"
+import DataSetSettingsPage from "./pages/cala/DataSetSettingsPage.js"
 
 // mss makro_school_solution
 function App() {
@@ -45,6 +47,8 @@ function App() {
        <Route path="account/:id" element={<StudentAccountPage/>}/>
        <Route path="/ask.makronexus.com" element={<Makronexa/>}/>
        <Route path="ask/:user_id" element={<Makronexa/>}/>
+       <Route path="/:user_id/datasets" element={<DataSetsPage/>}/>
+       <Route path="/:user_id/datasets/:dataset_id" element={<DataSetSettingsPage/>}/>
        <Route path='*' element={<Page404/>} />
       </Routes>
     </BrowserRouter>

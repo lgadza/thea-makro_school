@@ -12,7 +12,7 @@ import { RootState } from "../redux/store"
 import { useDispatch } from "react-redux"
 import { Dispatch } from "redux"
 import { getApplicantData } from "../redux/actions"
-import Settings from "./cala/Settings"
+import Settings from "./cala/DataSetSettings"
 interface Resource {
     id: number;
     title: string;

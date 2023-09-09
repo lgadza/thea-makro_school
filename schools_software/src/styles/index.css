@@ -205,6 +205,7 @@ border: none;
   right: 0;
   left: 0;
   background-color: var(--main-bg);
+  z-index: 99;
  }
  .box-shadow{
   box-shadow: 3px 3px 5px rgb(32, 32, 32);

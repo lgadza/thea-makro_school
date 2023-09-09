@@ -24,36 +24,43 @@ const Pricing: React.FC = () => {
 
   const cards = [
     {
-      heading: 'Basic',
-      price: '$9.99',
+      heading: 'Freemium Plan',
+      price: '$0.00',
       bullets: [
-        'Access to standard workouts and nutrition plans',
-        'Email support',
+        '20 queries',
+        '900 kilobytes of text for uploading - no credit card required',
+        'Export queries and answers',
       ],
       ctaText: 'Get Started',
       ctaLink: '#basic',
     },
     {
-      heading: 'Pro',
-      price: '$19.99',
+      heading: 'Individual Plan:',
+      price: '$9.99',
       bullets: [
-        'Access to advanced workouts and nutrition plans',
-        'Priority Email support',
-        'Exclusive access to live Q&A sessions',
+        '20 datasets',
+        'Email support',
+        '30 documents per dataset',
+        '7 megabytes of text for uploading per month',
+        "1,000 dataset queries per month",
+        "Export queries and answers"
       ],
-      ctaText: 'Upgrade to Pro',
+      ctaText: 'Get Started',
       ctaLink: '#pro',
     },
     {
-      heading: 'Ultimate',
-      price: '$29.99',
+      heading: 'Institution Plan',
+      price: '',
       bullets: [
-        'Access to all premium workouts and nutrition plans',
-        '24/7 Priority support',
-        '1-on-1 virtual coaching session every month',
-        'Exclusive content and early access to new features',
+        'Unlimited datasets',
+        'Unlimited documents per dataset',
+        '200 megabytes of text for uploading per month',
+        'Priority support',
+        'Fee Management',
+        'Admin Dashboard',
+        'Admission Management',
       ],
-      ctaText: 'Go Ultimate',
+      ctaText: 'Contact Us',
       ctaLink: '#ultimate',
     },
   ];
@@ -72,7 +79,6 @@ const Pricing: React.FC = () => {
   };
 
   const handleMouseLeave = () => {
-    // Reset the '--overlay-card' when leaving a card
     setOverlayStyles({
       ...overlayStyles,
       '--overlay-card': -1,
@@ -118,6 +124,7 @@ const Pricing: React.FC = () => {
   return (
     <main className="main pricing flow">
       <h4 className="main__heading color-header">Pricing</h4>
+      <h5 className="">All plans are cancellable anytime</h5>
       <div className="main__cards cards">
         <div className="cards__inner" ref={cardsContainerInnerRef}>
           {cards.map((card, index) => (

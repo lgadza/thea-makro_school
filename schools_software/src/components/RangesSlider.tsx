@@ -11,7 +11,7 @@ const RangeSlider: React.FC = () => {
         if (inputRef.current && labelRef.current) {
           const value = Number(inputRef.current.value) / 100;
           inputRef.current.style.setProperty('--thumb-rotate', `${value * 720}deg`);
-          labelRef.current.innerHTML = Math.round(value * 9).toString();
+          labelRef.current.innerHTML = Math.round(value * 10).toString();
         }
       };
 
