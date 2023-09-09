@@ -118,6 +118,7 @@ export interface Message {
     const [autoFilled, setAutoFilled] = useState<boolean>(false);
     const [isChatMessagesLoading, setIsChatMessagesLoading] = useState(false);
 const [errorChatMessages, setErrorChatMessages] = useState("");
+console.log(errorChatMessages)
     const navigate=useNavigate()
     // const dispatch: Dispatch<any> = useDispatch();
     const dispatch = useDispatch();
