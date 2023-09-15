@@ -96,6 +96,7 @@ export const setChatMessages = (messages: Message[]) => ({
     try {
       const response=await fetch(`${BE_PROD_URL}/makronexa/users/${user_id}/settings/${ settings_id}`,options)
       if (response.ok) {
+        getAllUserAISettings(token,user_id)
         const res = await response.json();
         console.log(res," AI SETTINGS DELETED")
       }

@@ -35,7 +35,7 @@ const DataSets= ({token,user_id}:{token:string,user_id:string}):JSX.Element => {
   },[])
  const handleDeleteDataset=async(settings_id:string)=>{
   await dispatch(deleteUserAISettings(token,settings_id,user_id))
-  dispatch(getAllUserAISettings(token,user_id))
+  // dispatch(getAllUserAISettings(token,user_id))
   
  }
   return (
