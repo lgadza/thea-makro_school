@@ -24,6 +24,7 @@ const DataSets= ({token,user_id}:{token:string,user_id:string}):JSX.Element => {
   const datasets:UserAISettingsPayload[]=useSelector((state:RootState)=>state.getAllUserAISettings.data)
   const isLoading=useSelector((state:RootState)=>state.getAllUserAISettings.isLoading)
   const isError=useSelector((state:RootState)=>state.getAllUserAISettings.isError)
+  const [isErrorHide,setIsErrorHide]=useState(false)
   const navigate=useNavigate()
   const params=useParams()
   const dispatch:Dispatch<any> =useDispatch()
@@ -31,6 +32,7 @@ const DataSets= ({token,user_id}:{token:string,user_id:string}):JSX.Element => {
  
   const [modalShow, setModalShow] = useState(false);
   useEffect(()=>{
+    setTimeout(()=>{setIsErrorHide(true)},3000)
     dispatch(getAllUserAISettings(token,user_id))
   },[])
  const handleDeleteDataset=async(settings_id:string)=>{
@@ -40,7 +42,7 @@ const DataSets= ({token,user_id}:{token:string,user_id:string}):JSX.Element => {
  }
   return (
     <Container className="component-margin-top">
-      {isError && <AlertBox type="danger" message='Error fetching data'/>}
+      {isError && isErrorHide && <AlertBox type="danger" message='Error fetching data'/>}
       <div>
         <div className='d-flex'><small className='link-item header  cursor-pointer' onClick={()=>navigate(`/ask/${user_id}`)}>Makronexa</small> <span>/</span><small>Datasets</small></div>
       
