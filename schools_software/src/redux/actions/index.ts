@@ -490,8 +490,8 @@ export const setChatMessages = (messages: Message[]) => ({
         return state;
     }
   };
-  export const deleteUser = (token:string) => {
-    return async(dispatch:Dispatch)=>{
+  export const deleteUser = async(token:string) => {
+    
       const options = {
         method: "DELETE",
         headers:{
@@ -505,19 +505,14 @@ export const setChatMessages = (messages: Message[]) => ({
         const response = await fetch(`${BE_PROD_URL}/users/me`, options);
        
         if (response.ok) {
-          const status= response.json()
           console.log("user Deleted")
-          dispatch({
-            type:"USER_DELETED",
-            payload:status
-        })
-        return status
+        return response
         }
       } catch (error) {
         console.log(error);
       }
     };
-  };
+ 
 export const UserLogin=(cred:LoginCredentialsInterface)=>{
     return async(dispatch:Dispatch)=>{
         const options={

@@ -20,7 +20,7 @@ import * as Icon from "react-bootstrap-icons"
 import AlertBox from "../../../../components/Alerts"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronUp, faCircleInfo, faCircleNotch, faFile, faGear, faLocation, faPenToSquare, faPeopleGroup, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faChevronUp, faCircleInfo, faCircleNotch, faFile, faGear, faImage, faLocation, faPenToSquare, faPeopleGroup, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons"
 import md_logo_small from "../../../../assets/md_logo_small.png"
 import { CompanyName } from "../../../../assets/data/company"
 import { UserRegistration } from "../../../../Types"
@@ -41,8 +41,12 @@ const MobileNav= ({source,activeComponent,handleNavigationClick,user,token}:{act
   const toggleNav = () => {
     setNavActive(!navActive);
   };
-  const handleDeleteAccount=()=>{
-   dispatch(deleteUser(token))
+  const handleDeleteAccount=async()=>{
+    const response= await deleteUser(token)
+    if(response && response.ok){
+      navigate("user/account/delete/confirmation")
+    }
+    console.log(response)
   }
   
 
@@ -130,8 +134,8 @@ const MobileNav= ({source,activeComponent,handleNavigationClick,user,token}:{act
   <hr className="my-0 py-0" />
   <Dropdown.Item className="py-2">
     <Link to={`/${user.id}/datasets`} className="textColor px-2">
-    <FontAwesomeIcon icon={faGear}/>
-      <span className="px-2">Change photo</span>
+    <FontAwesomeIcon style={{fontSize:"14px"}} icon={faImage}/>
+      <small className="px-2">Change photo</small>
     </Link>
   </Dropdown.Item>
   <hr className="my-0 py-0" />
@@ -140,10 +144,10 @@ const MobileNav= ({source,activeComponent,handleNavigationClick,user,token}:{act
       onClick={handleLogout}
       className="textColor px-2"
     >
-    <FontAwesomeIcon icon={faPowerOff}/>
-<span className="px-2">
+    <FontAwesomeIcon style={{fontSize:"14px"}} icon={faPowerOff}/>
+<small className="px-2">
       Log out
-</span>
+</small>
     </div>
   </Dropdown.Item>
                 <div
