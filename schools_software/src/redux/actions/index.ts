@@ -490,18 +490,28 @@ export const setChatMessages = (messages: Message[]) => ({
         return state;
     }
   };
-  export const deleteUser = () => {
-    return async () => {
+  export const deleteUser = (token:string) => {
+    return async(dispatch:Dispatch)=>{
       const options = {
         method: "DELETE",
+        headers:{
+          Accept:"application.json",
+          "Content-Type":"application/json",
+          "Authorization": `Bearer ${token}`,
+      },
       };
       
       try {
         const response = await fetch(`${BE_PROD_URL}/users/me`, options);
        
         if (response.ok) {
+          const status= response.json()
           console.log("user Deleted")
-          return response.json()
+          dispatch({
+            type:"USER_DELETED",
+            payload:status
+        })
+        return status
         }
       } catch (error) {
         console.log(error);

@@ -28,10 +28,10 @@ import { Link } from "react-router-dom"
 const URL = import.meta.env.VITE_BE_PROD_URL;
 // import { Button } from "react-bootstrap"
 
-const MobileNav= ({source,activeComponent,handleNavigationClick,user}:{activeComponent:string;source:string;handleNavigationClick:(component:string)=>void,user:UserRegistration}):JSX.Element => {
+const MobileNav= ({source,activeComponent,handleNavigationClick,user,token}:{activeComponent:string;source:string;handleNavigationClick:(component:string)=>void,user:UserRegistration,token:string}):JSX.Element => {
   const [navActive, setNavActive] = useState(false);
   const navigate=useNavigate()
-  const dispatch = useDispatch();
+  const dispatch:Dispatch<any> = useDispatch();
   const handleLogout = () => {
     dispatch(logoutUser());
     localStorage.removeItem('accessToken');
@@ -42,7 +42,7 @@ const MobileNav= ({source,activeComponent,handleNavigationClick,user}:{activeCom
     setNavActive(!navActive);
   };
   const handleDeleteAccount=()=>{
-    deleteUser()
+   dispatch(deleteUser(token))
   }
   
 
@@ -272,7 +272,7 @@ dispatch(getUserData(accessToken.accessToken))
         <AlertBox type="warning" message='The image size exceeds the limit'/>
       </div>
       )}
-                <StudentNavbar personalInfo={personalInfo} />
+                <StudentNavbar personalInfo={personalInfo} token={accessToken.accessToken} />
             <Row className="py-3 ">
                 {personalInfo && (
 
@@ -329,7 +329,7 @@ dispatch(getUserData(accessToken.accessToken))
                 </Col>
                 <MobileNav source="student"
                     activeComponent={activeComponent}
-                    handleNavigationClick={handleNavigationClick} user={personalInfo} />
+                    handleNavigationClick={handleNavigationClick} user={personalInfo} token={accessToken.accessToken} />
                 <Col ml={9} >
                     <div className="student_account_border content_bg py-3 px-3 ">
                     {activeComponent === "PersonalData" && <PersonalData />}
