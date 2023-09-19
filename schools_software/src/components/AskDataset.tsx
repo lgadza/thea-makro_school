@@ -565,7 +565,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
              
                   </div>
                   )}
-         {currentChat &&(
+         
           <div className="pb-3 ask-input-nav main_bg py-3">
             <div className="d-flex input-container justify-content-center ms-3">
           
@@ -590,9 +590,11 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                     onChange={handleInput}
                   />
                 </div>
-                {!loading && (
+                {!loading &&  (
                 <div className="btn btn-primary" onClick={handleAsk}>
+                  {currentChat && 
                   <FontAwesomeIcon icon={faPaperPlane} />
+                  }
                 </div>
                   )}
               </div>
@@ -603,7 +605,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
               onClick={scrollToLastMessage}
             />
           </div>
-          )}
+          
         </div>
         <div className="col chat-nav d-none d-md-block col-md-4 border-round pt-3 border-radius-round">
           <div>    
