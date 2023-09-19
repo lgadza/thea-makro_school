@@ -140,7 +140,15 @@ const DataSetSettings: React.FC<DataSetSettingsProps> = ({ token, user_id }) => 
           className="img_component"
         />
       </div>
-      <div className='d-flex'><small className='link-item header cursor-pointer' onClick={() => navigate(`/ask/${user_id}`)}>Makronexa</small> <span>/</span><small className='link-item header cursor-pointer' onClick={() => navigate(`/${user_id}/datasets`)}>Datasets</small> <span>/</span><small >{dataSet.dataset_name}</small></div>
+      <div className='d-flex d-md-none align-items-center justify-content-between'>
+      <div>
+      <small className='link-item header cursor-pointer' onClick={() => navigate(`/ask/${user_id}`)}>Makronexa</small> <span>/</span><small className='link-item header cursor-pointer' onClick={() => navigate(`/${user_id}/datasets`)}>Datasets</small> <span>/</span><small >{dataSet.dataset_name}</small>
+      </div>
+      <div className='me-2'>
+              <Button className='content_bg' onClick={()=>navigate(`/${user_id}/datasets/${dataSet.dataset_name}/${dataSet.id}/ask`)}><FontAwesomeIcon icon={faComment} style={{ color: "rgb(30, 215, 96)" }} /><span className='ms-2'>Ask</span>
+              </Button>
+            </div>
+      </div>
       <h6 className='d-flex pb-2 my-3'>{dataSet.dataset_name}</h6></div>}
       <Row>
         <div className='  col-sm-12 mb-4 col-xl-6'>
@@ -249,8 +257,8 @@ const DataSetSettings: React.FC<DataSetSettingsProps> = ({ token, user_id }) => 
               <Button className='content_bg' onClick={() => { handleComponentChange("uploadDocs") }}><FontAwesomeIcon icon={faFolderPlus} style={{ color: "rgb(234, 191, 70)" }} /><span className='ms-2'>Upload</span>
               </Button>
             </div>
-            <div className='me-2'>
-              <Button className='content_bg'><FontAwesomeIcon icon={faComment} style={{ color: "rgb(30, 215, 96)" }} /><span className='ms-2'>Ask</span>
+            <div className='d-none d-md-block me-2'>
+              <Button className='content_bg' onClick={()=>navigate(`/${user_id}/datasets/${dataSet.dataset_name}/${dataSet.id}/ask`)}><FontAwesomeIcon icon={faComment} style={{ color: "rgb(30, 215, 96)" }} /><span className='ms-2'>Ask</span>
               </Button>
             </div>
           </div>
