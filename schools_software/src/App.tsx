@@ -26,6 +26,7 @@ import EmailVerification from "./components/EmailVerification.js"
 import Loader from "./components/Loader.js"
 import AccountDeletionConfirmation from "./components/AccountDeletionConfirmation.js"
 import MakronexaDataset from "./pages/cala/MakronexaDataset.js"
+import AboutUs from "./pages/Home/AboutUs.js"
 
 // mss makro_school_solution
 function App() {
@@ -34,6 +35,7 @@ function App() {
     <div className='App'>
     <BrowserRouter>
       <Routes>
+       <Route path="about" element={<AboutUs/>}/>
        {/* <Route path="cala" element={<CalaPage/>}/> */}
        {/* <Route path="news" element={<News/>}/> */}
        {/* <Route path="students" element={<Students/>}/> */}
