@@ -92,6 +92,7 @@ export interface Message {
     createdAt:string;
     updatedAt:string;
   }
+
   const AskDataset: React.FC = () => {
     const user:UserRegistration=useSelector((state:RootState)=>state.userData.data)
     const token=useSelector((state:RootState)=>state.accessToken.accessToken)
@@ -108,12 +109,14 @@ export interface Message {
     const [aiError, setAiError] = useState<boolean>(false);
     const [currentAnswer,setCurrentAnswer]=useState<string>("")
     const [animatedText, setAnimatedText] = useState<string>("");
+    const [isNewChat,setIsNewChat] =useState(true)
     const [blinkerVisible, setBlinkerVisible] = useState(true);
     const [alertVisible, setAlertVisible] = useState(true);
     const [autoFilled, setAutoFilled] = useState<boolean>(false);
     const [isChatMessagesLoading, setIsChatMessagesLoading] = useState(false);
 const [errorChatMessages, setErrorChatMessages] = useState("");
 console.log(errorChatMessages)
+
     const navigate=useNavigate()
     const dispatch = useDispatch();
 
@@ -169,6 +172,9 @@ console.log(errorChatMessages)
         setQuestion(newQuestion);
       }
     };
+    useEffect(()=>{
+      handleNewChat()
+    },[])
     const lastMessageRef = useRef<HTMLDivElement | null>(null); 
   const handleAsk = async () => {   
     if (question !== "") { 
@@ -178,8 +184,9 @@ console.log(errorChatMessages)
       setAutoFilled(false);
       try {
         setLoading(true); 
-        const answer = await chatWithAiDataset(token.accessToken,[...messages, newMessage],currentModel,question,currentChat,params.dataset_id!, params.dataset_name!,user.id!);
+        const answer = await chatWithAiDataset(token.accessToken,[...messages, newMessage],currentModel,question,currentChat,params.dataset_id!, params.dataset_name!,Number(params.temp),user.id!);
         if (answer) {
+          setIsNewChat(false)
           setCurrentAnswer(answer.message)
           setAnimatedText("");
           setMessages((prev) => [...prev, answer]);
@@ -200,6 +207,7 @@ console.log(errorChatMessages)
       }
     }
   };
+  console.log("ALL CHATS:",chats)
   console.log("ALL CHATS:",chats)
   const getAllChats=async()=>{ 
     if (user.id) {
@@ -560,7 +568,11 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                   )}
                 </div>
                   </div> ))):(
-                  <div className="chat-skeleton mt-5"></div>
+                  <div>
+                    {
+                      !isNewChat && <div className="chat-skeleton mt-5"></div>
+                    }
+                  </div>
                   )}
              
                   </div>

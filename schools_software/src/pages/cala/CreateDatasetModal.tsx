@@ -29,7 +29,7 @@ const CreateDatasetModal: React.FC<MyVerticallyCenteredModalProps> = (props) => 
   const settings={
     shared: false,
     dataset_name:datasetName,
-    temperature: null,
+    temperature: 0,
     model:  null,
     name:  null,
     personality:  null,

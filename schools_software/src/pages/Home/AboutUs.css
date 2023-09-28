@@ -23,7 +23,10 @@
   font-size: .9rem;
   margin-top: .5rem;
 }
-
+.zim-img{
+  width: 100%;
+  object-fit: cover;
+}
 .about-us .tree .core-values {
   display: block;
   margin: 0 auto;
@@ -142,7 +145,9 @@
   #container {
     width: 600px;
   }
-
+  .about-us h1{
+    font-size: 30px;
+  }
   .about-us .tree img {
     width: 100px;
   }
@@ -152,9 +157,7 @@
   #container {
     width: 570px;
   }
-  .about-us .tree li a {
-    width: 110px;
-  }
+
 }
 
 @media all and (max-width: 500px) {
@@ -165,11 +168,6 @@
   .about-us .tree li {
     float: none;
     text-align: left;
-  }
-
-  .about-us .tree li a {
-    border: initial;
-    width: initial;
   }
 
   .about-us .tree ul::before,

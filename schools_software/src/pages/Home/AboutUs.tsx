@@ -22,9 +22,9 @@ const AboutUs=():JSX.Element=>{
                 <PageProgress steps={sections} />
              </div>
             <div className="content-container cala-main-feature">
-        <Container fluid className="px-0 mb-5">
+        <Container fluid className="px-0">
           <HomeNavbar />
-          <Container className="px-5 py-5  calaAI">
+          <Container className="px-5 pt-5  calaAI">
           <div className="d-flex banner flex-column justify-content-center align-items-center">
                 {/* We're on a mission to provide schools with an all-in-one, affordable, and future-ready platform that makes education seamless, exciting, and accessible to everyone, ensuring quality learning for all. */}
                 <h1>
@@ -34,7 +34,7 @@ const AboutUs=():JSX.Element=>{
             </div>
             <Row>
           
-          <Col md={4}>
+          <Col md={4} className="mb-3">
           <div className="card content_bg">
             <h4 className="mb-3">
             Who We Are
@@ -49,7 +49,7 @@ const AboutUs=():JSX.Element=>{
             </div>
           </div>
           </Col>
-          <Col md={4}>
+          <Col md={4} className="mb-3">
           <div className="card content_bg">
             <h4 className="mb-3">
             Our Mission
@@ -63,7 +63,7 @@ const AboutUs=():JSX.Element=>{
             </div>
           </div>
           </Col>
-          <Col md={4}>
+          <Col md={4} className="mb-3">
           <div className="card content_bg">
             <h4 className="mb-3">
             What We Do
@@ -86,7 +86,9 @@ const AboutUs=():JSX.Element=>{
           <ul>
             <li>
             <div className="core-values">
-            <FontAwesomeIcon icon={faLightbulb} className="icon about-us-icon"/>
+           <div className="text-center">
+           <FontAwesomeIcon icon={faLightbulb} className="icon about-us-icon"/>
+           </div>
                  <p>Innovation</p>
                  <div className="text-center">
                     <small>
@@ -97,7 +99,9 @@ const AboutUs=():JSX.Element=>{
             </li>
             <li>
             <div className="core-values">
+            <div className="text-center">
                 <Icon.PatchCheckFill className="icon about-us-icon"/>
+                </div>
                  <p>Quality</p>
                  <div className="text-center">
                     <small>
@@ -108,7 +112,9 @@ const AboutUs=():JSX.Element=>{
             </li>
             <li>
             <div className="core-values">
+            <div className="text-center">
                  <Icon.UniversalAccess className="icon about-us-icon"/>
+            </div>
                  <p>Accessibility</p>
                  <div className="text-center">
                     <small>
@@ -119,7 +125,9 @@ const AboutUs=():JSX.Element=>{
             </li>
             <li>
             <div className="core-values">
+            <div className="text-center">
                 <FontAwesomeIcon icon={faHandshake} className="icon about-us-icon"/>
+            </div>
                  <p>Collaboration</p>
                  <div className="text-center">
                     <small>
@@ -137,7 +145,7 @@ const AboutUs=():JSX.Element=>{
             </div>
             <div className="mt-5">
                 <Row>
-                    <Col md={4}>
+                    <Col md={6}>
                     <div className="text-start">
                     <h4 className="text-start my-3">
                     Let’s build Zimbabwe’s most preferred school operating system together
@@ -145,8 +153,8 @@ const AboutUs=():JSX.Element=>{
             <PushButton url='/register' message='Join Us on Our Journey'/>
                     </div>
                     </Col>
-                    <Col md={4}>
-                    <img src={zim_img} alt="zim_map"/>
+                    <Col md={6}>
+                    <img src={zim_img} className="zim-img" alt="zim_map"/>
                     </Col>
                 </Row>
             </div>

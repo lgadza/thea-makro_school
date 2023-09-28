@@ -144,8 +144,8 @@ const navigate=useNavigate()
               Features
               <FontAwesomeIcon className='ms-1' icon={faChevronDown} style={{ fontSize: "14px" }} />
             </li> */}
-            <li className=" px-3 py-2 nav-list-item">
-              <a href='/plans'>Plans </a>
+            <li className=" px-3 py-2 nav-list-item" onClick={()=>navigate("/plans")}>
+               Plans 
             </li>
             <li className="  p-2 nav-list-item">
               Partnerships

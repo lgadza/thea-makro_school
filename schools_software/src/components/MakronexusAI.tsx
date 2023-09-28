@@ -8,7 +8,7 @@ import { Button, Col, Dropdown, Row, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 // import { useDispatch } from "react-redux"
-import { chatWithAi, deleteChat, getAllAiChats, getChatMessages, imageQuery, logoutUser, newChat } from "../redux/actions"
+import { chatWithAi, dalleImageQuery, deleteChat, getAllAiChats, getChatMessages, imageQuery, logoutUser, newChat } from "../redux/actions"
 // import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { SearchImage, UserRegistration } from "../Types"
@@ -204,10 +204,37 @@ console.log(errorChatMessages)
           }
         } catch (error) {
           console.log(error);
-
         }finally {
           setLoading(false);
         }
+      }else if(question.startsWith('@generate:')){
+        const query = question.slice(10); 
+        const newMessage = { message: query, type:"text", from: "user" };
+        setMessages((prev) => [...prev, newMessage]);
+        setQuestion("");
+        setAutoFilled(false);
+  
+          try {
+            setLoading(true); 
+            const answer = await dalleImageQuery(token.accessToken,currentModel,query,currentChat, user.id);
+            if (answer) {
+              setMessages((prev) => [...prev, {type: "imageUrl",message:answer.message,from:"makronexa"}]);
+            }else{
+              setAiError(true)
+              const timer = setTimeout(() => {
+                setAlertVisible(false);
+              }, 3000); 
+              return () => {
+                clearTimeout(timer);
+              };
+            }
+          } catch (error) {
+            console.log(error);
+  
+          }finally {
+            setLoading(false);
+          }
+
       }else{
       const newMessage = { message: question, type:"text", from: "user" };
       setMessages((prev) => [...prev, newMessage]);
