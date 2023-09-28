@@ -1,4 +1,4 @@
-import React, { Dispatch, useRef, useState } from 'react';
+import React, {useRef, useState } from 'react';
 import "./ContactUs.css"
 import { Modal } from 'react-bootstrap';
 // import { useDispatch } from 'react-redux';
