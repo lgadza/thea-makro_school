@@ -1,6 +1,6 @@
 // Import necessary libraries and components
-import * as Icon from "react-bootstrap-icons"
-import React, { useState } from 'react';
+// import * as Icon from "react-bootstrap-icons"
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -8,9 +8,6 @@ import TwoBarCharts from "./TwoBarCharts";
 
 
 const AdminDashboard: React.FC = () => {
-  
- 
-
   return (
     <Container className="component-margin-top">
         <Row>

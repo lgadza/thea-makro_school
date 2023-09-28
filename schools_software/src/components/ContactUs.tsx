@@ -1,7 +1,7 @@
 import React, { Dispatch, useRef, useState } from 'react';
 import "./ContactUs.css"
 import { Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
 interface ContactUsModalProps {
@@ -12,7 +12,7 @@ interface ContactUsModalProps {
 
 
 const ContactUs: React.FC<ContactUsModalProps> = (props) => { 
-  const dispatch:Dispatch<any> =useDispatch()
+  // const dispatch:Dispatch<any> =useDispatch()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
