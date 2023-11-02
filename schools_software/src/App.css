@@ -8,13 +8,13 @@
   inherits: false;
 }
 :root {
-  --main-bg: rgb(0, 0, 0);
+  --main-bg: rgb(32, 32, 32);
   --content-bg: rgb(32, 32, 32);
   /* --main-bg: rgb(17, 27, 33);
   --content-bg: rgb(42, 57, 66); */
   --content-bg-2: rgba(2, 230, 242, 0.702);
   --bg-1: rgb(37, 46, 65);
-  --bg-1: rgb(23, 24, 28);
+  --bg-1: rgb(50, 50, 50);
   --bg-2: rgb(42, 57, 66);
 
   --textColor: white;
@@ -33,6 +33,32 @@ body{
 display: block !important;
 color: white !important;
 
+}
+.css-13cymwt-control{
+  background-color: transparent !important;
+  border-radius: 1px solid grey;
+
+}
+.css-t3ipsp-control{
+  background-color: transparent !important;
+}
+.css-t3ipsp-control:hover{
+  background-color: transparent !important;
+}
+.css-1nmdiq5-menu{
+  background: rgb(23, 24, 28) !important;
+  border-radius: 1px solid grey;
+    box-shadow: 0 0 5px rgb(3, 233, 244,.4),
+              0 0 5px rgb(3, 233, 244,.4),
+              0 0 8px rgb(3, 233, 244,.4),
+              0 0 5px rgb(3, 233, 244,.4) !important;
+}
+option{
+  padding-top: 5px !important;
+  margin: 5px;
+}
+.student_account_content{
+  min-height: 60vh;
 }
 .ai-container{
   position: fixed;
@@ -139,7 +165,7 @@ input:focus {
 input,
 textarea,select {
   color: var(--textColor2) !important;
-  background-color: var(--bg-1) !important;
+  background-color: rgb(45, 45, 45) !important;
   border-color: var(--bg-2) !important;
   border-radius: 5px;
   font-size:medium !important;

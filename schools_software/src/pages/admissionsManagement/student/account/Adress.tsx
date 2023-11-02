@@ -11,10 +11,18 @@ import {
 } from "../../../../redux/actions";
 import { AddressInterface } from "../../../../Types";
 import { Dispatch } from "redux";
+import { provinceCities, provinceOptions } from "../../../../assets/data/citiesAndProvince";
 
 interface SuccessMessageProps {
   variant: "success" | "danger";
   message: string;
+}
+interface CityProps{
+   label: string; value: string 
+}
+interface CityProvinceData {
+  province: string;
+  cities:CityProps [];
 }
 
 const SuccessMessage: React.FC<SuccessMessageProps> = ({
@@ -76,6 +84,7 @@ const Address = (): JSX.Element => {
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [save, setSave] = useState(false);
+  const [citiesInProvince, setCitiesInProvince]=useState<CityProps[]>([]);
   const [editMode, setEditMode] = useState<boolean>(false);
   const [address, setAddress] = useState<AddressInterface>(initialAddress);
 const handleSubmit=(e:React.FormEvent)=>{
@@ -121,7 +130,29 @@ e.preventDefault()
   const handleEditClick = () => {
     setEditMode((prev) => !prev);
   };
-
+  const handleProvinceChange = (value: string) => {
+    // setSelectedProvince(value);
+    setAddress((data) => ({
+      ...data,
+      province:value,
+    }));
+    // Reset selectedCity when province changes
+    setAddress((data) => ({
+      ...data,
+      city: "",
+    }));
+  };
+  useEffect(() => {
+    const cities = provinceCities
+      .filter((city: CityProvinceData) => city.province === address.province)
+      .flatMap((city: CityProvinceData) =>
+        city.cities.map((cityInfo) => ({
+          label: cityInfo.label,
+          value: cityInfo.value,
+        }))
+      );
+    setCitiesInProvince(cities);
+  }, [address.province]);  
   return (
     <div>
       {editIsError && (
@@ -144,7 +175,7 @@ e.preventDefault()
           </span>
           <Form onSubmit={handleSubmit}>
       <Row>
-        <Col>
+        <Col md={6}>
         <Form.Label className="d-flex">Street <span className="text-danger">*</span></Form.Label>
           <Form.Control
            placeholder="Street"
@@ -154,7 +185,7 @@ e.preventDefault()
             onChange={handleChange}
             />
         </Col>
-        <Col>
+        <Col md={6} className="mt-3">
         <Form.Label className="d-flex">Building number <span className="text-danger">*</span></Form.Label>
           <Form.Control 
           placeholder="Building number" 
@@ -168,7 +199,7 @@ e.preventDefault()
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-        <Col>
+        <Col md={6}>
         <Form.Label className="d-flex">Apartment number </Form.Label>
           <Form.Control 
           placeholder="Apartment number" 
@@ -177,7 +208,7 @@ e.preventDefault()
           onChange={handleChange}
           />
         </Col>
-        <Col>
+        <Col md={6} className="mt-3">
         <Form.Label className="d-flex">Postal code
         </Form.Label>
           <Form.Control 
@@ -191,7 +222,7 @@ e.preventDefault()
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-      <Col>
+      <Col md={6}>
         <Form.Label className="d-flex">Location<span className="text-danger">*</span></Form.Label>
           <Form.Control
            placeholder="eg. Pumula South"
@@ -201,12 +232,12 @@ e.preventDefault()
           onChange={handleChange}
             />
         </Col>
-        <Col></Col>
+        <Col md={6}></Col>
       </Row>
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-      <Col>
+      <Col md={6}>
         <Form.Label className="d-flex">Type of settlement<span className="text-danger">*</span></Form.Label>
           <Form.Control
            as="select"
@@ -222,11 +253,11 @@ e.preventDefault()
                     {user.address.type_of_settlement}
                   </option>
                 )}
-            <option value="City">City</option>
-            <option value="Village">Village</option>
+            <option value="city">City</option>
+            <option value="village">Village</option>
           </Form.Control>
         </Col>
-        <Col>
+        <Col md={6} className="mt-3">
        
         <Form.Label className="d-flex">Province<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" required
@@ -240,26 +271,40 @@ e.preventDefault()
             {user.address.province}
           </option>
         )}
-      <option value="Bulawayo">Bulawayo</option>
-      <option value="Harare">Harare</option>
+        {provinceOptions.map((province:{value:string,label:string},index)=>{
+          return(
+            <option key={index} value={province.value}>{province.label}</option>
+          )
+        })}
     </Form.Control>
-  
         </Col>
       </Row>
     </Form>
     <Form className="my-3" onSubmit={handleSubmit}>
       <Row>
-      <Col>
+      <Col md={6}>
         <Form.Label className="d-flex">City<span className="text-danger">*</span></Form.Label>
           <Form.Control
-           placeholder="City"
+          as="select"
             required
             name="city"
           value={user.address&&!editMode?user.address.city:address.city}
           onChange={handleChange}
-            />
+            >
+               {!user.address && <option>Select</option>}
+        {user.address && (
+          <option value={user.address.city} disabled>
+            {user.address.city}
+          </option>
+        )}
+        {citiesInProvince.map((city:{value:string,label:string},index)=>{
+          return(
+            <option key={index} value={city.value}>{city.label}</option>
+          )
+        })}
+              </Form.Control>
         </Col>
-        <Col>
+        <Col md={6} className="mt-3">
         <Form.Label className="d-flex">Country<span className="text-danger">*</span></Form.Label>
     <Form.Control as="select" 
     required
@@ -282,12 +327,12 @@ e.preventDefault()
     </Form>
           <div className="d-flex justify-content-end">
             {!user.address ? (
-              <Button variant="primary" className="px-3 main_bg" disabled={!isAddressValid()} onClick={handleUpdate}>
+              <Button variant="primary" className="px-3 content_bg-2 main_bg" disabled={!isAddressValid()} onClick={handleUpdate}>
                 Update
               </Button>
             ) : (
               <div>
-                <Button variant="primary" className="px-3 main_bg" onClick={handleEditClick}>
+                <Button variant="primary" className="px-3 main_bg content_bg-2" onClick={handleEditClick}>
                   {editMode ? "Cancel" : "Edit"}
                 </Button>
                 {editMode && (
