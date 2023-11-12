@@ -1,14 +1,14 @@
-import { IconDefinition, faArrowCircleDown,faBoltLightning, faChevronUp, faComments,  faGear,  faPaperPlane,  faPlus,  faPowerOff,  faSun,  faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition, faArrowCircleDown,faBoltLightning, faChevronUp, faComments,  faFile,  faGear,  faImage,  faPaperPlane,  faPlus,  faPowerOff,  faSun,  faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import SearchBar from "./SearchBar"
 import md_logo_small from "../assets/md_logo_small.png"
 import { CompanyName } from "../assets/data/company"
 import {  useEffect, useRef, useState } from "react"
-import { Button, Col, Dropdown, Row, Spinner } from "react-bootstrap"
+import { Button, Col, Dropdown, Form, Row, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 // import { useDispatch } from "react-redux"
-import { chatWithAi, dalleImageQuery, deleteChat, getAllAiChats, getChatMessages, imageQuery, logoutUser, newChat } from "../redux/actions"
+import { chatWithAi, dalleImageQuery, deleteChat, getAllAiChats, getChatMessages, imageQuery, logoutUser, newChat, postAnalyzeImage } from "../redux/actions"
 // import { Dispatch } from "redux"
 import "./MakronexusAi.css"
 import { SearchImage, UserRegistration } from "../Types"
@@ -21,6 +21,9 @@ import { Link } from "react-router-dom"
 import katex from 'katex';
 import 'katex/dist/katex.min.css'
 import ImageCard from "./ImageCard"
+import DropdownItem from "react-bootstrap/esm/DropdownItem"
+import axios, { AxiosResponse } from "axios"
+import { Dispatch } from "redux"
 interface MathEquationProps {
   latex: string;
 }
@@ -83,6 +86,7 @@ export interface Message {
     imageSrc?: string;
     from:string;
     type:string;
+    imageUrl?:string
   }
   
   interface MobileNavProps{
@@ -373,47 +377,194 @@ const Loader: React.FC = () => {
     </div>
   );
 };
-
-const FilesIcons:React.FC=()=>{
-     const [isClipping, setIsClipping] = useState(false);
-  const handleClipping = () => {
-    isClipping ? setIsClipping(false) : setIsClipping(true);
-  };
-  return(
-    <div className="clip-files">
-            <Icon.Paperclip className="header" onClick={handleClipping} size={25} />
-            {isClipping && (
-              <div className="d-flex files flex-column">
-                <label htmlFor="image">
-                  <span className=" clip-image ">
-                    {" "}
-                    <Icon.ImageFill color="white" size={20} />
-                  </span>
-                </label>
-                <input
-                  id="image"
-                  type="file"
-                  style={{ visibility: "hidden" }}
-                  //   onChange={handleAvatar}
-                />
-                <label htmlFor="file">
-                  <span className="clip-file ">
-                    {" "}
-                    <Icon.FileEarmarkFill color="white"  size={20} />
-                  </span>
-                </label>
-                <input
-                  id="file"
-                  type="file"
-                  style={{ visibility: "hidden" }}
-                  //   onChange={handleAvatar}
-                />
-              </div>
-            )}
-          </div>
-  )
+interface FilesIconInterface {
+  accessToken: string;
+  user_id: string;
+  // imageUrl: string;
+  // question: string;
+  chat_id: string;
 }
 
+const FilesIcons: React.FC<FilesIconInterface> = ({accessToken,chat_id,user_id}) => {
+  const BE_URL=import.meta.env.VITE_BE_PROD_URL
+    const dispatch:Dispatch<any> =useDispatch()
+  const [isClipping, setIsClipping] = useState(false);
+  const [imageQuestion,setImageQuestion]=useState("")
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const dropdownRef = useRef<HTMLButtonElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const handleClipping = () => {
+    setIsClipping((prevIsClipping) => !prevIsClipping);
+  };
+  const formatBytes=(bytes: number)=> {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+  
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)).toLocaleString() + ' ' + sizes[i];
+  }
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+
+    if (file) {
+      setSelectedFile(file);
+      console.log(selectedFile,"SELECTED FILES")
+    }
+  };
+const handleInputImageQuestion=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setImageQuestion(e.target.value)
+}
+  const handleDelete = () => {
+    setSelectedFile(null);
+
+  };
+  const handleImageQuestion=async()=>{
+    if (!selectedFile) {
+      setError('Please select a file');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response: AxiosResponse = await axios.post(`${BE_URL}/users/files/${user_id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      // Handle successful response
+      const imageUrl = response.data.url;
+      if (imageUrl) {
+        console.log('File uploaded successfully', imageUrl);
+        dispatch(postAnalyzeImage(accessToken, imageUrl, user_id, imageQuestion, chat_id));
+      } else {
+        setError('Error: Image URL is missing in the response');
+      }
+    } catch (error) {
+      // Handle error
+      if (axios.isAxiosError(error)) {
+        // Axios specific error handling
+        if (error.response) {
+          console.error('Server responded with an error:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received from the server');
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
+      } else {
+        // Handle non-Axios errors
+        console.error('Non-Axios error:', error);
+      }
+
+      setError('Error uploading file');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+
+  useEffect(() => {
+    console.log(selectedFile, "SELECTED FILE");
+  }, [selectedFile]);
+  useEffect(() => {
+    if (selectedFile && dropdownRef.current) {
+      // Programmatically toggle the Dropdown when there is a selected file
+      dropdownRef.current.click();
+    }
+  }, [selectedFile]);
+  return (
+    <div className="clip-files">
+      <Icon.Paperclip className="header" onClick={handleClipping} size={25} />
+      {isClipping && (
+        <div className="d-flex files flex-column">
+          <label htmlFor="image">
+            <span className="clip-image">
+              {' '}
+              <Icon.ImageFill color="white" size={20} />
+            </span>
+          </label>
+          <input
+            id="image"
+            type="file"
+            style={{ visibility: 'hidden' }}
+            onChange={handleFileChange}
+          />
+
+          <label htmlFor="file">
+            <span className="clip-file">
+              {' '}
+              <Icon.FileEarmarkFill color="white" size={20} />
+            </span>
+          </label>
+          <input
+            id="file"
+            type="file"
+            style={{ visibility: 'hidden' }}
+            onChange={handleFileChange}
+          />
+        </div>
+      )}
+        {selectedFile && (
+            <Dropdown>
+                <Dropdown.Toggle
+                split
+                variant="success"
+                id="dropdown-split-basic"
+                ref={dropdownRef}
+                size="lg"
+              />
+              <Dropdown.Menu align="start" className="dark-box-shadow"  >
+           
+            {error && <AlertBox type="danger" message={error}/>}
+                <div  className='d-flex content_bg  mb-3 p-3 justify-content-between'>
+                <div>
+                  <div>
+                    <FontAwesomeIcon className='me-2 text-dark' icon={faImage}/> <span className='text-dark'>
+                    {selectedFile.name}
+                      </span>
+                  </div>
+                  <div>
+                    <span className='text-dark'>{selectedFile.type}</span>
+                    <strong className='ms-3 text-dark'>{formatBytes(selectedFile.size)}</strong>
+                  </div>
+                </div>
+                <div>
+                  <FontAwesomeIcon className='text-danger cursor-pointer' onClick={handleDelete} icon={faTrashCan}/>
+                </div>
+              </div>
+              <div className="d-flex mb-3 justify-content-center align-items-center">
+                {loading && 
+              <Spinner/>
+                }
+              </div>
+                
+                  <div className="d-flex px-3 align-items-center">
+
+                  <Form.Control
+  as="textarea"
+  rows={3} // Set the number of rows according to your design
+  className="text-dark"
+  value={imageQuestion}
+  onChange={handleInputImageQuestion}
+  placeholder="Ask about the picture"
+/>
+
+                <FontAwesomeIcon onClick={handleImageQuestion} className="header ms-2" icon={faPaperPlane}/>
+                  </div>
+              
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
+    </div>
+  );
+};
 const MakronexaOverview: React.FC = () => {
   const examplePrompts = [
     "Explain Newton's law in simple terms",
@@ -664,6 +815,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                         } text-start p-2`}
                       >
                         <div className="d-flex align-items-center">
+                          {section.imageUrl &&  (<ImageCard  context={section.message} imageUrl={section.imageUrl} altText="img"/>)}
                         <small className="text-dark">
                         {section.message}
                         </small>
@@ -762,7 +914,7 @@ const MobileNav: React.FC<MobileNavProps> = ({chats}) => {
                 </div>
                 )
               }
-                <FilesIcons/>
+                <FilesIcons user_id={user.id!} accessToken={token.accessToken} chat_id={currentChat}/>
                 <div className="d-flex align-items-center">  
                     <input
                     type="text"

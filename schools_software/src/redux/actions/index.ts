@@ -30,6 +30,10 @@ export const POST_USER_ADDRESS="POST_USER_ADDRESS"
 export const POST_USER_ADDRESS_ERROR="POST_USER_ADDRESS_ERROR"
 export const POST_USER_ADDRESS_LOADING="POST_USER_ADDRESS_LOADING"
 
+export const POST_TEXT_TO_DETECT_FOR_AI="POST_TEXT_TO_DETECT_FOR_AI"
+export const POST_TEXT_TO_DETECT_FOR_AI_ERROR="POST_TEXT_TO_DETECT_FOR_AI_ERROR"
+export const POST_TEXT_TO_DETECT_FOR_AI_LOADING="POST_TEXT_TO_DETECT_FOR_AI_LOADING"
+
 export const GET_USER_ADDRESS="GET_USER_ADDRESS"
 export const GET_USER_ADDRESS_ERROR="GET_USER_ADDRESS_ERROR"
 export const GET_USER_ADDRESS_LOADING="GET_USER_ADDRESS_LOADING"
@@ -37,6 +41,10 @@ export const GET_USER_ADDRESS_LOADING="GET_USER_ADDRESS_LOADING"
 export const POST_USER_AI_SETTINGS="POST_USER_AI_SETTINGS"
 export const POST_USER_AI_SETTINGS_ERROR="POST_USER_AI_SETTINGS_ERROR"
 export const POST_USER_AI_SETTINGS_LOADING="POST_USER_AI_SETTINGS_LOADING"
+
+export const POST_ANALYZE_IMAGE="POST_ANALYZE_IMAGE"
+export const POST_ANALYZE_IMAGE_ERROR="POST_ANALYZE_IMAGE_ERROR"
+export const POST_ANALYZE_IMAGE_LOADING="POST_ANALYZE_IMAGE_LOADING"
 
 export const GET_USER_AI_SETTINGS="GET_USER_AI_SETTINGS"
 export const GET_USER_AI_SETTINGS_ERROR="GET_USER_AI_SETTINGS_ERROR"
@@ -73,6 +81,8 @@ export const LOGIN_USER_LOADING="LOGIN_USER_LOADING"
 export const ACTIVE_NAV="ACTIVE_NAV"
 
 const BE_PROD_URL=import.meta.env.VITE_BE_PROD_URL
+const AI_DETECTOR_URL  =import.meta.env.VITE_AI_DETECTOR_URL
+const DETECTOR_KEY=import.meta.env.VITE_AI_DETECTOR_KEY
 export const setChatMessages = (messages: Message[]) => ({
     type: 'SET_CHAT_MESSAGES',
     payload: messages,
@@ -993,6 +1003,108 @@ export const editUserData = (accessToken:string,formData:UserRegistration,user_i
             });
             dispatch({
                 type:EDIT_USER_DATA_ERROR,
+                payload:true,
+            })
+        }
+    }
+  };
+export const  detectAiTextWithZeroGPT  = (text:string) => {
+    
+    return async (dispatch:Dispatch)=>{
+        const options:RequestInit={
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-RapidAPI-Key': "5e6e51759amsh305495c83d4fe53p1b7feejsn4ca608b4a497",
+            'X-RapidAPI-Host': 'zerogpt.p.rapidapi.com',
+          },
+            body:JSON.stringify({input_text:text})
+            
+        }
+        try{
+            const response=await fetch(`https://zerogpt.p.rapidapi.com/api/v1/detectText`,options)
+            if(response.ok){
+                const results=await response.json();
+                dispatch({
+                    type:POST_TEXT_TO_DETECT_FOR_AI,
+                    payload:results
+                });
+                setTimeout(()=>{
+                   dispatch({
+                    type:POST_TEXT_TO_DETECT_FOR_AI_LOADING,
+                    payload:false,
+                   });
+                },100);
+            }else{
+                console.log("error")
+                dispatch({
+                    type:POST_TEXT_TO_DETECT_FOR_AI_LOADING,
+                    payload:false,
+                });
+                dispatch({
+                    type:POST_TEXT_TO_DETECT_FOR_AI_ERROR,
+                    payload:true,
+                })
+            }
+        }catch(error){
+            console.log(error)
+            dispatch({
+                type:POST_TEXT_TO_DETECT_FOR_AI_LOADING,
+                payload:false,
+            });
+            dispatch({
+                type:POST_TEXT_TO_DETECT_FOR_AI_ERROR,
+                payload:true,
+            })
+        }
+    }
+  };
+export const  postAnalyzeImage  = (accessToken:string,imageUrl:string,user_id:string,question:string,chat_id:string) => {
+    
+    return async (dispatch:Dispatch)=>{
+        const options:RequestInit={
+          method: 'POST',
+          headers:{
+            Accept:"application.json",
+            "Content-Type":"application/json",
+            Authorization:"Bearer " + `${accessToken}`
+        },
+            body:JSON.stringify({imageUrl:imageUrl,user_id:user_id,question:question})
+            
+        }
+        try{
+            const response=await fetch(`${BE_PROD_URL}/ai/chats/${chat_id}/analyze-image`,options)
+            if(response.ok){
+                const results=await response.json();
+                dispatch({
+                    type:POST_ANALYZE_IMAGE,
+                    payload:results
+                });
+                setTimeout(()=>{
+                   dispatch({
+                    type:POST_ANALYZE_IMAGE_LOADING,
+                    payload:false,
+                   });
+                },100);
+            }else{
+                console.log("error")
+                dispatch({
+                    type:POST_ANALYZE_IMAGE_LOADING,
+                    payload:false,
+                });
+                dispatch({
+                    type:POST_ANALYZE_IMAGE_ERROR,
+                    payload:true,
+                })
+            }
+        }catch(error){
+            console.log(error)
+            dispatch({
+                type:POST_ANALYZE_IMAGE_LOADING,
+                payload:false,
+            });
+            dispatch({
+                type:POST_ANALYZE_IMAGE_ERROR,
                 payload:true,
             })
         }
