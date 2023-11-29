@@ -44,7 +44,7 @@ const navigate=useNavigate()
             <span className="menu-bar"></span>
           </div>
           <ul className={`nav ms-5 ${isSearchActive ? 'search' : 'no-search'}`}>
-            <li className=" py-2 px-3 nav-list-item text-white fw-bolder"  onClick={toggleSolutionsDropdown}>
+            <li className=" py-2 px-3 nav-list-item header fw-bolder"  onClick={toggleSolutionsDropdown}>
               Solutions
               {isSolutionsDropdownOpen?(
 
@@ -147,13 +147,13 @@ const navigate=useNavigate()
               Features
               <FontAwesomeIcon className='ms-1' icon={faChevronDown} style={{ fontSize: "14px" }} />
             </li> */}
-            <li className=" px-3 py-2 nav-list-item text-white fw-bolder" onClick={()=>navigate("/plans")}>
+            <li className=" px-3 py-2 nav-list-item header fw-bolder" onClick={()=>navigate("/plans")}>
                Plans 
             </li>
-            <li className="  p-2 nav-list-item text-white fw-bolder">
+            <li className="  p-2 nav-list-item header fw-bolder">
               Partnerships
             </li>
-            <li onClick={()=>navigate("/about")} className=" py-2 me-2 px-3 nav-list-item text-white fw-bolder">
+            <li onClick={()=>navigate("/about")} className=" py-2 me-2 px-3 nav-list-item header fw-bolder">
               About us
             </li>
             <div className="d-flex search-container mt-1">
@@ -181,11 +181,11 @@ const navigate=useNavigate()
           <div className='px-2 d-flex'>
             <Button
               className="btn btn-primary me-1 d-flex justify-content-end">
-              <Link to="" onClick={()=>setShowSignInModal(true)}> <span className='text-white fw-bolder'>Login</span></Link>
+              <Link to="" onClick={()=>setShowSignInModal(true)}> <span className='header fw-bolder'>Login</span></Link>
             </Button>
             <Button
               className="btn btn-primary  d-flex justify-content-end">
-              <Link to="/register"> <span className='text-white fw-bolder'>Register</span></Link>
+              <Link to="/register"> <span className='header fw-bolder'>Register</span></Link>
             </Button>
           </div>
         </nav>
