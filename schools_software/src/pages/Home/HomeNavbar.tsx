@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './HomeNavbar.css'; // Create a CSS file for styling and import it here
-import makro_logo from "../../assets/md_logo_small.png"
+import makro_logo from "../../assets/md_logo_small4.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faCalendarCheck, faChevronDown, faChevronUp, faLightbulb, faListCheck, faLocationCrosshairs, faMagnifyingGlassMinus, faPeopleGroup, faPerson, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
@@ -34,8 +34,7 @@ const navigate=useNavigate()
             <img
               src={makro_logo}
               alt="Makro Logo"
-              style={{ width: `${50}px`, height: `${50}px`, borderRadius: "5%",objectFit:"contain" }}
-              className='logo'
+              style={{ width: `${150}px`, height: `${50}px`, borderRadius: "5%",objectFit:"contain" }}
             />
           </a>
           <div className="menu-toggle" id="mobile-menu" onClick={handleMenuToggleClick}>

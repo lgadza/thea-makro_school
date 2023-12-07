@@ -12,7 +12,7 @@ nav.mobile-nav{
   right: 0;
   /* border-bottom: 1px solid rgb(55, 56, 60); */
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px -6px;
-  z-index: 100;
+  z-index: 1190;
 }
 .component-margin-top{
     margin-top: 10% !important;
@@ -41,7 +41,7 @@ nav.mobile-nav{
 .mobile-nav .burger div{
   width:25px;
   height:3px;
-  background-color:#fff;
+  background-color:rgb(26, 182, 193);
   margin: 5px;
   transition: all 0.3s ease
   
