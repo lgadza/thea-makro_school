@@ -25,7 +25,7 @@
 
 @media (min-width: 600px) {
   .card-card {
-    height: 450px;
+    height: 350px;
   }
 }
 
@@ -109,11 +109,16 @@
   font-style: italic;
   line-height: 1.35;
 }
-
+@media  (max-width:700px) {
+  .card-card {
+    height: 350px;
+  }
+}
 
 @media (hover: hover) and (min-width: 600px) {
   .card-card:after {
     transform: translateY(0);
+    
   }
 
   .content {
