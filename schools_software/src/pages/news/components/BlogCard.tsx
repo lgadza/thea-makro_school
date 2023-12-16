@@ -28,7 +28,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
 }) => {
   return (
     <Modal show={show}   onHide={handleClose} className='newsModal' size='xl' centered>
-      <div className='d-flex justify-content-end p-3'><Icon.XLg className='content_bg-2' color='red' size={20}/></div>
+      <div className='d-flex justify-content-end p-3'><Icon.XLg onClick={handleClose} className='content_bg-2' color='red' size={20}/></div>
         {/* <Modal.Header  closeButton className='new-closeBtn'></Modal.Header> */}
       <Modal.Body style={{backgroundColor:'transparent'}}>
         <Card className='news_card'>
