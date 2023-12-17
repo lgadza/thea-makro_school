@@ -214,7 +214,7 @@ const ArticleInput: React.FC = () => {
         <Row>
         <Col md={6} >
             <div className='content_bg-2 d-flex justify-content-center  text-center'>
-        <Button type="submit" className='w-25'  disabled={loading}>
+        <Button type="submit" className='w-100'  disabled={loading}>
           {loading ? <Spinner as="span" animation="border" size="sm" /> : 'Submit'}
         </Button>
             </div>
