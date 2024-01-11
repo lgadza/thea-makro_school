@@ -27,7 +27,7 @@ const News: React.FC = () => {
       readMoreUrl: '/news/The-Genesis-of-Makronexus'
     },
     {
-      imageUrl: 'https://media.licdn.com/dms/image/D4D22AQHFychcZ-z_ww/feedshare-shrink_1280/0/1702710962550?e=1705536000&v=beta&t=MM57RcFe0BDDZE4yL0heavuHR0cYw6kgUoI4dAr0HZo',
+      imageUrl: 'https://media.licdn.com/dms/image/D4D22AQF26mALqwFGaw/feedshare-shrink_800/0/1704229238983?e=1707350400&v=beta&t=uJJIYG2Hw6lrHnlJBX4CtcvuSKObfa1RXX-ji-yCJN8',
       title: "🌟 Zimbabwe's Young Innovators, Get Ready! 🌟",
       description: "🚀 Calling All Young Zimbabwean Innovators! Join Makronexus' First-Ever Science and Innovation Competition in March 2024. Unleash Your Creativity, Solve Real Challenges, and Win Big!",
       date: 'Jan 05, 2024',
