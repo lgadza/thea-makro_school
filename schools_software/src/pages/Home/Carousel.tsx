@@ -20,6 +20,10 @@ const Carousel: React.FC = () => {
 
   return (
     <section id="section-1" className='carousel'>
+       <video autoPlay muted loop className='video-background'>
+        <source src="https://makronexus.s3.eu-central-1.amazonaws.com/vids/makronexus_introduction.mp4" type="video/mp4" />
+      </video>
+      <div className="video-overlay"></div>
       <div className="content-slider">
         <input type="radio" id="banner1" className="sec-1-input" name="banner" checked={currentBanner === 1} />
         <input type="radio" id="banner2" className="sec-1-input" name="banner" checked={currentBanner === 2} />
