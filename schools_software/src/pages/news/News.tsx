@@ -44,8 +44,9 @@ const News: React.FC = () => {
       <div className="content-container cala-main-feature">
         <Container fluid className="px-0">
           <HomeNavbar />
-          <Container className="px-5 calaAI">
             <NewsHero mainTitle='Makronexus Insights & Updates' subTitle='Your Hub for the Latest in Education Technology, News, and Expert Insights'/>
+          <Container className="px-5 calaAI">
+            
             <Row className="my-5">
               {slidesData.map((card,index)=>(
 
