@@ -1,5 +1,11 @@
 .carousel-container {
 	will-change: transform;
+	height: 100vh;
+	/* display: flex; */
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+
 	background-color: rgb(14, 178, 190) !important;
 	/* background-color: black !important; */
   }
