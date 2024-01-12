@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import "./Carousel.css"
 import { CompanyName } from '../../assets/data/company';
-import { PushButton } from '../../components/Buttons';
+import { Link } from 'react-router-dom';
+// import { PushButton } from '../../components/Buttons';
 const Carousel: React.FC = () => {
   const [currentBanner, setCurrentBanner] = useState<number>(1);
   const bannerSwitcher = () => {
@@ -45,7 +46,7 @@ const Carousel: React.FC = () => {
             <h1>AI-powered CALA</h1>
             <h1>project assistance</h1>
             <div className="line"></div>
-            <PushButton url='/features/makronexa' message='Learn more!'/>
+            <Link to='/features/makronexa' >Learn more!</Link>
           </div>
         </div>
         <div id="top-banner-3" className="banner">
@@ -54,7 +55,7 @@ const Carousel: React.FC = () => {
             <h1>Effortlessly</h1>
             <h1>manage student data</h1>
             <div className="line"></div>
-            {/* <PushButton url='' message='Learn more!'/> */}
+            {/* <Link to='' message='Learn more!'/> */}
           </div>
         </div>
         <div id="top-banner-4" className="banner">
@@ -63,7 +64,7 @@ const Carousel: React.FC = () => {
             <h1>Simplify </h1>
             <h1> administrative tasks </h1>
             <div className="line"></div>
-            <PushButton url='/features/admission_management' message='Learn more!'/>
+            <Link to='/features/admission_management'>Learn more!</Link>
           </div>
         </div>
         </div>
