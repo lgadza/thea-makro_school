@@ -1,11 +1,5 @@
 .carousel-container {
 	will-change: transform;
-	height: 100vh;
-	/* display: flex; */
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-
 	background-color: rgb(14, 178, 190) !important;
 	/* background-color: black !important; */
   }
@@ -335,6 +329,12 @@
 			 }
 			 #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 { font-size: 2em; }
 			 #section-1 .content-slider .slider .banner .banner-inner-wrapper .line { margin: 1.7em auto; }
+			 .carousel-container {
+				height: 80vh;
+				text-align: center;
+				justify-content: center;
+				align-items: center;
+			  }
 		 
 }
 
