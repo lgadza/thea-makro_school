@@ -38,7 +38,7 @@ const CelebrationPage: React.FC = () => {
       </Col>
       <Col md={7}>
       <main>
-        <section id="introduction">
+        <section id="introduction" className="my-5">
           <p className='text-dark text-start textSmallSize'>We're thrilled to announce that 200 students and teachers have joined our platform for their CALA research and studies.</p>
         </section>
 
